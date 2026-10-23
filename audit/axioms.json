@@ -1,0 +1,229 @@
+{
+ "standard_axioms": [
+  "Classical.choice",
+  "Quot.sound",
+  "propext"
+ ],
+ "declarations": [
+  {
+   "name": "JocelynWorkspace.Erdos137.FixedWidth.GoodIndex.three_consecutive_small_kernels",
+   "module": "JocelynWorkspace.Erdos137.FixedWidth.GoodIndex",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "statement_sha256": "32292f7f868f2c78bef004f18e84d0183818cda25284565ff2ee3b9f38b94ce7"
+  },
+  {
+   "name": "JocelynWorkspace.Erdos137.WidthThree.CentralSet.SmallGapExclusion.small_gap_exclusion",
+   "module": "JocelynWorkspace.Erdos137.WidthThree.CentralSet.SmallGapExclusion",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "statement_sha256": "cb53a177fd07725c4c2a56fdf4f959555a800eb645e6eb459cde61aca6c327d0"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.Paper3OriginalActualAuxiliaryPolynomial.JocelynClaims.claim_1d348efff0ed2d7d1daabd2d1147ea25df132caf1901a51df249fe2af2a5231b",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.Paper3OriginalActualAuxiliaryPolynomial",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "statement_sha256": "1091f6b2762f382d92d2a50b14e94ccbd6a65aa2fc04d7ed101e9c344f738bee"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromUniformTriple.JocelynClaims.claim_2be59d9f161441036f3a5e723e095513f55f8e966c487d9815574cd2d95ecab2",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromUniformTriple",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "statement_sha256": "1e2357de9259cf59a610e74b945acc1f33e72a4174e0be7e01c02aab070d96c9"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.GoodTriple.JocelynClaims.claim_6ba6889691d6b2a328ce28fdca1e59cdbe991411d020692d8694665c5705172c",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.GoodTriple",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "statement_sha256": "41538788e1370f4025959f4df0d06701351ac3da9b4b58ca9987f27c7f3c0ff1"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope.JocelynClaims.claim_9673eb5d3698f5f89673c095cc0c3dde8199485fa3a96de629d54ae5226908e2",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "statement_sha256": "5305bf4ccc0955f19ee721d5b35b9c15851882167d9284ffc38dea8cb41533de"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.PairExponentCertificate.JocelynClaims.claim_c433f729050128c23580094c6dc3e816f4d39627952688bc77da5939c6b6e165",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.PairExponentCertificate",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "statement_sha256": "2dcb8e894564b915576cbea223000d9d5c7f379f5eb1572cf69d69a64ffe2d4f"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.NonpowerfulMembers.JocelynClaims.claim_ceda7068de057b3d0d054ad2d5782ee486080d60f8cb605131c0e153f0538465",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.NonpowerfulMembers",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "statement_sha256": "9f893621141a4f7b201a9eb70485399599484204725e5c0357894a1ed1ba444d"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.TripleExponentCertificate.JocelynClaims.claim_d17527abe8b1de31d39ee4bdd1ad8fe89d3a6868b05f6e4fab74571f916c8087",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.TripleExponentCertificate",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "statement_sha256": "3cfb1d65b85289bc30bb304b0f03690565938a72f8b7eb5f90fc757fd72dc592"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeTails.JocelynClaims.claim_d31e9b77d0f9dd7614934ea632cc8dcd6919398027eb82ef33c69bc75aa5c7c7",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeTails",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "statement_sha256": "50a0e3493ca3f37972aa8806f85fce5dbd0e5acc32899f5656f7ff688621333e"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeMoments.JocelynClaims.claim_de91d4e3bef4d0cbba6edddabc77ad8eded6df2ba7fc0116292af012ccd3b48a",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeMoments",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "statement_sha256": "d4b2a776d26d36e56dbe38d6c4e69f55ee35cad8b5de3c5650e1e4d02e59647b"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.StrictWindows.JocelynClaims.claim_f0cfddddf4e562b8ee8b00a4b8f6c47db3028e8425650db4312e3bcc8f4e26ef",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.StrictWindows",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "statement_sha256": "4c10bfeece401adda3b9fbd8c3c61161df4068ad84cfa074f6249d43505fc696"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromPairAndUnion.JocelynClaims.claim_fdb026ef91db27804011331a018c434c83ba1a1ce0d9de16bfd4e6f508f5c5f0",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromPairAndUnion",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "statement_sha256": "aca15800d8b87e849f5e59bbe3b3cba247bc114a96ca216df88f2a438a4e1878"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k3",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "statement_sha256": "df8c8948557a573e9b3d5b8474f7c1c78a18a696545cf04ae01e66bcaaf07fd4"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k2_reuss",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "statement_sha256": "39e1691596ec0769225f09547b3441dc5df647ae0848c6788c590a43362488ef"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_uniform_reuss",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "statement_sha256": "639317963b1a517ec38172abf807f06f4cb03211cc44f1c6cfa90db63fe9f528"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_prop_interval",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "statement_sha256": "e596cdafc515ce4fe07ff990da4e162d09f6b2212563472313b2fff03e3b401c"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_Bred",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "statement_sha256": "c1b6d2f34c7df1e6dedc43e86fa2d19addf6f47df508dafdc15c6bb812346a0a"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_UPI",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "statement_sha256": "4b225e986fece719a0ac0d4c568b698bd655f2ba7bf6d6b51502a9c84c6ed308"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformwindows_TB",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "statement_sha256": "7ad14c7c93ae378c4190d7f146cbc8a909765934dbad9e3068cacb9d315cfba9"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformtriple",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "statement_sha256": "b565d30dc99ca9376956e78ccc370a1646da51343ad28dc1cbd75141847463dd"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.reuss_window_bridge",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "statement_sha256": "0189ef31d3c8964ce1fc13a1d6be30602e26ba8f296d30d1021a92df40fa4427"
+  }
+ ]
+}

@@ -1,0 +1,28 @@
+K3_MIN       T=77/320          CERTIFIED nodes=633    worst box bound=77/320 (=0.2406250000)
+K3_MIN_CTL   T=0.2406          FAILED    nodes=214    near=[0.166667, 0.166667, 0.171111] bound=0.2406000000476837
+K3_REVIEWED  T=77/320          CERTIFIED nodes=537    (gate_rerun.py functional, verbatim)
+K2_INT       T=101/400         CERTIFIED nodes=181    worst box bound=101/400 (=0.2525000000)
+K2_INT       T=0.2476          CERTIFIED nodes=477    worst box bound=202827/819200 (=0.2475915527)
+K2_INT_CTL   T=0.2474          FAILED    nodes=758    near=[0.010305, 0.247448] bound=0.24740006446838378
+CENTRAL      T=38059/160000    CERTIFIED nodes=1      worst box bound=38059/160000 (=0.2378687500)
+CENTRAL_CTL  T=T-1e-6          FAILED    nodes=125    near=[0.19, 0.19, 0.190008] bound=0.23786775856640852
+THETA_1/12   T=89/384          CERTIFIED nodes=633    worst box bound=89/384 (=0.2317708333)
+THETA_CTL    T=89/384-1e-4     FAILED    nodes=226    near=[0.166667, 0.166667, 0.175318] bound=0.23167083508390837
+ARITH  m(1/3) = 3/16                                           OK
+ARITH  BRED(1/6,1/6) = 77/320                                  OK
+ARITH  (3/4)(3/16)+1/10 = 77/320                               OK
+ARITH  m(19/50) = 7353/40000                                   OK
+ARITH  BRED(19/100,19/100) = 38059/160000                      OK
+ARITH  B_{1/12}(1/6,1/6) = 89/384                              OK
+ARITH  1/4 + (1/100)/4 = 101/400                               OK
+ARITH  REUSS alone at s=t=2/5, a=1/6 gives 29/100              OK
+ARITH  with 9/8 replaced by 1 the balanced value at s=1/3 is 9/40 OK
+SELFTEST: exact values at grid points of every accepted leaf must not exceed the leaf bound;
+          every term's box bound must dominate the exact term at those points
+SELFTEST K3_MIN      CERTIFIED nodes=633   accepted leaves=554   leaf points=14958  violations=0  [OK]
+SELFTEST K2_INT      CERTIFIED nodes=477   accepted leaves=358   leaf points=5728   violations=0  [OK]
+SELFTEST CENTRAL     CERTIFIED nodes=1     accepted leaves=1     leaf points=27     violations=0  [OK]
+SELFTEST THETA_1/12  CERTIFIED nodes=633   accepted leaves=554   leaf points=14958  violations=0  [OK]
+SELFTEST RANDOM      3001 boxes (incl. [1/10,3/20]^2), all term bounds, theta=1/10 and 1/12: boxes with a violation=0  [OK]
+SELFTEST MUTANT      reversed endpoint choices: boxes with a violation=2495 (must be > 0)  [OK]
+SUMMARY: ALL AS EXPECTED

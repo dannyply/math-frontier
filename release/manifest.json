@@ -1,0 +1,502 @@
+{
+ "schema": "math-frontier.release-manifest.v1",
+ "description": "Release declarations of admitted results. Hand-written fields: name, family, result, title, role, headline, hypothesis, finite_certificate. Lean-derived fields, checked by scripts/audit.sh and replay/replay.py: module, kind, statement (default pp, width 100), statement_sha256 (sha256 of the pp.all type), axioms, native_axioms, evidence_level.",
+ "toolchain": "leanprover/lean4:v4.33.1",
+ "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "standard_axioms": [
+  "propext",
+  "Classical.choice",
+  "Quot.sound"
+ ],
+ "evidence_levels": {
+  "lean_nanoda_standard": "Unconditional Lean theorem whose axioms are among propext, Classical.choice and Quot.sound; replayed by Nanoda with only these permitted.",
+  "conditional": "Lean theorem with standard axioms only whose statement assumes named results from the literature as explicit premises (named in the entry); replayed by Nanoda with only standard axioms permitted.",
+  "finite_certificate": "Lean theorem with standard axioms only stating a fact about explicit numbers, proved by kernel computation; replayed by Nanoda with only standard axioms permitted."
+ },
+ "families": [
+  {
+   "id": "powerful-counting",
+   "title": "Counting powerful products of consecutive integers",
+   "description": "Theorems 1.1-1.3 of the counting paper, its paper-owned propositions, and the supporting declarations cited in its Appendix A. Results from the literature (Stewart, Castryck-Cluckers-Dittmann-Nguyen with N = 12, Gelfond, Reuss Theorem 1 at h = 1, Heath-Brown Theorem 15 with n = 2, Tao Lemma 3.1) enter only as named premises of the statements."
+  }
+ ],
+ "declarations": [
+  {
+   "name": "JocelynWorkspace.Erdos137.FixedWidth.GoodIndex.three_consecutive_small_kernels",
+   "family": "powerful-counting",
+   "title": "Good index: for k ≥ 15 and every n there is 1 ≤ i ≤ k−2 such that for each of n+i, n+i+1, n+i+2 the product of the primes p < k of odd valuation is at most k⁸",
+   "role": "support",
+   "headline": false,
+   "hypothesis": null,
+   "finite_certificate": false,
+   "module": "JocelynWorkspace.Erdos137.FixedWidth.GoodIndex",
+   "kind": "theorem",
+   "statement": "∀ (n k : ℕ),\n  15 ≤ k →\n    ∃ i,\n      1 ≤ i ∧\n        i + 2 ≤ k ∧\n          ∏ p ∈ Finset.range k with Nat.Prime p ∧ Odd ((n + i).factorization p), p ≤ k ^ 8 ∧\n            ∏ p ∈ Finset.range k with Nat.Prime p ∧ Odd ((n + i + 1).factorization p), p ≤ k ^ 8 ∧\n              ∏ p ∈ Finset.range k with Nat.Prime p ∧ Odd ((n + i + 2).factorization p), p ≤ k ^ 8",
+   "statement_sha256": "32292f7f868f2c78bef004f18e84d0183818cda25284565ff2ee3b9f38b94ce7",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "lean_nanoda_standard",
+   "result": "powerful-counting"
+  },
+  {
+   "name": "JocelynWorkspace.Erdos137.WidthThree.CentralSet.SmallGapExclusion.small_gap_exclusion",
+   "family": "powerful-counting",
+   "title": "Central set: the maximum adjacent kernel gap exceeds H^(32/1000)",
+   "hypothesis": null,
+   "role": "support",
+   "headline": false,
+   "finite_certificate": false,
+   "module": "JocelynWorkspace.Erdos137.WidthThree.CentralSet.SmallGapExclusion",
+   "kind": "theorem",
+   "statement": "∀ (n f1 f2 f3 d1 d2 d3 u1 u2 u3 : ℕ),\n  1 ≤ n →\n    (∀ (p : ℕ),\n        Nat.Prime p → p ∣ (n + 1) * (n + 2) * (n + 3) → p ^ 2 ∣ (n + 1) * (n + 2) * (n + 3)) →\n      f1 = 1 ∨ f1 = 2 →\n        f2 = 1 ∨ f2 = 2 →\n          f3 = 1 ∨ f3 = 2 →\n            Odd d1 →\n              Squarefree d1 →\n                Odd d2 →\n                  Squarefree d2 →\n                    Odd d3 →\n                      Squarefree d3 →\n                        n + 1 = f1 * d1 ^ 3 * u1 ^ 2 →\n                          n + 2 = f2 * d2 ^ 3 * u2 ^ 2 →\n                            n + 3 = f3 * d3 ^ 3 * u3 ^ 2 →\n                              (n + 3) ^ 19 < d1 ^ 100 →\n                                d1 ^ 100 < (n + 3) ^ 21 →\n                                  (n + 3) ^ 19 < d2 ^ 100 →\n                                    d2 ^ 100 < (n + 3) ^ 21 →\n                                      (n + 3) ^ 19 < d3 ^ 100 →\n                                        d3 ^ 100 < (n + 3) ^ 21 →\n                                          ¬max |↑d1 - ↑d2| |↑d3 - ↑d2| ≤ ↑(n + 3) ^ (32 / 1000)",
+   "statement_sha256": "cb53a177fd07725c4c2a56fdf4f959555a800eb645e6eb459cde61aca6c327d0",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "lean_nanoda_standard",
+   "result": "powerful-counting"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.Paper3OriginalActualAuxiliaryPolynomial.JocelynClaims.claim_1d348efff0ed2d7d1daabd2d1147ea25df132caf1901a51df249fe2af2a5231b",
+   "family": "powerful-counting",
+   "title": "Original actual auxiliary polynomial",
+   "role": "support",
+   "headline": false,
+   "hypothesis": null,
+   "finite_certificate": false,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.Paper3OriginalActualAuxiliaryPolynomial",
+   "kind": "theorem",
+   "statement": "∀ (c δ hcap : ℝ),\n  0 < c →\n    c < 1 →\n      0 < δ →\n        δ < 1 →\n          0 ≤ hcap →\n            have B := ⌈max (4 / c) (32 * (1 + c ^ (-1 / 2)) / (c * δ))⌉₊;\n            have K0 := ⌊2 * ↑B / c⌋₊;\n            have κ := 2 * K0 * (K0 + 1) ^ 2 + 1;\n            ∃ X,\n              1 < X ∧\n                ∀ (x D E ρ₀ : ℝ) (M : ℕ) (h : ℤ),\n                  have U := x ^ (1 / 2) * D ^ (-3 / 2);\n                  have V := x ^ (1 / 2) * E ^ (-3 / 2);\n                  X ≤ x →\n                    1 / 2 ≤ D →\n                      1 / 2 ≤ E →\n                        h ≠ 0 →\n                          |↑h| ≤ hcap →\n                            x ^ c ≤ D * E →\n                              x ^ c ≤ U * V →\n                                x ^ c ^ 2 ≤ ↑M →\n                                  ↑M ≤ x →\n                                    9 / 8 * (1 + δ) * Real.log (D * E) * Real.log (U * V) /\n                                          Real.log x ≤\n                                        Real.log ↑M →\n                                      D / (2 * E) ≤ ρ₀ →\n                                        ρ₀ ≤ 2 * D / E →\n                                          have ν := Real.log (U * V) / Real.log (D * E);\n                                          have A := ⌊↑B * ν⌋₊;\n                                          let H := (A + 1) * (B + 1);\n                                          have ep := (Fintype.equivFinOfCardEq ⋯).symm;\n                                          A ≤ K0 ∧\n                                            B ≤ K0 ∧\n                                              ∃ C,\n                                                C ≠ 0 ∧\n                                                  (∀ (m : Fin 2 →₀ ℕ),\n                                                      |↑(MvPolynomial.coeff m C)| ≤ x ^ κ) ∧\n                                                    (∀ m ∈ C.support, m 0 ≤ A ∧ m 1 ≤ B) ∧\n                                                      ∀ (w : Fin 4 → ℕ),\n                                                        D < ↑(w 0) ∧\n                                                            ↑(w 0) ≤ 2 * D ∧\n                                                              E < ↑(w 1) ∧\n                                                                ↑(w 1) ≤ 2 * E ∧\n                                                                  U < ↑(w 3) ∧\n                                                                    ↑(w 3) < 2 * U ∧\n                                                                      V < ↑(w 2) ∧\n                                                                        ↑(w 2) < 2 * V ∧\n                                                                          ρ₀ < ↑(w 0) / ↑(w 1) ∧\n                                                                            ↑(w 0) / ↑(w 1) ≤\n                                                                                ρ₀ * (1 + 1 / ↑M) ∧\n                                                                              ⋯ = ↑h →\n                                                          MvPolynomial.eval₂ (Int.castRingHom ℝ)\n                                                              ![↑(w 0) / ↑(w 1), ↑(w 2) / ↑(w 3)]\n                                                              C =\n                                                            0",
+   "statement_sha256": "1091f6b2762f382d92d2a50b14e94ccbd6a65aa2fc04d7ed101e9c344f738bee",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "lean_nanoda_standard",
+   "result": "powerful-counting"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromUniformTriple.JocelynClaims.claim_2be59d9f161441036f3a5e723e095513f55f8e966c487d9815574cd2d95ecab2",
+   "family": "powerful-counting",
+   "title": "All Width From Uniform Triple",
+   "role": "support",
+   "headline": false,
+   "hypothesis": "The displayed subpolynomial width bound and shift-uniform twisted-triple counting bound; neither is proved by this implication.",
+   "finite_certificate": false,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromUniformTriple",
+   "kind": "theorem",
+   "statement": "have powerful := fun m => ∀ (p : ℕ), Nat.Prime p → p ∣ m → p ^ 2 ∣ m;\n(∃ n₀,\n    ∀ (n k : ℕ),\n      n₀ ≤ n →\n        3 ≤ k → powerful (∏ i ∈ Finset.Icc 1 k, (n + i)) → ↑k ≤ Real.exp (Real.log ↑n ^ (7 / 10))) →\n  (∀ (ε : ℝ),\n      0 < ε →\n        ∃ η C,\n          0 < η ∧\n            ∀ (y : ℝ),\n              2 ≤ y →\n                ∀ (f₁ f₂ f₃ : ℕ),\n                  1 ≤ f₁ →\n                    1 ≤ f₂ →\n                      1 ≤ f₃ →\n                        ↑f₁ ≤ y ^ η →\n                          ↑f₂ ≤ y ^ η →\n                            ↑f₃ ≤ y ^ η →\n                              ↑{N |\n                                      ↑N ≤ y ∧\n                                        (∃ q, 0 < q ∧ powerful q ∧ N + 1 = f₁ * q) ∧\n                                          (∃ q, 0 < q ∧ powerful q ∧ N + 2 = f₂ * q) ∧\n                                            ∃ q, 0 < q ∧ powerful q ∧ N + 3 = f₃ * q}.ncard ≤\n                                C * y ^ (77 / 320 + ε)) →\n    ∀ (ε : ℝ),\n      0 < ε →\n        ∃ C X0,\n          0 < C ∧\n            1 ≤ X0 ∧\n              ∀ (x : ℝ),\n                X0 ≤ x →\n                  ↑{n | ↑n ≤ x ∧ ∃ k, 3 ≤ k ∧ powerful (∏ i ∈ Finset.Icc 1 k, (n + i))}.ncard ≤\n                    C * x ^ (77 / 320 + ε)",
+   "statement_sha256": "1e2357de9259cf59a610e74b945acc1f33e72a4174e0be7e01c02aab070d96c9",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional",
+   "result": "powerful-counting"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.GoodTriple.JocelynClaims.claim_6ba6889691d6b2a328ce28fdca1e59cdbe991411d020692d8694665c5705172c",
+   "family": "powerful-counting",
+   "title": "Good Triple",
+   "role": "support",
+   "headline": false,
+   "hypothesis": null,
+   "finite_certificate": false,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.GoodTriple",
+   "kind": "theorem",
+   "statement": "∀ (n k : ℕ),\n  3 ≤ k →\n    ∃ i,\n      1 ≤ i ∧\n        i + 2 ≤ k ∧\n          (∏ p ∈ Finset.range k with Nat.Prime p ∧ Odd ((n + i).factorization p), p ≤\n              if k ≤ 14 then 30030 else k ^ 8) ∧\n            (∏ p ∈ Finset.range k with Nat.Prime p ∧ Odd ((n + i + 1).factorization p), p ≤\n                if k ≤ 14 then 30030 else k ^ 8) ∧\n              ∏ p ∈ Finset.range k with Nat.Prime p ∧ Odd ((n + i + 2).factorization p), p ≤\n                if k ≤ 14 then 30030 else k ^ 8",
+   "statement_sha256": "41538788e1370f4025959f4df0d06701351ac3da9b4b58ca9987f27c7f3c0ff1",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "lean_nanoda_standard",
+   "result": "powerful-counting"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope.JocelynClaims.claim_9673eb5d3698f5f89673c095cc0c3dde8199485fa3a96de629d54ae5226908e2",
+   "family": "powerful-counting",
+   "title": "Decomposition And Envelope",
+   "role": "support",
+   "headline": false,
+   "hypothesis": null,
+   "finite_certificate": false,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope",
+   "kind": "theorem",
+   "statement": "(have powerful := fun m => ∀ (p : ℕ), Nat.Prime p → p ∣ m → p ^ 2 ∣ m;\n  ∀ (n k : ℕ),\n    2 ≤ k →\n      powerful (∏ i ∈ Finset.Icc 1 k, (n + i)) →\n        have Pk := ∏ p ∈ Finset.range k with Nat.Prime p, p;\n        have f := fun i => ∏ p ∈ Finset.range k with Nat.Prime p ∧ Odd ((n + i).factorization p), p;\n        have d := fun i => ∏ p ∈ (n + i).primeFactors with k ≤ p ∧ Odd ((n + i).factorization p), p;\n        (∀ (i : ℕ),\n            1 ≤ i →\n              i ≤ k →\n                (∃ u, 0 < u ∧ n + i = f i * d i ^ 3 * u ^ 2) ∧\n                  f i ∣ Pk ∧ Squarefree (d i) ∧ (d i).Coprime Pk) ∧\n          ∀ (i j ui uj : ℕ),\n            1 ≤ i →\n              i ≤ k →\n                1 ≤ j →\n                  j ≤ k →\n                    i ≠ j →\n                      n + i = f i * d i ^ 3 * ui ^ 2 →\n                        n + j = f j * d j ^ 3 * uj ^ 2 →\n                          (d i).Coprime (d j) ∧\n                            (d j).Coprime (f i * ui) ∧ ↑(ui.gcd uj) ^ 2 ∣ ↑j - ↑i) ∧\n  (have powerful := fun m => ∀ (p : ℕ), Nat.Prime p → p ∣ m → p ^ 2 ∣ m;\n    ∀ (n k : ℕ),\n      2 ≤ k →\n        powerful (∏ i ∈ Finset.Icc 1 k, (n + i)) →\n          have Pk := ∏ p ∈ Finset.range k with Nat.Prime p, p;\n          have f := fun i =>\n            ∏ p ∈ Finset.range k with Nat.Prime p ∧ Odd ((n + i).factorization p), p;\n          have dk := fun i =>\n            ∏ p ∈ (n + i).primeFactors with k ≤ p ∧ Odd ((n + i).factorization p), p;\n          ∀ (i j ui uj : ℕ),\n            1 ≤ i →\n              i < j →\n                j ≤ k →\n                  n + i = f i * dk i ^ 3 * ui ^ 2 →\n                    n + j = f j * dk j ^ 3 * uj ^ 2 →\n                      have d := f i * dk i;\n                      have e := f j * dk j;\n                      have u := f j * ui;\n                      have v := f i * uj;\n                      have h := f i ^ 2 * f j ^ 2 * (j - i);\n                      ↑e ^ 3 * ↑v ^ 2 - ↑d ^ 3 * ↑u ^ 2 = ↑h ∧\n                        d ^ 3 * u ^ 2 = f i ^ 2 * f j ^ 2 * (n + i) ∧\n                          1 ≤ h ∧\n                            h ≤ k * Pk ^ 4 ∧\n                              d.gcd e ∣ Pk ∧\n                                ↑(u.gcd v) ≤ √↑k * ↑Pk ^ 2 ∧\n                                  n = d ^ 3 * u ^ 2 / (f i ^ 2 * f j ^ 2) - i) ∧\n    (∃ K,\n        0 ≤ K ∧\n          ∀ (η : ℝ),\n            0 ≤ η →\n              η ≤ 1 / 1000 →\n                ∀ (a a' : ℝ),\n                  19 / 100 - η ≤ a →\n                    a ≤ 21 / 100 + η →\n                      19 / 100 - η ≤ a' →\n                        a' ≤ 21 / 100 + η →\n                          have s := a + a';\n                          have t := 1 - 3 * s / 2;\n                          have m := 9 / 8 * s * t;\n                          have lst := max (max ((s - m) / 2) (a - m)) (a' - m);\n                          have tst :=\n                            max (max ((t - m) / 2) ((1 - 3 * a) / 2 - m)) ((1 - 3 * a') / 2 - m);\n                          m + 3 / 10 * lst + 1 / 5 * tst ≤ 38059 / 160000 + K * η) ∧\n      ∀ (a b : ℝ),\n        0 ≤ a →\n          a ≤ 1 / 3 →\n            0 ≤ b →\n              b ≤ 1 / 3 →\n                2 / 27 < a + b →\n                  have s := a + b;\n                  have t := 1 - 3 * s / 2;\n                  have m := 9 / 8 * s * t;\n                  have lst := max (max ((s - m) / 2) (a - m)) (b - m);\n                  have tst := max (max ((t - m) / 2) ((1 - 3 * a) / 2 - m)) ((1 - 3 * b) / 2 - m);\n                  m ≤ m + 3 / 10 * lst + 1 / 5 * tst",
+   "statement_sha256": "5305bf4ccc0955f19ee721d5b35b9c15851882167d9284ffc38dea8cb41533de",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "lean_nanoda_standard",
+   "result": "powerful-counting"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.PairExponentCertificate.JocelynClaims.claim_c433f729050128c23580094c6dc3e816f4d39627952688bc77da5939c6b6e165",
+   "family": "powerful-counting",
+   "title": "Pair Exponent Certificate",
+   "role": "support",
+   "headline": false,
+   "hypothesis": null,
+   "finite_certificate": false,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.PairExponentCertificate",
+   "kind": "theorem",
+   "statement": "have H1 := fun a b => b + (1 - 3 * a) / 2 + 1 / 2 * max 0 (a - 3 * b);\nhave H2 := fun a b => a + (1 - 3 * b) / 2 + 1 / 2 * max 0 (b - 3 * a);\nhave R := fun a b =>\n  have s := a + b;\n  have t := 1 - 3 * s / 2;\n  have m := 9 / 8 * s * t;\n  min (max (max ((s + m) / 2) a) b) (max (max ((t + m) / 2) ((1 - 3 * a) / 2)) ((1 - 3 * b) / 2));\nhave Bred := fun a b =>\n  have s := a + b;\n  have t := 1 - 3 * s / 2;\n  have m := 9 / 8 * s * t;\n  m + 3 / 10 * max (max ((s - m) / 2) (a - m)) (b - m) +\n    1 / 5 * max (max ((t - m) / 2) ((1 - 3 * a) / 2 - m)) ((1 - 3 * b) / 2 - m);\nhave G0 := fun a b =>\n  0 ≤ a ∧ a ≤ 1 / 3 ∧ 0 ≤ b ∧ b ≤ 1 / 3 ∧ 1 / 10 ≤ a + b ∧ 1 / 10 ≤ 1 - 3 * (a + b) / 2;\nhave Φ2 := fun a b =>\n  have s := a + b;\n  have t := 1 - 3 * s / 2;\n  if\n      0 ≤ a ∧\n        a ≤ 1 / 3 ∧ 0 ≤ b ∧ b ≤ 1 / 3 ∧ 1 / 10 ≤ s ∧ 1 / 10 ≤ t ∧ 1 / 100 ≤ a ∧ 1 / 100 ≤ b then\n    min (min (min (min (min s t) (H1 a b)) (H2 a b)) (R a b)) (Bred a b)\n  else min (min (min s t) (H1 a b)) (H2 a b);\nhave Φ2s := fun a b =>\n  have s := a + b;\n  have t := 1 - 3 * s / 2;\n  have base := min (min (min s t) (H1 a b)) (H2 a b);\n  have withR :=\n    if 0 ≤ a ∧ a ≤ 1 / 3 ∧ 0 ≤ b ∧ b ≤ 1 / 3 ∧ 1 / 10 ≤ s ∧ 1 / 10 ≤ t then min base (R a b)\n    else base;\n  if\n      0 ≤ a ∧\n        a ≤ 1 / 3 ∧ 0 ≤ b ∧ b ≤ 1 / 3 ∧ 1 / 10 ≤ s ∧ 1 / 10 ≤ t ∧ 1 / 100 ≤ a ∧ 1 / 100 ≤ b then\n    min withR (Bred a b)\n  else withR;\n(∀ (a b : ℝ), 1 / 100 ≤ a → a ≤ 1 / 3 → 1 / 100 ≤ b → b ≤ 1 / 3 → Φ2 a b ≤ 2476 / 10000) ∧\n  (∀ (a b : ℝ),\n      0 ≤ a →\n        a ≤ 1 / 3 →\n          0 ≤ b →\n            b ≤ 1 / 3 →\n              a ≤ 1 / 100 →\n                min (a + b) (H2 a b) ≤ 1 / 4 + a / 4 ∧\n                  (a + b ≤ 1 / 4 ∨\n                      3 * a ≤ b ∧ H2 a b = 1 / 2 - b - a / 2 ∧ H2 a b ≤ 1 / 4 ∨\n                        G0 a b ∧\n                          b < 1 / 4 ∧ R a b ≤ max (179 / 800) b ∧ max (179 / 800) b < 1 / 4) ∧\n                    Φ2s a b ≤ 1 / 4 ∧ (Φ2s a b = 1 / 4 → a = 0 ∧ b = 1 / 4)) ∧\n    (∀ (a b : ℝ),\n        0 ≤ a →\n          a ≤ 1 / 3 →\n            0 ≤ b →\n              b ≤ 1 / 3 →\n                b ≤ 1 / 100 →\n                  min (a + b) (H1 a b) ≤ 1 / 4 + b / 4 ∧\n                    (a + b ≤ 1 / 4 ∨\n                        3 * b ≤ a ∧ H1 a b = 1 / 2 - a - b / 2 ∧ H1 a b ≤ 1 / 4 ∨\n                          G0 a b ∧\n                            a < 1 / 4 ∧ R a b ≤ max (179 / 800) a ∧ max (179 / 800) a < 1 / 4) ∧\n                      Φ2s a b ≤ 1 / 4 ∧ (Φ2s a b = 1 / 4 → a = 1 / 4 ∧ b = 0)) ∧\n      (∀ (a b : ℝ),\n          0 ≤ a →\n            a ≤ 1 / 3 →\n              0 ≤ b →\n                b ≤ 1 / 3 →\n                  Φ2s a b ≤ 1 / 4 ∧ (Φ2s a b = 1 / 4 ↔ a = 0 ∧ b = 1 / 4 ∨ a = 1 / 4 ∧ b = 0)) ∧\n        (have a := 0;\n          have b := 1 / 4;\n          have s := a + b;\n          have t := 1 - 3 * s / 2;\n          have m := 9 / 8 * s * t;\n          m = 45 / 256 ∧\n            s = 1 / 4 ∧\n              H2 a b = 1 / 4 ∧\n                R a b = 1 / 4 ∧\n                  t = 5 / 8 ∧\n                    H1 a b = 3 / 4 ∧\n                      Bred a b = 673 / 2560 ∧\n                        1 / 4 < Bred a b ∧\n                          min (min (min (min (min s t) (H1 a b)) (H2 a b)) (R a b)) (Bred a b) =\n                              1 / 4 ∧\n                            Φ2 a b = 1 / 4 ∧ Φ2s a b = 1 / 4) ∧\n          (∀ (d1 d2 u1 u2 : ℤ),\n              d1 ≠ 0 →\n                (d2 ^ 3 * u2 ^ 2 - d1 ^ 3 * u1 ^ 2 = 1 ↔\n                  (d1 ^ 2 * u1) ^ 2 = d1 * u2 ^ 2 * d2 ^ 3 - d1)) ∧\n            (∀ (a b : ℝ),\n                have s := a + b;\n                have t := 1 - 3 * s / 2;\n                have m := 9 / 8 * s * t;\n                R a b =\n                  m +\n                    min (max (max ((s - m) / 2) (a - m)) (b - m))\n                      (max (max ((t - m) / 2) ((1 - 3 * a) / 2 - m)) ((1 - 3 * b) / 2 - m))) ∧\n              (∀ (a b : ℝ),\n                  a + b = 2 / 5 →\n                    14 / 100 ≤ a →\n                      a ≤ 26 / 100 →\n                        have s := a + b;\n                        have t := 1 - 3 * s / 2;\n                        have m := 9 / 8 * s * t;\n                        t = 2 / 5 ∧\n                          m = 9 / 50 ∧\n                            max (max ((s - m) / 2) (a - m)) (b - m) = 11 / 100 ∧\n                              max (max ((t - m) / 2) ((1 - 3 * a) / 2 - m)) ((1 - 3 * b) / 2 - m) =\n                                  11 / 100 ∧\n                                R a b = 29 / 100 ∧ Bred a b = 235 / 1000) ∧\n                (∀ (c0 : ℝ),\n                    have s := 1 / 3;\n                    have t := 1 - 3 * s / 2;\n                    have m := c0 * s * t;\n                    m + 3 / 10 * ((s - m) / 2) + 1 / 5 * ((t - m) / 2) = c0 / 8 + 1 / 10) ∧\n                  (9 / 8 / 8 + 1 / 10 = 77 / 320 ∧ 1 / 8 + 1 / 10 = 9 / 40) ∧\n                    ∀ (A B L1 L2 : ℝ),\n                      A * B * L1 * L2 ≤ (1 / 2 * A * L1 + 1 / 2 * B * L2) ^ 2 ∧\n                        (A * B * L1 * L2 = (1 / 2 * A * L1 + 1 / 2 * B * L2) ^ 2 ↔ A * L1 = B * L2)",
+   "statement_sha256": "2dcb8e894564b915576cbea223000d9d5c7f379f5eb1572cf69d69a64ffe2d4f",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "lean_nanoda_standard",
+   "result": "powerful-counting"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.NonpowerfulMembers.JocelynClaims.claim_ceda7068de057b3d0d054ad2d5782ee486080d60f8cb605131c0e153f0538465",
+   "family": "powerful-counting",
+   "title": "Nonpowerful Members",
+   "role": "support",
+   "headline": false,
+   "hypothesis": "The displayed subpolynomial width bound and all-width k >= 3 union counting estimate.",
+   "finite_certificate": false,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.NonpowerfulMembers",
+   "kind": "theorem",
+   "statement": "have powerful := fun m => ∀ (p : ℕ), Nat.Prime p → p ∣ m → p ^ 2 ∣ m;\n(∃ n₀,\n    ∀ (n k : ℕ),\n      n₀ ≤ n →\n        3 ≤ k → powerful (∏ i ∈ Finset.Icc 1 k, (n + i)) → ↑k ≤ Real.exp (Real.log ↑n ^ (7 / 10))) →\n  (∀ (ε : ℝ),\n      0 < ε →\n        ∃ C X0,\n          0 < C ∧\n            1 ≤ X0 ∧\n              ∀ (x : ℝ),\n                X0 ≤ x →\n                  ↑{n | ↑n ≤ x ∧ ∃ k, 3 ≤ k ∧ powerful (∏ i ∈ Finset.Icc 1 k, (n + i))}.ncard ≤\n                    C * x ^ (77 / 320 + ε)) →\n    ∀ (ε : ℝ),\n      0 < ε →\n        ∃ C X0,\n          0 < C ∧\n            1 ≤ X0 ∧\n              ∀ (x : ℝ),\n                X0 ≤ x →\n                  ↑{z |\n                          0 < z ∧\n                            ↑z ≤ x ∧\n                              ¬powerful z ∧\n                                ∃ N K,\n                                  1 ≤ K ∧\n                                    N < z ∧\n                                      z ≤ N + K ∧ powerful (∏ i ∈ Finset.Icc 1 K, (N + i))}.ncard ≤\n                    C * x ^ (77 / 320 + ε)",
+   "statement_sha256": "9f893621141a4f7b201a9eb70485399599484204725e5c0357894a1ed1ba444d",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional",
+   "result": "powerful-counting"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.TripleExponentCertificate.JocelynClaims.claim_d17527abe8b1de31d39ee4bdd1ad8fe89d3a6868b05f6e4fab74571f916c8087",
+   "family": "powerful-counting",
+   "title": "Triple Exponent Certificate",
+   "role": "support",
+   "headline": false,
+   "hypothesis": null,
+   "finite_certificate": false,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.TripleExponentCertificate",
+   "kind": "theorem",
+   "statement": "have Φ3 := fun a b =>\n  have s := a + b;\n  have t := 1 - 3 * s / 2;\n  have ub := (1 - 3 * a) / 2;\n  have vb := (1 - 3 * b) / 2;\n  have m := 9 / 8 * s * t;\n  have lst := max (max ((s - m) / 2) (a - m)) (b - m);\n  have tst := max (max ((t - m) / 2) (ub - m)) (vb - m);\n  have Bred := m + 3 / 10 * lst + 1 / 5 * tst;\n  if\n      0 ≤ a ∧\n        a ≤ 1 / 3 ∧ 0 ≤ b ∧ b ≤ 1 / 3 ∧ 1 / 10 ≤ s ∧ 1 / 10 ≤ t ∧ 1 / 100 ≤ a ∧ 1 / 100 ≤ b then\n    min (min s t) Bred\n  else min s t;\n(∀ (a1 a2 a3 : ℝ),\n    0 ≤ a1 →\n      a1 ≤ 1 / 3 →\n        0 ≤ a2 →\n          a2 ≤ 1 / 3 →\n            0 ≤ a3 → a3 ≤ 1 / 3 → min (min (Φ3 a1 a2) (Φ3 a1 a3)) (Φ3 a2 a3) ≤ 77 / 320) ∧\n  min (min (Φ3 (1 / 6) (1 / 6)) (Φ3 (1 / 6) (1 / 6))) (Φ3 (1 / 6) (1 / 6)) = 77 / 320",
+   "statement_sha256": "3cfb1d65b85289bc30bb304b0f03690565938a72f8b7eb5f90fc757fd72dc592",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "lean_nanoda_standard",
+   "result": "powerful-counting"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeTails.JocelynClaims.claim_d31e9b77d0f9dd7614934ea632cc8dcd6919398027eb82ef33c69bc75aa5c7c7",
+   "family": "powerful-counting",
+   "title": "Lattice Tails",
+   "role": "support",
+   "headline": false,
+   "hypothesis": null,
+   "finite_certificate": false,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeTails",
+   "kind": "theorem",
+   "statement": "∀ (D E x : ℝ),\n  1 / 2 ≤ D →\n    1 / 2 ≤ E →\n      1 < x →\n        ∀ (M : ℕ),\n          1 ≤ M →\n            have U := x ^ (1 / 2) * D ^ (-3 / 2);\n            have V := x ^ (1 / 2) * E ^ (-3 / 2);\n            have ρ₀ := fun j => D / (2 * E) * (1 + 1 / ↑M) ^ j;\n            have ω₀ := fun j => ρ₀ j ^ (3 / 2);\n            have J := {j | D / (2 * E) ≤ ρ₀ j ∧ ρ₀ j ≤ 2 * D / E};\n            have nrm := fun p q => √(p ^ 2 + q ^ 2);\n            have L₁ := fun b j =>\n              2 / nrm (↑M / (4 * D) * (↑(b j).1 - ρ₀ j * ↑(b j).2)) (↑(b j).2 / (2 * E));\n            have T₁ := fun c j =>\n              2 / nrm (↑M / (17 * V) * (↑(c j).1 - ω₀ j * ↑(c j).2)) (↑(c j).2 / (2 * U));\n            StrictMono ρ₀ ∧\n              J.Finite ∧\n                ↑J.ncard ≤ 3 * ↑M + 1 ∧\n                  (∀ (b : ℕ → ℤ × ℤ),\n                      (∀ j ∈ J, b j ≠ 0) →\n                        ∀ (L : ℝ),\n                          32 * (D + E) / ↑M ≤ L →\n                            ↑{j | j ∈ J ∧ L ≤ L₁ b j}.ncard ≤ 720 * (D * E) / L ^ 2) ∧\n                    ∀ (c : ℕ → ℤ × ℤ),\n                      (∀ j ∈ J, c j ≠ 0) →\n                        ∀ (T : ℝ),\n                          194 * (U + V) / ↑M ≤ T →\n                            ↑{j | j ∈ J ∧ T ≤ T₁ c j}.ncard ≤ 7000 * (U * V) / T ^ 2",
+   "statement_sha256": "50a0e3493ca3f37972aa8806f85fce5dbd0e5acc32899f5656f7ff688621333e",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "lean_nanoda_standard",
+   "result": "powerful-counting"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeMoments.JocelynClaims.claim_de91d4e3bef4d0cbba6edddabc77ad8eded6df2ba7fc0116292af012ccd3b48a",
+   "family": "powerful-counting",
+   "title": "Lattice Moments",
+   "role": "support",
+   "headline": false,
+   "hypothesis": null,
+   "finite_certificate": false,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeMoments",
+   "kind": "theorem",
+   "statement": "∀ (θ : ℝ),\n  0 < θ →\n    θ < 2 →\n      ∃ C,\n        0 < C ∧\n          ∀ (D E x : ℝ),\n            1 / 2 ≤ D →\n              1 / 2 ≤ E →\n                1 < x →\n                  ∀ (M : ℕ),\n                    1 ≤ M →\n                      have U := x ^ (1 / 2) * D ^ (-3 / 2);\n                      have V := x ^ (1 / 2) * E ^ (-3 / 2);\n                      have ρ₀ := fun j => D / (2 * E) * (1 + 1 / ↑M) ^ j;\n                      have ω₀ := fun j => ρ₀ j ^ (3 / 2);\n                      have J := {j | D / (2 * E) ≤ ρ₀ j ∧ ρ₀ j ≤ 2 * D / E};\n                      have nrm := fun p q => √(p ^ 2 + q ^ 2);\n                      have L₁ := fun b j =>\n                        2 / nrm (↑M / (4 * D) * (↑(b j).1 - ρ₀ j * ↑(b j).2)) (↑(b j).2 / (2 * E));\n                      have T₁ := fun c j =>\n                        2 / nrm (↑M / (17 * V) * (↑(c j).1 - ω₀ j * ↑(c j).2)) (↑(c j).2 / (2 * U));\n                      have Lst := max ((D * E / ↑M) ^ (1 / 2)) (32 * (D + E) / ↑M);\n                      have Tst := max ((U * V / ↑M) ^ (1 / 2)) (194 * (U + V) / ↑M);\n                      (∀ (b : ℕ → ℤ × ℤ),\n                          (∀ j ∈ J, b j ≠ 0) →\n                            ∑ᶠ (j : ℕ) (_ : j ∈ J), L₁ b j ^ θ ≤ C * ↑M * Lst ^ θ) ∧\n                        ∀ (c : ℕ → ℤ × ℤ),\n                          (∀ j ∈ J, c j ≠ 0) → ∑ᶠ (j : ℕ) (_ : j ∈ J), T₁ c j ^ θ ≤ C * ↑M * Tst ^ θ",
+   "statement_sha256": "d4b2a776d26d36e56dbe38d6c4e69f55ee35cad8b5de3c5650e1e4d02e59647b",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "lean_nanoda_standard",
+   "result": "powerful-counting"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.StrictWindows.JocelynClaims.claim_f0cfddddf4e562b8ee8b00a4b8f6c47db3028e8425650db4312e3bcc8f4e26ef",
+   "family": "powerful-counting",
+   "title": "Strict Windows",
+   "role": "support",
+   "headline": false,
+   "hypothesis": null,
+   "finite_certificate": false,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.StrictWindows",
+   "kind": "theorem",
+   "statement": "∃ N A,\n  1 ≤ A ∧\n    ∀ (h : ℤ),\n      h ≠ 0 →\n        ∃ X₀,\n          ∀ (D E x : ℝ),\n            1 / 2 ≤ D →\n              1 / 2 ≤ E →\n                X₀ ≤ x →\n                  ∃ 𝒲,\n                    𝒲.card ≤ N ∧\n                      (∀ W ∈ 𝒲,\n                          1 / 2 ≤ W.1 ∧\n                            1 / 2 ≤ W.2.1 ∧\n                              1 < W.2.2 ∧\n                                D ≤ A * W.1 ∧\n                                  W.1 ≤ A * D ∧\n                                    E ≤ A * W.2.1 ∧ W.2.1 ≤ A * E ∧ x ≤ A * W.2.2 ∧ W.2.2 ≤ A * x) ∧\n                        ∀ (d e u v : ℕ),\n                          D < ↑d →\n                            ↑d ≤ 2 * D →\n                              E < ↑e →\n                                ↑e ≤ 2 * E →\n                                  x / 2 < ↑d ^ 3 * ↑u ^ 2 →\n                                    ↑d ^ 3 * ↑u ^ 2 ≤ 2 * x →\n                                      ↑e ^ 3 * ↑v ^ 2 - ↑d ^ 3 * ↑u ^ 2 = h →\n                                        ∃ W ∈ 𝒲,\n                                          W.1 < ↑d ∧\n                                            ↑d ≤ 2 * W.1 ∧\n                                              W.2.1 < ↑e ∧\n                                                ↑e ≤ 2 * W.2.1 ∧\n                                                  W.2.2 ^ (1 / 2) * W.1 ^ (-3 / 2) < ↑u ∧\n                                                    ↑u < 2 * (W.2.2 ^ (1 / 2) * W.1 ^ (-3 / 2)) ∧\n                                                      W.2.2 ^ (1 / 2) * W.2.1 ^ (-3 / 2) < ↑v ∧\n                                                        ↑v <\n                                                            2 *\n                                                              (W.2.2 ^ (1 / 2) * W.2.1 ^ (-3 / 2)) ∧\n                                                          ↑e ^ 3 * ↑v ^ 2 - ↑d ^ 3 * ↑u ^ 2 = h",
+   "statement_sha256": "4c10bfeece401adda3b9fbd8c3c61161df4068ad84cfa074f6249d43505fc696",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "lean_nanoda_standard",
+   "result": "powerful-counting"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromPairAndUnion.JocelynClaims.claim_fdb026ef91db27804011331a018c434c83ba1a1ce0d9de16bfd4e6f508f5c5f0",
+   "family": "powerful-counting",
+   "title": "All Width From Pair And Union",
+   "role": "support",
+   "headline": false,
+   "hypothesis": "The consecutive powerful-pair estimate with exponent 1/4 + epsilon and the k >= 3 union estimate with exponent 77/320 + epsilon.",
+   "finite_certificate": false,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromPairAndUnion",
+   "kind": "theorem",
+   "statement": "have powerful := fun m => ∀ (p : ℕ), Nat.Prime p → p ∣ m → p ^ 2 ∣ m;\n(∀ (ε : ℝ),\n    0 < ε →\n      ∃ C X0,\n        0 < C ∧\n          1 ≤ X0 ∧\n            ∀ (x : ℝ),\n              X0 ≤ x →\n                ↑{n | 0 < n ∧ ↑n ≤ x ∧ powerful n ∧ powerful (n + 1)}.ncard ≤ C * x ^ (1 / 4 + ε)) →\n  (∀ (ε : ℝ),\n      0 < ε →\n        ∃ C X0,\n          0 < C ∧\n            1 ≤ X0 ∧\n              ∀ (x : ℝ),\n                X0 ≤ x →\n                  ↑{n | ↑n ≤ x ∧ ∃ k, 3 ≤ k ∧ powerful (∏ i ∈ Finset.Icc 1 k, (n + i))}.ncard ≤\n                    C * x ^ (77 / 320 + ε)) →\n    ∀ (ε : ℝ),\n      0 < ε →\n        ∃ C X0,\n          0 < C ∧\n            1 ≤ X0 ∧\n              ∀ (x : ℝ),\n                X0 ≤ x →\n                  ↑{n | ↑n ≤ x ∧ ∃ k, 2 ≤ k ∧ powerful (∏ i ∈ Finset.Icc 1 k, (n + i))}.ncard ≤\n                    C * x ^ (1 / 4 + ε)",
+   "statement_sha256": "aca15800d8b87e849f5e59bbe3b3cba247bc114a96ca216df88f2a438a4e1878",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional",
+   "result": "powerful-counting"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k3",
+   "family": "powerful-counting",
+   "title": "Conditional: for fixed k ≥ 3, #{n ≤ x : (n+1)(n+2)…(n+k) powerful} ≪ x^(77/320+ε), with the central subcount ≪ x^(38059/160000+ε) (Stewart, CCDN, Gelfond)",
+   "role": "headline",
+   "headline": true,
+   "hypothesis": "Stewart Thue bound; CCDN bound for integral affine curves (N = 12); Gelfond height inequality",
+   "finite_certificate": false,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "kind": "theorem",
+   "statement": "have powerful := fun m => ∀ (p : ℕ), Nat.Prime p → p ∣ m → p ^ 2 ∣ m;\nhave StewartHyp :=\n  ∀ (q : ℕ),\n    3 ≤ q →\n      ∀ (a : Fin (q + 1) → ℤ),\n        Finset.univ.gcd a = 1 →\n          Squarefree\n              (∑ i, MvPolynomial.C ↑(a i) * MvPolynomial.X 0 ^ ↑i * MvPolynomial.X 1 ^ (q - ↑i)) →\n            ∀ (m : ℤ),\n              m ≠ 0 →\n                {rs | rs.1.gcd rs.2 = 1 ∧ ∑ i, a i * rs.1 ^ ↑i * rs.2 ^ (q - ↑i) = m}.encard ≤\n                  ↑(2800 * q ^ (1 + m.natAbs.primeFactors.card));\nhave CCDN12 := fun c =>\n  ∀ (d : ℕ),\n    1 ≤ d →\n      ∀ (I : Ideal (MvPolynomial (Fin 12) ℚ)),\n        I.IsPrime →\n          ringKrullDim (MvPolynomial (Fin 12) ℚ ⧸ I) = 1 →\n            (∃ e s₀,\n                ∀ (s : ℕ),\n                  s₀ ≤ s →\n                    ↑(Module.finrank ℚ\n                          ↥(Submodule.map (Ideal.Quotient.mkₐ ℚ I).toLinearMap\n                              (MvPolynomial.restrictTotalDegree (Fin 12) ℚ s))) =\n                      ↑d * ↑s + e) →\n              ∀ (B : ℝ),\n                1 ≤ B →\n                  ↑{P |\n                          (∀ f ∈ I, (MvPolynomial.eval fun i => ↑(P i)) f = 0) ∧\n                            ∀ (i : Fin 12), |↑(P i)| ≤ B}.ncard ≤\n                    c * ↑d ^ 3 * B ^ (1 / ↑d) * (Real.log B + ↑d);\nhave Gelfond :=\n  ∀ (n : ℕ),\n    ∃ c,\n      0 ≤ c ∧\n        ∀ (F G : MvPolynomial (Fin n) ℤ),\n          F ≠ 0 →\n            G ∣ F →\n              ∀ (H : ℝ),\n                (∀ (m : Fin n →₀ ℕ), |↑(MvPolynomial.coeff m F)| ≤ H) →\n                  ∀ (m : Fin n →₀ ℕ),\n                    |↑(MvPolynomial.coeff m G)| ≤ Real.exp (c * ↑F.totalDegree) * H;\nStewartHyp →\n  (∃ c, CCDN12 c) →\n    Gelfond →\n      (∀ (k : ℕ),\n          3 ≤ k →\n            ∀ (ε : ℝ),\n              0 < ε →\n                ∃ C X0,\n                  0 < C ∧\n                    1 ≤ X0 ∧\n                      ∀ (x : ℝ),\n                        X0 ≤ x →\n                          ↑{n | ↑n ≤ x ∧ powerful (∏ i ∈ Finset.Icc 1 k, (n + i))}.ncard ≤\n                            C * x ^ (77 / 320 + ε)) ∧\n        ∀ (k : ℕ),\n          3 ≤ k →\n            ∀ (ε : ℝ),\n              0 < ε →\n                ∃ C X0,\n                  0 < C ∧\n                    1 ≤ X0 ∧\n                      ∀ (x : ℝ),\n                        X0 ≤ x →\n                          ↑{n |\n                                  ↑n ≤ x ∧\n                                    powerful (∏ i ∈ Finset.Icc 1 k, (n + i)) ∧\n                                      ∀ i ∈ Finset.Icc 1 3,\n                                        (↑n + 3) ^ (19 / 100) <\n                                            ↑(∏ p ∈ (n + i).primeFactors with\n                                                k ≤ p ∧ Odd ((n + i).factorization p), p) ∧\n                                          ↑(∏ p ∈ (n + i).primeFactors with\n                                                k ≤ p ∧ Odd ((n + i).factorization p), p) <\n                                            (↑n + 3) ^ (21 / 100)}.ncard ≤\n                            C * x ^ (38059 / 160000 + ε)",
+   "statement_sha256": "df8c8948557a573e9b3d5b8474f7c1c78a18a696545cf04ae01e66bcaaf07fd4",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional",
+   "result": "powerful-counting"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k2_reuss",
+   "family": "powerful-counting",
+   "title": "Conditional: consecutive powerful pairs #{n ≤ x : n, n+1 powerful} ≪ x^(1/4+ε) (Stewart, CCDN, Gelfond, Reuss, Heath-Brown)",
+   "role": "headline",
+   "headline": true,
+   "hypothesis": "Stewart Thue bound; CCDN bound for integral affine curves (N = 12); Gelfond height inequality; Reuss Theorem 1 at h = 1 (balanced windows, open-endpoint convention); Heath-Brown Theorem 15 (n = 2)",
+   "finite_certificate": false,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "kind": "theorem",
+   "statement": "have powerful := fun m => ∀ (p : ℕ), Nat.Prime p → p ∣ m → p ^ 2 ∣ m;\nhave StewartHyp :=\n  ∀ (q : ℕ),\n    3 ≤ q →\n      ∀ (a : Fin (q + 1) → ℤ),\n        Finset.univ.gcd a = 1 →\n          Squarefree\n              (∑ i, MvPolynomial.C ↑(a i) * MvPolynomial.X 0 ^ ↑i * MvPolynomial.X 1 ^ (q - ↑i)) →\n            ∀ (m : ℤ),\n              m ≠ 0 →\n                {rs | rs.1.gcd rs.2 = 1 ∧ ∑ i, a i * rs.1 ^ ↑i * rs.2 ^ (q - ↑i) = m}.encard ≤\n                  ↑(2800 * q ^ (1 + m.natAbs.primeFactors.card));\nhave CCDN12 := fun c =>\n  ∀ (d : ℕ),\n    1 ≤ d →\n      ∀ (I : Ideal (MvPolynomial (Fin 12) ℚ)),\n        I.IsPrime →\n          ringKrullDim (MvPolynomial (Fin 12) ℚ ⧸ I) = 1 →\n            (∃ e s₀,\n                ∀ (s : ℕ),\n                  s₀ ≤ s →\n                    ↑(Module.finrank ℚ\n                          ↥(Submodule.map (Ideal.Quotient.mkₐ ℚ I).toLinearMap\n                              (MvPolynomial.restrictTotalDegree (Fin 12) ℚ s))) =\n                      ↑d * ↑s + e) →\n              ∀ (B : ℝ),\n                1 ≤ B →\n                  ↑{P |\n                          (∀ f ∈ I, (MvPolynomial.eval fun i => ↑(P i)) f = 0) ∧\n                            ∀ (i : Fin 12), |↑(P i)| ≤ B}.ncard ≤\n                    c * ↑d ^ 3 * B ^ (1 / ↑d) * (Real.log B + ↑d);\nhave Gelfond :=\n  ∀ (n : ℕ),\n    ∃ c,\n      0 ≤ c ∧\n        ∀ (F G : MvPolynomial (Fin n) ℤ),\n          F ≠ 0 →\n            G ∣ F →\n              ∀ (H : ℝ),\n                (∀ (m : Fin n →₀ ℕ), |↑(MvPolynomial.coeff m F)| ≤ H) →\n                  ∀ (m : Fin n →₀ ℕ),\n                    |↑(MvPolynomial.coeff m G)| ≤ Real.exp (c * ↑F.totalDegree) * H;\nhave SW := fun h D E x =>\n  {w |\n    D < ↑w.1 ∧\n      ↑w.1 < 2 * D ∧\n        E < ↑w.2.1 ∧\n          ↑w.2.1 < 2 * E ∧\n            x ^ (1 / 2) * D ^ (-3 / 2) < ↑w.2.2.1 ∧\n              ↑w.2.2.1 < 2 * (x ^ (1 / 2) * D ^ (-3 / 2)) ∧\n                x ^ (1 / 2) * E ^ (-3 / 2) < ↑w.2.2.2 ∧\n                  ↑w.2.2.2 < 2 * (x ^ (1 / 2) * E ^ (-3 / 2)) ∧\n                    ↑w.2.1 ^ 3 * ↑w.2.2.2 ^ 2 - ↑w.1 ^ 3 * ↑w.2.2.1 ^ 2 = h};\nhave thm_reuss1_h1_bal :=\n  ∀ (c : ℝ),\n    0 < c →\n      ∀ (ε : ℝ),\n        0 < ε →\n          ∃ C X0,\n            ∀ (D E x : ℝ),\n              1 < D →\n                1 < E →\n                  x ^ c ≤ D →\n                    x ^ c ≤ E →\n                      1 < x →\n                        X0 ≤ x →\n                          have U := x ^ (1 / 2) * D ^ (-3 / 2);\n                          have V := x ^ (1 / 2) * E ^ (-3 / 2);\n                          have M :=\n                            Real.exp (9 / 8 * Real.log (D * E) * Real.log (U * V) / Real.log x);\n                          1 / 20 * Real.log x ≤ Real.log (D * E) →\n                            Real.log (D * E) ≤ 20 * Real.log x →\n                              1 / 20 * Real.log x ≤ Real.log (U * V) →\n                                Real.log (U * V) ≤ 20 * Real.log x →\n                                  ↑(SW 1 D E x).ncard ≤\n                                    C * x ^ ε *\n                                      min ((D * E * M) ^ (1 / 2) + D + E)\n                                        ((U * V * M) ^ (1 / 2) + U + V);\nhave HB15 :=\n  ∀ (d : ℕ),\n    2 ≤ d →\n      ∀ (η : ℝ),\n        0 < η →\n          ∃ C C',\n            ∀ (F : Polynomial (Polynomial ℤ)),\n              Irreducible (Polynomial.map (Polynomial.mapRingHom (Int.castRingHom ℂ)) F) →\n                (∀ (i j : ℕ), (F.coeff j).coeff i ≠ 0 → i + j ≤ d) →\n                  (∃ i j, (F.coeff j).coeff i ≠ 0 ∧ i + j = d) →\n                    ∀ (B₁ B₂ T N : ℝ),\n                      2 ≤ B₁ →\n                        2 ≤ B₂ →\n                          IsGreatest {τ | ∃ i j, (F.coeff j).coeff i ≠ 0 ∧ τ = B₁ ^ i * B₂ ^ j} T →\n                            IsGreatest {ν | ∃ i j, ν = |↑((F.coeff j).coeff i)|} N →\n                              ∃ Gs,\n                                ↑Gs.card ≤\n                                    C * T ^ η * Real.exp (Real.log B₁ * Real.log B₂ / Real.log T) *\n                                      Real.log (2 * N) ∧\n                                  (∀ G ∈ Gs,\n                                      (∀ (i j : ℕ), (G.coeff j).coeff i ≠ 0 → i + j ≤ C') ∧\n                                        ¬Polynomial.map (Polynomial.mapRingHom (Int.castRingHom ℂ))\n                                              F ∣\n                                            G) ∧\n                                    ∀ (x₁ x₂ : ℤ),\n                                      |↑x₁| ≤ B₁ →\n                                        |↑x₂| ≤ B₂ →\n                                          Polynomial.eval x₁ (Polynomial.eval (Polynomial.C x₂) F) =\n                                              0 →\n                                            ∃ G ∈ Gs,\n                                              Polynomial.eval (↑x₁)\n                                                  (Polynomial.eval (Polynomial.C ↑x₂) G) =\n                                                0;\nStewartHyp →\n  (∃ c, CCDN12 c) →\n    Gelfond →\n      thm_reuss1_h1_bal →\n        HB15 →\n          ∀ (ε : ℝ),\n            0 < ε →\n              ∃ C X0,\n                0 < C ∧\n                  1 ≤ X0 ∧\n                    ∀ (x : ℝ),\n                      X0 ≤ x →\n                        ↑{n | 0 < n ∧ ↑n ≤ x ∧ powerful n ∧ powerful (n + 1)}.ncard ≤\n                          C * x ^ (1 / 4 + ε)",
+   "statement_sha256": "39e1691596ec0769225f09547b3441dc5df647ae0848c6788c590a43362488ef",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional",
+   "result": "powerful-counting"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_uniform_reuss",
+   "family": "powerful-counting",
+   "title": "Conditional: all-width counts uniform in k: unions over k ≥ 3 ≪ x^(77/320+ε), over k ≥ 2 ≪ x^(1/4+ε), non-powerful members ≪ x^(77/320+ε) (Stewart, CCDN, Gelfond, Reuss, Heath-Brown, Tao)",
+   "role": "headline",
+   "headline": true,
+   "hypothesis": "Stewart Thue bound; CCDN bound for integral affine curves (N = 12); Gelfond height inequality; Reuss Theorem 1 at h = 1 (balanced windows, open-endpoint convention); Heath-Brown Theorem 15 (n = 2); Tao Lemma 3.1 (k ≤ exp((log N)^(7/10)))",
+   "finite_certificate": false,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "kind": "theorem",
+   "statement": "have powerful := fun m => ∀ (p : ℕ), Nat.Prime p → p ∣ m → p ^ 2 ∣ m;\nhave StewartHyp :=\n  ∀ (q : ℕ),\n    3 ≤ q →\n      ∀ (a : Fin (q + 1) → ℤ),\n        Finset.univ.gcd a = 1 →\n          Squarefree\n              (∑ i, MvPolynomial.C ↑(a i) * MvPolynomial.X 0 ^ ↑i * MvPolynomial.X 1 ^ (q - ↑i)) →\n            ∀ (m : ℤ),\n              m ≠ 0 →\n                {rs | rs.1.gcd rs.2 = 1 ∧ ∑ i, a i * rs.1 ^ ↑i * rs.2 ^ (q - ↑i) = m}.encard ≤\n                  ↑(2800 * q ^ (1 + m.natAbs.primeFactors.card));\nhave CCDN12 := fun c =>\n  ∀ (d : ℕ),\n    1 ≤ d →\n      ∀ (I : Ideal (MvPolynomial (Fin 12) ℚ)),\n        I.IsPrime →\n          ringKrullDim (MvPolynomial (Fin 12) ℚ ⧸ I) = 1 →\n            (∃ e s₀,\n                ∀ (s : ℕ),\n                  s₀ ≤ s →\n                    ↑(Module.finrank ℚ\n                          ↥(Submodule.map (Ideal.Quotient.mkₐ ℚ I).toLinearMap\n                              (MvPolynomial.restrictTotalDegree (Fin 12) ℚ s))) =\n                      ↑d * ↑s + e) →\n              ∀ (B : ℝ),\n                1 ≤ B →\n                  ↑{P |\n                          (∀ f ∈ I, (MvPolynomial.eval fun i => ↑(P i)) f = 0) ∧\n                            ∀ (i : Fin 12), |↑(P i)| ≤ B}.ncard ≤\n                    c * ↑d ^ 3 * B ^ (1 / ↑d) * (Real.log B + ↑d);\nhave Gelfond :=\n  ∀ (n : ℕ),\n    ∃ c,\n      0 ≤ c ∧\n        ∀ (F G : MvPolynomial (Fin n) ℤ),\n          F ≠ 0 →\n            G ∣ F →\n              ∀ (H : ℝ),\n                (∀ (m : Fin n →₀ ℕ), |↑(MvPolynomial.coeff m F)| ≤ H) →\n                  ∀ (m : Fin n →₀ ℕ),\n                    |↑(MvPolynomial.coeff m G)| ≤ Real.exp (c * ↑F.totalDegree) * H;\nhave SW := fun h D E x =>\n  {w |\n    D < ↑w.1 ∧\n      ↑w.1 < 2 * D ∧\n        E < ↑w.2.1 ∧\n          ↑w.2.1 < 2 * E ∧\n            x ^ (1 / 2) * D ^ (-3 / 2) < ↑w.2.2.1 ∧\n              ↑w.2.2.1 < 2 * (x ^ (1 / 2) * D ^ (-3 / 2)) ∧\n                x ^ (1 / 2) * E ^ (-3 / 2) < ↑w.2.2.2 ∧\n                  ↑w.2.2.2 < 2 * (x ^ (1 / 2) * E ^ (-3 / 2)) ∧\n                    ↑w.2.1 ^ 3 * ↑w.2.2.2 ^ 2 - ↑w.1 ^ 3 * ↑w.2.2.1 ^ 2 = h};\nhave thm_reuss1_h1_bal :=\n  ∀ (c : ℝ),\n    0 < c →\n      ∀ (ε : ℝ),\n        0 < ε →\n          ∃ C X0,\n            ∀ (D E x : ℝ),\n              1 < D →\n                1 < E →\n                  x ^ c ≤ D →\n                    x ^ c ≤ E →\n                      1 < x →\n                        X0 ≤ x →\n                          have U := x ^ (1 / 2) * D ^ (-3 / 2);\n                          have V := x ^ (1 / 2) * E ^ (-3 / 2);\n                          have M :=\n                            Real.exp (9 / 8 * Real.log (D * E) * Real.log (U * V) / Real.log x);\n                          1 / 20 * Real.log x ≤ Real.log (D * E) →\n                            Real.log (D * E) ≤ 20 * Real.log x →\n                              1 / 20 * Real.log x ≤ Real.log (U * V) →\n                                Real.log (U * V) ≤ 20 * Real.log x →\n                                  ↑(SW 1 D E x).ncard ≤\n                                    C * x ^ ε *\n                                      min ((D * E * M) ^ (1 / 2) + D + E)\n                                        ((U * V * M) ^ (1 / 2) + U + V);\nhave HB15 :=\n  ∀ (d : ℕ),\n    2 ≤ d →\n      ∀ (η : ℝ),\n        0 < η →\n          ∃ C C',\n            ∀ (F : Polynomial (Polynomial ℤ)),\n              Irreducible (Polynomial.map (Polynomial.mapRingHom (Int.castRingHom ℂ)) F) →\n                (∀ (i j : ℕ), (F.coeff j).coeff i ≠ 0 → i + j ≤ d) →\n                  (∃ i j, (F.coeff j).coeff i ≠ 0 ∧ i + j = d) →\n                    ∀ (B₁ B₂ T N : ℝ),\n                      2 ≤ B₁ →\n                        2 ≤ B₂ →\n                          IsGreatest {τ | ∃ i j, (F.coeff j).coeff i ≠ 0 ∧ τ = B₁ ^ i * B₂ ^ j} T →\n                            IsGreatest {ν | ∃ i j, ν = |↑((F.coeff j).coeff i)|} N →\n                              ∃ Gs,\n                                ↑Gs.card ≤\n                                    C * T ^ η * Real.exp (Real.log B₁ * Real.log B₂ / Real.log T) *\n                                      Real.log (2 * N) ∧\n                                  (∀ G ∈ Gs,\n                                      (∀ (i j : ℕ), (G.coeff j).coeff i ≠ 0 → i + j ≤ C') ∧\n                                        ¬Polynomial.map (Polynomial.mapRingHom (Int.castRingHom ℂ))\n                                              F ∣\n                                            G) ∧\n                                    ∀ (x₁ x₂ : ℤ),\n                                      |↑x₁| ≤ B₁ →\n                                        |↑x₂| ≤ B₂ →\n                                          Polynomial.eval x₁ (Polynomial.eval (Polynomial.C x₂) F) =\n                                              0 →\n                                            ∃ G ∈ Gs,\n                                              Polynomial.eval (↑x₁)\n                                                  (Polynomial.eval (Polynomial.C ↑x₂) G) =\n                                                0;\nhave Tao7R :=\n  ∃ N0,\n    ∀ (N k : ℕ),\n      N0 ≤ N →\n        3 ≤ k →\n          k < N → powerful (∏ i ∈ Finset.Icc 1 k, (N + i)) → ↑k ≤ Real.exp (Real.log ↑N ^ (7 / 10));\nStewartHyp →\n  (∃ c, CCDN12 c) →\n    Gelfond →\n      thm_reuss1_h1_bal →\n        HB15 →\n          Tao7R →\n            (∀ (ε : ℝ),\n                0 < ε →\n                  ∃ C X0,\n                    0 < C ∧\n                      1 ≤ X0 ∧\n                        ∀ (x : ℝ),\n                          X0 ≤ x →\n                            ↑{n |\n                                    ↑n ≤ x ∧\n                                      ∃ k, 3 ≤ k ∧ powerful (∏ i ∈ Finset.Icc 1 k, (n + i))}.ncard ≤\n                              C * x ^ (77 / 320 + ε)) ∧\n              (∀ (ε : ℝ),\n                  0 < ε →\n                    ∃ C X0,\n                      0 < C ∧\n                        1 ≤ X0 ∧\n                          ∀ (x : ℝ),\n                            X0 ≤ x →\n                              ↑{n |\n                                      ↑n ≤ x ∧\n                                        ∃ k,\n                                          2 ≤ k ∧ powerful (∏ i ∈ Finset.Icc 1 k, (n + i))}.ncard ≤\n                                C * x ^ (1 / 4 + ε)) ∧\n                ∀ (ε : ℝ),\n                  0 < ε →\n                    ∃ C X0,\n                      0 < C ∧\n                        1 ≤ X0 ∧\n                          ∀ (x : ℝ),\n                            X0 ≤ x →\n                              ↑{z |\n                                      0 < z ∧\n                                        ↑z ≤ x ∧\n                                          ¬powerful z ∧\n                                            ∃ N K,\n                                              1 ≤ K ∧\n                                                N < z ∧\n                                                  z ≤ N + K ∧\n                                                    powerful\n                                                      (∏ i ∈ Finset.Icc 1 K, (N + i))}.ncard ≤\n                                C * x ^ (77 / 320 + ε)",
+   "statement_sha256": "639317963b1a517ec38172abf807f06f4cb03211cc44f1c6cfa90db63fe9f528",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional",
+   "result": "powerful-counting"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_prop_interval",
+   "family": "powerful-counting",
+   "title": "Conditional: interval bound for shifted Pell-type windows SW(h,D,E,x) (prop:interval; Stewart, CCDN, Gelfond)",
+   "role": "result",
+   "headline": false,
+   "hypothesis": "Stewart Thue bound; CCDN bound for integral affine curves (N = 12); Gelfond height inequality",
+   "finite_certificate": false,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "kind": "theorem",
+   "statement": "have SW := fun h D E x =>\n  {w |\n    D < ↑w.1 ∧\n      ↑w.1 ≤ 2 * D ∧\n        E < ↑w.2.1 ∧\n          ↑w.2.1 ≤ 2 * E ∧\n            x ^ (1 / 2) * D ^ (-3 / 2) < ↑w.2.2.1 ∧\n              ↑w.2.2.1 < 2 * (x ^ (1 / 2) * D ^ (-3 / 2)) ∧\n                x ^ (1 / 2) * E ^ (-3 / 2) < ↑w.2.2.2 ∧\n                  ↑w.2.2.2 < 2 * (x ^ (1 / 2) * E ^ (-3 / 2)) ∧\n                    ↑w.2.1 ^ 3 * ↑w.2.2.2 ^ 2 - ↑w.1 ^ 3 * ↑w.2.2.1 ^ 2 = h};\nhave StewartHyp :=\n  ∀ (q : ℕ),\n    3 ≤ q →\n      ∀ (a : Fin (q + 1) → ℤ),\n        Finset.univ.gcd a = 1 →\n          Squarefree\n              (∑ i, MvPolynomial.C ↑(a i) * MvPolynomial.X 0 ^ ↑i * MvPolynomial.X 1 ^ (q - ↑i)) →\n            ∀ (m : ℤ),\n              m ≠ 0 →\n                {rs | rs.1.gcd rs.2 = 1 ∧ ∑ i, a i * rs.1 ^ ↑i * rs.2 ^ (q - ↑i) = m}.encard ≤\n                  ↑(2800 * q ^ (1 + m.natAbs.primeFactors.card));\nhave CCDN12 := fun c =>\n  ∀ (d : ℕ),\n    1 ≤ d →\n      ∀ (I : Ideal (MvPolynomial (Fin 12) ℚ)),\n        I.IsPrime →\n          ringKrullDim (MvPolynomial (Fin 12) ℚ ⧸ I) = 1 →\n            (∃ e s₀,\n                ∀ (s : ℕ),\n                  s₀ ≤ s →\n                    ↑(Module.finrank ℚ\n                          ↥(Submodule.map (Ideal.Quotient.mkₐ ℚ I).toLinearMap\n                              (MvPolynomial.restrictTotalDegree (Fin 12) ℚ s))) =\n                      ↑d * ↑s + e) →\n              ∀ (B : ℝ),\n                1 ≤ B →\n                  ↑{P |\n                          (∀ f ∈ I, (MvPolynomial.eval fun i => ↑(P i)) f = 0) ∧\n                            ∀ (i : Fin 12), |↑(P i)| ≤ B}.ncard ≤\n                    c * ↑d ^ 3 * B ^ (1 / ↑d) * (Real.log B + ↑d);\nhave Gelfond :=\n  ∀ (n : ℕ),\n    ∃ c,\n      0 ≤ c ∧\n        ∀ (F G : MvPolynomial (Fin n) ℤ),\n          F ≠ 0 →\n            G ∣ F →\n              ∀ (H : ℝ),\n                (∀ (m : Fin n →₀ ℕ), |↑(MvPolynomial.coeff m F)| ≤ H) →\n                  ∀ (m : Fin n →₀ ℕ),\n                    |↑(MvPolynomial.coeff m G)| ≤ Real.exp (c * ↑F.totalDegree) * H;\nStewartHyp →\n  (∃ c, CCDN12 c) →\n    Gelfond →\n      ∀ (h : ℤ),\n        h ≠ 0 →\n          ∀ (c : ℝ),\n            0 < c →\n              c < 1 →\n                ∀ (δ : ℝ),\n                  0 < δ →\n                    δ < 1 →\n                      ∀ (G : Finset ℕ) (ε : ℝ),\n                        0 < ε →\n                          ∃ C X0,\n                            0 < C ∧\n                              ∀ (D E x : ℝ),\n                                1 / 2 ≤ D →\n                                  1 / 2 ≤ E →\n                                    1 < x →\n                                      X0 ≤ x →\n                                        have a := Real.log D / Real.log x;\n                                        have b := Real.log E / Real.log x;\n                                        have s := a + b;\n                                        have t := 1 - 3 * s / 2;\n                                        have m := 9 / 8 * s * t;\n                                        have M := ⌈x ^ ((1 + δ) * m)⌉₊;\n                                        have U := x ^ (1 / 2) * D ^ (-3 / 2);\n                                        have V := x ^ (1 / 2) * E ^ (-3 / 2);\n                                        have ρ₀ := fun j => D / (2 * E) * (1 + 1 / ↑M) ^ j;\n                                        have ω₀ := fun j => ρ₀ j ^ (3 / 2);\n                                        have nrm := fun p q => √(p ^ 2 + q ^ 2);\n                                        have L₁ := fun v j =>\n                                          2 /\n                                            nrm (↑M / (4 * D) * (↑v.1 - ρ₀ j * ↑v.2))\n                                              (↑v.2 / (2 * E));\n                                        have T₁ := fun w j =>\n                                          2 /\n                                            nrm (↑M / (17 * V) * (↑w.1 - ω₀ j * ↑w.2))\n                                              (↑w.2 / (2 * U));\n                                        c ≤ s →\n                                          c ≤ t →\n                                            ∀ (j : ℕ),\n                                              D / (2 * E) ≤ ρ₀ j →\n                                                ρ₀ j ≤ 2 * D / E →\n                                                  ∃ v w,\n                                                    v ≠ 0 ∧\n                                                      w ≠ 0 ∧\n                                                        ↑⋯.ncard ≤\n                                                          C * x ^ ε *\n                                                            (1 +\n                                                              (L₁ v j ^ 3 * T₁ w j ^ 2) ^ (1 / 10))",
+   "statement_sha256": "e596cdafc515ce4fe07ff990da4e162d09f6b2212563472313b2fff03e3b401c",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional",
+   "result": "powerful-counting"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_Bred",
+   "family": "powerful-counting",
+   "title": "Conditional: reduced-window exponent bound B_red (thm:Bred; Stewart, CCDN, Gelfond)",
+   "role": "result",
+   "headline": false,
+   "hypothesis": "Stewart Thue bound; CCDN bound for integral affine curves (N = 12); Gelfond height inequality",
+   "finite_certificate": false,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "kind": "theorem",
+   "statement": "have SW := fun h D E x =>\n  {w |\n    D < ↑w.1 ∧\n      ↑w.1 ≤ 2 * D ∧\n        E < ↑w.2.1 ∧\n          ↑w.2.1 ≤ 2 * E ∧\n            x ^ (1 / 2) * D ^ (-3 / 2) < ↑w.2.2.1 ∧\n              ↑w.2.2.1 < 2 * (x ^ (1 / 2) * D ^ (-3 / 2)) ∧\n                x ^ (1 / 2) * E ^ (-3 / 2) < ↑w.2.2.2 ∧\n                  ↑w.2.2.2 < 2 * (x ^ (1 / 2) * E ^ (-3 / 2)) ∧\n                    ↑w.2.1 ^ 3 * ↑w.2.2.2 ^ 2 - ↑w.1 ^ 3 * ↑w.2.2.1 ^ 2 = h};\nhave StewartHyp :=\n  ∀ (q : ℕ),\n    3 ≤ q →\n      ∀ (a : Fin (q + 1) → ℤ),\n        Finset.univ.gcd a = 1 →\n          Squarefree\n              (∑ i, MvPolynomial.C ↑(a i) * MvPolynomial.X 0 ^ ↑i * MvPolynomial.X 1 ^ (q - ↑i)) →\n            ∀ (m : ℤ),\n              m ≠ 0 →\n                {rs | rs.1.gcd rs.2 = 1 ∧ ∑ i, a i * rs.1 ^ ↑i * rs.2 ^ (q - ↑i) = m}.encard ≤\n                  ↑(2800 * q ^ (1 + m.natAbs.primeFactors.card));\nhave CCDN12 := fun c =>\n  ∀ (d : ℕ),\n    1 ≤ d →\n      ∀ (I : Ideal (MvPolynomial (Fin 12) ℚ)),\n        I.IsPrime →\n          ringKrullDim (MvPolynomial (Fin 12) ℚ ⧸ I) = 1 →\n            (∃ e s₀,\n                ∀ (s : ℕ),\n                  s₀ ≤ s →\n                    ↑(Module.finrank ℚ\n                          ↥(Submodule.map (Ideal.Quotient.mkₐ ℚ I).toLinearMap\n                              (MvPolynomial.restrictTotalDegree (Fin 12) ℚ s))) =\n                      ↑d * ↑s + e) →\n              ∀ (B : ℝ),\n                1 ≤ B →\n                  ↑{P |\n                          (∀ f ∈ I, (MvPolynomial.eval fun i => ↑(P i)) f = 0) ∧\n                            ∀ (i : Fin 12), |↑(P i)| ≤ B}.ncard ≤\n                    c * ↑d ^ 3 * B ^ (1 / ↑d) * (Real.log B + ↑d);\nhave Gelfond :=\n  ∀ (n : ℕ),\n    ∃ c,\n      0 ≤ c ∧\n        ∀ (F G : MvPolynomial (Fin n) ℤ),\n          F ≠ 0 →\n            G ∣ F →\n              ∀ (H : ℝ),\n                (∀ (m : Fin n →₀ ℕ), |↑(MvPolynomial.coeff m F)| ≤ H) →\n                  ∀ (m : Fin n →₀ ℕ),\n                    |↑(MvPolynomial.coeff m G)| ≤ Real.exp (c * ↑F.totalDegree) * H;\nStewartHyp →\n  (∃ c, CCDN12 c) →\n    Gelfond →\n      ∀ (h : ℤ),\n        h ≠ 0 →\n          ∀ (c : ℝ),\n            0 < c →\n              c < 1 →\n                ∀ (G : Finset ℕ) (ε : ℝ),\n                  0 < ε →\n                    ∃ C X0,\n                      ∀ (D E x : ℝ),\n                        1 / 2 ≤ D →\n                          1 / 2 ≤ E →\n                            1 < x →\n                              X0 ≤ x →\n                                have a := Real.log D / Real.log x;\n                                have b := Real.log E / Real.log x;\n                                have s := a + b;\n                                have t := 1 - 3 * s / 2;\n                                have m := 9 / 8 * s * t;\n                                have lst := max (max ((s - m) / 2) (a - m)) (b - m);\n                                have tst :=\n                                  max (max ((t - m) / 2) ((1 - 3 * a) / 2 - m))\n                                    ((1 - 3 * b) / 2 - m);\n                                c ≤ s →\n                                  c ≤ t →\n                                    ↑{w |\n                                            w ∈ SW h D E x ∧\n                                              w.1.gcd w.2.1 ∈ G ∧ w.2.2.1.gcd w.2.2.2 ∈ G}.ncard ≤\n                                      C * x ^ (max m (m + 3 / 10 * lst + 1 / 5 * tst) + ε)",
+   "statement_sha256": "c1b6d2f34c7df1e6dedc43e86fa2d19addf6f47df508dafdc15c6bb812346a0a",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional",
+   "result": "powerful-counting"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_UPI",
+   "family": "powerful-counting",
+   "title": "Conditional: uniform per-interval lattice count UPI (Stewart, CCDN, Gelfond)",
+   "role": "result",
+   "headline": false,
+   "hypothesis": "Stewart Thue bound; CCDN bound for integral affine curves (N = 12); Gelfond height inequality",
+   "finite_certificate": false,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "kind": "theorem",
+   "statement": "have SW := fun h D E x =>\n  {w |\n    D < ↑w.1 ∧\n      ↑w.1 ≤ 2 * D ∧\n        E < ↑w.2.1 ∧\n          ↑w.2.1 ≤ 2 * E ∧\n            x ^ (1 / 2) * D ^ (-3 / 2) < ↑w.2.2.1 ∧\n              ↑w.2.2.1 < 2 * (x ^ (1 / 2) * D ^ (-3 / 2)) ∧\n                x ^ (1 / 2) * E ^ (-3 / 2) < ↑w.2.2.2 ∧\n                  ↑w.2.2.2 < 2 * (x ^ (1 / 2) * E ^ (-3 / 2)) ∧\n                    ↑w.2.1 ^ 3 * ↑w.2.2.2 ^ 2 - ↑w.1 ^ 3 * ↑w.2.2.1 ^ 2 = h};\nhave StewartHyp :=\n  ∀ (q : ℕ),\n    3 ≤ q →\n      ∀ (a : Fin (q + 1) → ℤ),\n        Finset.univ.gcd a = 1 →\n          Squarefree\n              (∑ i, MvPolynomial.C ↑(a i) * MvPolynomial.X 0 ^ ↑i * MvPolynomial.X 1 ^ (q - ↑i)) →\n            ∀ (m : ℤ),\n              m ≠ 0 →\n                {rs | rs.1.gcd rs.2 = 1 ∧ ∑ i, a i * rs.1 ^ ↑i * rs.2 ^ (q - ↑i) = m}.encard ≤\n                  ↑(2800 * q ^ (1 + m.natAbs.primeFactors.card));\nhave CCDN12 := fun c =>\n  ∀ (d : ℕ),\n    1 ≤ d →\n      ∀ (I : Ideal (MvPolynomial (Fin 12) ℚ)),\n        I.IsPrime →\n          ringKrullDim (MvPolynomial (Fin 12) ℚ ⧸ I) = 1 →\n            (∃ e s₀,\n                ∀ (s : ℕ),\n                  s₀ ≤ s →\n                    ↑(Module.finrank ℚ\n                          ↥(Submodule.map (Ideal.Quotient.mkₐ ℚ I).toLinearMap\n                              (MvPolynomial.restrictTotalDegree (Fin 12) ℚ s))) =\n                      ↑d * ↑s + e) →\n              ∀ (B : ℝ),\n                1 ≤ B →\n                  ↑{P |\n                          (∀ f ∈ I, (MvPolynomial.eval fun i => ↑(P i)) f = 0) ∧\n                            ∀ (i : Fin 12), |↑(P i)| ≤ B}.ncard ≤\n                    c * ↑d ^ 3 * B ^ (1 / ↑d) * (Real.log B + ↑d);\nhave Gelfond :=\n  ∀ (n : ℕ),\n    ∃ c,\n      0 ≤ c ∧\n        ∀ (F G : MvPolynomial (Fin n) ℤ),\n          F ≠ 0 →\n            G ∣ F →\n              ∀ (H : ℝ),\n                (∀ (m : Fin n →₀ ℕ), |↑(MvPolynomial.coeff m F)| ≤ H) →\n                  ∀ (m : Fin n →₀ ℕ),\n                    |↑(MvPolynomial.coeff m G)| ≤ Real.exp (c * ↑F.totalDegree) * H;\nStewartHyp →\n  (∃ c, CCDN12 c) →\n    Gelfond →\n      ∀ (c δ ε : ℝ),\n        0 < c →\n          c ≤ 1 / 10 →\n            0 < δ →\n              δ ≤ 1 / 100 →\n                0 < ε →\n                  ∃ C X₀,\n                    0 < C ∧\n                      1 < X₀ ∧\n                        ∀ (x : ℝ),\n                          X₀ ≤ x →\n                            ∀ (h : ℤ),\n                              1 ≤ |h| →\n                                ↑|h| ≤ x ^ (δ / 4) →\n                                  ∀ (D E : ℝ),\n                                    1 / 2 ≤ D →\n                                      1 / 2 ≤ E →\n                                        have a := Real.log D / Real.log x;\n                                        have b := Real.log E / Real.log x;\n                                        have s := a + b;\n                                        have t := 1 - 3 * s / 2;\n                                        have m := 9 / 8 * s * t;\n                                        have M := ⌈x ^ ((1 + δ) * m)⌉₊;\n                                        have U := x ^ (1 / 2) * D ^ (-3 / 2);\n                                        have V := x ^ (1 / 2) * E ^ (-3 / 2);\n                                        have ρ₀ := fun j => D / (2 * E) * (1 + 1 / ↑M) ^ j;\n                                        have ω₀ := fun j => ρ₀ j ^ (3 / 2);\n                                        have nrm := fun p q => √(p ^ 2 + q ^ 2);\n                                        have L₁ := fun v j =>\n                                          2 /\n                                            nrm (↑M / (4 * D) * (↑v.1 - ρ₀ j * ↑v.2))\n                                              (↑v.2 / (2 * E));\n                                        have T₁ := fun w j =>\n                                          2 /\n                                            nrm (↑M / (17 * V) * (↑w.1 - ω₀ j * ↑w.2))\n                                              (↑w.2 / (2 * U));\n                                        c ≤ s →\n                                          c ≤ t →\n                                            ∀ (j : ℕ),\n                                              D / (2 * E) ≤ ρ₀ j →\n                                                ρ₀ j ≤ 2 * D / E →\n                                                  ∃ v w,\n                                                    v ≠ 0 ∧\n                                                      w ≠ 0 ∧\n                                                        ↑(Set.ofPred ⋯).ncard ≤\n                                                          C * x ^ ε *\n                                                            (1 +\n                                                              (L₁ v j ^ 3 * T₁ w j ^ 2) ^ (1 / 10))",
+   "statement_sha256": "4b225e986fece719a0ac0d4c568b698bd655f2ba7bf6d6b51502a9c84c6ed308",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional",
+   "result": "powerful-counting"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformwindows_TB",
+   "family": "powerful-counting",
+   "title": "Conditional: third bound of lem:uniformwindows for coprime window points (Stewart, CCDN, Gelfond)",
+   "role": "result",
+   "headline": false,
+   "hypothesis": "Stewart Thue bound; CCDN bound for integral affine curves (N = 12); Gelfond height inequality",
+   "finite_certificate": false,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "kind": "theorem",
+   "statement": "have StewartHyp :=\n  ∀ (q : ℕ),\n    3 ≤ q →\n      ∀ (a : Fin (q + 1) → ℤ),\n        Finset.univ.gcd a = 1 →\n          Squarefree\n              (∑ i, MvPolynomial.C ↑(a i) * MvPolynomial.X 0 ^ ↑i * MvPolynomial.X 1 ^ (q - ↑i)) →\n            ∀ (m : ℤ),\n              m ≠ 0 →\n                {rs | rs.1.gcd rs.2 = 1 ∧ ∑ i, a i * rs.1 ^ ↑i * rs.2 ^ (q - ↑i) = m}.encard ≤\n                  ↑(2800 * q ^ (1 + m.natAbs.primeFactors.card));\nhave CCDN12 := fun c =>\n  ∀ (d : ℕ),\n    1 ≤ d →\n      ∀ (I : Ideal (MvPolynomial (Fin 12) ℚ)),\n        I.IsPrime →\n          ringKrullDim (MvPolynomial (Fin 12) ℚ ⧸ I) = 1 →\n            (∃ e s₀,\n                ∀ (s : ℕ),\n                  s₀ ≤ s →\n                    ↑(Module.finrank ℚ\n                          ↥(Submodule.map (Ideal.Quotient.mkₐ ℚ I).toLinearMap\n                              (MvPolynomial.restrictTotalDegree (Fin 12) ℚ s))) =\n                      ↑d * ↑s + e) →\n              ∀ (B : ℝ),\n                1 ≤ B →\n                  ↑{P |\n                          (∀ f ∈ I, (MvPolynomial.eval fun i => ↑(P i)) f = 0) ∧\n                            ∀ (i : Fin 12), |↑(P i)| ≤ B}.ncard ≤\n                    c * ↑d ^ 3 * B ^ (1 / ↑d) * (Real.log B + ↑d);\nhave Gelfond :=\n  ∀ (n : ℕ),\n    ∃ c,\n      0 ≤ c ∧\n        ∀ (F G : MvPolynomial (Fin n) ℤ),\n          F ≠ 0 →\n            G ∣ F →\n              ∀ (H : ℝ),\n                (∀ (m : Fin n →₀ ℕ), |↑(MvPolynomial.coeff m F)| ≤ H) →\n                  ∀ (m : Fin n →₀ ℕ),\n                    |↑(MvPolynomial.coeff m G)| ≤ Real.exp (c * ↑F.totalDegree) * H;\nStewartHyp →\n  (∃ c, CCDN12 c) →\n    Gelfond →\n      have SW := fun h D E x =>\n        {w |\n          D < ↑w.1 ∧\n            ↑w.1 ≤ 2 * D ∧\n              E < ↑w.2.1 ∧\n                ↑w.2.1 ≤ 2 * E ∧\n                  x ^ (1 / 2) * D ^ (-3 / 2) < ↑w.2.2.1 ∧\n                    ↑w.2.2.1 < 2 * (x ^ (1 / 2) * D ^ (-3 / 2)) ∧\n                      x ^ (1 / 2) * E ^ (-3 / 2) < ↑w.2.2.2 ∧\n                        ↑w.2.2.2 < 2 * (x ^ (1 / 2) * E ^ (-3 / 2)) ∧\n                          ↑w.2.1 ^ 3 * ↑w.2.2.2 ^ 2 - ↑w.1 ^ 3 * ↑w.2.2.1 ^ 2 = h};\n      ∀ (c δ ε : ℝ),\n        0 < c →\n          c ≤ 1 / 10 →\n            0 < δ →\n              δ ≤ 1 / 100 →\n                0 < ε →\n                  ∃ C X₀,\n                    0 < C ∧\n                      1 < X₀ ∧\n                        ∀ (x : ℝ),\n                          X₀ ≤ x →\n                            ∀ (h : ℤ),\n                              1 ≤ |h| →\n                                ↑|h| ≤ x ^ (δ / 4) →\n                                  ∀ (D E : ℝ),\n                                    1 / 2 ≤ D →\n                                      1 / 2 ≤ E →\n                                        have a := Real.log D / Real.log x;\n                                        have b := Real.log E / Real.log x;\n                                        have s := a + b;\n                                        have t := 1 - 3 * s / 2;\n                                        have m := 9 / 8 * s * t;\n                                        have lst := max (max ((s - m) / 2) (a - m)) (b - m);\n                                        have tst :=\n                                          max (max ((t - m) / 2) ((1 - 3 * a) / 2 - m))\n                                            ((1 - 3 * b) / 2 - m);\n                                        c ≤ s →\n                                          c ≤ t →\n                                            ↑{w |\n                                                    w ∈ SW h D E x ∧\n                                                      w.1.gcd w.2.1 = 1 ∧\n                                                        w.2.2.1.gcd w.2.2.2 = 1}.ncard ≤\n                                              C *\n                                                x ^\n                                                  (max m (m + 3 / 10 * lst + 1 / 5 * tst) + ε +\n                                                    2 * δ)",
+   "statement_sha256": "7ad14c7c93ae378c4190d7f146cbc8a909765934dbad9e3068cacb9d315cfba9",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional",
+   "result": "powerful-counting"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformtriple",
+   "family": "powerful-counting",
+   "title": "Conditional: uniform good-triple lemma (lem:uniformtriple; Stewart, CCDN, Gelfond)",
+   "role": "result",
+   "headline": false,
+   "hypothesis": "Stewart Thue bound; CCDN bound for integral affine curves (N = 12); Gelfond height inequality",
+   "finite_certificate": false,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "kind": "theorem",
+   "statement": "have powerful := fun m => ∀ (p : ℕ), Nat.Prime p → p ∣ m → p ^ 2 ∣ m;\nhave StewartHyp :=\n  ∀ (q : ℕ),\n    3 ≤ q →\n      ∀ (a : Fin (q + 1) → ℤ),\n        Finset.univ.gcd a = 1 →\n          Squarefree\n              (∑ i, MvPolynomial.C ↑(a i) * MvPolynomial.X 0 ^ ↑i * MvPolynomial.X 1 ^ (q - ↑i)) →\n            ∀ (m : ℤ),\n              m ≠ 0 →\n                {rs | rs.1.gcd rs.2 = 1 ∧ ∑ i, a i * rs.1 ^ ↑i * rs.2 ^ (q - ↑i) = m}.encard ≤\n                  ↑(2800 * q ^ (1 + m.natAbs.primeFactors.card));\nhave CCDN12 := fun c =>\n  ∀ (d : ℕ),\n    1 ≤ d →\n      ∀ (I : Ideal (MvPolynomial (Fin 12) ℚ)),\n        I.IsPrime →\n          ringKrullDim (MvPolynomial (Fin 12) ℚ ⧸ I) = 1 →\n            (∃ e s₀,\n                ∀ (s : ℕ),\n                  s₀ ≤ s →\n                    ↑(Module.finrank ℚ\n                          ↥(Submodule.map (Ideal.Quotient.mkₐ ℚ I).toLinearMap\n                              (MvPolynomial.restrictTotalDegree (Fin 12) ℚ s))) =\n                      ↑d * ↑s + e) →\n              ∀ (B : ℝ),\n                1 ≤ B →\n                  ↑{P |\n                          (∀ f ∈ I, (MvPolynomial.eval fun i => ↑(P i)) f = 0) ∧\n                            ∀ (i : Fin 12), |↑(P i)| ≤ B}.ncard ≤\n                    c * ↑d ^ 3 * B ^ (1 / ↑d) * (Real.log B + ↑d);\nhave Gelfond :=\n  ∀ (n : ℕ),\n    ∃ c,\n      0 ≤ c ∧\n        ∀ (F G : MvPolynomial (Fin n) ℤ),\n          F ≠ 0 →\n            G ∣ F →\n              ∀ (H : ℝ),\n                (∀ (m : Fin n →₀ ℕ), |↑(MvPolynomial.coeff m F)| ≤ H) →\n                  ∀ (m : Fin n →₀ ℕ),\n                    |↑(MvPolynomial.coeff m G)| ≤ Real.exp (c * ↑F.totalDegree) * H;\nStewartHyp →\n  (∃ c, CCDN12 c) →\n    Gelfond →\n      ∀ (ε : ℝ),\n        0 < ε →\n          ∃ η C,\n            0 < η ∧\n              ∀ (y : ℝ),\n                2 ≤ y →\n                  ∀ (f₁ f₂ f₃ : ℕ),\n                    1 ≤ f₁ →\n                      1 ≤ f₂ →\n                        1 ≤ f₃ →\n                          ↑f₁ ≤ y ^ η →\n                            ↑f₂ ≤ y ^ η →\n                              ↑f₃ ≤ y ^ η →\n                                ↑{N |\n                                        ↑N ≤ y ∧\n                                          (∃ q, 0 < q ∧ powerful q ∧ N + 1 = f₁ * q) ∧\n                                            (∃ q, 0 < q ∧ powerful q ∧ N + 2 = f₂ * q) ∧\n                                              ∃ q, 0 < q ∧ powerful q ∧ N + 3 = f₃ * q}.ncard ≤\n                                  C * y ^ (77 / 320 + ε)",
+   "statement_sha256": "b565d30dc99ca9376956e78ccc370a1646da51343ad28dc1cbd75141847463dd",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional",
+   "result": "powerful-counting"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.reuss_window_bridge",
+   "family": "powerful-counting",
+   "title": "Reuss Theorem 1 at h = 1 with open-endpoint windows implies the closed-endpoint window form",
+   "role": "bridge",
+   "headline": false,
+   "hypothesis": null,
+   "finite_certificate": false,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "kind": "theorem",
+   "statement": "have SW := fun h D E x =>\n  {w |\n    D < ↑w.1 ∧\n      ↑w.1 ≤ 2 * D ∧\n        E < ↑w.2.1 ∧\n          ↑w.2.1 ≤ 2 * E ∧\n            x ^ (1 / 2) * D ^ (-3 / 2) < ↑w.2.2.1 ∧\n              ↑w.2.2.1 < 2 * (x ^ (1 / 2) * D ^ (-3 / 2)) ∧\n                x ^ (1 / 2) * E ^ (-3 / 2) < ↑w.2.2.2 ∧\n                  ↑w.2.2.2 < 2 * (x ^ (1 / 2) * E ^ (-3 / 2)) ∧\n                    ↑w.2.1 ^ 3 * ↑w.2.2.2 ^ 2 - ↑w.1 ^ 3 * ↑w.2.2.1 ^ 2 = h};\nhave SWs := fun h D E x =>\n  {w |\n    D < ↑w.1 ∧\n      ↑w.1 < 2 * D ∧\n        E < ↑w.2.1 ∧\n          ↑w.2.1 < 2 * E ∧\n            x ^ (1 / 2) * D ^ (-3 / 2) < ↑w.2.2.1 ∧\n              ↑w.2.2.1 < 2 * (x ^ (1 / 2) * D ^ (-3 / 2)) ∧\n                x ^ (1 / 2) * E ^ (-3 / 2) < ↑w.2.2.2 ∧\n                  ↑w.2.2.2 < 2 * (x ^ (1 / 2) * E ^ (-3 / 2)) ∧\n                    ↑w.2.1 ^ 3 * ↑w.2.2.2 ^ 2 - ↑w.1 ^ 3 * ↑w.2.2.1 ^ 2 = h};\nhave thm_reuss1_h1_bal :=\n  ∀ (c : ℝ),\n    0 < c →\n      ∀ (ε : ℝ),\n        0 < ε →\n          ∃ C X0,\n            ∀ (D E x : ℝ),\n              1 < D →\n                1 < E →\n                  x ^ c ≤ D →\n                    x ^ c ≤ E →\n                      1 < x →\n                        X0 ≤ x →\n                          have U := x ^ (1 / 2) * D ^ (-3 / 2);\n                          have V := x ^ (1 / 2) * E ^ (-3 / 2);\n                          have M :=\n                            Real.exp (9 / 8 * Real.log (D * E) * Real.log (U * V) / Real.log x);\n                          1 / 20 * Real.log x ≤ Real.log (D * E) →\n                            Real.log (D * E) ≤ 20 * Real.log x →\n                              1 / 20 * Real.log x ≤ Real.log (U * V) →\n                                Real.log (U * V) ≤ 20 * Real.log x →\n                                  ↑(SW 1 D E x).ncard ≤\n                                    C * x ^ ε *\n                                      min ((D * E * M) ^ (1 / 2) + D + E)\n                                        ((U * V * M) ^ (1 / 2) + U + V);\nhave thm_reuss1_h1_bal_strict :=\n  ∀ (c : ℝ),\n    0 < c →\n      ∀ (ε : ℝ),\n        0 < ε →\n          ∃ C X0,\n            ∀ (D E x : ℝ),\n              1 < D →\n                1 < E →\n                  x ^ c ≤ D →\n                    x ^ c ≤ E →\n                      1 < x →\n                        X0 ≤ x →\n                          have U := x ^ (1 / 2) * D ^ (-3 / 2);\n                          have V := x ^ (1 / 2) * E ^ (-3 / 2);\n                          have M :=\n                            Real.exp (9 / 8 * Real.log (D * E) * Real.log (U * V) / Real.log x);\n                          1 / 20 * Real.log x ≤ Real.log (D * E) →\n                            Real.log (D * E) ≤ 20 * Real.log x →\n                              1 / 20 * Real.log x ≤ Real.log (U * V) →\n                                Real.log (U * V) ≤ 20 * Real.log x →\n                                  ↑(SWs 1 D E x).ncard ≤\n                                    C * x ^ ε *\n                                      min ((D * E * M) ^ (1 / 2) + D + E)\n                                        ((U * V * M) ^ (1 / 2) + U + V);\nthm_reuss1_h1_bal_strict → thm_reuss1_h1_bal",
+   "statement_sha256": "0189ef31d3c8964ce1fc13a1d6be30602e26ba8f296d30d1021a92df40fa4427",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "lean_nanoda_standard",
+   "result": "powerful-counting"
+  }
+ ],
+ "definitions": [],
+ "reproduction": {
+  "build": "scripts/build.sh",
+  "axiom_audit": "scripts/audit.sh",
+  "replay": "scripts/replay.sh"
+ },
+ "counts": {
+  "declarations": 22,
+  "definitions": 0,
+  "headlines": 3,
+  "by_evidence_level": {
+   "lean_nanoda_standard": 11,
+   "conditional": 11
+  }
+ }
+}

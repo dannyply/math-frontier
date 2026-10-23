@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use these results or this repository, please cite it as below."
+title: "math-frontier"
+abstract: "Mathematical results obtained with the Jocelyn research harness, each with a paper, a Lean formalization replayed by an independent kernel, and a registry record of its assumptions and checks."
+type: software
+authors:
+  - family-names: Plymesser
+    given-names: Danny
+version: 1.0.0
+date-released: 2026-10-23
+repository-code: "https://github.com/dannyply/math-frontier"
+license: Apache-2.0
+references:
+  - type: article
+    title: "Counting powerful products of consecutive integers"
+    authors:
+      - family-names: Plymesser
+        given-names: Danny
+    year: 2026
+    url: "https://github.com/dannyply/math-frontier/tree/v1.0.0/papers/powerful-counting"
+    notes: "Repository preprint, version 1.0.0. AI-produced work; see the paper's verification and disclosure section."

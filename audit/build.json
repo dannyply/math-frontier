@@ -1,0 +1,253 @@
+{
+ "toolchain": "leanprover/lean4:v4.33.1",
+ "modules": [
+  {
+   "module": "JocelynWorkspace.Erdos137.FixedWidth.GoodIndex",
+   "returncode": 0,
+   "elapsed_s": 31.7,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Erdos137.FixedWidth.ThueWindow",
+   "returncode": 0,
+   "elapsed_s": 19.2,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Erdos137.WidthThree.CentralSet.SmallGapExclusion",
+   "returncode": 0,
+   "elapsed_s": 45.5,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromPairAndUnion",
+   "returncode": 0,
+   "elapsed_s": 28.9,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromUniformTriple",
+   "returncode": 0,
+   "elapsed_s": 29.2,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope",
+   "returncode": 0,
+   "elapsed_s": 20.5,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeMoments",
+   "returncode": 0,
+   "elapsed_s": 58.9,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeTails",
+   "returncode": 0,
+   "elapsed_s": 47.2,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.NonpowerfulMembers",
+   "returncode": 0,
+   "elapsed_s": 20.0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.PairExponentCertificate",
+   "returncode": 0,
+   "elapsed_s": 34.4,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.Paper3OriginalActualAuxiliaryPolynomial",
+   "returncode": 0,
+   "elapsed_s": 69.2,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.Paper3PointKernel",
+   "returncode": 0,
+   "elapsed_s": 17.2,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.StrictWindows",
+   "returncode": 0,
+   "elapsed_s": 31.9,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.TripleExponentCertificate",
+   "returncode": 0,
+   "elapsed_s": 28.4,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.LowDegreeComponents",
+   "returncode": 0,
+   "elapsed_s": 44.2,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.ComponentClassification",
+   "returncode": 0,
+   "elapsed_s": 148.7,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.LemmaP",
+   "returncode": 0,
+   "elapsed_s": 41.4,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.IntervalCount",
+   "returncode": 0,
+   "elapsed_s": 89.9,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.PellThueCounts",
+   "returncode": 0,
+   "elapsed_s": 39.8,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.ReducedCoordinates",
+   "returncode": 0,
+   "elapsed_s": 74.6,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.ReducedBoxBound",
+   "returncode": 0,
+   "elapsed_s": 22.8,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.FixedWidthAssembly",
+   "returncode": 0,
+   "elapsed_s": 35.8,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.PairAssembly",
+   "returncode": 0,
+   "elapsed_s": 30.2,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.HeathBrownBound",
+   "returncode": 0,
+   "elapsed_s": 39.1,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.UniformLowDegree",
+   "returncode": 0,
+   "elapsed_s": 40.0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.UniformWindows",
+   "returncode": 0,
+   "elapsed_s": 93.9,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.AllWidthAssembly",
+   "returncode": 0,
+   "elapsed_s": 34.0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.PairAssemblyReuss",
+   "returncode": 0,
+   "elapsed_s": 28.4,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "returncode": 0,
+   "elapsed_s": 25.7,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.GoodTriple",
+   "returncode": 0,
+   "elapsed_s": 17.5,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  },
+  {
+   "module": "JocelynWorkspace",
+   "returncode": 0,
+   "elapsed_s": 17.3,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false
+  }
+ ]
+}

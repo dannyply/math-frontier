@@ -1,0 +1,12 @@
+G1     c=1/10  T=77/320      -> CERTIFIED nodes=537    at=None ub=0.240625
+G1     c=1/10  T=2406/10000  -> FAILED    nodes=214    at=[0.166667, 0.166667, 0.171111] ub=0.2406
+G2     c=1/100 T=77/320      -> CERTIFIED nodes=729    at=None ub=0.240625
+G2     c=1/10  T=77/320      -> CERTIFIED nodes=729    at=None ub=0.240625
+G2     c=1/4   T=77/320      -> FAILED    nodes=505    at=[0.270844, 0.270844, 0.295594] ub=0.2406250901
+G2     c=1/4   T=2406/10000  -> FAILED    nodes=749    at=[0.270838, 0.270838, 0.295615] ub=0.2406000296
+G1     c=1/4   T=77/320      -> FAILED    nodes=505    at=[0.270844, 0.270844, 0.295594] ub=0.2406250901
+G1     c=1/3   T=77/320      -> FAILED    nodes=505    at=[0.270844, 0.270844, 0.295594] ub=0.2406250901
+G1     c=1/3   T=2406/10000  -> FAILED    nodes=749    at=[0.270838, 0.270838, 0.295615] ub=0.2406000296
+G3     c=1/100 T=77/320      -> CERTIFIED nodes=297    at=None ub=0.240625
+G3     c=1/100 T=2406/10000  -> FAILED    nodes=214    at=[0.166667, 0.166667, 0.171111] ub=0.2406
+NOGATE c=0     T=77/320      -> CERTIFIED nodes=217    at=None ub=0.240625

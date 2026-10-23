@@ -1,0 +1,33 @@
+{
+ "version": "1.2.0",
+ "packagesDir": ".lake/packages",
+ "packages": [
+  {
+   "url": "https://github.com/leanprover/lean4export",
+   "type": "git",
+   "subDir": null,
+   "scope": "",
+   "rev": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+   "name": "lean4export",
+   "manifestFile": "lake-manifest.json",
+   "inputRev": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+   "inherited": false,
+   "configFile": "lakefile.toml"
+  },
+  {
+   "url": "https://github.com/leanprover/comparator",
+   "type": "git",
+   "subDir": null,
+   "scope": "",
+   "rev": "575674928e239f5bc452aab72d1dd7b0f1326494",
+   "name": "Comparator",
+   "manifestFile": "lake-manifest.json",
+   "inputRev": "575674928e239f5bc452aab72d1dd7b0f1326494",
+   "inherited": false,
+   "configFile": "lakefile.toml"
+  }
+ ],
+ "name": "erdos137_replay_tools",
+ "lakeDir": ".lake",
+ "fixedToolchain": false
+}

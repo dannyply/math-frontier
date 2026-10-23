@@ -1,0 +1,1370 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.6cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,array,enumitem,microtype}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\setlength{\emergencystretch}{3em}
+\allowdisplaybreaks
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\C}{\mathbb C}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\A}{\mathbb A}
+\newcommand{\ub}{\bar u}
+\newcommand{\vb}{\bar v}
+\newcommand{\Bred}{B_{\mathrm{red}}}
+\newcommand{\Res}{\operatorname{Res}}
+\newcommand{\lst}{\ell^{*}}
+\newcommand{\tst}{t^{*}}
+\newcommand{\Ncen}{N_k^{\mathrm{cen}}}
+
+\title{Counting powerful products of consecutive integers}
+\author{Danny Plymesser}
+\date{23 October 2026}
+
+\begin{document}
+
+\begin{abstract}
+We show that the number of $n\le x$ for which $n$ and $n+1$ are both powerful
+is $O_\varepsilon(x^{1/4+\varepsilon})$, improving the exponent $29/100$ of
+Reuss. For each fixed $k\ge 3$ we show that the number of $n\le x$ for which
+$(n+1)(n+2)\cdots(n+k)$ is powerful is $O_{k,\varepsilon}(x^{77/320+\varepsilon})$,
+and we prove the same exponent uniformly over all widths $k\ge3$. The new
+ingredient is a per-interval count in Reuss's form of Heath-Brown's approximate
+determinant method: in lattice-reduced coordinates, the solutions on an
+auxiliary curve of bidegree $(\alpha,\beta)$ become integral points of height
+at most $L_1^3T_1^2$ on an affine curve of degree $2\alpha+3\beta$, to which
+the uniform bound of Castryck, Cluckers, Dittmann and Nguyen applies.
+The proofs are formalized in Lean~4 with Mathlib and checked by Lean's kernel
+and an independent kernel; the formal statements take six theorems from the
+literature as explicit hypotheses. The results and exposition were produced and reviewed
+using AI systems; no human mathematical review has been performed.
+Section~\ref{sec:status} describes the verification and its scope.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+
+A positive integer $m$ is \emph{powerful} (or square-full) if $p^2\mid m$ for
+every prime $p\mid m$. Every powerful number can be written uniquely as $d^3u^2$
+with $d$ squarefree, so there are $\asymp x^{1/2}$ powerful numbers up to $x$.
+
+\subsection{Consecutive powerful numbers}
+Pairs of consecutive powerful numbers exist in abundance: every solution of
+$X^2-8Y^2=1$ gives the pair $8Y^2,\,X^2$, and this Pell family alone
+contributes $\asymp\log x$ pairs up to $x$; see \cite{Golomb,Walker} for other
+families. Erd\H{o}s conjectured that there are no three
+consecutive powerful numbers \cite{Erdos76,ErdosManitoba}\cite[Problem \#364]{Bloom}, and it has been
+conjectured that the number of consecutive pairs up to $x$ is
+$(\log x)^{O(1)}$; see \cite{Erdos76}, \cite[p.~68]{ErdosGraham}, and
+\cite[(1.15)]{Tao}, \cite[Problem \#365]{Bloom}. Erd\H{o}s also asked
+whether a product of $k\ge3$ consecutive integers can be powerful
+\cite[Problem \#137]{Bloom}; by the Erd\H{o}s--Selfridge theorem such a product is
+never a perfect power \cite{ErdosSelfridge}. Under the $abc$ conjecture the
+number of consecutive pairs is $x^{o(1)}$ and consecutive triples are finite in
+number; see \cite[(1.16) and the following discussion]{Tao}.
+
+Unconditionally, the trivial bound for
+\[
+N(x):=\#\{n\le x:\ n\text{ and }n+1\text{ are powerful}\}
+\]
+is $O(x^{1/2})$. Chan \cite{Chan2012} proved that the number of $n\le x$ with
+$n$ and $n+l$ both powerful is $\ll d_3(l)x^{2/5}(\log x)^2$ uniformly in
+$l\ge1$ \cite[Theorem~3]{Chan2012}, and $\ll_l x^{7/19}\log x$ for fixed $l$
+\cite[Theorem~4]{Chan2012}. Akta\c{s} and Murty \cite{AktasMurty} gave
+an $O(x^{2/5})$ bound for $N(x)$. Tao records
+$x^{2/5}$ as the best known bound \cite[(1.16)]{Tao} and proves an estimate of
+the same strength, $x^{2/5+o(1)}$, for the non-powerful integers lying in
+intervals of length at least two with powerful product
+\cite[Theorem~1.8]{Tao}. Reuss \cite[Theorem~4]{Reuss} proved
+$N(x)\ll_\varepsilon x^{29/100+\varepsilon}$ with his extension of
+Heath-Brown's approximate determinant method \cite{HBsqfree,HBAnnals}; the
+exponent $29/100$ is also recorded in \cite{WongcharoenbhornMeemark}. We are
+not aware of a published improvement of $29/100$.
+
+\subsection{Results}
+\begin{theorem}\label{thm:k2}
+For every $\varepsilon>0$,
+\[
+\#\{n\le x:\ n\text{ and }n+1\text{ are powerful}\}\ll_\varepsilon x^{1/4+\varepsilon}.
+\]
+\end{theorem}
+
+The exponent $1/4$ is the exact limit of our method for $k=2$
+(Remark~\ref{rem:quarter}). For $k\ge2$ and $x\ge1$ put
+\[
+N_k(x):=\#\{0\le n\le x:\ (n+1)(n+2)\cdots(n+k)\text{ is powerful}\}.
+\]
+For $k\ge3$ the product can be powerful without any single factor being
+powerful, because primes $p<k$ may divide two factors. Every $n$ counted by
+$N_k(x)$ has, for $1\le i\le k$, a decomposition $n+i=f_id_i^3u_i^2$, where
+$d_i$ is the product of the primes $p\ge k$ that divide $n+i$ to an odd power
+(Lemma~\ref{lem:decomp}). Define
+\begin{multline*}
+\Ncen(x):=\#\{n\le x:\ (n+1)\cdots(n+k)\text{ is powerful, and}\\
+(n+3)^{19/100}<d_i<(n+3)^{21/100}\ \text{for } i=1,2,3\}.
+\end{multline*}
+For $k=3$ this is the ``central box'' of the three-term problem, the region in
+which elementary pairwise estimates are weakest.
+
+\begin{theorem}\label{thm:k3}
+Let $k\ge3$ be fixed. For every $\varepsilon>0$,
+\[
+N_k(x)\ll_{k,\varepsilon}x^{77/320+\varepsilon}
+\qquad\text{and}\qquad
+\Ncen(x)\ll_{k,\varepsilon}x^{38059/160000+\varepsilon}.
+\]
+\end{theorem}
+
+Here $77/320=0.240625$ and $38059/160000=0.23786875$. We know of no bound for
+$N_k(x)$, $k\ge3$, stated in the literature, but two bounds follow at once from
+the literature: Chan's fixed-shift bound \cite[Theorem~4]{Chan2012} applied
+to the pair equation of Lemma~\ref{lem:pair} gives $N_k(x)\ll_kx^{7/19}\log x$,
+and \cite[Theorem~1.8 and (1.16)]{Tao} give $N_k(x)\ll x^{2/5+o(1)}$. Both
+deductions are ours. Theorem~\ref{thm:k3} improves both exponents.
+
+\begin{theorem}[Uniformly over all widths]\label{thm:uniform}
+For every $\varepsilon>0$,
+\[
+ \#\{0\le n\le x:\exists k\ge3,\ P(n,k)\text{ powerful}\}
+ \ll_\varepsilon x^{77/320+\varepsilon}.
+\]
+With $k\ge2$ in place of $k\ge3$, the bound is
+$O_\varepsilon(x^{1/4+\varepsilon})$.
+The number of non-powerful positive integers at most $x$ which belong to
+an interval of consecutive positive integers with powerful product is
+$O_\varepsilon(x^{77/320+\varepsilon})$.
+The implied constants are not explicit: they depend on the threshold in
+Theorem~\ref{thm:tao}.
+\end{theorem}
+
+Here $P(n,k)=(n+1)\cdots(n+k)$. The first bound counts the union of starts
+over all widths, with one constant independent of $k$. The last assertion
+bounds the quantity in Tao's Theorem~1.8.
+
+\subsection{Method}
+Write $n+i=f_id_i^3u_i^2$ and $n+j=f_jd_j^3u_j^2$. After absorbing the bounded
+coefficients $f_i,f_j$, each pair of factors gives a solution of
+\begin{equation}\label{eq:pair}
+e^3v^2-d^3u^2=h,
+\end{equation}
+with $h\ne0$ bounded in terms of $k$ (Lemma~\ref{lem:pair}). Reuss
+\cite[\S2]{Reuss} splits the range of $\rho=d/e$ into $\asymp M$ intervals
+$I$, with $\log M=\tfrac98(1+\delta)\log(DE)\log(UV)/\log x$, and shows by the
+determinant method that on each interval all solutions lie on one auxiliary
+curve of bounded degree (Lemma~\ref{thm:lemma7}). He then passes to
+lattice-reduced coordinates $(\lambda,\tau)\in\Z^2\times\Z^2$ with
+$|\lambda_i|\le L_i$, $|\tau_i|\le T_i$, and counts the points of the
+auxiliary curve using one factor at a time, which gives
+$\ll x^{\varepsilon}\min(L_1,T_1)$ solutions per interval.
+
+Our new step (Lemma~\ref{lem:P}) also uses the equation \eqref{eq:pair} itself.
+If $\Gamma\subset\PP^1\times\PP^1$ is a component of bidegree $(\alpha,\beta)$ of
+the auxiliary curve, the twelve monomials of bidegree $(3,2)$ in
+$(\lambda,\tau)$ map the solutions on $\Gamma$, at most two-to-one, to
+integral points of height at most $L_1^3T_1^2$ on the affine curve obtained by
+slicing the cone over the Segre--Veronese image of $\Gamma$ with the
+hyperplane $\{\ell=h\}$, where $\ell$ represents the left-hand side of
+\eqref{eq:pair}. This curve has degree $2\alpha+3\beta$, and the bound of
+Castryck, Cluckers, Dittmann and Nguyen \cite{CCDN} gives
+$\ll(L_1^3T_1^2)^{1/(2\alpha+3\beta)}\log(2+L_1T_1)$ solutions, independently of
+the coefficients. Components with $\min(\alpha,\beta)=1$ are rational curves;
+they carry $x^{o(1)}$ solutions by Stewart's bound for Thue equations
+\cite{Stewart} (Proposition~\ref{prop:lowdeg}), once a Riemann--Hurwitz argument
+shows that the relevant binary form has at least three distinct roots
+(Lemma~\ref{lem:threeroots}). Summing over intervals with tail bounds for the
+reduced lattices and the Cauchy--Schwarz inequality gives a per-box exponent
+$\Bred=m+\tfrac3{10}\lst+\tfrac15\tst$ (Theorem~\ref{thm:Bred}); Reuss's
+corresponding exponent is $m+\min(\lst,\tst)$ (Remark~\ref{rem:compare}). The
+final exponents are the suprema of explicit piecewise-quadratic functionals,
+bounded by exact certificates (Section~\ref{sec:cert}).
+
+For $k\ge3$ the proof uses only three pairwise inputs: the Pell count, the Thue
+count and $\Bred$. For $k=2$ it also uses Reuss's Theorem~1, on windows whose
+cube-part scales are both at least a fixed power of $x$, and a
+Heath-Brown-type bound from \cite[\S5]{Reuss}.
+
+\subsection{What is not claimed}
+The exponent $1/4$ of Theorem~\ref{thm:k2} is exactly the supremum of the
+functional behind it, attained at a degenerate corner where three bounds that
+were known before this paper meet (Remark~\ref{rem:quarter}). We obtain
+nothing below $1/4$ for $k=2$. A uniform saving over the exponent $1/10$ for the
+components of bidegree $(2,2)$ would lower $77/320$, for example to $89/384$
+(Remark~\ref{rem:genus1}); we do not prove such a saving. The constants of
+Theorem~\ref{thm:uniform} are not explicit, because the threshold in Tao's
+Lemma~3.1 is not; we do not
+claim explicit constants anywhere. The formal proofs assume the six results from the
+literature stated in Section~\ref{sec:cited}; they do not prove them.
+
+\subsection{Formal status}\label{sec:formalstatus}
+All three theorems, and the propositions and lemmas of Sections~\ref{sec:setup}
+to~\ref{sec:proofs}, are proved in Lean~4 (version 4.33.1) with Mathlib. The
+Lean statements are the theorems above, with the implied constants written as
+explicit existential quantifiers, and with the results of
+Section~\ref{sec:cited} as named hypotheses (\texttt{let}-bound propositions
+assumed in the statement; no axiom is added). Their axiom sets are exactly
+\texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}.
+Appendix~\ref{app:lean} lists the Lean declaration for each statement, and
+Section~\ref{sec:status} describes the checks.
+
+\subsection*{Organisation}
+Section~\ref{sec:setup} sets up the pair equations, and Section~\ref{sec:cited}
+states the results from the literature with their Lean forms. Sections~\ref{sec:elem}
+to~\ref{sec:proofs} give the proof. The steps that carry the new argument
+(Lemma~\ref{lem:threeroots}, Proposition~\ref{prop:lowdeg},
+Lemma~\ref{lem:P}, Proposition~\ref{prop:interval},
+Theorem~\ref{thm:Bred} and Lemma~\ref{lem:goodtriple}) are proved in full,
+following the route of the corresponding Lean proof; the remaining steps are
+sketched. The Lean declarations listed in Appendix~\ref{app:lean} are the
+reference for every statement. Section~\ref{sec:remarks} collects remarks, and
+Section~\ref{sec:status} describes verification and the use of AI systems.
+
+\section{Set-up}\label{sec:setup}
+
+\subsection{Notation}
+We write $y\sim Y$ for $Y<y\le 2Y$; dyadic scales $Y$ run over
+$\{2^j:j\ge-1\}$, so that $y=1$ has the scale $Y=1/2$. Implied constants may
+depend on $k$, on $\varepsilon$ and on the auxiliary parameters $\delta,c$
+introduced below; any further dependence is indicated. We put
+$P_k:=\prod_{p<k}p$. For a polynomial $G$ with integer coefficients, $H(G)$ is
+the maximum absolute value of its coefficients.
+
+\subsection{The decomposition}
+\begin{lemma}\label{lem:decomp}
+Let $k\ge2$ and $n\ge0$ be such that $(n+1)\cdots(n+k)$ is powerful. For
+$1\le i\le k$ put
+\[
+f_i:=\prod_{\substack{p<k\\ v_p(n+i)\ \mathrm{odd}}}p,\qquad
+d_i:=\prod_{\substack{p\ge k\\ v_p(n+i)\ \mathrm{odd}}}p .
+\]
+Then $n+i=f_id_i^3u_i^2$ for a positive integer $u_i$; $f_i\mid P_k$; $d_i$ is
+squarefree and coprime to $P_k$. For $i\ne j$ we have $\gcd(d_i,d_j)=1$,
+$\gcd(d_j,f_iu_i)=1$ and $\gcd(u_i,u_j)^2\mid (j-i)$.
+\end{lemma}
+
+A prime $p\ge k$ divides at most one factor, so its odd valuation there is at
+least three; removing $f_id_i^3$ leaves a square.
+
+\begin{lemma}[Pair equation]\label{lem:pair}
+In the situation of Lemma~\ref{lem:decomp}, let $1\le i<j\le k$ and put
+$d:=f_id_i$, $e:=f_jd_j$, $u:=f_ju_i$, $v:=f_iu_j$ and $h:=f_i^2f_j^2(j-i)$.
+Then $e^3v^2-d^3u^2=h$ and $d^3u^2=f_i^2f_j^2(n+i)$. Moreover
+$1\le h\le kP_k^4$, $\gcd(d,e)\mid P_k$ and $\gcd(u,v)\le k^{1/2}P_k^2$. For
+fixed $(i,j,f_i,f_j)$ the quadruple $(d,e,u,v)$ determines $n$.
+\end{lemma}
+For $k=2$ this is the set-up of \cite[\S5]{Reuss}, with $h=1$.
+
+\subsection{Windows and exponents}
+Fix a nonzero integer $h$. Following \cite[Theorem~1]{Reuss}, for
+$D,E\ge1/2$ and $x>1$ put $U:=x^{1/2}D^{-3/2}$, $V:=x^{1/2}E^{-3/2}$,
+and call $W=(D,E,x)$ a \emph{window}. Let $\mathcal S_W$ be the set of
+$(d,e,u,v)\in\N^4$ with $d\sim D$, $e\sim E$, $U<u<2U$, $V<v<2V$ and
+$e^3v^2-d^3u^2=h$. We use the exponents
+\begin{equation}\label{eq:exponents}
+a=\frac{\log D}{\log x},\quad b=\frac{\log E}{\log x},\quad s=a+b,\quad
+t=\frac{\log (UV)}{\log x}=1-\frac{3s}2,\quad
+\ub=\frac{1-3a}2,\quad \vb=\frac{1-3b}2,
+\end{equation}
+so $U=x^{\ub}$ and $V=x^{\vb}$, and
+\begin{equation}\label{eq:m}
+m=m(s):=\frac98\,st=\frac98\,s\Big(1-\frac{3s}{2}\Big),
+\end{equation}
+which is concave with maximum $m(1/3)=3/16$.
+
+\begin{lemma}[Covering by windows]\label{lem:windows}
+Let $D,E\ge1/2$ and let $x$ be large. Every $(d,e,u,v)\in\N^4$ with
+$d\sim D$, $e\sim E$, $x/2<d^3u^2\le 2x$ and $e^3v^2-d^3u^2=h$ lies in
+$\mathcal S_{W'}$ for one of $O(1)$ windows $W'=(D',E',x')$ with
+$D'\asymp D$, $E'\asymp E$ and $x'\asymp x$. This holds uniformly in shifts
+with $|h|\le x/100$.
+\end{lemma}
+A grid $\{2^{j/8}\}$ for $D',E',x'$ places the ratios $D'^3u^2/x'$ and
+$E'^3v^2/x'$ strictly inside $(1,4)$; for $|h|\le x/100$ the same grid works
+uniformly in $h$.
+
+\section{Results from the literature}\label{sec:cited}
+Six results from the literature enter the Lean statements as named
+hypotheses: four from journals and books, and two, Reuss's Theorem~1 and
+Tao's Lemma~3.1, from arXiv preprints. For each
+we give the statement as used, its source, and the Lean form. For Reuss's
+paper we use arXiv:1212.3150v2 and specialise to $k=3$, $l=2$ in his notation.
+For Theorems~\ref{thm:reuss1}, \ref{thm:ccdn}, \ref{thm:stewart},
+\ref{thm:gelfond} and~\ref{thm:tao} the Lean hypothesis is an instance or a
+weakening of the source statement, compared with the source text, so it
+holds if the source theorem holds. For Theorem~\ref{thm:hb15} it is an instance of the
+statement in the author's manuscript of \cite{HBLNM}, read as explained after
+the theorem; the published text has not been compared (Section~\ref{sec:status}). The set counted in
+Theorem~\ref{thm:k2} is infinite (the Pell family above); for $k\ge3$ the
+counted sets are not known to be nonempty.
+
+\begin{theorem}[{Reuss \cite[Theorem~1]{Reuss}, $k=3$, $l=2$, $h=1$}]\label{thm:reuss1}
+Let $h=1$ and let $W=(D,E,x)$ be a window with $D,E>1$ and
+$\log(DE)\asymp\log(UV)\asymp\log x$. Define $M>1$ by
+$\log M=\frac98\log(DE)\log(UV)/\log x$. Then for $x$ large in terms of
+$\varepsilon$, the number of $(d,e,u,v)\in\N^4$ with $D<d<2D$, $E<e<2E$,
+$U<u<2U$, $V<v<2V$ and $e^3v^2-d^3u^2=1$ is
+\[
+\ll_\varepsilon x^{\varepsilon}\min\{(DEM)^{1/2}+D+E,\ (UVM)^{1/2}+U+V\}.
+\]
+\end{theorem}
+Reuss writes $d\sim D$ for $D<d<2D$. The Lean hypothesis fixes the
+comparability constants as $\frac1{20}\log x\le\log(DE),\log(UV)\le20\log x$
+and requires the bound only on windows with $D,E\ge x^c$, for each fixed
+$c>0$, with constants depending on $c$ and $\varepsilon$; so it is an instance
+of Theorem~\ref{thm:reuss1}. The declaration \path{reuss_window_bridge}
+proves that this open-endpoint form implies the closed-endpoint form
+$d\sim D$, $e\sim E$ of $\mathcal S_W$: for fixed $(d,e)$ the equation has at
+most one solution with $u\in(U,2U)$, so the endpoints $d=2D$ and $e=2E$ add
+$\ll x^{\varepsilon}\min(E,U)+x^\varepsilon\min(D,V)$. Reuss states his
+Theorem~1 for every fixed $h\ne0$; his proof begins by reducing to
+$(ev,du)=1$, a reduction that is immediate for $h=\pm1$. We use the theorem
+only with $h=1$, that is, only for $k=2$. In exponents, Theorem~\ref{thm:reuss1} bounds $\#\mathcal S_W$ by
+$x^{R(a,b)+\varepsilon}$ with
+\begin{equation}\label{eq:R}
+R(a,b):=\min\Big\{\max\Big(\frac{s+m}2,a,b\Big),\ \max\Big(\frac{t+m}2,\ub,\vb\Big)\Big\}.
+\end{equation}
+
+\begin{theorem}[{Castryck--Cluckers--Dittmann--Nguyen \cite[Theorem~3]{CCDN}}]\label{thm:ccdn}
+For each $N>1$ there is $c(N)$ such that for all $d\ge1$, all integral affine
+curves $C\subset\A^N_{\overline{\Q}}$ of degree $d$ and all $B\ge1$,
+\[
+N_{\mathrm{aff}}(C,B):=\#\{P\in C(\Q)\cap\Z^N:\ |P_i|\le B\}\le c(N)\,d^3B^{1/d}(\log B+d).
+\]
+\end{theorem}
+The Lean hypothesis is the case $N=12$, for every prime ideal
+$I\subset\Q[x_1,\dots,x_{12}]$ whose quotient has Krull dimension one; the
+degree $d$ is the leading coefficient of the Hilbert polynomial of the
+quotient. It therefore covers curves that are irreducible over $\Q$ but not
+geometrically irreducible. This is the extension stated in \cite[Corollary~4.1.4
+and Remark~4.1.5]{CCDN}: the rational points of such a curve lie on the
+intersection with a Galois conjugate, at most $d^2$ points.
+
+\begin{theorem}[{Stewart \cite[p.~796, consequence of Theorem~1]{Stewart}}]\label{thm:stewart}
+Let $Q\in\Z[r,s]$ be a binary form of degree $q\ge3$ with content $1$ and
+nonzero discriminant, and let $m$ be a nonzero integer. Then
+\[
+\#\{(r,s)\in\Z^2:\ \gcd(r,s)=1,\ Q(r,s)=m\}\le 2800\,q^{1+\omega(|m|)}.
+\]
+\end{theorem}
+Stewart's Theorem~1 assumes only content~$1$ and nonzero discriminant, so
+reducible forms are included, and it counts pairs $(r,s)$, so $(r,s)$ and
+$(-r,-s)$ are counted separately; the displayed bound is his consequence of
+Theorem~1 with $g=|m|$, the factor $1+1/(8\varepsilon q)$ disappearing as
+$\varepsilon\to\infty$ \cite[pp.~795--796]{Stewart}. The Lean hypothesis is
+this statement, with ``nonzero discriminant'' expressed as squarefreeness of
+the form over $\Q$.
+
+\begin{theorem}[{Heath-Brown \cite[Theorem~15]{HBLNM}, $n=2$; see also \cite[Theorem~2]{ReussThesis}}]\label{thm:hb15}
+Let $F\in\Z[x_1,x_2]$ be absolutely irreducible of degree $d\ge2$, let
+$\eta>0$ and $B_1,B_2\ge2$. Let $T=\max B_1^{e_1}B_2^{e_2}$, the maximum
+over the exponent vectors of the monomials occurring in $F$. Then the integral
+zeros of $F$ with $|x_i|\le B_i$ all lie on the zero sets of at most
+$\ll_{d,\eta}T^{\eta}\exp(\log B_1\log B_2/\log T)\log(2\|F\|)$
+polynomials of degree $O_{d,\eta}(1)$, each coprime to $F$.
+\end{theorem}
+In \cite[Theorem~15]{HBLNM} (Section~2.6 of the author's manuscript of the
+notes), and in its restatement \cite[Theorem~2]{ReussThesis}, the degree is
+arbitrary, $B_i\ge1$, the auxiliary polynomials have integer coefficients,
+are coprime to $F$ and have degree bounded in terms of $d$ and $\eta$, and the
+last factor is $\log\|F\|$, with $\|F\|$ the largest modulus of a coefficient.
+For $\|F\|=1$ that factor vanishes and the literal statement fails (for
+instance $x_1^2-x_2$ has integral zeros), so the theorem is to be read with a last
+factor of at least $1$, for instance $\max(1,\log\|F\|)$, which is
+comparable to $\log(2\|F\|)$. The Lean hypothesis asks only for complex
+polynomials not divisible by $F$, implied by integer polynomials coprime to
+$F$, and assumes $d\ge2$ and $B_i\ge2$, so it is an instance of that
+statement.
+
+\begin{theorem}[{Gelfond's inequality, consequence; see \cite[Lemma~1.6.11]{BombieriGubler}}]\label{thm:gelfond}
+For each $n$ there is $c_n\ge0$ such that if $G\mid F$ in $\Z[x_1,\dots,x_n]$
+with $F\ne0$, then $H(G)\le e^{c_n\deg F}H(F)$.
+\end{theorem}
+Lemma~1.6.11 of \cite{BombieriGubler} states that if $f=f_1\cdots f_m$ for
+complex polynomials in $n$ variables, then
+$2^{-d}\prod_j\ell_\infty(f_j)\le\ell_\infty(f)\le2^d\prod_j\ell_\infty(f_j)$,
+where $\ell_\infty$ is the largest absolute value of a coefficient and $d$ is
+the sum of the partial degrees of $f$. If $F=GK$ in $\Z[x_1,\dots,x_n]$ then
+$\ell_\infty(K)\ge1$ and $d\le n\deg F$, which gives the displayed statement
+with $c_n=n\log2$; the Lean hypothesis is this statement.
+
+\begin{theorem}[{Tao \cite[Lemma~3.1]{Tao}}]\label{thm:tao}
+If $(N+1)\cdots(N+H)$ is powerful, then $H<N$, and
+$H\le\exp((\log N)^{2/3+o(1)})$ as $N\to\infty$.
+\end{theorem}
+The Lean hypothesis is the consequence that for some $N_0$, every
+$N\ge N_0$ and $3\le k<N$ with $P(N,k)$ powerful has
+$k\le\exp((\log N)^{7/10})$. It is used only in Theorem~\ref{thm:uniform}.
+No explicit value of $N_0$ is given in \cite{Tao}.
+
+\section{Elementary pair bounds}\label{sec:elem}
+
+\begin{lemma}\label{lem:pellthue}
+Let $h\ne0$ and $G_0\ge1$ be fixed.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item For positive integers $d,e$ and $Z\ge2$, the number of $(u,v)\in\N^2$ with
+$u,v\le Z$ and $e^3v^2-d^3u^2=h$ is $\ll_\varepsilon(deZ)^{\varepsilon}$.
+\item For positive integers $u,v$, the number of $(d,e)\in\N^2$ with
+$\gcd(d,e)\le G_0$ and $e^3v^2-d^3u^2=h$ is at most $G_0\cdot2800\cdot3^{1+\omega(|h|)}$.
+\end{enumerate}
+Consequently $\#\mathcal S_W\ll x^{s+\varepsilon}$ for every window $W$, and
+$\ll x^{t}$ if also $\gcd(d,e)\le G_0$ on the counted set.
+\end{lemma}
+Part (i) is a Pell-type count: the solutions correspond to elements of norm
+$he^3$ in a real quadratic order, $\tau(|he^3|)$ ideal classes times $O(\log x)$
+units. Part (ii) applies Theorem~\ref{thm:stewart} to the binary cubic
+$v^2e'^3-u^2d'^3$ after removing $\gcd(d,e)$.
+
+\begin{lemma}\label{lem:hb}
+Let $h=1$ and let $W$ be a window. The number of $(d,e,u,v)\in\mathcal S_W$
+with $d$ and $e$ squarefree is
+\[
+\ll_\varepsilon x^{\varepsilon}\,EU\Big(1+\frac{D}{E^3}\Big)^{1/2}
+\quad\text{and}\quad
+\ll_\varepsilon x^{\varepsilon}\,DV\Big(1+\frac{E}{D^3}\Big)^{1/2};
+\]
+in exponents, $H_1(a,b):=b+\ub+\tfrac12\max(0,a-3b)$ and
+$H_2(a,b):=a+\vb+\tfrac12\max(0,b-3a)$.
+\end{lemma}
+This is the estimate displayed after (30) in \cite[\S5]{Reuss} and its mirror
+image. Fixing $e$ and $u$, the cube congruence $d^3\equiv-u^{-2}\pmod{e^3}$
+leaves $3^{\omega(e)}$ residue classes $c$; writing $d=c+e^3t$, the pairs
+$(t,v)$ are integral zeros of the absolutely irreducible cubic
+$e^3w^2-u^2(c+e^3t)^3-1$, and Theorem~\ref{thm:hb15} with Bézout's theorem
+gives $\ll x^{\varepsilon}(1+D/E^3)^{1/2}$ of them.
+
+\section{The per-interval count}\label{sec:interval}
+
+Throughout this section $h\ne0$ is fixed, $W=(D,E,x)$ is a window with
+$s,t\ge c$ for a fixed $c\in(0,1)$, $\delta\in(0,1)$ is fixed, $x$ is large
+in terms of $h$, $c$ and $\delta$, and $M:=\lceil x^{(1+\delta)m}\rceil$. Then
+$x^c\le DE$, $x^c\le UV$, $x^{c^2}\le M\le x^{1/2}$ and
+$\log M\ge\frac98(1+\delta)\log(DE)\log(UV)/\log x$. The range $D/(2E)<\rho\le 2D/E$ of
+$\rho=d/e$ is covered by at most $3M+1$ intervals
+$I=(\rho_0,\rho_0(1+M^{-1})]$ with
+$\rho_0\in\{\frac{D}{2E}(1+M^{-1})^j:j\ge0\}\cap[\frac D{2E},\frac{2D}E]$. We fix a
+finite set $\mathcal G$ of positive integers and count solutions with
+$\gcd(d,e),\gcd(u,v)\in\mathcal G$; by Lemma~\ref{lem:pair} this covers the
+solutions coming from Lemma~\ref{lem:decomp}. Implied constants may depend on
+$h$, $c$, $\delta$, $\mathcal G$ and $\varepsilon$.
+
+\subsection{The determinant step}
+\begin{lemma}[Reuss's Lemma~7 for fixed $h\ne0$]\label{thm:lemma7}
+Let $h\ne0$, $c\in(0,1)$ and $\delta\in(0,1)$ be fixed. There are an integer
+$K_0\ge1$ and a real $\kappa>0$, depending only on $c$ and $\delta$, with the
+following property. Let $x$ be large in terms of $h$, $c$ and $\delta$, let
+$W$ be a window with $DE\ge x^c$ and $UV\ge x^c$, and let $M$ be an
+integer with $x^{c^2}\le M\le x$ and
+$\log M\ge\frac98(1+\delta)\log(DE)\log(UV)/\log x$. Let
+$I=(\rho_0,\rho_0(1+M^{-1})]$ with $D/(2E)\le\rho_0\le2D/E$. Then there
+is a nonzero $C_I\in\Z[\rho,\omega]$ with $\deg_\rho C_I,\deg_\omega C_I\le K_0$
+and coefficients at most $x^{\kappa}$, such that $C_I(d/e,v/u)=0$ for all
+$(d,e,u,v)\in\mathcal S_W$ with $d/e\in I$.
+\end{lemma}
+This is \cite[Lemma~7]{Reuss}, whose proof begins with the reduction to
+$(ev,du)=1$ recalled in Section~\ref{sec:cited}; the reduction is not needed.
+The approximation $|v/u-(d/e)^{3/2}|\ll|h|(D/E)^{3/2}/x$ and a Taylor
+expansion make every maximal minor of the matrix
+$(\rho_j^a\omega_j^b)_{a\le A,b\le B}$ smaller than the reciprocal of its
+integral denominators, by Cauchy--Binet and a rearrangement bound for
+$\sum(i\ell_1+k\ell_2)$ over $H$ lattice points; the choice $A\log(DE)\approx
+B\log(UV)$ makes this work exactly when $\log M$ exceeds
+$\frac98\log(DE)\log(UV)/\log x$. A kernel vector of the rank-deficient
+integral matrix gives $C_I$, with the given representations $d_j/e_j$, $v_j/u_j$
+as denominators, so no coprimality is used.
+
+\subsection{Components of the auxiliary curve}\label{sec:components}
+Let $G_I(d,e;v,u):=e^{A}u^{B}C_I(d/e,v/u)$, where $A,B\le K_0$ bound the
+degrees of $C_I$. It is a nonzero bihomogeneous form of bidegree $(A,B)$ with
+coefficients at most $x^\kappa$, and it vanishes at every solution with
+$d/e\in I$. Factor $G_I$ into irreducible elements of $\Z[d,e;v,u]$. There are
+at most $A+B\le2K_0$ non-constant irreducible factors; each is bihomogeneous, and by
+Theorem~\ref{thm:gelfond} its coefficients are at most
+$e^{c_4(A+B)}x^\kappa\le x^{\kappa+1}$. Every solution is a zero of one of
+them. By Gauss's lemma a factor $G$ of bidegree $(\alpha,\beta)$ is
+irreducible over $\Q$, and it is of one of the following types.
+\begin{enumerate}[label=(\alph*)]
+\item $\beta=0$ and $\alpha\ge2$, or $\alpha=0$ and $\beta\ge2$. A rational
+zero $(w_0,w_1)\ne0$ of a form $G(d,e)$ would give the linear factor
+$w_1d-w_0e$; so $G$ has no integral zero with $(d,e)\ne0$ (respectively
+$(v,u)\ne0$), and carries no solution.
+\item[(b1)] A line $pd+qe=0$ or $pv+qu=0$.
+\item[(b2)] $\alpha,\beta\ge1$ and $\min(\alpha,\beta)=1$. Then $G$ is
+irreducible over $\C$. Say $\beta=1$ and write $G=vP(d,e)+uQ(d,e)$. A common
+factor of $P$ and $Q$ over $\Q$ would split $G$, so $P$ and $Q$ are coprime in
+$\Q[d,e]$; a Bézout identity for their dehomogenisations (in either chart)
+shows that they have no common zero in $\PP^1(\C)$. If $G=G_1G_2$ over $\C$, bihomogeneity makes one factor,
+say $G_1$, of bidegree $(a_1,0)$; if $a_1\ge1$ then $G_1$ vanishes at some
+$[r:s]$, so $P(r,s)=Q(r,s)=0$, which is impossible; hence $G_1$ is a
+constant. The case $\alpha=1$ is symmetric.
+\item[(b3)] $\alpha,\beta\ge2$, so that $2\alpha+3\beta\ge10$.
+\end{enumerate}
+
+\subsection{Rational components}\label{sec:lowdeg}
+
+\begin{lemma}\label{lem:threeroots}
+Let $\alpha,\beta\ge1$. Let $A,B\in\C[r,s]$ be coprime binary forms of degree
+$\beta$ and $C,E\in\C[r,s]$ coprime binary forms of degree $\alpha$, and put
+$R:=B^3C^2-A^3E^2$. Suppose $R\ne0$ and that $\beta$ is odd or
+$\alpha<3\beta/2$. Then $R$ has at least three distinct zeros in
+$\PP^1(\C)$. In particular this holds whenever $\min(\alpha,\beta)=1$.
+\end{lemma}
+
+\begin{proof}
+Coprime forms of positive degree have no common zero in $\PP^1(\C)$, and none
+of $A,B,C,E$ is zero. Suppose that $R$ has at most two distinct zeros. A
+linear change of the variables $(r,s)$ preserves all hypotheses, so we may
+assume that every zero of $R$ lies in $\{[0:1],[1:0]\}$. Put $a(t)=A(t,1)$,
+and $b,c,e$ likewise, so that $r_0(t):=R(t,1)=b^3c^2-a^3e^2$ is a nonzero
+polynomial whose only root is $0$; thus $r_0=\kappa t^i$ with $\kappa\ne0$.
+For a nonzero polynomial $p$ write $p=t^{o(p)}p_1$ with $p_1(0)\ne0$.
+
+\emph{Claim: $a$ and $b$ are monomials, and
+$3o(b)+2o(c)=3o(a)+2o(e)$.} Put $f=b^3c^2$ and $g=a^3e^2$, so $f-g=\kappa
+t^i$, and let $W:=tf'-if$. Since $t(\kappa t^i)'=i\kappa t^i$, also
+$W=tg'-ig$, and $\deg W\le\min(\deg f,\deg g)$. If $W=0$ then $tf'=if$
+forces $f$ to be a multiple of $t^i$, and likewise $g$; then $a,b,c,e$ are
+monomials and $o(f)=o(g)=i$. If $W\ne0$, the identity
+$W=b^2c\,\bigl(t(3b'c+2bc')-ibc\bigr)$ shows $u_1:=b_1^2c_1\mid W$, and
+symmetrically $u_2:=a_1^2e_1\mid W$. Moreover $t^{o(f)}$ and $t^{o(g)}$
+divide $W$, hence so does $t^{M_0}$ with $M_0=\max(o(f),o(g))$. A common root
+$\tau\ne0$ of $u_1$ and $u_2$ would give $f(\tau)=g(\tau)=0$ and so
+$\kappa\tau^i=0$; thus $u_1$, $u_2$ and $t$ are pairwise coprime and
+$u_1u_2t^{M_0}\mid W$. Writing $\deg f=o(f)+3\deg b_1+2\deg c_1$ and
+$\deg g=o(g)+3\deg a_1+2\deg e_1$, the two inequalities
+$\deg u_1+\deg u_2+M_0\le\deg f$ and $\le\deg g$ add up to
+$\deg a_1+\deg b_1+(2M_0-o(f)-o(g))\le0$. Hence $a_1,b_1$ are constants and
+$o(f)=o(g)$, which is the claim.
+
+\emph{Conclusion.} Let $p=\deg a=o(a)$ and $q=\deg b=o(b)$. As $A,B$ have no
+common zero at $[0:1]$, $p=0$ or $q=0$; as they have no common zero at
+$[1:0]$, $p=\beta$ or $q=\beta$. Similarly $o(c)=0$ or $o(e)=0$. If $p=0$ and
+$q=\beta$, the claim gives $3\beta+2o(c)=2o(e)$, so $o(c)=0$ and
+$2o(e)=3\beta$; if $p=\beta$ and $q=0$, it gives $2o(c)=3\beta$. In both
+cases $\beta$ is even and $3\beta\le2\alpha$, since $o(c),o(e)\le\alpha$,
+contrary to the hypothesis. Finally, if $\min(\alpha,\beta)=1$ then either
+$\beta=1$ is odd or $\alpha=1<3\beta/2$.
+\end{proof}
+
+\begin{proposition}\label{prop:lowdeg}
+Let $\alpha,\beta\ge1$ with $\min(\alpha,\beta)=1$, $K\ge0$ and
+$\varepsilon>0$. There is $C$, depending only on $h$, $\mathcal G$, $K$,
+$\alpha$, $\beta$ and $\varepsilon$, such that for every $x\ge1$ and every
+$G\in\Z[d,e;v,u]$ bihomogeneous of bidegree $(\alpha,\beta)$, irreducible
+over $\C$, with coefficients at most $x^K$, the number of $(d,e,u,v)\in\N^4$
+with $G(d,e,v,u)=0$, $e^3v^2-d^3u^2=h$ and $\gcd(d,e),\gcd(u,v)\in\mathcal G$
+is at most $Cx^{\varepsilon}$. The same holds with $C$ independent of $h$,
+uniformly in $0<|h|\le x$.
+\end{proposition}
+By type (b2) above, this applies to every factor of $G_I$ of that type.
+
+\begin{proof}
+Let $\beta=1$. (If $\alpha=1$, write $G=dP(v,u)+eQ(v,u)$, let
+$(r,s)=(v,u)/\gcd(u,v)$ and put $A=-Q$, $B=P$, $C=r$, $E=s$; then
+$dB(r,s)=eA(r,s)$ and $vE(r,s)=uC(r,s)$, and the argument below applies
+verbatim.) Write $G=vP(d,e)+uQ(d,e)$ with forms $P,Q$ of degree $\alpha$,
+coprime over $\C$ by irreducibility. Let $(d,e,u,v)$ be counted. Then
+$(d,e)\ne0$ because $h\ne0$; let $\gamma=\gcd(d,e)$ and $(r,s)=(d,e)/\gamma$.
+Put $A=r$, $B=s$ (as forms of degree $\beta=1$), $C=-Q$ and $E=P$. Then
+$dB(r,s)=eA(r,s)$, and dividing $G(d,e,v,u)=0$ by $\gamma^\alpha$ gives
+$vE(r,s)=uC(r,s)$.
+
+\emph{Resultants.} For coprime integral forms $P_1,Q_1$ of degree $n\ge1$
+with coefficients at most $H$, let $\mathrm{Res}(P_1,Q_1)$ be the product of
+the resultants of $P_1(t,1),Q_1(t,1)$ and of $P_1(1,t),Q_1(1,t)$. It is a
+nonzero integer, $|\mathrm{Res}|\le((2n)!)^2H^{4n}$ by the Leibniz expansion
+of the Sylvester determinants, and for coprime $(r,s)$ the integer
+$\gcd(P_1(r,s),Q_1(r,s))$ divides it. Let $g_1=\gcd(A(r,s),B(r,s))$ and
+$g_2=\gcd(C(r,s),E(r,s))$; these divide $\mathrm{Res}_1:=\mathrm{Res}(A,B)$
+and $\mathrm{Res}_2:=\mathrm{Res}(C,E)$. Write $(A,B)(r,s)=g_1(a',b')$ and
+$(C,E)(r,s)=g_2(c',e')$ with coprime pairs. From $dB=eA$ and $vE=uC$ we get
+$(d,e)=l(a',b')$ and $(v,u)=\mu(c',e')$ with $|l|=\gcd(d,e)$ and
+$|\mu|=\gcd(u,v)$. Substituting into $e^3v^2-d^3u^2=h$ gives
+\[
+h\,g_1^3g_2^2=R(r,s)\,l^3\mu^2,\qquad R:=B^3C^2-A^3E^2 .
+\]
+Hence $R(r,s)$ divides the nonzero integer
+$M_0:=h\,\mathrm{Res}_1^3\mathrm{Res}_2^2$, and
+\[
+|M_0|\le|h|\,((2\beta)!)^6((2\alpha)!)^4x^{K(12\beta+8\alpha)}.
+\]
+In particular
+$R\ne0$, so by Lemma~\ref{lem:threeroots} $R$ has at least three distinct
+zeros in $\PP^1(\C)$.
+
+\emph{Squarefree kernel.} Let $g\in\Z[t]$ be the primitive polynomial
+proportional to the product of the distinct monic irreducible factors of
+$R(t,1)$ over $\Q$, and let $Q_R(r,s):=s^{e_0+\deg g}g(r/s)$, where $e_0=1$
+if $R$ vanishes at $[1:0]$ and $e_0=0$ otherwise. Then $Q_R$ is an integral
+binary form of content $1$, squarefree over $\Q$, of degree $q$ with
+$3\le q\le3\beta+2\alpha=:Q_0$ (the lower bound counts the zeros of $R$),
+and $Q_R$ divides $R$ in $\Z[r,s]$ by Gauss's lemma. So $Q_R(r,s)$ divides
+$M_0$.
+
+\emph{Counting.} The solution is determined by $(r,s)$, $\gcd(d,e)$ and
+$\gcd(u,v)$: the pairs $(a',b')$ and $(c',e')$ are determined by $(r,s)$, and
+the signs of $l$ and $\mu$ by the positivity of $d,e,u,v$. For each of the
+$2d(|M_0|)$ values $m'=\pm k$, $k\mid M_0$, Theorem~\ref{thm:stewart} gives at
+most $2800q^{1+\omega(m')}\le2800\,Q_0\,d(|M_0|)^{Q_0}$ coprime pairs with
+$Q_R(r,s)=m'$, using $q^{\omega(m')}\le2^{Q_0\omega(M_0)}\le d(|M_0|)^{Q_0}$.
+Therefore the count is at most
+$5600\,Q_0\,(\#\mathcal G)^2\,d(|M_0|)^{Q_0+1}$, and the divisor bound
+$d(n)\ll_\eta n^\eta$ with $|M_0|\ll x^{O(1)}$ gives $Cx^\varepsilon$. The
+constant depends on $h$ only through $|h|^\eta$; if $|h|\le x$ this factor is
+absorbed into $x^\varepsilon$.
+\end{proof}
+
+\subsection{Reduced coordinates}\label{sec:reduced}
+\begin{lemma}\label{lem:reduced}
+Let $I=(\rho_0,\rho_0(1+M^{-1})]$ with $D/(2E)\le\rho_0\le 2D/E$, and put
+$\omega_0=\rho_0^{3/2}$.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item If $(d,e,u,v)\in\mathcal S_W$ and $d/e\in I$, then
+$0<d-\rho_0e\le 4D/M$ and $|v-\omega_0u|\le17V/M$ (for $x\ge3|h|M$).
+\item Let $\Lambda_I=T_I(\Z^2)$ and $\Lambda'_I=T'_I(\Z^2)$, where
+$T_I(x_1,x_2)=(\frac{M}{4D}(x_1-\rho_0x_2),\frac{x_2}{2E})$ and
+$T'_I(y_1,y_2)=(\frac{M}{17V}(y_1-\omega_0y_2),\frac{y_2}{2U})$. With
+Lagrange--Gauss reduced bases $g^{(i)}$, $g'^{(i)}$ put $L_i=2/|g^{(i)}|$ and
+$T_i=2/|g'^{(i)}|$. Then $L_1\ge L_2$, $T_1\ge T_2$, $L_1L_2\asymp DE/M$,
+$T_1T_2\asymp UV/M$, $L_1\gg(DE/M)^{1/2}$ and $T_1\gg(UV/M)^{1/2}$.
+\item Every $(d',e')\in\Z^2$ with $|d'-\rho_0e'|\le4D/M$ and $|e'|\le2E$
+has coordinates $\lambda\in\Z^2$, $|\lambda_i|\le L_i$, in the basis
+$T_I^{-1}g^{(i)}$ of $\Z^2$, and every $(v',u')$ with
+$|v'-\omega_0u'|\le17V/M$ and $|u'|\le2U$ has coordinates $\tau$,
+$|\tau_i|\le T_i$, in the basis $T_I'^{-1}g'^{(i)}$. These coordinate changes
+lie in $\mathrm{GL}_2(\Z)$.
+\end{enumerate}
+\end{lemma}
+This is Reuss's lattice step \cite[\S2.2]{Reuss} with explicit constants:
+(i) follows from $d-\rho_0e\le\rho_0e/M$ and from
+$\omega_0(1-1/M)u\le v\le\omega_0(1+3/M)u$, which uses $|h|\le d^3u^2/(3M)$;
+(ii) and (iii) follow from the Gram inequalities of a reduced basis, which
+give $|\lambda_1g^{(1)}+\lambda_2g^{(2)}|^2\ge\frac12(\lambda_1^2|g^{(1)}|^2+\lambda_2^2|g^{(2)}|^2)$.
+In the formal proof the constants are $27DE/M\le L_1L_2\le32DE/M$,
+$L_1\ge5(DE/M)^{1/2}$, $117UV/M\le T_1T_2\le136UV/M$ and
+$T_1\ge10(UV/M)^{1/2}$.
+
+\subsection{The per-interval CCDN step}\label{sec:P}
+\begin{lemma}[Lemma P]\label{lem:P}
+Let $F\in\Z[\lambda_1,\lambda_2;\tau_1,\tau_2]$ be bihomogeneous of bidegree
+$(3,2)$, let $h\in\Z\setminus\{0\}$, and let $\Gamma\subset\PP^1\times\PP^1$ be
+an irreducible curve over $\Q$ of bidegree $(\alpha,\beta)\ne(0,0)$. Let
+$L_1\ge L_2>0$ and $T_1\ge T_2>0$. Then the number of
+$(\lambda,\tau)\in\Z^2\times\Z^2$ with $\lambda$ and $\tau$ primitive,
+$|\lambda_i|\le L_i$, $|\tau_i|\le T_i$, $F(\lambda;\tau)=h$ and
+$([\lambda],[\tau])\in\Gamma$ is at most
+\[
+2\,c(12)\,d^3B^{1/d}(\log B+d),\qquad d:=2\alpha+3\beta,\quad B:=\max(1,L_1^3T_1^2),
+\]
+with $c(12)$ from Theorem~\ref{thm:ccdn}, uniformly in $F$, $\Gamma$ and $h$.
+\end{lemma}
+
+Geometrically, the twelve monomials $\sigma_k$ of bidegree $(3,2)$ embed
+$\PP^1\times\PP^1$ by $\mathcal O(3,2)$, and the counted points are integral
+points on the affine slice $\{F=h\}$ of the cone over the image of $\Gamma$,
+a curve of degree $2\alpha+3\beta$. The proof works with the coordinate ring
+of this slice directly.
+
+\begin{proof}
+Let $R=\Q[y_0,y_1;y_2,y_3]$, bigraded with $y_0,y_1$ of bidegree $(1,0)$ and
+$y_2,y_3$ of bidegree $(0,1)$; let $\sigma_k=y_0^iy_1^{3-i}y_2^jy_3^{2-j}$ for
+$k=3i+j$, $0\le i\le3$, $0\le j\le2$, so that $\sigma(\lambda,\tau)\in\Z^{12}$
+denotes the vector of these monomials. Let $G$ be an equation of $\Gamma$,
+irreducible in $R$, so that $(G)$ is prime. If $G\mid F$, then $F$ vanishes
+on $\Gamma$ and, as $h\ne0$, nothing is counted. Otherwise the image $\bar F$
+of $F$ in the domain $R/(G)$ is nonzero; let $S=(R/(G))[\bar F^{-1}]$ and
+let $\psi\colon\Q[x_1,\dots,x_{12}]\to S$ send $x_k$ to $h\sigma_k/\bar F$.
+Its kernel $I$ is a prime ideal.
+
+\emph{Hilbert function.} The image under $\psi$ of the polynomials of total
+degree at most $s$ is $\{\bar N\bar F^{-s}:N\in R_{(3s,2s)}\}$. Indeed, a
+monomial $x^m$ with $|m|\le s$ maps to
+$h^{|m|}\sigma^m\bar F^{\,s-|m|}/\bar F^{\,s}$, whose numerator has bidegree
+$(3s,2s)$; conversely every monomial of bidegree $(3s,2s)$ is a product of
+$s$ of the $\sigma_k$, and $h\ne0$. Multiplication by $\bar F^{-s}$ is
+injective, so this image has dimension $\dim(R/(G))_{(3s,2s)}$. The exact
+sequence
+$0\to R_{(3s-\alpha,2s-\beta)}\xrightarrow{\ \cdot G\ }R_{(3s,2s)}\to(R/(G))_{(3s,2s)}\to0$
+and $\dim R_{(a,b)}=(a+1)(b+1)$ give, for $s\ge\alpha+\beta$,
+\[
+(3s+1)(2s+1)-(3s-\alpha+1)(2s-\beta+1)=(2\alpha+3\beta)\,s+(\alpha+\beta-\alpha\beta).
+\]
+So $I$ has degree $d=2\alpha+3\beta$ in the sense of Theorem~\ref{thm:ccdn}.
+
+\emph{Dimension one.} Since the Hilbert function grows linearly, any two
+elements of $\Q[x]/I$ are algebraically dependent: the $(k+1)^2$ products
+$a^ib^j$ with $i,j\le k$ lie in a filtration piece of dimension $O(k)$. If
+$\mathfrak p\ni p\ne0$ is a prime and $\Phi(p,b)=0$ with $\Phi\ne0$, cancelling
+the largest power of the first variable dividing $\Phi$ (as $\Q[x]/I$ is a
+domain) and reducing modulo $\mathfrak p$ shows that $b$ is algebraic over
+$\Q$ modulo $\mathfrak p$. Hence the quotient by any nonzero prime is algebraic
+over $\Q$ and therefore a field, so every nonzero prime is maximal; and $\Q[x]/I$, which is
+infinite-dimensional and finitely generated, is not a field. So
+$\dim\Q[x]/I=1$.
+
+\emph{The counted points.} Let $(\lambda,\tau)$ be counted. Evaluation at
+$(\lambda,\tau)$ defines $R/(G)\to\Q$, which sends $\bar F$ to $h\ne0$ and so
+extends to $S$; composed with $\psi$ it sends $x_k$ to $\sigma_k(\lambda,\tau)$.
+Hence every element of $I$ vanishes at $w=\sigma(\lambda,\tau)\in\Z^{12}$, and
+$|w_k|\le L_1^iL_2^{3-i}T_1^jT_2^{2-j}\le L_1^3T_1^2\le B$.
+
+\emph{Fibres.} Suppose $\sigma(\lambda,\tau)=\sigma(\lambda',\tau')$ with all
+four vectors primitive. Some $\tau_1^j\tau_2^{2-j}$ is nonzero, and the
+coordinates with that $j$ show that the cubic monomial vectors of $\lambda$
+and $\lambda'$ are proportional with a nonzero factor; hence $\lambda$ and
+$\lambda'$ are proportional, and being primitive, $\lambda'=\kappa\lambda$
+with $\kappa=\pm1$. Likewise $\tau'=\mu\tau$ with $\mu=\pm1$. A nonzero
+coordinate $\lambda_1^i\lambda_2^{3-i}\tau_1^j\tau_2^{2-j}$ is multiplied by
+$\kappa^3\mu^2=\kappa$, so $\kappa=1$. Thus each point $w$ comes from at most
+the two pairs $(\lambda,\pm\tau)$.
+
+Therefore the count is at most twice the number of integral points of height
+at most $B$ on the curve defined by $I$, and Theorem~\ref{thm:ccdn} with
+$N=12$ gives the bound.
+\end{proof}
+
+\subsection{The per-interval bound}
+\begin{proposition}\label{prop:interval}
+In the setting of this section, for each interval $I$ the number of
+$(d,e,u,v)\in\mathcal S_W$ with $d/e\in I$ and $\gcd(d,e),\gcd(u,v)\in\mathcal G$ is
+\[
+\ll_{h,c,\delta,\mathcal G,\varepsilon}x^{\varepsilon}\Big(1+\big(L_1(I)^3T_1(I)^2\big)^{1/10}\Big).
+\]
+\end{proposition}
+
+\begin{proof}
+By Section~\ref{sec:components} every counted solution is a zero of one of at
+most $2K_0$ irreducible factors $G$ of $G_I$, each with coefficients at most
+$x^{\kappa+1}$. We bound the solutions on each factor. (The formal
+statement gives the bound with $L_1$ and $T_1$ computed from some nonzero
+vectors of $\Lambda_I$ and $\Lambda'_I$; this implies the form stated, since
+the reduced vectors $g^{(1)}$, $g'^{(1)}$ are shortest.)
+
+Type (a) carries none. For a line $pd+qe=0$, $(d,e)$ is $\gamma$ times a fixed
+primitive vector with $\gamma\in\mathcal G$, and for each such $(d,e)$
+Lemma~\ref{lem:pellthue}(i) gives $\ll x^\varepsilon$ pairs $(u,v)$; for a
+line $pv+qu=0$, $(v,u)$ takes at most $\#\mathcal G$ values and
+Lemma~\ref{lem:pellthue}(ii) gives $O(1)$ pairs $(d,e)$ for each. Type (b2)
+carries $\ll x^\varepsilon$ solutions by Proposition~\ref{prop:lowdeg} with
+$K=\kappa+1$.
+
+Let $G$ be of type (b3), and fix $\gamma=\gcd(d,e)$ and
+$\gamma'=\gcd(u,v)$ in $\mathcal G$. Put $(d_0,e_0)=(d,e)/\gamma$ and
+$(v_0,u_0)=(v,u)/\gamma'$; these are primitive,
+$e_0^3v_0^2-d_0^3u_0^2=h':=h/(\gamma^3\gamma'^2)$ is a nonzero integer, and
+$G(d_0,e_0,v_0,u_0)=0$ by bihomogeneity. Since $M\le x^{1/2}$ and $x$ is
+large, $x\ge3|h|M$, so Lemma~\ref{lem:reduced}(i) gives
+$|d_0-\rho_0e_0|\le4D/M$, $|e_0|\le2E$, $|v_0-\omega_0u_0|\le17V/M$ and
+$|u_0|\le2U$, and by Lemma~\ref{lem:reduced}(iii) the coordinates $\lambda$,
+$\tau$ of $(d_0,e_0)$ and $(v_0,u_0)$ are primitive with $|\lambda_i|\le L_i$
+and $|\tau_i|\le T_i$. In these coordinates $e^3v^2-d^3u^2$ becomes a
+bihomogeneous form of bidegree $(3,2)$ and $G$ becomes an irreducible form of
+the same bidegree, since the changes of variables lie in $\mathrm{GL}_2(\Z)$;
+the map to $(\lambda,\tau)$ is injective. Lemma~\ref{lem:P} with $h'$ and
+$d=2\alpha+3\beta\ge10$ bounds the solutions by
+$2c(12)d^3B^{1/d}(\log B+d)$. Here $B^{1/d}\le1+(L_1^3T_1^2)^{1/10}$, while
+$L_1\ll x$ and $T_1\ll x$ give $\log B\ll\log x$, and $d\le5K_0$; so this is
+$\ll x^\varepsilon(1+(L_1^3T_1^2)^{1/10})$. Summing over
+$(\gamma,\gamma')\in\mathcal G^2$ and over the at most $2K_0$ factors proves
+the proposition.
+\end{proof}
+
+\section{Summation over intervals}\label{sec:sum}
+
+Put $L_*:=\max((DE/M)^{1/2},32(D+E)/M)$ and $T_*:=\max((UV/M)^{1/2},194(U+V)/M)$.
+
+\begin{lemma}[Tail counts]\label{lem:tails}
+For $L\ge32(D+E)/M$, $\#\{I:\ L_1(I)\ge L\}\le720\,DE/L^2$, and for
+$T\ge194(U+V)/M$, $\#\{I:\ T_1(I)\ge T\}\le7000\,UV/T^2$.
+\end{lemma}
+A short lattice vector is a rational approximation to $\rho_0$ or $\omega_0$
+with bounded numerator; the points $\rho_0$ are spaced at least $D/(2EM)$
+apart, and counting the pairs (denominator, interval) gives the bounds.
+
+\begin{lemma}\label{lem:moments}
+For $0<\theta<2$, $\sum_I L_1(I)^{\theta}\ll_\theta M L_*^{\theta}$ and
+$\sum_I T_1(I)^{\theta}\ll_\theta M T_*^{\theta}$.
+\end{lemma}
+The intervals with $L_1(I)\le L_*$ contribute at most $(3M+1)L_*^\theta$, and
+by Lemma~\ref{lem:tails} and $DE\le ML_*^2$ the dyadic shell
+$2^kL_*\le L_1(I)<2^{k+1}L_*$ contributes $\ll ML_*^\theta(2^\theta/4)^k$; the
+series converges because $\theta<2$.
+
+\begin{theorem}[The reduced per-box bound]\label{thm:Bred}
+Let $h\ne0$, $c\in(0,1)$ and $\mathcal G$ be fixed, and let $W$ be a window with
+$s,t\ge c$. Define
+\begin{equation}\label{eq:Bred}
+\Bred(a,b):=m+\frac3{10}\,\lst+\frac15\,\tst,
+\end{equation}
+where $\lst:=\max(\frac{s-m}2,a-m,b-m)$ and $\tst:=\max(\frac{t-m}2,\ub-m,\vb-m)$.
+Then for every $\varepsilon>0$ the number of $(d,e,u,v)\in\mathcal S_W$ with
+$\gcd(d,e),\gcd(u,v)\in\mathcal G$ is $\ll_{h,c,\mathcal G,\varepsilon}x^{\max(m,\Bred(a,b))+\varepsilon}$.
+\end{theorem}
+
+\begin{proof}
+Put $\delta=\min(\varepsilon/2,1/2)$ and $M=\lceil x^{(1+\delta)m}\rceil$.
+Each solution lies in one of the at most $3M+1$ intervals $I$, so by
+Proposition~\ref{prop:interval} (with $\varepsilon/2$) the count is at most
+$\sum_I A\,(1+L_1(I)^{3/10}T_1(I)^{1/5})$ with $A\ll x^{\varepsilon/2}$.
+For $L,T\ge0$, applying $XY\le X^2+Y^2$ to $X=(L/L_*)^{3/10}$ and
+$Y=(T/T_*)^{1/5}$ gives
+\[
+L^{3/10}T^{1/5}\le L_*^{3/10}T_*^{1/5}\Bigl(\frac{L^{3/5}}{L_*^{3/5}}+\frac{T^{2/5}}{T_*^{2/5}}\Bigr).
+\]
+Summing over $I$ with Lemma~\ref{lem:moments} for $\theta=3/5$ and
+$\theta=2/5$, the count is $\ll A\,(M+ML_*^{3/10}T_*^{1/5})$. Now
+$x^{(1+\delta)m}\le M\le2x^{(1+\delta)m}$, $0\le m\le3/16$,
+$L_*\ll x^{\lst-\delta m/2}$ and $T_*\ll x^{\tst-\delta m/2}$, so
+$M\ll x^{m+\delta}$ and
+$ML_*^{3/10}T_*^{1/5}\ll x^{\Bred+\frac34\delta m}\le x^{\Bred+\delta}$. Since
+$\delta\le\varepsilon/2$, the count is $\ll x^{\max(m,\Bred)+\varepsilon}$.
+\end{proof}
+
+\begin{lemma}\label{lem:Bredm}
+If $0\le a,b\le\frac13$ and $s>2/27$, then $\Bred(a,b)\ge m$.
+\end{lemma}
+\begin{proof}
+Here $s\le\frac23$, so $t\ge0$. Then $s-m=s(1-\frac98t)\ge0$ because $s\ge2/27$
+is equivalent to $t\le\frac89$, and $t-m=t(1-\frac98s)\ge0$ since $s\le\frac23<\frac89$. So
+$\lst,\tst\ge0$.
+\end{proof}
+
+\begin{lemma}[Balanced form]\label{lem:balanced}
+If $|a-b|\le\frac23m$, then $\Bred(a,b)=\frac34m+\frac1{10}$.
+\end{lemma}
+\begin{proof}
+$a-m\le\frac{s-m}2$ if and only if $a-b\le m$, and $\ub-m\le\frac{t-m}2$ if
+and only if $\frac32(b-a)\le m$; with the symmetric conditions this gives
+$\lst=\frac{s-m}2$ and $\tst=\frac{t-m}2$, and then
+$\Bred=\frac34m+\frac{3s+2t}{20}=\frac34m+\frac1{10}$ because $3s+2t=2$.
+\end{proof}
+At $a=b=1/6$ one has $s=1/3$, $m=3/16$ and $\Bred=77/320$.
+
+\section{The optimisation and its certificates}\label{sec:cert}
+
+Let the gate $\mathsf G$ be the set of $(a,b)\in[0,1/3]^2$ with $s,t\ge1/10$
+and $a,b\ge1/100$, and define
+\begin{gather*}
+\Phi_3(a,b):=\min\{s,\ t,\ \Bred(a,b)\ \text{if }(a,b)\in\mathsf G\},\\
+\Phi_2^\sharp(a,b):=\min\{s,\ t,\ H_1,\ H_2,\ R\ \text{if }(a,b)\in\mathsf G_0,\ \Bred\ \text{if }(a,b)\in\mathsf G\},
+\end{gather*}
+with $\mathsf G_0=\{(a,b)\in[0,1/3]^2:s,t\ge1/10\}$.
+
+\begin{proposition}\label{prop:certs}
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item For all $(a_1,a_2,a_3)\in[0,1/3]^3$,
+$\min\{\Phi_3(a_1,a_2),\Phi_3(a_1,a_3),\Phi_3(a_2,a_3)\}\le 77/320$, with
+equality at $a_1=a_2=a_3=1/6$.
+\item For all $(a,b)\in[0,1/3]^2$, $\Phi_2^\sharp(a,b)\le\frac14$, with equality
+exactly at $(0,\frac14)$ and $(\frac14,0)$.
+\item If $a,a'\in[19/100,21/100]$, then $(a,a')\in\mathsf G$ and
+$\Bred(a,a')\le 38059/160000$, with an $O(\eta)$ error on the
+$\eta$-neighbourhood for $0\le\eta\le1/1000$.
+\end{enumerate}
+\end{proposition}
+These are finite statements about explicit piecewise-quadratic functions, proved
+in Lean by case analysis on the active terms of each maximum and minimum and by
+exact polynomial inequalities; part (ii) includes the strip inequality
+$\min\{s,H_2\}\le\frac14+\frac a4$ for $a\le1/100$. The same bounds are certified independently by exact-rational branch and
+bound (Python \texttt{fractions}) in the supplementary scripts: each box bound
+uses the concavity of $m$, $(s+m)/2$ and $(t+m)/2$ in $s$ and the linearity of
+the remaining terms. Table~\ref{tab:cert} lists the runs; negative controls
+just below each target fail. The point $(a,b)=(1/200,197/800)$
+shows that $R$ is needed outside $\mathsf G$: there $\min\{s,H_2\}=201/800>1/4$.
+
+\begin{table}[ht]
+\centering
+\footnotesize
+\begin{tabular}{@{}llllr@{}}
+\toprule
+Run & functional & region & target $T$ & result (nodes)\\
+\midrule
+K3\_MIN & $\min_{\mathrm{pairs}}\Phi_3$ & $[0,\frac13]^3$ & $77/320$ & certified (633)\\
+K3\_MIN\_CTL & same & same & $0.2406$ & fails near $(\frac16,\frac16,0.171)$\\
+K2\_FULL & $\Phi_2^\sharp$ & $[0,\frac13]^2$ & $1/4$ & certified (93)\\
+K2\_FULL\_CTL1 & same & same & $\frac14-10^{-6}$ & fails near $(0,\frac14)$\\
+CENTRAL & $\min_{\mathrm{pairs}}\Bred$ & $[\frac{19}{100},\frac{21}{100}]^3$ & $38059/160000$ & certified (1)\\
+THETA & $\min_{\mathrm{pairs}}\min(s,t,B_{1/12})$ & $[0,\frac13]^3$ & $89/384$ & certified (633)\\
+\bottomrule
+\end{tabular}
+\caption{Exact-rational certificates from \texttt{certificates.py} and
+\texttt{endpoint\_cert.py} (K2\_FULL); the outputs, with further runs and
+controls, are in the supplementary directory. $B_{1/12}$ is defined in
+Remark~\ref{rem:genus1}.}\label{tab:cert}
+\end{table}
+
+\begin{proposition}[Central small-gap exclusion]\label{prop:centralgap}
+Let $n\ge1$, $H=n+3$, and suppose $(n+1)(n+2)(n+3)$ is powerful. Suppose, for
+$r=1,2,3$, that $n+r=f_rd_r^3u_r^2$ with positive integers $u_r$,
+$f_r\in\{1,2\}$ and odd squarefree $d_r$, and that $H^{19}<d_r^{100}<H^{21}$. Then
+$\max\{|d_1-d_2|,|d_3-d_2|\}>H^{32/1000}$.
+\end{proposition}
+It is proved in Lean without hypotheses. It excludes only the small-gap part of the central box.
+
+\section{Proofs of the theorems}\label{sec:proofs}
+
+\subsection{Fixed width}
+\emph{Theorem~\ref{thm:k3}.} Split $n+1\in(X/2,X]$ dyadically and sort the
+$n$ by $(f_1,f_2,f_3)$ and by the dyadic scales $D_i$ of $d_1,d_2,d_3$. For
+each of the three pairs, Lemmas~\ref{lem:pair} and~\ref{lem:windows} map the
+$n$ of a box injectively into $O(1)$ window sets. With
+$\hat a_i=\max(0,\min(\log D_i/\log X,1/3))$, Proposition~\ref{prop:certs}(i)
+selects a pair with $s\le77/320$, or $t\le77/320$, or $(\hat a_i,\hat a_j)\in\mathsf G$
+and $\Bred\le77/320$; Lemma~\ref{lem:pellthue}, or Theorem~\ref{thm:Bred}
+with Lemma~\ref{lem:Bredm}, bounds the box, after a Lipschitz transfer of the exponents by
+$O(1/\log X)$. Summing over $O((\log x)^4)$ boxes gives the bound for $N_k$,
+and Proposition~\ref{prop:certs}(iii) gives the central subcount.
+This proof does not use
+Theorems~\ref{thm:reuss1}, \ref{thm:hb15} or~\ref{thm:tao}.
+
+\emph{Theorem~\ref{thm:k2}.} Here $k=2$, $h=1$, and $d=d_1$, $e=d_2$ are
+squarefree. On boxes with $\hat a,\hat b\ge\eta$ for a small fixed $\eta>0$,
+Proposition~\ref{prop:certs}(ii) selects one of $s,t,H_1,H_2,R,\Bred$ at most
+$\frac14$, and Lemmas~\ref{lem:pellthue} and~\ref{lem:hb},
+Theorem~\ref{thm:reuss1} (on windows with $D,E\ge x^{c}$) or
+Theorem~\ref{thm:Bred} give the bound. On thin boxes $\hat a<\eta$, the strip
+inequality $\min\{s,H_2\}\le\frac14+\frac{\hat a}4$ with
+Lemmas~\ref{lem:pellthue} and~\ref{lem:hb} gives
+$x^{1/4+\eta/4+\varepsilon}$, and $\eta$ is arbitrary; the case $\hat b<\eta$
+is symmetric. So Theorem~\ref{thm:reuss1} is needed only on windows with both
+cube-part scales at least a fixed power of $x$.
+
+\subsection{Uniformity over all widths}\label{sec:uniform}
+Put $\theta=77/320$. Summing Theorem~\ref{thm:k3} over $k$ would not suffice;
+the argument instead selects three consecutive factors with small coefficients
+and makes the pair bounds uniform in growing shifts.
+
+\begin{lemma}[Three consecutive small kernels]\label{lem:goodtriple}
+For $n\ge0$, $k\ge3$ and $1\le j\le k$, let
+$f_j=\prod_{p<k,\ v_p(n+j)\text{ odd}}p$. There is $1\le i\le k-2$ with
+$f_i,f_{i+1},f_{i+2}\le B(k)$, where $B(k)=30030$ for $k\le14$ and
+$B(k)=k^8$ for $k\ge15$.
+\end{lemma}
+
+\begin{proof}
+If $k\le14$, take $i=1$: every $f_j$ divides $2\cdot3\cdot5\cdot7\cdot11\cdot13=30030$.
+Let $k\ge15$. If a prime $p<k$ divides $f_j$, then $p\mid n+j$; there are at
+most $\lfloor k/p\rfloor+1\le2\lfloor k/p\rfloor$ such $j$, and
+$p^{\lfloor k/p\rfloor}\mid k!$. Hence $\prod_{j=1}^kf_j$ divides $(k!)^2$, so
+$\prod_jf_j\le k^{2k}\le k^{8\lfloor k/3\rfloor}$, using $2k\le8\lfloor k/3\rfloor$
+for $k\ge15$. If no admissible $i$ existed, each of the $\lfloor k/3\rfloor$
+disjoint blocks $\{3l+1,3l+2,3l+3\}$ would contain some $f_j\ge k^8+1$, and
+since all $f_j\ge1$ we would get
+$(k^8+1)^{\lfloor k/3\rfloor}\le\prod_jf_j\le(k^8)^{\lfloor k/3\rfloor}$, a
+contradiction.
+\end{proof}
+
+For a window $W$ and an integer $h\ne0$ let $A_W(h)$ be the number of
+$(d,e,u,v)\in\mathcal S_W$, defined with shift $h$, such that
+$\gcd(d,e)=\gcd(u,v)=1$.
+
+\begin{lemma}[Uniform primitive windows]\label{lem:uniformwindows}
+Fix $0<c\le1/10$, $0<\delta\le1/100$ and $\varepsilon>0$. For sufficiently
+large $x$, uniformly in the integer shift $1\le |h|\le x^{\delta/4}$ and the
+window $W$, the number $A_W(h)$ of solutions in $\mathcal S_W$ with
+$\gcd(d,e)=\gcd(u,v)=1$ satisfies $A_W(h)\ll x^{s+\varepsilon}$ and
+$A_W(h)\ll x^{t+\varepsilon}$, and if also $s,t\ge c$, then
+$A_W(h)\ll_{c,\delta,\varepsilon}x^{\max(m,\Bred(a,b))+\varepsilon+2\delta}$.
+\end{lemma}
+
+\begin{proof}
+The first two bounds hold for every $x>1$ uniformly in $0<|h|\le x$. Every
+solution has $d\le2D$, $e\le2E$ and $u,v\le32x$. For coprime $(d,e)$ the
+number of coprime $(u,v)$ with $u,v\le32x$ and $e^3v^2-d^3u^2=h$ is at most
+$2\tau(|h|)\bigl(4\log_2((d^3e^3+1)(32x)^2)+2\bigr)$ (the primitive count
+behind Lemma~\ref{lem:pellthue}(i)), and for each $(u,v)$
+Lemma~\ref{lem:pellthue}(ii) with $G_0=1$ gives at most
+$2800\cdot3^{1+\omega(|h|)}$ coprime pairs $(d,e)$. Summing over the at most
+$4DE$ pairs $(d,e)$, respectively $4UV$ pairs $(u,v)$, with
+$\tau(|h|),3^{\omega(|h|)}\ll_\varepsilon x^{\varepsilon}$, gives the two bounds.
+For the third bound, $|h|\le x^{\delta/4}$ controls every place where the
+shift enters Sections~\ref{sec:interval} and~\ref{sec:sum}:
+it gives $3|h|M\le x$, the hypothesis of Lemma~\ref{lem:reduced}(i); it gives
+$|h|\le x$, the range of the second form of Proposition~\ref{prop:lowdeg} and
+of the primitive counts of the previous sentences, which replace
+Lemma~\ref{lem:pellthue} on the lines of type (b1);
+and it gives $3+8|h|\le x^{\delta/3}$, so that in Lemma~\ref{thm:lemma7} the
+approximation of $v/u$ by $(d/e)^{3/2}$ loses at most a factor $x^{\delta/3}$
+and the determinant estimate holds with degrees and constants depending only
+on $c$ and $\delta$. Lemma~\ref{lem:P} does not involve $h$, and since the
+solutions are primitive no division by $\gcd(d,e)$ or $\gcd(u,v)$ is needed.
+Hence Proposition~\ref{prop:interval} holds with $\mathcal G=\{1\}$ and an
+implied constant independent of $h$ in this range, and summing it over the
+intervals as in the proof of Theorem~\ref{thm:Bred} gives
+$A_W(h)\ll x^{\max(m,\Bred(a,b))+\varepsilon+\delta}$, which implies the
+stated bound.
+\end{proof}
+
+\begin{lemma}[Three-term count with small coefficients]\label{lem:uniformtriple}
+Let $\mathcal Q$ be the positive powerful integers. For every
+$\varepsilon>0$ there are $\eta>0$ and $C_\varepsilon$ such that, for
+$y\ge2$ and integers $1\le f_1,f_2,f_3\le y^\eta$,
+\[
+ \#\{0\le N\le y:N+r\in f_r\mathcal Q\ (r=1,2,3)\}
+ \le C_\varepsilon y^{\theta+\varepsilon}.
+\]
+\end{lemma}
+
+\begin{proof}
+Take $\delta$ and $\varepsilon'$ small in terms of $\varepsilon$, and $\eta$
+small in terms of $\delta$ and $\varepsilon$. The $N\le y^\theta$ contribute at
+most $y^\theta+1$. For $y^\theta<N\le y$ write $N+r=f_rd_r^3u_r^2$
+($r=1,2,3$) and $F=\max_rf_r\le y^\eta$.
+
+\emph{The primitive equation.} For a pair $(i,j)$ the identity of
+Lemma~\ref{lem:pair} gives $e^3v^2-d^3u^2=h$ with $d=f_id_i$, $e=f_jd_j$,
+$u=f_ju_i$, $v=f_iu_j$ and $1\le h=f_i^2f_j^2(j-i)\le2F^4$; only this identity
+is used, since the $f_r$ are arbitrary. Dividing by $g=\gcd(d,e)$ and
+$q=\gcd(u,v)$ gives a primitive solution $(d',e',u',v')$ with shift
+$h'=h/(g^3q^2)$, an integer because $g^3q^2\mid h$; so $g,q,h'\le2F^4$, and
+its size $d'^3u'^2$ lies between $(N+1)/2$ and $F^4(N+3)$.
+
+\emph{The window and the shift.} For $y$ large,
+$h'\le2F^4\le(N+1)/200\le d'^3u'^2/100$, so Lemma~\ref{lem:windows} places the
+primitive solution in a window $W'=(D',E',x')$ from the grid $\{2^{k/8}\}$ with
+$N+1\ll x'\ll F^4(N+1)$. As $N>y^\theta$ and $F\le y^\eta$, with $\eta$ small
+in terms of $\delta$ we get $h'\le2F^4\le x'^{\delta/4}$, so
+Lemma~\ref{lem:uniformwindows} applies to $W'$ uniformly in the shift.
+
+\emph{The exponents and the choice of pair.} Let $\hat a_r$ be $\log d_r/\log(N+1)$
+clipped to $[0,1/3]$. The exponents $(a,b)$ of $W'$ differ from
+$(\hat a_i,\hat a_j)$ by $O((1+\log F)/\log N)$, the clipping included, and
+$s,t,m,\lst,\tst$ and $\Bred$ are Lipschitz in $(a,b)$; this perturbation
+costs a factor $O(F^{O(1)})$.
+Proposition~\ref{prop:certs}(i) at $(\hat a_1,\hat a_2,\hat a_3)$ selects a
+pair with $s\le\theta$, or $t\le\theta$, or $(\hat a_i,\hat a_j)\in\mathsf G$
+and $\Bred\le\theta$; in the last case $s,t\ge c=1/20$ for $y$ large, and
+Lemma~\ref{lem:Bredm} at $(\hat a_i,\hat a_j)$, where $s\ge1/10>2/27$, gives
+$m\le\Bred$ there. In each case Lemma~\ref{lem:uniformwindows} bounds the
+primitive solutions in $W'$ with shift $h'$ by
+$\ll_\varepsilon F^{O(1)}(N+1)^{\theta+\varepsilon'+2\delta}$.
+
+\emph{Summation.} The key consisting of the pair, $g$, $q$ and the window
+$W'$ determines $h'$, and together with the primitive solution it determines
+$N$. There are $O(F^8(\log y)^3)$ keys. The total is therefore
+$y^\theta+1+F^{O(1)}(\log y)^3y^{\theta+\varepsilon'+2\delta}$, and with
+$F\le y^\eta$ the choice of parameters makes the exponent less than
+$\theta+\varepsilon$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:uniform}]
+Theorem~\ref{thm:tao} applies to every powerful $P(N,k)$ with $N\ge N_0$ and
+$k\ge3$: the condition $k<N$ is automatic, because if $N\le k$, Bertrand's
+postulate gives a prime $p$ with $N<p\le N+k<2p$, which divides $P(N,k)$
+exactly once. So for $n_1=\max(N_0,1)\le n\le x$ every powerful $P(n,k)$ with
+$k\ge3$ has $k\le K_x=\exp((\log x)^{7/10})=x^{o(1)}$.
+
+\emph{Width at least three.} Let $x$ be large, so that $14\le K_x\le x$ and
+$K_x^8\le x^\eta$. Lemma~\ref{lem:goodtriple} gives an index $i\le K_x$ with
+$f_i,f_{i+1},f_{i+2}\le K_x^8$, and $(n+l)/f_l$ is powerful: a prime $p\ge k$
+dividing $n+l$ divides no other factor, so $p^2\mid n+l$, and a prime $p<k$
+has even exponent in $(n+l)/f_l$. So $N=n+i-1\le2x$ satisfies
+$N+r\in f_{i+r-1}\mathcal Q$ for $r=1,2,3$, and Lemma~\ref{lem:uniformtriple} with $\varepsilon/2$ and
+$y=2x$ applies to each of the at most $K_x$ indices and $K_x^{24}$ coefficient
+triples, and the count is at most
+$n_1+K_x^{25}C(2x)^{\theta+\varepsilon/2}\ll_\varepsilon x^{\theta+\varepsilon}$.
+
+\emph{Width two.} If $(n+1)(n+2)$ is powerful, both factors are powerful
+since they are coprime, and Theorem~\ref{thm:k2} with $x+1$ applies to $n+1$;
+this gives the bound
+$x^{1/4+\varepsilon}$ for $k\ge2$.
+
+\emph{Non-powerful members.} A non-powerful $z$ with $N<z\le N+K$ and
+$P(N,K)$ powerful forces $K\ge3$, and then $K<N$ by the Bertrand argument.
+Starts $N<n_1$ give $z<2n_1$; every other start is counted by the first bound
+with $\varepsilon/2$ and carries at most $K\le K_x\le x^{\varepsilon/2}$ such $z$.
+
+The explicit choices of $\delta$, $\varepsilon'$, $\eta$, $c$ and of the
+thresholds in $x$ and $y$, and the resulting constants, are those of the
+formal proofs of Lemmas~\ref{lem:uniformwindows} and~\ref{lem:uniformtriple}
+and Theorem~\ref{thm:uniform} (Appendix~\ref{app:lean}). All implied
+constants depend only on $\varepsilon$ and on the threshold $N_0$ of
+Theorem~\ref{thm:tao}.
+\end{proof}
+
+\section{Remarks}\label{sec:remarks}
+
+\begin{remark}[$1/4$ is the limit of this method for $k=2$]\label{rem:quarter}
+At $(a,b)=(0,\frac14)$ every bound used here is at least $\frac14$: there
+$m=\frac{45}{256}$, $s=H_2=R=\frac14$, $t=\frac58$, $H_1=\frac34$ and
+$\Bred=\frac{673}{2560}$. At this corner $d_1$ is bounded,
+$d_2\approx x^{1/4}$, $u_1\approx x^{1/2}$ and $u_2\approx x^{1/8}$. Going
+below $\frac14$ at this corner requires a further bound, uniform in $d_1$ and
+$u_2$, for the integral points on the genus-one curves $Y^2=d_1u_2^2X^3-d_1$
+(a bound $x^{o(1)}$ would suffice); this paper uses none.
+\end{remark}
+
+\begin{remark}[Comparison with Reuss]\label{rem:compare}
+Reuss's per-box exponent $R(a,b)$ equals $m+\min(\lst,\tst)$. Our exponent is
+$m+\frac3{10}\lst+\frac15\tst$. At Reuss's binding point $s=t=2/5$
+($m=9/50$, $\lst=\tst=11/100$) these are $0.29$ and $0.235$. The difference
+is entirely the per-interval count: Reuss counts rational points of the
+auxiliary curve with one coordinate pair at a time \cite[\S2.2, Lemma~8]{Reuss},
+whereas Lemma~\ref{lem:P} counts integral points of the curve cut out jointly
+by the auxiliary equation and by \eqref{eq:pair}.
+\end{remark}
+
+\begin{remark}[A genus-one saving would help]\label{rem:genus1}
+If every component of bidegree $(2,2)$ in Proposition~\ref{prop:interval}
+carried $\ll x^{\varepsilon}\max(1,L_1^3T_1^2)^{\theta'}$ solutions for some
+$\theta'\in[\frac1{12},\frac1{10}]$, the per-box exponent would become
+$B_{\theta'}:=m+3\theta'\lst+2\theta'\tst$. For $\theta'=1/12$ the run THETA
+certifies $\sup_{[0,1/3]^3}\min_{\mathrm{pairs}}\min(s,t,B_{1/12})=89/384\approx0.2318$.
+This would need a uniform saving over the exponent $1/10$ of
+Theorem~\ref{thm:ccdn} for integral points on the degree-$10$ curves of
+Lemma~\ref{lem:P}. Nothing in this remark is claimed; the value $89/384$ is an
+exact-rational certificate, not a Lean theorem.
+\end{remark}
+
+\begin{remark}[Relation to Tao's model problem]\label{rem:tao}
+Tao \cite[Remark~2.12]{Tao} proposes to show that the variety
+$n_1^2n_2^3+1=m_1^2m_2^3$ \cite[(2.9)]{Tao} has $o(H^2)$ integral points of
+height at most $H$. The pair equation \eqref{eq:pair} is this variety with
+$h=1$, and the geometry of Lemma~\ref{lem:P} is related to it; we have not
+examined what our method gives for the model problem as posed, where the cube
+variables need not be squarefree. Theorem~\ref{thm:uniform} improves the
+quantity in Tao's Theorem~1.8 through the uniform triple count instead.
+\end{remark}
+
+\begin{remark}[The constant $9/8$]\label{rem:98}
+The exponents depend on the determinant constant through $m=c_0st$ with
+$c_0=9/8$; in the balanced case at $s=1/3$ the bound is $c_0/8+1/10$. Within
+the determinant estimate of Lemma~\ref{thm:lemma7} (a rectangular monomial set
+and a generalised Vandermonde bound), the AM--GM inequality shows that no
+choice of $A$ and $B$ lowers $9/8$.
+This remark is a written argument; it is not formalized.
+\end{remark}
+
+\section{Verification and disclosure}\label{sec:status}
+
+\subsection*{Trust base}
+The formal proofs are checked by the kernel of Lean~4.33.1 with Mathlib at
+commit \path{0df444a360eaa60ab8c11dca51a86af692955474}. Every declaration
+of Table~\ref{tab:finals} depends exactly on the axioms \texttt{propext},
+\texttt{Classical.choice} and \texttt{Quot.sound}; there is no
+\texttt{sorry}, no \texttt{native\_decide} and no added axiom. The results
+from the literature enter only as the named hypotheses of Section~\ref{sec:cited}. What
+must be trusted beyond the kernel is therefore: those six results;
+the agreement of each Lean hypothesis with its source, discussed in
+Section~\ref{sec:cited}; and the agreement of the Lean statements of
+Table~\ref{tab:finals} with Theorems~\ref{thm:k2}--\ref{thm:uniform}.
+
+\subsection*{Statements and independent checks}
+Each statement in Table~\ref{tab:finals} is stated independently of its
+proof, and the proofs were checked against it by the Comparator tool, which
+compares the compiled statement with an independently compiled copy, together
+with an export of the proof checked by the independent kernel Nanoda with only
+the three standard axioms permitted. The declarations are in the module
+\path{CountingClosure} of the accompanying repository, compiled with zero
+warnings and audited for their exact axiom sets. The replay recorded in
+\path{replay/receipts/powerful-counting.json} checks every release
+declaration of this paper, the nine of Table~\ref{tab:finals} and the
+supporting declarations of Table~\ref{tab:concordance}, with Nanoda (standard
+axioms only), and compares each against its independent statement file in
+\path{replay/statements/powerful-counting/}; a negative control, the statement
+of Theorem~\ref{thm:k3} with $77/320$ replaced by $76/320$, is rejected. The Lean names of
+intermediate steps locate their proofs; only the declarations of
+Table~\ref{tab:finals} are compared with stated paper results.
+
+\subsection*{Hypotheses from the literature}
+The statements of Theorems~\ref{thm:reuss1}, \ref{thm:ccdn} and \ref{thm:tao}
+were compared with the arXiv texts \cite{Reuss,CCDN,Tao}, and
+Theorem~\ref{thm:stewart} with the journal text \cite[pp.~795--796]{Stewart}
+and Theorem~\ref{thm:gelfond} with \cite[Lemma~1.6.11]{BombieriGubler}, by an
+AI reviewer. Theorem~\ref{thm:hb15} was compared with Theorem~15 in the
+author's manuscript of \cite{HBLNM} and with its restatement in
+\cite[Theorem~2]{ReussThesis}; the published text of \cite{HBLNM} has not
+been compared.
+
+\subsection*{Use of AI systems}
+All results, proofs (written and formal), computation scripts and the text of
+this manuscript were produced by AI systems. The results and their proofs come
+from large language models running as agents in the Jocelyn research harness,
+together with Lean and exact-arithmetic tools; much of the writing and revision
+of the manuscript, its reviews and the resulting corrections were done with AI
+coding assistants from several providers, operated by the author outside the
+harness. The author chose the problem, operated the harness, set its
+objectives, decided the content of the manuscript and commissioned the
+reviews, and takes responsibility for the manuscript. All reviews were carried
+out by AI systems; no human has reviewed the results.
+
+\subsection*{Status}
+The novelty of the results has been checked only by bounded literature
+searches (arXiv, zbMATH in part, the papers citing Reuss, and Tao's paper and
+its references), not certified.
+
+\subsection*{Reproduction}
+The Lean sources, statement files and replay receipt are in the accompanying
+repository; the receipt \path{replay/receipts/powerful-counting.json} records
+the commit at which it was produced. There \path{scripts/build.sh} compiles
+the library and fails on any warning, \path{scripts/audit.sh} checks the axioms
+and the statement hash of every release declaration against
+\path{release/manifest.json}, and \path{scripts/replay.sh} runs the
+independent replay. The certificate scripts are reproduced by
+\texttt{python3 certificates.py \&\& python3 endpoint\_cert.py} in the
+supplementary directory, in about a minute on a laptop; all arithmetic is
+exact.
+
+\section*{Acknowledgements}
+The author thanks the Mathlib community for the formal library used in the
+accompanying repository.
+
+\appendix
+\section{Lean declarations}\label{app:lean}
+Table~\ref{tab:finals} lists the release declarations of the counting closure;
+each has an independent statement file and passed the replay of
+Section~\ref{sec:status}. Table~\ref{tab:concordance} gives the Lean
+declaration behind every statement of the paper. Names are relative to
+\path{JocelynWorkspace.Formalization.PowerfulCounting}, except those beginning
+with \texttt{Erdos137}, which are relative to \path{JocelynWorkspace};
+\texttt{CC} is \texttt{CountingClosure} and \texttt{CC.Final} is
+\texttt{CountingClosure.Erdos137Final}. A module name followed by eight
+hexadecimal digits denotes its declaration \texttt{JocelynClaims.claim\_}$\langle$hash$\rangle$
+whose hash begins with those digits; the release declarations are listed in
+full in \path{release/manifest.json} of the repository, and a hash prefix
+locates any other declaration in the Lean sources. Intermediate
+declarations are checked as part of the dependency closure of the release
+declarations; only the release declarations are compared with stated results.
+
+\begin{table}[ht]
+\centering\footnotesize
+\begin{tabular}{@{}l>{\raggedright}p{5.6cm}>{\raggedright\arraybackslash}p{4.4cm}@{}}
+\toprule
+Result & Lean declaration & Named hypotheses\\
+\midrule
+Theorem~\ref{thm:k3} & \path{counting_thm_k3} & Stewart, CCDN, Gelfond\\
+Theorem~\ref{thm:k2} & \path{counting_thm_k2_reuss} & Stewart, CCDN, Gelfond, Reuss, Heath-Brown\\
+Theorem~\ref{thm:uniform} & \path{counting_thm_uniform_reuss} & the five above and Tao\\
+Proposition~\ref{prop:interval} & \path{counting_prop_interval} & Stewart, CCDN, Gelfond\\
+Theorem~\ref{thm:Bred} & \path{counting_thm_Bred} & Stewart, CCDN, Gelfond\\
+Proposition~\ref{prop:interval}, uniform in $h$ & \path{counting_UPI} & Stewart, CCDN, Gelfond\\
+Lemma~\ref{lem:uniformwindows}, third bound & \path{counting_lem_uniformwindows_TB} & Stewart, CCDN, Gelfond\\
+Lemma~\ref{lem:uniformtriple} & \path{counting_lem_uniformtriple} & Stewart, CCDN, Gelfond\\
+Reuss window convention & \path{reuss_window_bridge} & none\\
+\bottomrule
+\end{tabular}
+\caption{Release declarations of the counting closure.}\label{tab:finals}
+\end{table}
+
+\begin{table}[ht]
+\centering\footnotesize
+\begin{tabular}{@{}>{\raggedright}p{3.4cm}>{\raggedright\arraybackslash}p{11.4cm}@{}}
+\toprule
+Statement & Lean declarations\\
+\midrule
+Theorem~\ref{thm:k2} & \texttt{CC.Final.counting\_thm\_k2\_reuss}; \texttt{CC.C12} \texttt{a9994a76}, \texttt{CC} \texttt{6ee9f26a}\\
+Theorem~\ref{thm:k3} & \texttt{CC.Final.counting\_thm\_k3}; \texttt{CC.C11} \texttt{d974288e}\\
+Theorem~\ref{thm:uniform} & \texttt{CC.Final.counting\_thm\_uniform\_reuss}; \texttt{CC} \texttt{3103e62f}, \texttt{e09c0d72}, \texttt{CC.C23} \texttt{8e090865}, \texttt{AllWidthFromUniformTriple} \texttt{2be59d9f}, \texttt{AllWidthFromPairAndUnion} \texttt{fdb026ef}, \texttt{NonpowerfulMembers} \texttt{ceda7068}\\
+Lemmas~\ref{lem:decomp}, \ref{lem:pair} & \texttt{DecompositionAndEnvelope} \texttt{9673eb5d}\\
+Lemma~\ref{lem:windows} & \texttt{StrictWindows} \texttt{f0cfdddd} (fixed $h$); growing shifts: \texttt{CC.C21.PcPellWin.growing\_cover}\\
+Reuss's window convention & \texttt{CC.Final.reuss\_window\_bridge}\\
+Lemma~\ref{lem:pellthue} & \texttt{CC.C08} \texttt{ca19e5d2}\\
+Lemma~\ref{lem:hb} & \texttt{CC.C13} \texttt{a92c7c0a}\\
+Lemma~\ref{thm:lemma7} & \texttt{Paper3OriginalActualAuxiliaryPolynomial} \texttt{1d348eff}\\
+Section~\ref{sec:components} & \texttt{CC.C02} \texttt{7327564c}\\
+Lemma~\ref{lem:threeroots} & \texttt{CC.C01.PcCurves.three\_roots\_gen}\\
+Proposition~\ref{prop:lowdeg} & \texttt{CC.C01} \texttt{6be17294}; uniform in $h$: \texttt{CC.C16} \texttt{b07245cc}\\
+Lemma~\ref{lem:reduced} & \texttt{CC.C09} \texttt{cc873556}, \texttt{CC.C04} \texttt{f5611586}\\
+Lemma~\ref{lem:P} & \texttt{CC.C03} \texttt{3ede4992}; type (b3): \texttt{CC.C03} \texttt{f159a569}\\
+Proposition~\ref{prop:interval} & \texttt{CC.Final.counting\_prop\_interval}; \texttt{CC.C05} \texttt{d9675218}, \texttt{CC.C06} \texttt{40f41d3d}, \texttt{CC.C07} \texttt{71200785}\\
+Lemmas~\ref{lem:tails}, \ref{lem:moments} & \texttt{LatticeTails} \texttt{d31e9b77}, \texttt{LatticeMoments} \texttt{de91d4e3}\\
+Theorem~\ref{thm:Bred} & \texttt{CC.Final.counting\_thm\_Bred}; \texttt{CC.C10} \texttt{664a2185}, \texttt{8d943e1c}\\
+Lemma~\ref{lem:Bredm} & \texttt{DecompositionAndEnvelope} \texttt{928cf894}\\
+Lemma~\ref{lem:balanced} & \texttt{DecompositionAndEnvelope.JocelynExpAlg.balanced\_aux}\\
+Proposition~\ref{prop:certs} & (i) \texttt{TripleExponentCertificate} \texttt{d17527ab}; (ii) \texttt{PairExponentCertificate} \texttt{c433f729}; (iii) \texttt{DecompositionAndEnvelope} \texttt{9673eb5d}, \texttt{f1b2bf39}\\
+Proposition~\ref{prop:centralgap} & \texttt{Erdos137.WidthThree.CentralSet.SmallGapExclusion.small\_gap\_exclusion}\\
+Lemma~\ref{lem:goodtriple} & \texttt{AllWidthFromUniformTriple.JocelynAllWidth.goodtriple} (same statement: \texttt{GoodTriple} \texttt{6ba68896}); $k\ge15$: \texttt{Erdos137.FixedWidth.GoodIndex.three\_consecutive\_small\_kernels}\\
+Lemma~\ref{lem:uniformwindows} & \texttt{CC.C08.PcPell.uniform\_s}, \texttt{CC.C08.PcPell.uniform\_t} (first two bounds); \texttt{CC.Final.counting\_lem\_uniformwindows\_TB} (third bound), via \texttt{CC.C19} \texttt{62fb44f0} (\texttt{counting\_UPI}), \texttt{CC.C10} \texttt{8d943e1c}, \texttt{CC.C20} \texttt{88a200ce}\\
+Lemma~\ref{lem:uniformtriple} & \texttt{CC.Final.counting\_lem\_uniformtriple}; \texttt{CC.C21} \texttt{b14c9f52}\\
+\bottomrule
+\end{tabular}
+\caption{Concordance between the statements of the paper and the Lean development.}\label{tab:concordance}
+\end{table}
+
+\begin{thebibliography}{99}
+
+\bibitem{AktasMurty} K.~Akta\c{s} and M.~R.~Murty, \emph{Fundamental units and
+consecutive squarefull numbers}, Int.~J. Number Theory \textbf{13} (2017),
+243--252.
+
+\bibitem{Bloom} T.~F.~Bloom, \emph{Erd\H{o}s problems},
+\url{https://www.erdosproblems.com}, Problems \#137, \#364, \#365.
+
+\bibitem{BombieriGubler} E.~Bombieri and W.~Gubler, \emph{Heights in
+Diophantine Geometry}, Cambridge University Press, 2006.
+
+\bibitem{CCDN} W.~Castryck, R.~Cluckers, P.~Dittmann and K.~H.~Nguyen,
+\emph{The dimension growth conjecture, polynomial in the degree and without
+logarithmic factors}, Algebra Number Theory \textbf{14} (2020), 2261--2294;
+arXiv:1904.13109.
+
+\bibitem{Chan2012} T.~H.~Chan, \emph{Twin squareful numbers}, J.~Aust. Math.
+Soc. \textbf{93} (2012), 43--51.
+
+\bibitem{ErdosManitoba} P.~Erd\H{o}s, \emph{Problems and results on number
+theoretic properties of consecutive integers and related questions}, in:
+Proc. Fifth Manitoba Conf. Numer. Math. (1975), 1976, 25--44.
+
+\bibitem{Erdos76} P.~Erd\H{o}s, \emph{Problems and results on consecutive
+integers}, Publ. Math. Debrecen \textbf{23} (1976), 272--282.
+
+\bibitem{ErdosGraham} P.~Erd\H{o}s and R.~L.~Graham, \emph{Old and New Problems
+and Results in Combinatorial Number Theory}, Monographies de L'Enseignement
+Mathématique \textbf{28}, Geneva, 1980.
+
+\bibitem{ErdosSelfridge} P.~Erd\H{o}s and J.~L.~Selfridge, \emph{The product of
+consecutive integers is never a power}, Illinois J. Math. \textbf{19} (1975),
+292--301.
+
+\bibitem{Golomb} S.~W.~Golomb, \emph{Powerful numbers}, Amer. Math. Monthly
+\textbf{77} (1970), 848--852.
+
+\bibitem{HBAnnals} D.~R.~Heath-Brown, \emph{The density of rational points on
+curves and surfaces}, Ann. of Math. (2) \textbf{155} (2002), 553--595.
+
+\bibitem{HBLNM} D.~R.~Heath-Brown, \emph{Counting rational points on algebraic
+varieties}, in: Analytic Number Theory (C.I.M.E. Summer School, Cetraro, 2002),
+Lecture Notes in Math. \textbf{1891}, Springer, 2006, 51--95; author's
+manuscript: Oxford Mathematical Institute eprint 676.
+
+\bibitem{HBsqfree} D.~R.~Heath-Brown, \emph{Square-free values of $n^2+1$},
+Acta Arith. \textbf{155} (2012), 1--13; arXiv:1010.6217.
+
+\bibitem{Reuss} Thomas Reuss, \emph{Pairs of $k$-free numbers, consecutive
+square-full numbers}, arXiv:1212.3150v2 (2014).
+
+\bibitem{ReussThesis} Thomas Reuss, \emph{The Determinant Method and
+Applications}, DPhil thesis, University of Oxford, 2015.
+
+\bibitem{Stewart} C.~L.~Stewart, \emph{On the number of solutions of
+polynomial congruences and Thue equations}, J.~Amer. Math. Soc. \textbf{4}
+(1991), 793--835.
+
+\bibitem{Tao} T.~Tao, \emph{Products of consecutive integers with unusual
+anatomy}, arXiv:2603.27990v3 (2026).
+
+\bibitem{Walker} D.~T.~Walker, \emph{Consecutive integer pairs of powerful
+numbers and related Diophantine equations}, Fibonacci Quart. \textbf{14}
+(1976), 111--116.
+
+\bibitem{WongcharoenbhornMeemark} W.~Wongcharoenbhorn and Y.~Meemark,
+\emph{Square-full values of quadratic polynomials}, Bull. Aust. Math. Soc.
+\textbf{113} (2026), 40--54; arXiv:2405.06968.
+
+\end{thebibliography}
+
+\end{document}

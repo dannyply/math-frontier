@@ -1,0 +1,24 @@
+# Builds the replay tools with the SAME Lean as the release (4.33.1), so that lean4export can
+# read the release .olean files. Separate from the main project; never imported by it.
+#   cd replay/tools-src && lake build replay-comparator @lean4export/lean4export
+name = "erdos137_replay_tools"
+
+[[require]]
+name = "lean4export"
+git = "https://github.com/leanprover/lean4export"
+rev = "411dce7db58a3afc60ecab2d211acd1042b593dc"
+
+# The harness pinned Comparator at 14b5039e (head of the unmerged upstream PR #78), which a plain
+# clone cannot fetch. Comparator/{Util,Axioms,Compare}.lean, the only files built here, are
+# byte-identical at 14b5039e, at 57567492 (merge of PR #75 on master, the merge-base) and at
+# master fd5d5bc. So pin the reachable merge commit.
+[[require]]
+name = "Comparator"
+git = "https://github.com/leanprover/comparator"
+rev = "575674928e239f5bc452aab72d1dd7b0f1326494"
+
+# Jocelyn-authored driver over the pinned Comparator library (statement comparison +
+# axiom audit against the three standard axioms). Copied verbatim from the research harness.
+[[lean_exe]]
+name = "replay-comparator"
+root = "ComparatorWorker"

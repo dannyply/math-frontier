@@ -1,0 +1,53 @@
+Supplementary files for "Counting powerful products of consecutive integers"
+(papers/powerful-counting/main.tex)
+
+Reproduce the proof-relevant certificates (Python 3, standard library only):
+
+    python3 certificates.py && python3 endpoint_cert.py
+
+Each script prints one line per run and ends with "SUMMARY: ALL AS EXPECTED".
+All comparisons use exact rational arithmetic (fractions.Fraction).
+
+Soundness self-test (both proof-relevant scripts; SUMMARY is ALL AS EXPECTED only
+if it passes):
+  - for every accepted leaf of each certifying run, the exact functional at a grid
+    of rational points of the leaf (corners, edge points, interior points) must not
+    exceed the accepted box bound;
+  - at the same points, each term's box bound must dominate the exact term;
+  - the term check is repeated on several thousand random boxes, including the box
+    [1/10,3/20]^2 where a wrong-endpoint bound fails;
+  - a mutation test introduces that error (the maxima of m and (s+m)/2 taken at
+    the wrong endpoint) and requires the self-test to report violations.
+  Results: no violations; the mutation is detected in both scripts.
+  The self-test samples points, so it checks the implementation; it is not a
+  proof. The proof of the box bounds is Section 6.2 of the paper.
+
+Proof-relevant scripts
+  certificates.py      Proposition 6.1 and Table 1: K3_MIN (77/320, Theorem 1.2),
+                       K2_INT (interior of the k=2 square, used in Proposition 6.4),
+                       CENTRAL (38059/160000), THETA (conditional 89/384, Remark 8.3,
+                       not claimed), negative controls, closed-form arithmetic checks.
+                       Needs gate_rerun.py in the same directory for the run
+                       K3_REVIEWED only (skipped with a message if absent).
+  endpoint_cert.py     The k=2 endpoint 1/4 (Theorem 1.1): runs FULL (= K2_FULL, 93 nodes,
+                       Proposition 6.4 certified directly), STRIP (= K2_STRIP,
+                       Lemma 6.3), their controls, and diagnostics. Independent
+                       implementation; imports nothing from the other scripts.
+
+Controls (included unchanged from the underlying research computation; not used
+in any proof)
+  gate_rerun.py        Research functional for k>=3 (contains Reuss Theorem 1 with
+                       h != +-1 and the h=1-only terms H1, H2). K3_REVIEWED in
+                       certificates.py reproduces it; it is NOT evidence for
+                       Theorem 1.2.
+  k2_bb.py             k=2 sanity runs; its FAILED report near 101/400 is a
+                       stopping-rule effect at the floor a=1/100 (paper, 6.4).
+
+Outputs (node counts of endpoint_cert.py: FULL 93, STRIP 13, INT (0.2476) 157):
+  certificates_output.txt, endpoint_cert_output.txt, gate_rerun_output.txt,
+  k2_bb_output.txt
+
+Runtime (Apple silicon laptop, nice 10, including self-tests): certificates.py
+12 s, gate_rerun.py 0.8 s, endpoint_cert.py 64 s, k2_bb.py 24 s.
+
+SHA256SUMS lists the hashes of all files in this directory except itself.

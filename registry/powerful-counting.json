@@ -1,0 +1,267 @@
+{
+ "schema": "frontier.result.v1",
+ "id": "powerful-counting",
+ "domain": "math",
+ "title": "Counting powerful products of consecutive integers",
+ "summary": "#{n <= x : n, n+1 powerful} << x^(1/4+eps); for each fixed k >= 3, #{n <= x : (n+1)...(n+k) powerful} << x^(77/320+eps); uniformly over all widths k >= 3, << x^(77/320+eps).",
+ "status": "candidate",
+ "grade": "conditional-lean",
+ "grade_note": "Lean theorems with standard axioms only; six results from the literature enter the statements as named premises. Every paper-owned step is proved in Lean.",
+ "paper": {
+  "tex": "papers/powerful-counting/main.tex",
+  "pdf": "papers/powerful-counting/main.pdf",
+  "supplementary": "papers/powerful-counting/supplementary",
+  "citation": "papers/powerful-counting/citation.bib"
+ },
+ "claims": [
+  {
+   "label": "thm:k2",
+   "paper_ref": "Theorem 1.1",
+   "statement": "For every eps > 0, #{n <= x : n and n+1 are powerful} << x^(1/4+eps).",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k2_reuss"
+   ],
+   "assumes": [
+    "stewart",
+    "ccdn",
+    "gelfond",
+    "reuss",
+    "heath-brown"
+   ],
+   "headline": true
+  },
+  {
+   "label": "thm:k3",
+   "paper_ref": "Theorem 1.2",
+   "statement": "For each fixed k >= 3 and eps > 0, #{n <= x : (n+1)...(n+k) powerful} << x^(77/320+eps); the central subcount (squarefree cube parts of n+1, n+2, n+3 between (n+3)^(19/100) and (n+3)^(21/100)) is << x^(38059/160000+eps).",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k3"
+   ],
+   "assumes": [
+    "stewart",
+    "ccdn",
+    "gelfond"
+   ],
+   "headline": true
+  },
+  {
+   "label": "thm:uniform",
+   "paper_ref": "Theorem 1.3",
+   "statement": "For every eps > 0, #{n <= x : P(n,k) powerful for some k >= 3} << x^(77/320+eps); with k >= 2 allowed, << x^(1/4+eps); non-powerful members of intervals with powerful product up to x: << x^(77/320+eps).",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_uniform_reuss"
+   ],
+   "assumes": [
+    "stewart",
+    "ccdn",
+    "gelfond",
+    "reuss",
+    "heath-brown",
+    "tao"
+   ],
+   "headline": true
+  },
+  {
+   "label": "prop:interval",
+   "paper_ref": "Proposition 5.6",
+   "statement": "Per-interval count of the determinant method.",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_prop_interval"
+   ],
+   "assumes": [
+    "stewart",
+    "ccdn",
+    "gelfond"
+   ]
+  },
+  {
+   "label": "thm:Bred",
+   "paper_ref": "Theorem 6.3",
+   "statement": "The reduced per-box bound x^(max(m, Bred(a,b))+eps).",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_Bred"
+   ],
+   "assumes": [
+    "stewart",
+    "ccdn",
+    "gelfond"
+   ]
+  },
+  {
+   "label": "prop:interval-uniform",
+   "paper_ref": "Proposition 5.6, uniform in h (Section 8)",
+   "statement": "The per-interval count with an implied constant independent of the shift 1 <= |h| <= x^(delta/4), for c <= 1/10, delta <= 1/100 and coprime solutions.",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_UPI"
+   ],
+   "assumes": [
+    "stewart",
+    "ccdn",
+    "gelfond"
+   ]
+  },
+  {
+   "label": "lem:uniformwindows",
+   "paper_ref": "Lemma 8.2 (third bound)",
+   "statement": "Uniform primitive windows: the reduced per-box bound uniformly in the shift 1 <= |h| <= x^(delta/4).",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformwindows_TB"
+   ],
+   "assumes": [
+    "stewart",
+    "ccdn",
+    "gelfond"
+   ]
+  },
+  {
+   "label": "lem:uniformtriple",
+   "paper_ref": "Lemma 8.3",
+   "statement": "Three-term count with small coefficients.",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformtriple"
+   ],
+   "assumes": [
+    "stewart",
+    "ccdn",
+    "gelfond"
+   ]
+  },
+  {
+   "label": "reuss-window-convention",
+   "paper_ref": "Section 3 (Reuss's window convention)",
+   "statement": "Reuss's open-endpoint windows cover the closed-endpoint windows of the proof.",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.reuss_window_bridge"
+   ],
+   "assumes": []
+  },
+  {
+   "label": "supporting",
+   "paper_ref": "Lemmas 2.1-2.3, 5.1, 6.1, 6.2, 6.4, 6.5, 8.1; Propositions 7.1, 7.2; transport in the proof of Theorem 1.3",
+   "statement": "Supporting declarations cited in Appendix A of the paper.",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope.JocelynClaims.claim_9673eb5d3698f5f89673c095cc0c3dde8199485fa3a96de629d54ae5226908e2",
+    "JocelynWorkspace.Formalization.PowerfulCounting.StrictWindows.JocelynClaims.claim_f0cfddddf4e562b8ee8b00a4b8f6c47db3028e8425650db4312e3bcc8f4e26ef",
+    "JocelynWorkspace.Formalization.PowerfulCounting.Paper3OriginalActualAuxiliaryPolynomial.JocelynClaims.claim_1d348efff0ed2d7d1daabd2d1147ea25df132caf1901a51df249fe2af2a5231b",
+    "JocelynWorkspace.Formalization.PowerfulCounting.LatticeTails.JocelynClaims.claim_d31e9b77d0f9dd7614934ea632cc8dcd6919398027eb82ef33c69bc75aa5c7c7",
+    "JocelynWorkspace.Formalization.PowerfulCounting.LatticeMoments.JocelynClaims.claim_de91d4e3bef4d0cbba6edddabc77ad8eded6df2ba7fc0116292af012ccd3b48a",
+    "JocelynWorkspace.Formalization.PowerfulCounting.TripleExponentCertificate.JocelynClaims.claim_d17527abe8b1de31d39ee4bdd1ad8fe89d3a6868b05f6e4fab74571f916c8087",
+    "JocelynWorkspace.Formalization.PowerfulCounting.PairExponentCertificate.JocelynClaims.claim_c433f729050128c23580094c6dc3e816f4d39627952688bc77da5939c6b6e165",
+    "JocelynWorkspace.Erdos137.WidthThree.CentralSet.SmallGapExclusion.small_gap_exclusion",
+    "JocelynWorkspace.Formalization.PowerfulCounting.GoodTriple.JocelynClaims.claim_6ba6889691d6b2a328ce28fdca1e59cdbe991411d020692d8694665c5705172c",
+    "JocelynWorkspace.Erdos137.FixedWidth.GoodIndex.three_consecutive_small_kernels",
+    "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromUniformTriple.JocelynClaims.claim_2be59d9f161441036f3a5e723e095513f55f8e966c487d9815574cd2d95ecab2",
+    "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromPairAndUnion.JocelynClaims.claim_fdb026ef91db27804011331a018c434c83ba1a1ce0d9de16bfd4e6f508f5c5f0",
+    "JocelynWorkspace.Formalization.PowerfulCounting.NonpowerfulMembers.JocelynClaims.claim_ceda7068de057b3d0d054ad2d5782ee486080d60f8cb605131c0e153f0538465"
+   ],
+   "assumes": []
+  }
+ ],
+ "hypotheses": [
+  {
+   "id": "stewart",
+   "name": "Stewart's Thue bound",
+   "source": "C. L. Stewart, J. Amer. Math. Soc. 4 (1991), Theorem 1 (p. 795) and its consequence on p. 796",
+   "lean_form": "binary forms of degree q >= 3, content one, squarefree over Q: at most 2800 q^(1+omega(|m|)) primitive solutions",
+   "relation": "instance",
+   "compared_against": "journal text",
+   "comparison": "Theorem 1 needs only content one and nonzero discriminant (reducible forms included) and counts coprime pairs; p. 796 gives the bound with g = |m|.",
+   "reviewer": "AI"
+  },
+  {
+   "id": "ccdn",
+   "name": "Castryck-Cluckers-Dittmann-Nguyen bound for integral points on affine curves",
+   "source": "Algebra Number Theory 14 (2020), Theorem 3; arXiv:1904.13109",
+   "lean_form": "N = 12; every prime ideal of Q[x_1..x_12] with one-dimensional quotient, degree read from the Hilbert polynomial",
+   "relation": "instance",
+   "compared_against": "arXiv text, including Corollary 4.1.4 and Remark 4.1.5",
+   "comparison": "Covers curves irreducible over Q but not geometrically irreducible via Corollary 4.1.4 and Remark 4.1.5.",
+   "reviewer": "AI"
+  },
+  {
+   "id": "gelfond",
+   "name": "Gelfond's height inequality",
+   "source": "Bombieri-Gubler, Heights in Diophantine Geometry, Lemma 1.6.11",
+   "lean_form": "H(G) <= exp(c_n deg F) H(F) for G | F",
+   "relation": "weakening",
+   "compared_against": "Lemma 1.6.11 (publisher preview)",
+   "comparison": "The 2^d bound, d the sum of the partial degrees (d <= n deg F), gives the Lean form with c_n = n log 2.",
+   "reviewer": "AI"
+  },
+  {
+   "id": "reuss",
+   "name": "Reuss's window bound",
+   "source": "T. Reuss, arXiv:1212.3150v2, Theorem 1 with k = 3, l = 2, h = 1",
+   "lean_form": "windows with D, E >= x^c for each fixed c > 0, comparability constants 1/20 and 20, Reuss's open-endpoint convention",
+   "relation": "instance",
+   "compared_against": "arXiv text",
+   "comparison": "Used only on windows with both cube-part scales at least a fixed power of x.",
+   "reviewer": "AI",
+   "source_type": "arXiv preprint"
+  },
+  {
+   "id": "heath-brown",
+   "name": "Heath-Brown's Theorem 15",
+   "source": "D. R. Heath-Brown, Counting rational points on algebraic varieties, LNM 1891 (2006), Theorem 15 with n = 2; author's manuscript of the lecture notes (Oxford Mathematical Institute eprint 676), Lecture 2, Section 2.6, Theorem 15",
+   "lean_form": "absolutely irreducible F, complex auxiliary polynomials not divisible by F, factor log(2||F||)",
+   "relation": "instance and weakening",
+   "compared_against": "the author's manuscript (eprint 676, compiled 2008), and Reuss's thesis Theorem 2",
+   "comparison": "Source: F in Z[x1,x2] absolutely irreducible of total degree d, B_i >= 1; integer auxiliary polynomials coprime to F, degrees at most D(d, eps), number << T^eps exp(log B1 log B2 / log T) log||F||, ||F|| the largest coefficient modulus. The Lean form needs d >= 2 and B_i >= 2, accepts complex auxiliary polynomials not divisible by F (implied by integer ones coprime to F), and uses log(2||F||) >= log||F||: a weakening. For ||F|| = 1 the source's factor log||F|| vanishes, so the theorem must be read with a factor of at least 1 (for example max(1, log||F||)); under that reading the Lean form is an instance of it.",
+   "reviewer": "AI",
+   "open": "The published LNM text itself was not compared; the author's manuscript was. The exponent 2n-3 of the log factor in the source looks inconsistent with its proof sketch (which suggests 2n-1); the Lean form at n = 2 is unaffected, by an argument of the AI reviewer that is not in the source."
+  },
+  {
+   "id": "tao",
+   "name": "Tao's Lemma 3.1",
+   "source": "T. Tao, arXiv:2603.27990v3, Lemma 3.1",
+   "lean_form": "for large N, 3 <= k < N and P(N,k) powerful give k <= exp((log N)^(7/10))",
+   "relation": "consequence",
+   "compared_against": "arXiv text",
+   "comparison": "Used only for Theorem 1.3. No explicit value of N_0 is given in the source.",
+   "reviewer": "AI",
+   "source_type": "arXiv preprint"
+  }
+ ],
+ "lean": {
+  "manifest_family": "powerful-counting",
+  "statement_files": "replay/statements/powerful-counting",
+  "negative_control": "replay/negative-control/CountingNegativeControl.lean",
+  "receipt": "replay/receipts/powerful-counting.json",
+  "negative_receipt": "replay/receipts/powerful-counting-negative.json"
+ },
+ "admission": {
+  "statement_faithfulness": {
+   "status": "done",
+   "note": "blind back-translation of all nine CountingClosure release statements, then comparison with the paper: all match; no premise stronger than its source (Stewart, CCDN, Reuss, Tao read in the source; Gelfond and Heath-Brown as recorded under hypotheses). The paper's mapping of counting_UPI and its Lemma 8.2 concordance were corrected."
+  },
+  "hypotheses_compared": {
+   "status": "done",
+   "note": "five of six compared with the source text; Heath-Brown via Reuss's thesis restatement"
+  },
+  "build": {
+   "status": "done",
+   "note": "scripts/build.sh: all modules compile with no errors, warnings or sorry (audit/build.json)"
+  },
+  "axiom_audit": {
+   "status": "done",
+   "note": "scripts/audit.sh: every declaration depends only on propext, Classical.choice and Quot.sound; full untruncated statement fingerprints match the manifest and are pairwise distinct; scripts/test_fingerprint.py passes (audit/axioms.json)"
+  },
+  "replay": {
+   "status": "pending",
+   "note": "independent replay of this commit"
+  },
+  "written_proofs_reviewed": {
+   "status": "done",
+   "note": "independent AI reviews of the written proofs and Appendix A names against the Lean sources, including Section 8.2; no statement found false or claiming more than Lean proves"
+  },
+  "positioning": {
+   "status": "done",
+   "note": "bounded literature searches only; novelty not certified"
+  }
+ },
+ "open_items": [
+  "Compare Heath-Brown's Theorem 15 with the published LNM 1891 text (the author's manuscript was compared).",
+  "Constants are not explicit."
+ ],
+ "reviews": "All reviews are AI reviews; no human has reviewed the results."
+}

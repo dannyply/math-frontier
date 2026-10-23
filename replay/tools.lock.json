@@ -1,0 +1,35 @@
+{
+  "schema": "erdos137.replay-tools-lock.v1",
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+  "tools": {
+    "exporter": {
+      "name": "lean4export",
+      "repository": "https://github.com/leanprover/lean4export",
+      "commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "export_format": "3.1.0",
+      "note": "Upstream lean-toolchain at this commit is v4.34.0-rc2; it must be compiled with Lean 4.33.1 so that it can read the 4.33.1 .olean files."
+    },
+    "comparator": {
+      "name": "Comparator library + ComparatorWorker",
+      "repository": "https://github.com/leanprover/comparator",
+      "commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+      "worker_source": "replay/tools-src/ComparatorWorker.lean",
+      "worker_source_sha256": "f2d81a7df1a6125d92a86fe1d9c2e233aaf44feb20421d43816b07da3708857a",
+      "note": "Pinned at 57567492 (merge of upstream PR #75 on master), which a plain clone can fetch. Only Comparator/{Util,Axioms,Compare}.lean are built, together with lean4export's Export/Parse.lean at the exporter commit; these files are byte-identical at 57567492 and at 14b5039e, the unmerged PR #78 head that the research harness used. Upstream Main.lean (landrun sandbox, Linux only) is not used.",
+      "harness_commit": "14b5039e0b6a5171afa160920984e521817d4138"
+    },
+    "kernel": {
+      "name": "nanoda_bin (nanoda_lib 0.4.16)",
+      "repository": "https://github.com/ammkrn/nanoda_lib",
+      "commit": "05055695879dfebb6628a67da88ceca6cd6b0421",
+      "cargo_lock_sha256": "892346d3da3a6d728b34447e4cd8b6f063ac6acd9b514262000d85d58d17d9e4"
+    }
+  },
+  "observed_binaries_macos_arm64": {
+    "note": "Informational. Hashes vary by platform and compiler, so the commit is the pin. The receipts record the hashes of the binaries actually used.",
+    "lean4export": "116d3e466424fe20aee62081ebadc82e75d02c1d3ddee522672d7cc7dbafd179",
+    "comparator_worker": "f3d0344be0182d8b97177bf4931312625d2bb078c304c5b19191700598f67e17",
+    "nanoda_bin": "5c839e366f0774aab19aba87070c09919314f346354e299ecbf38caba4f6458c"
+  }
+}
