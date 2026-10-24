@@ -78,7 +78,7 @@ uniformly over all widths. The new step bounds the points on the auxiliary
 curves of Heath-Brown's determinant method using the
 Castryck–Cluckers–Dittmann–Nguyen bound for integral points on curves.
 [Paper](papers/powerful-counting/main.pdf) ·
-[DOI 10.5281/zenodo.23614743](https://doi.org/10.5281/zenodo.23614743) ·
+[DOI 10.5281/zenodo.23614742](https://doi.org/10.5281/zenodo.23614742) ·
 [record](registry/powerful-counting.json)
 
 [RESULTS.md](RESULTS.md) lists every result with its exact statements and assumptions.

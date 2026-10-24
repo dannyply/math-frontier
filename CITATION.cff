@@ -6,16 +6,13 @@ type: software
 authors:
   - family-names: Plymesser
     given-names: Danny
-version: 1.0.0
+version: 1.0.1
 doi: 10.5281/zenodo.23614471
 identifiers:
   - type: doi
     value: 10.5281/zenodo.23614471
     description: All versions (concept DOI)
-  - type: doi
-    value: 10.5281/zenodo.23614472
-    description: Version 1.0.0
-date-released: 2026-10-23
+date-released: 2026-10-24
 repository-code: "https://github.com/dannyply/math-frontier"
 license: Apache-2.0
 references:
@@ -25,6 +22,6 @@ references:
       - family-names: Plymesser
         given-names: Danny
     year: 2026
-    doi: 10.5281/zenodo.23614743
-    url: "https://doi.org/10.5281/zenodo.23614743"
-    notes: "Preprint, version 1.0.0. AI-produced work; see the paper's verification and disclosure section."
+    doi: 10.5281/zenodo.23614742
+    url: "https://doi.org/10.5281/zenodo.23614742"
+    notes: "Preprint, version 1.0.1. AI-produced work; see the paper's verification and disclosure section."
