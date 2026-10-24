@@ -204,11 +204,11 @@
    "name": "Heath-Brown's Theorem 15",
    "source": "D. R. Heath-Brown, Counting rational points on algebraic varieties, LNM 1891 (2006), Theorem 15 with n = 2; author's manuscript of the lecture notes (Oxford Mathematical Institute eprint 676), Lecture 2, Section 2.6, Theorem 15",
    "lean_form": "absolutely irreducible F, complex auxiliary polynomials not divisible by F, factor log(2||F||)",
-   "relation": "instance and weakening",
+   "relation": "instance (of the theorem applied to 2F)",
    "compared_against": "the author's manuscript (eprint 676, compiled 2008), and Reuss's thesis Theorem 2",
-   "comparison": "Source: F in Z[x1,x2] absolutely irreducible of total degree d, B_i >= 1; integer auxiliary polynomials coprime to F, degrees at most D(d, eps), number << T^eps exp(log B1 log B2 / log T) log||F||, ||F|| the largest coefficient modulus. The Lean form needs d >= 2 and B_i >= 2, accepts complex auxiliary polynomials not divisible by F (implied by integer ones coprime to F), and uses log(2||F||) >= log||F||: a weakening. For ||F|| = 1 the source's factor log||F|| vanishes, so the theorem must be read with a factor of at least 1 (for example max(1, log||F||)); under that reading the Lean form is an instance of it.",
+   "comparison": "Source: F in Z[x1,x2] absolutely irreducible of total degree d (no primitivity condition), B_i >= 1; integer auxiliary polynomials coprime to F, degrees at most D(d, eps), number << T^eps exp(log B1 log B2 / log T) log||F||, ||F|| the largest coefficient modulus. Applied to 2F, which has the same integral zeros, degree, monomials (so the same T) and irreducibility, it gives the factor log||2F|| = log(2||F||). The Lean form needs d >= 2 and B_i >= 2 and accepts complex auxiliary polynomials not divisible by F (implied by integer ones coprime to F), so it is an instance of the theorem applied to 2F.",
    "reviewer": "AI",
-   "open": "The published LNM text itself was not compared; the author's manuscript was. The exponent 2n-3 of the log factor in the source looks inconsistent with its proof sketch (which suggests 2n-1); the Lean form at n = 2 is unaffected, by an argument of the AI reviewer that is not in the source."
+   "open": "The published LNM text itself was not compared; the author's manuscript was. The stated exponent 2n-3 of the log factor (a single log at n = 2) looks inconsistent with the source's proof sketch, which suggests 2n-1; the Lean premise uses the stated exponent, so this needs a specialist check."
   },
   {
    "id": "tao",
@@ -236,7 +236,7 @@
   },
   "hypotheses_compared": {
    "status": "done",
-   "note": "five of six compared with the source text; Heath-Brown via Reuss's thesis restatement"
+   "note": "compared with the source texts: Stewart (journal), CCDN, Reuss and Tao (arXiv), Gelfond (Bombieri-Gubler Lemma 1.6.11), Heath-Brown (author's manuscript of the notes, and Reuss's thesis restatement); see hypotheses"
   },
   "build": {
    "status": "done",
@@ -260,7 +260,7 @@
   }
  },
  "open_items": [
-  "Compare Heath-Brown's Theorem 15 with the published LNM 1891 text (the author's manuscript was compared).",
+  "Compare Heath-Brown's Theorem 15 with the published LNM 1891 text, and confirm the exponent of its log factor (stated 2n-3; the proof sketch suggests 2n-1).",
   "Constants are not explicit."
  ],
  "reviews": "All reviews are AI reviews; no human has reviewed the results.",

@@ -307,8 +307,8 @@ For Theorems~\ref{thm:reuss1}, \ref{thm:ccdn}, \ref{thm:stewart},
 \ref{thm:gelfond} and~\ref{thm:tao} the Lean hypothesis is an instance or a
 weakening of the source statement, compared with the source text, so it
 holds if the source theorem holds. For Theorem~\ref{thm:hb15} it is an instance of the
-statement in the author's manuscript of \cite{HBLNM}, read as explained after
-the theorem; the published text has not been compared (Section~\ref{sec:status}). The set counted in
+statement in Heath-Brown's manuscript of \cite{HBLNM}, applied to $2F$ as
+explained after the theorem; the published text has not been compared (Section~\ref{sec:status}). The set counted in
 Theorem~\ref{thm:k2} is infinite (the Pell family above); for $k\ge3$ the
 counted sets are not known to be nonempty.
 
@@ -382,13 +382,12 @@ notes), and in its restatement \cite[Theorem~2]{ReussThesis}, the degree is
 arbitrary, $B_i\ge1$, the auxiliary polynomials have integer coefficients,
 are coprime to $F$ and have degree bounded in terms of $d$ and $\eta$, and the
 last factor is $\log\|F\|$, with $\|F\|$ the largest modulus of a coefficient.
-For $\|F\|=1$ that factor vanishes and the literal statement fails (for
-instance $x_1^2-x_2$ has integral zeros), so the theorem is to be read with a last
-factor of at least $1$, for instance $\max(1,\log\|F\|)$, which is
-comparable to $\log(2\|F\|)$. The Lean hypothesis asks only for complex
+Applied to $2F$, which has the same integral zeros, degree, monomials and
+irreducibility as $F$, the theorem gives the same conclusion with the factor
+$\log\|2F\|=\log(2\|F\|)$. The Lean hypothesis asks only for complex
 polynomials not divisible by $F$, implied by integer polynomials coprime to
-$F$, and assumes $d\ge2$ and $B_i\ge2$, so it is an instance of that
-statement.
+$F$, and assumes $d\ge2$ and $B_i\ge2$, so it is an instance of the theorem
+applied to $2F$.
 
 \begin{theorem}[{Gelfond's inequality, consequence; see \cite[Lemma~1.6.11]{BombieriGubler}}]\label{thm:gelfond}
 For each $n$ there is $c_n\ge0$ such that if $G\mid F$ in $\Z[x_1,\dots,x_n]$
