@@ -34,7 +34,7 @@
 
 \title{Counting powerful products of consecutive integers}
 \author{Danny Plymesser}
-\date{23 October 2026}
+\date{Version 1.0.0, 23 October 2026}
 
 \begin{document}
 
@@ -1208,9 +1208,11 @@ searches (arXiv, zbMATH in part, the papers citing Reuss, and Tao's paper and
 its references), not certified.
 
 \subsection*{Reproduction}
-The Lean sources, statement files and replay receipt are in the accompanying
-repository; the receipt \path{replay/receipts/powerful-counting.json} records
-the commit at which it was produced. There \path{scripts/build.sh} compiles
+The Lean sources, statement files and replay receipt are in release
+\texttt{v1.0.0} of the accompanying repository,
+\url{https://github.com/dannyply/math-frontier}; the receipt
+\path{replay/receipts/powerful-counting.json} records the commit at which it
+was produced. There \path{scripts/build.sh} compiles
 the library and fails on any warning, \path{scripts/audit.sh} checks the axioms
 and the statement hash of every release declaration against
 \path{release/manifest.json}, and \path{scripts/replay.sh} runs the

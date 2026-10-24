@@ -17,11 +17,14 @@ Jocelyn is built on the opposite assumption from a chat window: nothing a model
 says is taken as true. Ideas are cheap and plentiful; what the harness has to
 supply is the discipline that turns some of them into knowledge. The question
 behind it is whether that discipline, built by one person around tools that
-anyone can use, is enough for authentic research.
+anyone can use, is enough for authentic research. The README explains why that
+question matters and why the results come before the harness itself is
+released.
 
 ## How a research run works
 
-**A brief, not a recipe.** I choose a problem and write a brief: the
+**A brief, not a recipe.** I choose a problem and give my instructions, and an
+AI assistant turns them into a brief in the structure Jocelyn works from: the
 objective, what is already known (the exact frontier, including approaches that
 have failed), and the facts the run may rely on. The brief says what to achieve,
 never how. The method is the harness's to find.

@@ -8,10 +8,36 @@ back with something new that holds up to scrutiny?
 This repository is an attempt to answer that question with evidence rather than
 claims. Every result in it was obtained by running [Jocelyn](JOCELYN.md), an
 independently developed agentic research harness, on a mathematical problem. I
-chose the problem, described what was already known and set the objective of
-each research run. The harness did the mathematics: the ideas, the proofs and
+chose the problem and set the objective of each research run; AI assistants
+turned my instructions into the run's brief, including what was already known.
+The harness did the mathematics: the ideas, the proofs and
 their formal verification. I used AI coding assistants to help write up and
 check the results; [who did what](#who-did-what) says exactly how.
+
+## Why
+
+There are many AI research systems, built by frontier labs and by open projects
+alike. What is still scarce is evidence: results that are new, that hold up
+when checked, and whose making is documented well enough to be judged. Without
+that, it is hard to tell what any of these systems can really do, or whether
+serious research with AI needs the resources of a large lab.
+
+This repository is my contribution to that evidence. Jocelyn was built by one
+person, on models anyone can subscribe to, with open tools: Lean, Mathlib and
+standard computer algebra. Each result here is checked by machines rather than
+taken on trust, so it can be judged on its merits. If results like these hold
+up, they support a simple claim: with careful orchestration and strict
+standards of evidence, real progress on hard questions is within reach of
+ordinary people, not only of large labs.
+
+Jocelyn is a starting point, not the end goal, and systems like it are the
+least capable they will ever be: the models improve, and so can the
+orchestration around them. If it holds up, later versions of it could let
+anyone take on the research that matters most to them, instead of waiting for
+it to become someone else's priority. Its code is not public yet, because
+it is not ready for others to use. I have chosen to let the results come
+first: if they hold up, they make the case for the work of turning the harness
+into something anyone can pick up.
 
 ## What makes a result count
 

@@ -1,0 +1,3789 @@
+{
+ "schema": "math-frontier.replay-receipt.v1",
+ "started_utc": "2026-10-24T05:40:21+00:00",
+ "elapsed_s": 1172.2,
+ "repository": {
+  "git_head": "d5bbdc4d59946925ef7f7d5b1fd29219f27e997b",
+  "git_tracked_dirty": false,
+  "git_tracked_changes": [],
+  "git_untracked": [],
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "dependencies": {
+   "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+   "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+   "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+   "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+   "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+   "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+   "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+   "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+   "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f"
+  },
+  "packages_symlinked": [
+   ".lake/packages",
+   ".lake/packages/Cli",
+   ".lake/packages/LeanSearchClient",
+   ".lake/packages/Qq",
+   ".lake/packages/aesop",
+   ".lake/packages/batteries",
+   ".lake/packages/importGraph",
+   ".lake/packages/mathlib",
+   ".lake/packages/plausible",
+   ".lake/packages/proofwidgets"
+  ],
+  "dependency_mode": "local-deps",
+  "dependencies_checked_out": {
+   "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+   "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+   "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+   "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+   "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+   "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+   "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+   "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+   "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f"
+  },
+  "dependencies_match_manifest": true,
+  "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+  "labels": [
+   "non-clean-deps"
+  ]
+ },
+ "declaration_source": "release/manifest.json",
+ "manifest_sha256": "01e073fd38eabd81f960f4e0709814fe437c650da27bbb5cb0117ae4c3c884f4",
+ "tools": {
+  "exporter": {
+   "display_path": "<external>/lean4export",
+   "origin": "tools-json",
+   "source_repository": "https://github.com/leanprover/lean4export",
+   "source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+   "sha256": "f6d3227aea5b3d57dab1923db15d99c1d81853f7a6a1c9f58fd6f38ab9571384"
+  },
+  "kernel": {
+   "display_path": "<external>/nanoda_bin",
+   "origin": "tools-json",
+   "source_repository": "https://github.com/ammkrn/nanoda_lib",
+   "source_commit": "05055695879dfebb6628a67da88ceca6cd6b0421",
+   "sha256": "d6bd1d292f1036c12f89b34121a6006db3b2c321efac143d404a1af5d1df3938"
+  },
+  "comparator": {
+   "display_path": "<external>/replay-comparator",
+   "origin": "tools-json",
+   "source_repository": "https://github.com/leanprover/comparator",
+   "source_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+   "sha256": "01df717056c9efc5107c42a8cf36d5f17a89b1e7c3dd780990b6dc13769bb2ba"
+  }
+ },
+ "driver": {
+  "path": "replay/replay.py",
+  "sha256": "8cf1e5fddd9ce29acd35fe1f2bb53486b6af05d8d868186bf30fc73fe9c84dad",
+  "reference_cache_helper_sha256": "076cf0414d00a7f655fc555a1eafb5419a8c2f15c7eba21c4c4268b11a30b39a",
+  "audit_script_sha256": "89284ee30be5703f5184338e8d6ff764d14203b3d7579c5a13d84baea0d37ec1",
+  "export_roots": [
+   "Nat",
+   "String",
+   "String.mk",
+   "Char",
+   "Quot",
+   "Quot.mk",
+   "Quot.lift",
+   "Quot.ind",
+   "propext",
+   "Quot.sound",
+   "Classical.choice",
+   "Nat.add",
+   "Nat.sub",
+   "Nat.mul",
+   "Nat.pow",
+   "Nat.gcd",
+   "Nat.div",
+   "Nat.mod",
+   "Nat.beq",
+   "Nat.ble",
+   "Nat.land",
+   "Nat.lor",
+   "Nat.xor",
+   "Nat.shiftLeft",
+   "Nat.shiftRight",
+   "String.ofList",
+   "Char.ofNat",
+   "List",
+   "eagerReduce"
+  ],
+  "standard_axioms": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "statement_mode": "streaming",
+  "l1_batch_size": 10,
+  "max_export_mib": 1024,
+  "proof_verdicts_reused": false,
+  "argv": [
+   "--local-deps",
+   "--skip-build",
+   "--tools-json",
+   "<external>/replay-tools.json",
+   "--jobs",
+   "1",
+   "--nanoda-threads",
+   "1",
+   "--min-free-gib",
+   "8",
+   "--l1-batch-size",
+   "10",
+   "--max-export-mib",
+   "1024",
+   "--nanoda-timeout",
+   "86400",
+   "--export-timeout",
+   "86400",
+   "--comparator-timeout",
+   "86400",
+   "--comparator-memory-mib",
+   "6144",
+   "--receipt-dir",
+   "<receipts>",
+   "--work-dir",
+   "<work>",
+   "--receipt-name",
+   "powerful-counting.json"
+  ],
+  "host": "Darwin-arm64",
+  "min_free_disk_gib_seen": 11.59
+ },
+ "build": null,
+ "lean_audit_elapsed_s": 19.0,
+ "passes": {
+  "standard": {
+   "declarations": 22,
+   "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "elapsed_s": 215.6
+  },
+  "named_native": {
+   "declarations": 0,
+   "status": "not_applicable_no_native_decide_declarations",
+   "elapsed_s": 0.0
+  },
+  "comparator": {
+   "statement_files": 14,
+   "theorems": 22,
+   "files_failed_to_compile": [],
+   "statement_files_failed": [],
+   "mode": "streaming",
+   "comparison_occurrences": 22,
+   "elapsed_s": 933.8
+  }
+ },
+ "counts": {
+  "declarations": 22,
+  "duplicates_in_source": [],
+  "L1_standard_axioms_only": 22,
+  "L2_named_native_axioms": 0,
+  "rejected_other_axioms": 0,
+  "manifest_mismatches": {},
+  "nanoda_pass_standard_only": 22,
+  "nanoda_pass_with_named_native_axioms": 0,
+  "nanoda_standard_only_rejected_native_as_expected": 0,
+  "failures": [],
+  "distinct_native_axioms": 0,
+  "nanoda_runs": 3,
+  "nanoda_checked_declarations_total": 166211,
+  "nanoda_distinct_declarations_checked": 66332,
+  "export_bytes_total": 3116232755,
+  "export_bytes_max": 588618607,
+  "comparator": {
+   "match": 22
+  },
+  "comparator_failures": [],
+  "comparator_statements_without_release_declaration": [],
+  "comparator_statement_files_failed": []
+ },
+ "declarations": [
+  {
+   "name": "JocelynWorkspace.Erdos137.FixedWidth.GoodIndex.three_consecutive_small_kernels",
+   "module": "JocelynWorkspace.Erdos137.FixedWidth.GoodIndex",
+   "kind": "theorem",
+   "evidence_level": "L1",
+   "manifest_evidence_level": "lean_nanoda_standard",
+   "lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "lean_axioms_raw": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms_raw": [],
+   "other_axioms": [],
+   "statement_sha256": "32292f7f868f2c78bef004f18e84d0183818cda25284565ff2ee3b9f38b94ce7",
+   "statement_pp_sha256": "d5210c81646b6efc983636bd3e7149458812888cbb8dfac0145b6e0fd71125f0",
+   "manifest_check": {
+    "ok": true,
+    "mismatches": []
+   },
+   "nanoda_standard": {
+    "status": "pass",
+    "run": "standard-batch-0"
+   },
+   "nanoda_native": {
+    "status": "not_applicable"
+   },
+   "comparator_comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/GoodIndex.lean",
+     "statement_file_index": 4,
+     "name": "JocelynWorkspace.Erdos137.FixedWidth.GoodIndex.three_consecutive_small_kernels",
+     "returncode": 0,
+     "elapsed_s": 1.25,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 8657,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Erdos137.FixedWidth.GoodIndex.three_consecutive_small_kernels"
+     }
+    }
+   ],
+   "comparator": {
+    "returncode": 0,
+    "elapsed_s": 1.25,
+    "status": "match",
+    "diagnostics": {
+     "axiom_audit": true,
+     "builtin_kernel_replay": false,
+     "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+     "declarations": 8657,
+     "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+     "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+     "lean_version": "4.33.1",
+     "proof_accepted": false,
+     "schema": "jocelyn.comparator-diagnostics.v1",
+     "statement_comparison": true,
+     "theorem_name": "JocelynWorkspace.Erdos137.FixedWidth.GoodIndex.three_consecutive_small_kernels"
+    }
+   }
+  },
+  {
+   "name": "JocelynWorkspace.Erdos137.WidthThree.CentralSet.SmallGapExclusion.small_gap_exclusion",
+   "module": "JocelynWorkspace.Erdos137.WidthThree.CentralSet.SmallGapExclusion",
+   "kind": "theorem",
+   "evidence_level": "L1",
+   "manifest_evidence_level": "lean_nanoda_standard",
+   "lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "lean_axioms_raw": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms_raw": [],
+   "other_axioms": [],
+   "statement_sha256": "cb53a177fd07725c4c2a56fdf4f959555a800eb645e6eb459cde61aca6c327d0",
+   "statement_pp_sha256": "20a24ad4f69a059cf553e0cf81d40a6fbab1ad81a72f64f9fe733127d8eb783c",
+   "manifest_check": {
+    "ok": true,
+    "mismatches": []
+   },
+   "nanoda_standard": {
+    "status": "pass",
+    "run": "standard-batch-0"
+   },
+   "nanoda_native": {
+    "status": "not_applicable"
+   },
+   "comparator_comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/SmallGapExclusion.lean",
+     "statement_file_index": 11,
+     "name": "JocelynWorkspace.Erdos137.WidthThree.CentralSet.SmallGapExclusion.small_gap_exclusion",
+     "returncode": 0,
+     "elapsed_s": 4.15,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 17943,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Erdos137.WidthThree.CentralSet.SmallGapExclusion.small_gap_exclusion"
+     }
+    }
+   ],
+   "comparator": {
+    "returncode": 0,
+    "elapsed_s": 4.15,
+    "status": "match",
+    "diagnostics": {
+     "axiom_audit": true,
+     "builtin_kernel_replay": false,
+     "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+     "declarations": 17943,
+     "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+     "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+     "lean_version": "4.33.1",
+     "proof_accepted": false,
+     "schema": "jocelyn.comparator-diagnostics.v1",
+     "statement_comparison": true,
+     "theorem_name": "JocelynWorkspace.Erdos137.WidthThree.CentralSet.SmallGapExclusion.small_gap_exclusion"
+    }
+   }
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.Paper3OriginalActualAuxiliaryPolynomial.JocelynClaims.claim_1d348efff0ed2d7d1daabd2d1147ea25df132caf1901a51df249fe2af2a5231b",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.Paper3OriginalActualAuxiliaryPolynomial",
+   "kind": "theorem",
+   "evidence_level": "L1",
+   "manifest_evidence_level": "lean_nanoda_standard",
+   "lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "lean_axioms_raw": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms_raw": [],
+   "other_axioms": [],
+   "statement_sha256": "1091f6b2762f382d92d2a50b14e94ccbd6a65aa2fc04d7ed101e9c344f738bee",
+   "statement_pp_sha256": "0067149e6f5f178c34216ee5f09bc869039b904b83b363a5b7e4e540cb947231",
+   "manifest_check": {
+    "ok": true,
+    "mismatches": []
+   },
+   "nanoda_standard": {
+    "status": "pass",
+    "run": "standard-batch-0"
+   },
+   "nanoda_native": {
+    "status": "not_applicable"
+   },
+   "comparator_comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/Paper3OriginalActualAuxiliaryPolynomial.lean",
+     "statement_file_index": 10,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.Paper3OriginalActualAuxiliaryPolynomial.JocelynClaims.claim_1d348efff0ed2d7d1daabd2d1147ea25df132caf1901a51df249fe2af2a5231b",
+     "returncode": 0,
+     "elapsed_s": 6.87,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 33402,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.Paper3OriginalActualAuxiliaryPolynomial.JocelynClaims.claim_1d348efff0ed2d7d1daabd2d1147ea25df132caf1901a51df249fe2af2a5231b"
+     }
+    }
+   ],
+   "comparator": {
+    "returncode": 0,
+    "elapsed_s": 6.87,
+    "status": "match",
+    "diagnostics": {
+     "axiom_audit": true,
+     "builtin_kernel_replay": false,
+     "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+     "declarations": 33402,
+     "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+     "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+     "lean_version": "4.33.1",
+     "proof_accepted": false,
+     "schema": "jocelyn.comparator-diagnostics.v1",
+     "statement_comparison": true,
+     "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.Paper3OriginalActualAuxiliaryPolynomial.JocelynClaims.claim_1d348efff0ed2d7d1daabd2d1147ea25df132caf1901a51df249fe2af2a5231b"
+    }
+   }
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromUniformTriple.JocelynClaims.claim_2be59d9f161441036f3a5e723e095513f55f8e966c487d9815574cd2d95ecab2",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromUniformTriple",
+   "kind": "theorem",
+   "evidence_level": "L1",
+   "manifest_evidence_level": "conditional",
+   "lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "lean_axioms_raw": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms_raw": [],
+   "other_axioms": [],
+   "statement_sha256": "1e2357de9259cf59a610e74b945acc1f33e72a4174e0be7e01c02aab070d96c9",
+   "statement_pp_sha256": "9a2edb34f1d2442bbbb648000f09702021fd228e3178e9730caf354df96b49f3",
+   "manifest_check": {
+    "ok": true,
+    "mismatches": []
+   },
+   "nanoda_standard": {
+    "status": "pass",
+    "run": "standard-batch-0"
+   },
+   "nanoda_native": {
+    "status": "not_applicable"
+   },
+   "comparator_comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/AllWidthFromUniformTriple.lean",
+     "statement_file_index": 1,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromUniformTriple.JocelynClaims.claim_2be59d9f161441036f3a5e723e095513f55f8e966c487d9815574cd2d95ecab2",
+     "returncode": 0,
+     "elapsed_s": 3.98,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 19462,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromUniformTriple.JocelynClaims.claim_2be59d9f161441036f3a5e723e095513f55f8e966c487d9815574cd2d95ecab2"
+     }
+    }
+   ],
+   "comparator": {
+    "returncode": 0,
+    "elapsed_s": 3.98,
+    "status": "match",
+    "diagnostics": {
+     "axiom_audit": true,
+     "builtin_kernel_replay": false,
+     "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+     "declarations": 19462,
+     "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+     "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+     "lean_version": "4.33.1",
+     "proof_accepted": false,
+     "schema": "jocelyn.comparator-diagnostics.v1",
+     "statement_comparison": true,
+     "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromUniformTriple.JocelynClaims.claim_2be59d9f161441036f3a5e723e095513f55f8e966c487d9815574cd2d95ecab2"
+    }
+   }
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.GoodTriple.JocelynClaims.claim_6ba6889691d6b2a328ce28fdca1e59cdbe991411d020692d8694665c5705172c",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.GoodTriple",
+   "kind": "theorem",
+   "evidence_level": "L1",
+   "manifest_evidence_level": "lean_nanoda_standard",
+   "lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "lean_axioms_raw": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms_raw": [],
+   "other_axioms": [],
+   "statement_sha256": "41538788e1370f4025959f4df0d06701351ac3da9b4b58ca9987f27c7f3c0ff1",
+   "statement_pp_sha256": "88fe1972e3bd4f6ea31e62abadadc10115ab57a0d94e3a1600fbca10e9a5350e",
+   "manifest_check": {
+    "ok": true,
+    "mismatches": []
+   },
+   "nanoda_standard": {
+    "status": "pass",
+    "run": "standard-batch-0"
+   },
+   "nanoda_native": {
+    "status": "not_applicable"
+   },
+   "comparator_comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/GoodTriple.lean",
+     "statement_file_index": 5,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.GoodTriple.JocelynClaims.claim_6ba6889691d6b2a328ce28fdca1e59cdbe991411d020692d8694665c5705172c",
+     "returncode": 0,
+     "elapsed_s": 1.28,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 8794,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.GoodTriple.JocelynClaims.claim_6ba6889691d6b2a328ce28fdca1e59cdbe991411d020692d8694665c5705172c"
+     }
+    }
+   ],
+   "comparator": {
+    "returncode": 0,
+    "elapsed_s": 1.28,
+    "status": "match",
+    "diagnostics": {
+     "axiom_audit": true,
+     "builtin_kernel_replay": false,
+     "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+     "declarations": 8794,
+     "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+     "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+     "lean_version": "4.33.1",
+     "proof_accepted": false,
+     "schema": "jocelyn.comparator-diagnostics.v1",
+     "statement_comparison": true,
+     "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.GoodTriple.JocelynClaims.claim_6ba6889691d6b2a328ce28fdca1e59cdbe991411d020692d8694665c5705172c"
+    }
+   }
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope.JocelynClaims.claim_9673eb5d3698f5f89673c095cc0c3dde8199485fa3a96de629d54ae5226908e2",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope",
+   "kind": "theorem",
+   "evidence_level": "L1",
+   "manifest_evidence_level": "lean_nanoda_standard",
+   "lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "lean_axioms_raw": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms_raw": [],
+   "other_axioms": [],
+   "statement_sha256": "5305bf4ccc0955f19ee721d5b35b9c15851882167d9284ffc38dea8cb41533de",
+   "statement_pp_sha256": "2e4c7fb16061d31ebb85ade4c2c2b4bd72a0342099457715277e99c63a47a7fc",
+   "manifest_check": {
+    "ok": true,
+    "mismatches": []
+   },
+   "nanoda_standard": {
+    "status": "pass",
+    "run": "standard-batch-0"
+   },
+   "nanoda_native": {
+    "status": "not_applicable"
+   },
+   "comparator_comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/DecompositionAndEnvelope.lean",
+     "statement_file_index": 3,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope.JocelynClaims.claim_9673eb5d3698f5f89673c095cc0c3dde8199485fa3a96de629d54ae5226908e2",
+     "returncode": 0,
+     "elapsed_s": 2.75,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 14506,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope.JocelynClaims.claim_9673eb5d3698f5f89673c095cc0c3dde8199485fa3a96de629d54ae5226908e2"
+     }
+    }
+   ],
+   "comparator": {
+    "returncode": 0,
+    "elapsed_s": 2.75,
+    "status": "match",
+    "diagnostics": {
+     "axiom_audit": true,
+     "builtin_kernel_replay": false,
+     "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+     "declarations": 14506,
+     "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+     "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+     "lean_version": "4.33.1",
+     "proof_accepted": false,
+     "schema": "jocelyn.comparator-diagnostics.v1",
+     "statement_comparison": true,
+     "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope.JocelynClaims.claim_9673eb5d3698f5f89673c095cc0c3dde8199485fa3a96de629d54ae5226908e2"
+    }
+   }
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.PairExponentCertificate.JocelynClaims.claim_c433f729050128c23580094c6dc3e816f4d39627952688bc77da5939c6b6e165",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.PairExponentCertificate",
+   "kind": "theorem",
+   "evidence_level": "L1",
+   "manifest_evidence_level": "lean_nanoda_standard",
+   "lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "lean_axioms_raw": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms_raw": [],
+   "other_axioms": [],
+   "statement_sha256": "2dcb8e894564b915576cbea223000d9d5c7f379f5eb1572cf69d69a64ffe2d4f",
+   "statement_pp_sha256": "64fbe855317213501bab3bae6ede6a1f540f8832e5435b86090714fd34ec5649",
+   "manifest_check": {
+    "ok": true,
+    "mismatches": []
+   },
+   "nanoda_standard": {
+    "status": "pass",
+    "run": "standard-batch-0"
+   },
+   "nanoda_native": {
+    "status": "not_applicable"
+   },
+   "comparator_comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/PairExponentCertificate.lean",
+     "statement_file_index": 9,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.PairExponentCertificate.JocelynClaims.claim_c433f729050128c23580094c6dc3e816f4d39627952688bc77da5939c6b6e165",
+     "returncode": 0,
+     "elapsed_s": 2.03,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 13591,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.PairExponentCertificate.JocelynClaims.claim_c433f729050128c23580094c6dc3e816f4d39627952688bc77da5939c6b6e165"
+     }
+    }
+   ],
+   "comparator": {
+    "returncode": 0,
+    "elapsed_s": 2.03,
+    "status": "match",
+    "diagnostics": {
+     "axiom_audit": true,
+     "builtin_kernel_replay": false,
+     "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+     "declarations": 13591,
+     "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+     "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+     "lean_version": "4.33.1",
+     "proof_accepted": false,
+     "schema": "jocelyn.comparator-diagnostics.v1",
+     "statement_comparison": true,
+     "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.PairExponentCertificate.JocelynClaims.claim_c433f729050128c23580094c6dc3e816f4d39627952688bc77da5939c6b6e165"
+    }
+   }
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.NonpowerfulMembers.JocelynClaims.claim_ceda7068de057b3d0d054ad2d5782ee486080d60f8cb605131c0e153f0538465",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.NonpowerfulMembers",
+   "kind": "theorem",
+   "evidence_level": "L1",
+   "manifest_evidence_level": "conditional",
+   "lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "lean_axioms_raw": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms_raw": [],
+   "other_axioms": [],
+   "statement_sha256": "9f893621141a4f7b201a9eb70485399599484204725e5c0357894a1ed1ba444d",
+   "statement_pp_sha256": "8cb74f6577ba0e55245b83bd4d750dba7c91e1b462034dcdfaf48c01c15accd8",
+   "manifest_check": {
+    "ok": true,
+    "mismatches": []
+   },
+   "nanoda_standard": {
+    "status": "pass",
+    "run": "standard-batch-0"
+   },
+   "nanoda_native": {
+    "status": "not_applicable"
+   },
+   "comparator_comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/NonpowerfulMembers.lean",
+     "statement_file_index": 8,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.NonpowerfulMembers.JocelynClaims.claim_ceda7068de057b3d0d054ad2d5782ee486080d60f8cb605131c0e153f0538465",
+     "returncode": 0,
+     "elapsed_s": 6.47,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 31462,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.NonpowerfulMembers.JocelynClaims.claim_ceda7068de057b3d0d054ad2d5782ee486080d60f8cb605131c0e153f0538465"
+     }
+    }
+   ],
+   "comparator": {
+    "returncode": 0,
+    "elapsed_s": 6.47,
+    "status": "match",
+    "diagnostics": {
+     "axiom_audit": true,
+     "builtin_kernel_replay": false,
+     "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+     "declarations": 31462,
+     "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+     "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+     "lean_version": "4.33.1",
+     "proof_accepted": false,
+     "schema": "jocelyn.comparator-diagnostics.v1",
+     "statement_comparison": true,
+     "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.NonpowerfulMembers.JocelynClaims.claim_ceda7068de057b3d0d054ad2d5782ee486080d60f8cb605131c0e153f0538465"
+    }
+   }
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.TripleExponentCertificate.JocelynClaims.claim_d17527abe8b1de31d39ee4bdd1ad8fe89d3a6868b05f6e4fab74571f916c8087",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.TripleExponentCertificate",
+   "kind": "theorem",
+   "evidence_level": "L1",
+   "manifest_evidence_level": "lean_nanoda_standard",
+   "lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "lean_axioms_raw": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms_raw": [],
+   "other_axioms": [],
+   "statement_sha256": "3cfb1d65b85289bc30bb304b0f03690565938a72f8b7eb5f90fc757fd72dc592",
+   "statement_pp_sha256": "2969d4258576a49b5d9c4d7cfa4b8670e2e29795780971b6180e68dcb0b4961b",
+   "manifest_check": {
+    "ok": true,
+    "mismatches": []
+   },
+   "nanoda_standard": {
+    "status": "pass",
+    "run": "standard-batch-0"
+   },
+   "nanoda_native": {
+    "status": "not_applicable"
+   },
+   "comparator_comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/TripleExponentCertificate.lean",
+     "statement_file_index": 13,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.TripleExponentCertificate.JocelynClaims.claim_d17527abe8b1de31d39ee4bdd1ad8fe89d3a6868b05f6e4fab74571f916c8087",
+     "returncode": 0,
+     "elapsed_s": 1.75,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 11411,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.TripleExponentCertificate.JocelynClaims.claim_d17527abe8b1de31d39ee4bdd1ad8fe89d3a6868b05f6e4fab74571f916c8087"
+     }
+    }
+   ],
+   "comparator": {
+    "returncode": 0,
+    "elapsed_s": 1.75,
+    "status": "match",
+    "diagnostics": {
+     "axiom_audit": true,
+     "builtin_kernel_replay": false,
+     "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+     "declarations": 11411,
+     "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+     "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+     "lean_version": "4.33.1",
+     "proof_accepted": false,
+     "schema": "jocelyn.comparator-diagnostics.v1",
+     "statement_comparison": true,
+     "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.TripleExponentCertificate.JocelynClaims.claim_d17527abe8b1de31d39ee4bdd1ad8fe89d3a6868b05f6e4fab74571f916c8087"
+    }
+   }
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeTails.JocelynClaims.claim_d31e9b77d0f9dd7614934ea632cc8dcd6919398027eb82ef33c69bc75aa5c7c7",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeTails",
+   "kind": "theorem",
+   "evidence_level": "L1",
+   "manifest_evidence_level": "lean_nanoda_standard",
+   "lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "lean_axioms_raw": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms_raw": [],
+   "other_axioms": [],
+   "statement_sha256": "50a0e3493ca3f37972aa8806f85fce5dbd0e5acc32899f5656f7ff688621333e",
+   "statement_pp_sha256": "5d5147695882a94757bc729286ec8e8509e0167d3d340f6d45ae4aca04b876eb",
+   "manifest_check": {
+    "ok": true,
+    "mismatches": []
+   },
+   "nanoda_standard": {
+    "status": "pass",
+    "run": "standard-batch-0"
+   },
+   "nanoda_native": {
+    "status": "not_applicable"
+   },
+   "comparator_comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/LatticeTails.lean",
+     "statement_file_index": 7,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeTails.JocelynClaims.claim_d31e9b77d0f9dd7614934ea632cc8dcd6919398027eb82ef33c69bc75aa5c7c7",
+     "returncode": 0,
+     "elapsed_s": 3.94,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 18684,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeTails.JocelynClaims.claim_d31e9b77d0f9dd7614934ea632cc8dcd6919398027eb82ef33c69bc75aa5c7c7"
+     }
+    }
+   ],
+   "comparator": {
+    "returncode": 0,
+    "elapsed_s": 3.94,
+    "status": "match",
+    "diagnostics": {
+     "axiom_audit": true,
+     "builtin_kernel_replay": false,
+     "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+     "declarations": 18684,
+     "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+     "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+     "lean_version": "4.33.1",
+     "proof_accepted": false,
+     "schema": "jocelyn.comparator-diagnostics.v1",
+     "statement_comparison": true,
+     "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeTails.JocelynClaims.claim_d31e9b77d0f9dd7614934ea632cc8dcd6919398027eb82ef33c69bc75aa5c7c7"
+    }
+   }
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeMoments.JocelynClaims.claim_de91d4e3bef4d0cbba6edddabc77ad8eded6df2ba7fc0116292af012ccd3b48a",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeMoments",
+   "kind": "theorem",
+   "evidence_level": "L1",
+   "manifest_evidence_level": "lean_nanoda_standard",
+   "lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "lean_axioms_raw": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms_raw": [],
+   "other_axioms": [],
+   "statement_sha256": "d4b2a776d26d36e56dbe38d6c4e69f55ee35cad8b5de3c5650e1e4d02e59647b",
+   "statement_pp_sha256": "c9a60623ba4fa63eb54af517c6a2864f7bef4a0a1b1d371de7061b824901c3f1",
+   "manifest_check": {
+    "ok": true,
+    "mismatches": []
+   },
+   "nanoda_standard": {
+    "status": "pass",
+    "run": "standard-batch-1"
+   },
+   "nanoda_native": {
+    "status": "not_applicable"
+   },
+   "comparator_comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/LatticeMoments.lean",
+     "statement_file_index": 6,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeMoments.JocelynClaims.claim_de91d4e3bef4d0cbba6edddabc77ad8eded6df2ba7fc0116292af012ccd3b48a",
+     "returncode": 0,
+     "elapsed_s": 3.79,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 18833,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeMoments.JocelynClaims.claim_de91d4e3bef4d0cbba6edddabc77ad8eded6df2ba7fc0116292af012ccd3b48a"
+     }
+    }
+   ],
+   "comparator": {
+    "returncode": 0,
+    "elapsed_s": 3.79,
+    "status": "match",
+    "diagnostics": {
+     "axiom_audit": true,
+     "builtin_kernel_replay": false,
+     "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+     "declarations": 18833,
+     "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+     "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+     "lean_version": "4.33.1",
+     "proof_accepted": false,
+     "schema": "jocelyn.comparator-diagnostics.v1",
+     "statement_comparison": true,
+     "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeMoments.JocelynClaims.claim_de91d4e3bef4d0cbba6edddabc77ad8eded6df2ba7fc0116292af012ccd3b48a"
+    }
+   }
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.StrictWindows.JocelynClaims.claim_f0cfddddf4e562b8ee8b00a4b8f6c47db3028e8425650db4312e3bcc8f4e26ef",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.StrictWindows",
+   "kind": "theorem",
+   "evidence_level": "L1",
+   "manifest_evidence_level": "lean_nanoda_standard",
+   "lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "lean_axioms_raw": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms_raw": [],
+   "other_axioms": [],
+   "statement_sha256": "4c10bfeece401adda3b9fbd8c3c61161df4068ad84cfa074f6249d43505fc696",
+   "statement_pp_sha256": "894fd6698931fffe108edae56d7b7cf0866096ead5817f61ba339e20303ee819",
+   "manifest_check": {
+    "ok": true,
+    "mismatches": []
+   },
+   "nanoda_standard": {
+    "status": "pass",
+    "run": "standard-batch-1"
+   },
+   "nanoda_native": {
+    "status": "not_applicable"
+   },
+   "comparator_comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/StrictWindows.lean",
+     "statement_file_index": 12,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.StrictWindows.JocelynClaims.claim_f0cfddddf4e562b8ee8b00a4b8f6c47db3028e8425650db4312e3bcc8f4e26ef",
+     "returncode": 0,
+     "elapsed_s": 3.63,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 17093,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.StrictWindows.JocelynClaims.claim_f0cfddddf4e562b8ee8b00a4b8f6c47db3028e8425650db4312e3bcc8f4e26ef"
+     }
+    }
+   ],
+   "comparator": {
+    "returncode": 0,
+    "elapsed_s": 3.63,
+    "status": "match",
+    "diagnostics": {
+     "axiom_audit": true,
+     "builtin_kernel_replay": false,
+     "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+     "declarations": 17093,
+     "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+     "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+     "lean_version": "4.33.1",
+     "proof_accepted": false,
+     "schema": "jocelyn.comparator-diagnostics.v1",
+     "statement_comparison": true,
+     "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.StrictWindows.JocelynClaims.claim_f0cfddddf4e562b8ee8b00a4b8f6c47db3028e8425650db4312e3bcc8f4e26ef"
+    }
+   }
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromPairAndUnion.JocelynClaims.claim_fdb026ef91db27804011331a018c434c83ba1a1ce0d9de16bfd4e6f508f5c5f0",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromPairAndUnion",
+   "kind": "theorem",
+   "evidence_level": "L1",
+   "manifest_evidence_level": "conditional",
+   "lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "lean_axioms_raw": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms_raw": [],
+   "other_axioms": [],
+   "statement_sha256": "aca15800d8b87e849f5e59bbe3b3cba247bc114a96ca216df88f2a438a4e1878",
+   "statement_pp_sha256": "dc29dbcd0a26966cef4badb919e419dc015f2b9481e03e67acda358598f15e99",
+   "manifest_check": {
+    "ok": true,
+    "mismatches": []
+   },
+   "nanoda_standard": {
+    "status": "pass",
+    "run": "standard-batch-1"
+   },
+   "nanoda_native": {
+    "status": "not_applicable"
+   },
+   "comparator_comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/AllWidthFromPairAndUnion.lean",
+     "statement_file_index": 0,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromPairAndUnion.JocelynClaims.claim_fdb026ef91db27804011331a018c434c83ba1a1ce0d9de16bfd4e6f508f5c5f0",
+     "returncode": 0,
+     "elapsed_s": 3.98,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 17964,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromPairAndUnion.JocelynClaims.claim_fdb026ef91db27804011331a018c434c83ba1a1ce0d9de16bfd4e6f508f5c5f0"
+     }
+    }
+   ],
+   "comparator": {
+    "returncode": 0,
+    "elapsed_s": 3.98,
+    "status": "match",
+    "diagnostics": {
+     "axiom_audit": true,
+     "builtin_kernel_replay": false,
+     "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+     "declarations": 17964,
+     "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+     "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+     "lean_version": "4.33.1",
+     "proof_accepted": false,
+     "schema": "jocelyn.comparator-diagnostics.v1",
+     "statement_comparison": true,
+     "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromPairAndUnion.JocelynClaims.claim_fdb026ef91db27804011331a018c434c83ba1a1ce0d9de16bfd4e6f508f5c5f0"
+    }
+   }
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k3",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "kind": "theorem",
+   "evidence_level": "L1",
+   "manifest_evidence_level": "conditional",
+   "lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "lean_axioms_raw": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms_raw": [],
+   "other_axioms": [],
+   "statement_sha256": "df8c8948557a573e9b3d5b8474f7c1c78a18a696545cf04ae01e66bcaaf07fd4",
+   "statement_pp_sha256": "e4ed07f54e3ba6e475daec7aae081d5151c002871a2939deeaf3ca2e3a4dd490",
+   "manifest_check": {
+    "ok": true,
+    "mismatches": []
+   },
+   "nanoda_standard": {
+    "status": "pass",
+    "run": "standard-batch-1"
+   },
+   "nanoda_native": {
+    "status": "not_applicable"
+   },
+   "comparator_comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/CountingClosure.lean",
+     "statement_file_index": 2,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k3",
+     "returncode": 0,
+     "elapsed_s": 16.37,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 66116,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k3"
+     }
+    }
+   ],
+   "comparator": {
+    "returncode": 0,
+    "elapsed_s": 16.37,
+    "status": "match",
+    "diagnostics": {
+     "axiom_audit": true,
+     "builtin_kernel_replay": false,
+     "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+     "declarations": 66116,
+     "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+     "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+     "lean_version": "4.33.1",
+     "proof_accepted": false,
+     "schema": "jocelyn.comparator-diagnostics.v1",
+     "statement_comparison": true,
+     "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k3"
+    }
+   }
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k2_reuss",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "kind": "theorem",
+   "evidence_level": "L1",
+   "manifest_evidence_level": "conditional",
+   "lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "lean_axioms_raw": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms_raw": [],
+   "other_axioms": [],
+   "statement_sha256": "39e1691596ec0769225f09547b3441dc5df647ae0848c6788c590a43362488ef",
+   "statement_pp_sha256": "3b6353fc65d93cc82d46f3f05a7a990a86d3f4dad7caba6396b6acbec231b1b4",
+   "manifest_check": {
+    "ok": true,
+    "mismatches": []
+   },
+   "nanoda_standard": {
+    "status": "pass",
+    "run": "standard-batch-1"
+   },
+   "nanoda_native": {
+    "status": "not_applicable"
+   },
+   "comparator_comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/CountingClosure.lean",
+     "statement_file_index": 2,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k2_reuss",
+     "returncode": 0,
+     "elapsed_s": 16.46,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 66116,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k2_reuss"
+     }
+    }
+   ],
+   "comparator": {
+    "returncode": 0,
+    "elapsed_s": 16.46,
+    "status": "match",
+    "diagnostics": {
+     "axiom_audit": true,
+     "builtin_kernel_replay": false,
+     "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+     "declarations": 66116,
+     "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+     "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+     "lean_version": "4.33.1",
+     "proof_accepted": false,
+     "schema": "jocelyn.comparator-diagnostics.v1",
+     "statement_comparison": true,
+     "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k2_reuss"
+    }
+   }
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_uniform_reuss",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "kind": "theorem",
+   "evidence_level": "L1",
+   "manifest_evidence_level": "conditional",
+   "lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "lean_axioms_raw": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms_raw": [],
+   "other_axioms": [],
+   "statement_sha256": "639317963b1a517ec38172abf807f06f4cb03211cc44f1c6cfa90db63fe9f528",
+   "statement_pp_sha256": "f53580f64d007510a54742cbc0775caaa0d6866af2111b29d28c8f74fab9f4be",
+   "manifest_check": {
+    "ok": true,
+    "mismatches": []
+   },
+   "nanoda_standard": {
+    "status": "pass",
+    "run": "standard-batch-1"
+   },
+   "nanoda_native": {
+    "status": "not_applicable"
+   },
+   "comparator_comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/CountingClosure.lean",
+     "statement_file_index": 2,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_uniform_reuss",
+     "returncode": 0,
+     "elapsed_s": 16.38,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 66116,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_uniform_reuss"
+     }
+    }
+   ],
+   "comparator": {
+    "returncode": 0,
+    "elapsed_s": 16.38,
+    "status": "match",
+    "diagnostics": {
+     "axiom_audit": true,
+     "builtin_kernel_replay": false,
+     "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+     "declarations": 66116,
+     "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+     "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+     "lean_version": "4.33.1",
+     "proof_accepted": false,
+     "schema": "jocelyn.comparator-diagnostics.v1",
+     "statement_comparison": true,
+     "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_uniform_reuss"
+    }
+   }
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_prop_interval",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "kind": "theorem",
+   "evidence_level": "L1",
+   "manifest_evidence_level": "conditional",
+   "lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "lean_axioms_raw": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms_raw": [],
+   "other_axioms": [],
+   "statement_sha256": "e596cdafc515ce4fe07ff990da4e162d09f6b2212563472313b2fff03e3b401c",
+   "statement_pp_sha256": "f1b72b8c30fe46521dbcb5aec98c064358e7a632f34b695aa47e73dbae1f727c",
+   "manifest_check": {
+    "ok": true,
+    "mismatches": []
+   },
+   "nanoda_standard": {
+    "status": "pass",
+    "run": "standard-batch-1"
+   },
+   "nanoda_native": {
+    "status": "not_applicable"
+   },
+   "comparator_comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/CountingClosure.lean",
+     "statement_file_index": 2,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_prop_interval",
+     "returncode": 0,
+     "elapsed_s": 16.29,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 66116,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_prop_interval"
+     }
+    }
+   ],
+   "comparator": {
+    "returncode": 0,
+    "elapsed_s": 16.29,
+    "status": "match",
+    "diagnostics": {
+     "axiom_audit": true,
+     "builtin_kernel_replay": false,
+     "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+     "declarations": 66116,
+     "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+     "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+     "lean_version": "4.33.1",
+     "proof_accepted": false,
+     "schema": "jocelyn.comparator-diagnostics.v1",
+     "statement_comparison": true,
+     "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_prop_interval"
+    }
+   }
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_Bred",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "kind": "theorem",
+   "evidence_level": "L1",
+   "manifest_evidence_level": "conditional",
+   "lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "lean_axioms_raw": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms_raw": [],
+   "other_axioms": [],
+   "statement_sha256": "c1b6d2f34c7df1e6dedc43e86fa2d19addf6f47df508dafdc15c6bb812346a0a",
+   "statement_pp_sha256": "e9c978204904c2d4526166cbf894e357bb89bd08b0a8a857a56a33bffeee4f5a",
+   "manifest_check": {
+    "ok": true,
+    "mismatches": []
+   },
+   "nanoda_standard": {
+    "status": "pass",
+    "run": "standard-batch-1"
+   },
+   "nanoda_native": {
+    "status": "not_applicable"
+   },
+   "comparator_comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/CountingClosure.lean",
+     "statement_file_index": 2,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_Bred",
+     "returncode": 0,
+     "elapsed_s": 16.34,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 66116,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_Bred"
+     }
+    }
+   ],
+   "comparator": {
+    "returncode": 0,
+    "elapsed_s": 16.34,
+    "status": "match",
+    "diagnostics": {
+     "axiom_audit": true,
+     "builtin_kernel_replay": false,
+     "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+     "declarations": 66116,
+     "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+     "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+     "lean_version": "4.33.1",
+     "proof_accepted": false,
+     "schema": "jocelyn.comparator-diagnostics.v1",
+     "statement_comparison": true,
+     "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_Bred"
+    }
+   }
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_UPI",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "kind": "theorem",
+   "evidence_level": "L1",
+   "manifest_evidence_level": "conditional",
+   "lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "lean_axioms_raw": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms_raw": [],
+   "other_axioms": [],
+   "statement_sha256": "4b225e986fece719a0ac0d4c568b698bd655f2ba7bf6d6b51502a9c84c6ed308",
+   "statement_pp_sha256": "d3664fb057d2b6dfd9132a7f20ec72ce894d461806949e3e116bf90f21b38a79",
+   "manifest_check": {
+    "ok": true,
+    "mismatches": []
+   },
+   "nanoda_standard": {
+    "status": "pass",
+    "run": "standard-batch-1"
+   },
+   "nanoda_native": {
+    "status": "not_applicable"
+   },
+   "comparator_comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/CountingClosure.lean",
+     "statement_file_index": 2,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_UPI",
+     "returncode": 0,
+     "elapsed_s": 16.37,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 66116,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_UPI"
+     }
+    }
+   ],
+   "comparator": {
+    "returncode": 0,
+    "elapsed_s": 16.37,
+    "status": "match",
+    "diagnostics": {
+     "axiom_audit": true,
+     "builtin_kernel_replay": false,
+     "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+     "declarations": 66116,
+     "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+     "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+     "lean_version": "4.33.1",
+     "proof_accepted": false,
+     "schema": "jocelyn.comparator-diagnostics.v1",
+     "statement_comparison": true,
+     "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_UPI"
+    }
+   }
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformwindows_TB",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "kind": "theorem",
+   "evidence_level": "L1",
+   "manifest_evidence_level": "conditional",
+   "lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "lean_axioms_raw": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms_raw": [],
+   "other_axioms": [],
+   "statement_sha256": "7ad14c7c93ae378c4190d7f146cbc8a909765934dbad9e3068cacb9d315cfba9",
+   "statement_pp_sha256": "70dde38f01e3b40a28f6a969a4f83cc5d7839eb877dff7bf64486f38b756a70c",
+   "manifest_check": {
+    "ok": true,
+    "mismatches": []
+   },
+   "nanoda_standard": {
+    "status": "pass",
+    "run": "standard-batch-1"
+   },
+   "nanoda_native": {
+    "status": "not_applicable"
+   },
+   "comparator_comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/CountingClosure.lean",
+     "statement_file_index": 2,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformwindows_TB",
+     "returncode": 0,
+     "elapsed_s": 16.16,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 66116,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformwindows_TB"
+     }
+    }
+   ],
+   "comparator": {
+    "returncode": 0,
+    "elapsed_s": 16.16,
+    "status": "match",
+    "diagnostics": {
+     "axiom_audit": true,
+     "builtin_kernel_replay": false,
+     "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+     "declarations": 66116,
+     "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+     "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+     "lean_version": "4.33.1",
+     "proof_accepted": false,
+     "schema": "jocelyn.comparator-diagnostics.v1",
+     "statement_comparison": true,
+     "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformwindows_TB"
+    }
+   }
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformtriple",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "kind": "theorem",
+   "evidence_level": "L1",
+   "manifest_evidence_level": "conditional",
+   "lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "lean_axioms_raw": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms_raw": [],
+   "other_axioms": [],
+   "statement_sha256": "b565d30dc99ca9376956e78ccc370a1646da51343ad28dc1cbd75141847463dd",
+   "statement_pp_sha256": "6da2bef10a063dc28d40fbc09c04c619d17cfbb82f8a6dc490fe198f396d9ea3",
+   "manifest_check": {
+    "ok": true,
+    "mismatches": []
+   },
+   "nanoda_standard": {
+    "status": "pass",
+    "run": "standard-batch-2"
+   },
+   "nanoda_native": {
+    "status": "not_applicable"
+   },
+   "comparator_comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/CountingClosure.lean",
+     "statement_file_index": 2,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformtriple",
+     "returncode": 0,
+     "elapsed_s": 16.46,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 66116,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformtriple"
+     }
+    }
+   ],
+   "comparator": {
+    "returncode": 0,
+    "elapsed_s": 16.46,
+    "status": "match",
+    "diagnostics": {
+     "axiom_audit": true,
+     "builtin_kernel_replay": false,
+     "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+     "declarations": 66116,
+     "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+     "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+     "lean_version": "4.33.1",
+     "proof_accepted": false,
+     "schema": "jocelyn.comparator-diagnostics.v1",
+     "statement_comparison": true,
+     "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformtriple"
+    }
+   }
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.reuss_window_bridge",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
+   "kind": "theorem",
+   "evidence_level": "L1",
+   "manifest_evidence_level": "lean_nanoda_standard",
+   "lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "lean_axioms_raw": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms_raw": [],
+   "other_axioms": [],
+   "statement_sha256": "0189ef31d3c8964ce1fc13a1d6be30602e26ba8f296d30d1021a92df40fa4427",
+   "statement_pp_sha256": "34b28e4e39822176f23315e23cd9695b69f60c5aee34cb1a3dc8f2dcffd88f62",
+   "manifest_check": {
+    "ok": true,
+    "mismatches": []
+   },
+   "nanoda_standard": {
+    "status": "pass",
+    "run": "standard-batch-2"
+   },
+   "nanoda_native": {
+    "status": "not_applicable"
+   },
+   "comparator_comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/CountingClosure.lean",
+     "statement_file_index": 2,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.reuss_window_bridge",
+     "returncode": 0,
+     "elapsed_s": 14.81,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 66116,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.reuss_window_bridge"
+     }
+    }
+   ],
+   "comparator": {
+    "returncode": 0,
+    "elapsed_s": 14.81,
+    "status": "match",
+    "diagnostics": {
+     "axiom_audit": true,
+     "builtin_kernel_replay": false,
+     "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+     "declarations": 66116,
+     "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+     "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+     "lean_version": "4.33.1",
+     "proof_accepted": false,
+     "schema": "jocelyn.comparator-diagnostics.v1",
+     "statement_comparison": true,
+     "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.reuss_window_bridge"
+    }
+   }
+  }
+ ],
+ "runs": [
+  {
+   "label": "standard-batch-0",
+   "declarations": [
+    "JocelynWorkspace.Erdos137.FixedWidth.GoodIndex.three_consecutive_small_kernels",
+    "JocelynWorkspace.Erdos137.WidthThree.CentralSet.SmallGapExclusion.small_gap_exclusion",
+    "JocelynWorkspace.Formalization.PowerfulCounting.Paper3OriginalActualAuxiliaryPolynomial.JocelynClaims.claim_1d348efff0ed2d7d1daabd2d1147ea25df132caf1901a51df249fe2af2a5231b",
+    "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromUniformTriple.JocelynClaims.claim_2be59d9f161441036f3a5e723e095513f55f8e966c487d9815574cd2d95ecab2",
+    "JocelynWorkspace.Formalization.PowerfulCounting.GoodTriple.JocelynClaims.claim_6ba6889691d6b2a328ce28fdca1e59cdbe991411d020692d8694665c5705172c",
+    "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope.JocelynClaims.claim_9673eb5d3698f5f89673c095cc0c3dde8199485fa3a96de629d54ae5226908e2",
+    "JocelynWorkspace.Formalization.PowerfulCounting.PairExponentCertificate.JocelynClaims.claim_c433f729050128c23580094c6dc3e816f4d39627952688bc77da5939c6b6e165",
+    "JocelynWorkspace.Formalization.PowerfulCounting.NonpowerfulMembers.JocelynClaims.claim_ceda7068de057b3d0d054ad2d5782ee486080d60f8cb605131c0e153f0538465",
+    "JocelynWorkspace.Formalization.PowerfulCounting.TripleExponentCertificate.JocelynClaims.claim_d17527abe8b1de31d39ee4bdd1ad8fe89d3a6868b05f6e4fab74571f916c8087",
+    "JocelynWorkspace.Formalization.PowerfulCounting.LatticeTails.JocelynClaims.claim_d31e9b77d0f9dd7614934ea632cc8dcd6919398027eb82ef33c69bc75aa5c7c7"
+   ],
+   "export": {
+    "label": "standard-batch-0",
+    "module": "JocelynWorkspace",
+    "roots": [
+     "JocelynWorkspace.Erdos137.FixedWidth.GoodIndex.three_consecutive_small_kernels",
+     "JocelynWorkspace.Erdos137.WidthThree.CentralSet.SmallGapExclusion.small_gap_exclusion",
+     "JocelynWorkspace.Formalization.PowerfulCounting.Paper3OriginalActualAuxiliaryPolynomial.JocelynClaims.claim_1d348efff0ed2d7d1daabd2d1147ea25df132caf1901a51df249fe2af2a5231b",
+     "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromUniformTriple.JocelynClaims.claim_2be59d9f161441036f3a5e723e095513f55f8e966c487d9815574cd2d95ecab2",
+     "JocelynWorkspace.Formalization.PowerfulCounting.GoodTriple.JocelynClaims.claim_6ba6889691d6b2a328ce28fdca1e59cdbe991411d020692d8694665c5705172c",
+     "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope.JocelynClaims.claim_9673eb5d3698f5f89673c095cc0c3dde8199485fa3a96de629d54ae5226908e2",
+     "JocelynWorkspace.Formalization.PowerfulCounting.PairExponentCertificate.JocelynClaims.claim_c433f729050128c23580094c6dc3e816f4d39627952688bc77da5939c6b6e165",
+     "JocelynWorkspace.Formalization.PowerfulCounting.NonpowerfulMembers.JocelynClaims.claim_ceda7068de057b3d0d054ad2d5782ee486080d60f8cb605131c0e153f0538465",
+     "JocelynWorkspace.Formalization.PowerfulCounting.TripleExponentCertificate.JocelynClaims.claim_d17527abe8b1de31d39ee4bdd1ad8fe89d3a6868b05f6e4fab74571f916c8087",
+     "JocelynWorkspace.Formalization.PowerfulCounting.LatticeTails.JocelynClaims.claim_d31e9b77d0f9dd7614934ea632cc8dcd6919398027eb82ef33c69bc75aa5c7c7"
+    ],
+    "returncode": 0,
+    "elapsed_s": 23.67,
+    "stderr_tail": "",
+    "path": "<work>/standard-batch-0.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "f0b25711d0e7801d43b1ca396046a53a48c161283aa56e525ab0b6188bfdc0c8",
+    "bytes": 258468402,
+    "lines": 4862761,
+    "declarations": 35721,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   },
+   "export_axioms_outside_permitted": [],
+   "nanoda": {
+    "label": "standard-batch-0",
+    "status": "pass",
+    "returncode": 0,
+    "checked_declarations": 35721,
+    "permitted_axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "num_threads": 1,
+    "stack_bytes": 66060288,
+    "elapsed_s": 15.01,
+    "stdout_tail": "Checked 35721 declarations with no errors\n",
+    "stderr_tail": "",
+    "config_sha256": "d34df9de2439ff2085bdc4a961d59dcc5b375ee3f096600293b0c3b79aaacd67"
+   }
+  },
+  {
+   "label": "standard-batch-1",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.LatticeMoments.JocelynClaims.claim_de91d4e3bef4d0cbba6edddabc77ad8eded6df2ba7fc0116292af012ccd3b48a",
+    "JocelynWorkspace.Formalization.PowerfulCounting.StrictWindows.JocelynClaims.claim_f0cfddddf4e562b8ee8b00a4b8f6c47db3028e8425650db4312e3bcc8f4e26ef",
+    "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromPairAndUnion.JocelynClaims.claim_fdb026ef91db27804011331a018c434c83ba1a1ce0d9de16bfd4e6f508f5c5f0",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k3",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k2_reuss",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_uniform_reuss",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_prop_interval",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_Bred",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_UPI",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformwindows_TB"
+   ],
+   "export": {
+    "label": "standard-batch-1",
+    "module": "JocelynWorkspace",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.LatticeMoments.JocelynClaims.claim_de91d4e3bef4d0cbba6edddabc77ad8eded6df2ba7fc0116292af012ccd3b48a",
+     "JocelynWorkspace.Formalization.PowerfulCounting.StrictWindows.JocelynClaims.claim_f0cfddddf4e562b8ee8b00a4b8f6c47db3028e8425650db4312e3bcc8f4e26ef",
+     "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromPairAndUnion.JocelynClaims.claim_fdb026ef91db27804011331a018c434c83ba1a1ce0d9de16bfd4e6f508f5c5f0",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k3",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k2_reuss",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_uniform_reuss",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_prop_interval",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_Bred",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_UPI",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformwindows_TB"
+    ],
+    "returncode": 0,
+    "elapsed_s": 37.2,
+    "stderr_tail": "",
+    "path": "<work>/standard-batch-1.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "ea72c9feb6f5583d07025d52a9b88534530bad75cb454b8f2239306be7363542",
+    "bytes": 588411032,
+    "lines": 11058047,
+    "declarations": 66114,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   },
+   "export_axioms_outside_permitted": [],
+   "nanoda": {
+    "label": "standard-batch-1",
+    "status": "pass",
+    "returncode": 0,
+    "checked_declarations": 66114,
+    "permitted_axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "num_threads": 1,
+    "stack_bytes": 66060288,
+    "elapsed_s": 40.66,
+    "stdout_tail": "Checked 66114 declarations with no errors\n",
+    "stderr_tail": "",
+    "config_sha256": "9dca88ccdeb9279e3c0400fc20f2e83e677caf9db7b2ebef6e822de05fbebb95"
+   }
+  },
+  {
+   "label": "standard-batch-2",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformtriple",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.reuss_window_bridge"
+   ],
+   "export": {
+    "label": "standard-batch-2",
+    "module": "JocelynWorkspace",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformtriple",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.reuss_window_bridge"
+    ],
+    "returncode": 0,
+    "elapsed_s": 45.85,
+    "stderr_tail": "",
+    "path": "<work>/standard-batch-2.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "45573753c43889bda7b772a062defa336af2c382488d8f016aafd76180778e4e",
+    "bytes": 549116124,
+    "lines": 10320258,
+    "declarations": 64376,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   },
+   "export_axioms_outside_permitted": [],
+   "nanoda": {
+    "label": "standard-batch-2",
+    "status": "pass",
+    "returncode": 0,
+    "checked_declarations": 64376,
+    "permitted_axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "num_threads": 1,
+    "stack_bytes": 66060288,
+    "elapsed_s": 36.22,
+    "stdout_tail": "Checked 64376 declarations with no errors\n",
+    "stderr_tail": "",
+    "config_sha256": "05aba7233fbcc1282870a411a447bbf22e83e6de3e378b9d2b2b0a8c95701c1b"
+   }
+  },
+  {
+   "label": "comparator-candidates-0",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromPairAndUnion.JocelynClaims.claim_fdb026ef91db27804011331a018c434c83ba1a1ce0d9de16bfd4e6f508f5c5f0"
+   ],
+   "export": {
+    "label": "comparator-candidates-0",
+    "module": "JocelynWorkspace",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromPairAndUnion.JocelynClaims.claim_fdb026ef91db27804011331a018c434c83ba1a1ce0d9de16bfd4e6f508f5c5f0"
+    ],
+    "returncode": 0,
+    "elapsed_s": 16.49,
+    "stderr_tail": "",
+    "path": "<work>/comparator-candidates-0.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "709f74e21eb4e969f79c4323c6e1f9a5538f68998ab177f928699babcc8533b3",
+    "bytes": 74727446,
+    "lines": 1402150,
+    "declarations": 17964,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   }
+  },
+  {
+   "label": "comparator-candidates-1",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromUniformTriple.JocelynClaims.claim_2be59d9f161441036f3a5e723e095513f55f8e966c487d9815574cd2d95ecab2"
+   ],
+   "export": {
+    "label": "comparator-candidates-1",
+    "module": "JocelynWorkspace",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromUniformTriple.JocelynClaims.claim_2be59d9f161441036f3a5e723e095513f55f8e966c487d9815574cd2d95ecab2"
+    ],
+    "returncode": 0,
+    "elapsed_s": 16.85,
+    "stderr_tail": "",
+    "path": "<work>/comparator-candidates-1.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "ff632c897343f89db8255a42bae3d6a1a3a221eab5cd9f112bd8462cb876d40d",
+    "bytes": 85281996,
+    "lines": 1599469,
+    "declarations": 19462,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   }
+  },
+  {
+   "label": "comparator-candidates-2",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k3",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k2_reuss",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_uniform_reuss",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_prop_interval",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_Bred",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_UPI",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformwindows_TB",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformtriple",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.reuss_window_bridge"
+   ],
+   "export": {
+    "label": "comparator-candidates-2",
+    "module": "JocelynWorkspace",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k3",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k2_reuss",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_uniform_reuss",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_prop_interval",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_Bred",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_UPI",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformwindows_TB",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformtriple",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.reuss_window_bridge"
+    ],
+    "returncode": 0,
+    "elapsed_s": 35.98,
+    "stderr_tail": "",
+    "path": "<work>/comparator-candidates-2.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "0ff5980002f9c13647d9a66d3022b63684b758e11acc8a997918cd3430c3d790",
+    "bytes": 588618607,
+    "lines": 11058122,
+    "declarations": 66116,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   }
+  },
+  {
+   "label": "comparator-candidates-3",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope.JocelynClaims.claim_9673eb5d3698f5f89673c095cc0c3dde8199485fa3a96de629d54ae5226908e2"
+   ],
+   "export": {
+    "label": "comparator-candidates-3",
+    "module": "JocelynWorkspace",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope.JocelynClaims.claim_9673eb5d3698f5f89673c095cc0c3dde8199485fa3a96de629d54ae5226908e2"
+    ],
+    "returncode": 0,
+    "elapsed_s": 13.92,
+    "stderr_tail": "",
+    "path": "<work>/comparator-candidates-3.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "5f45bc5b4944c5aa6af476266c7969cce7f18d4c8fa1644560feda8152a8ebfa",
+    "bytes": 62794016,
+    "lines": 1188379,
+    "declarations": 14506,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   }
+  },
+  {
+   "label": "comparator-candidates-4",
+   "declarations": [
+    "JocelynWorkspace.Erdos137.FixedWidth.GoodIndex.three_consecutive_small_kernels"
+   ],
+   "export": {
+    "label": "comparator-candidates-4",
+    "module": "JocelynWorkspace",
+    "roots": [
+     "JocelynWorkspace.Erdos137.FixedWidth.GoodIndex.three_consecutive_small_kernels"
+    ],
+    "returncode": 0,
+    "elapsed_s": 13.69,
+    "stderr_tail": "",
+    "path": "<work>/comparator-candidates-4.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "6fd4d37a8ec465bc4840c614ea148994ef6993ed7886ead00c3efe32e5e0d08c",
+    "bytes": 34150771,
+    "lines": 648110,
+    "declarations": 8657,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   }
+  },
+  {
+   "label": "comparator-candidates-5",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.GoodTriple.JocelynClaims.claim_6ba6889691d6b2a328ce28fdca1e59cdbe991411d020692d8694665c5705172c"
+   ],
+   "export": {
+    "label": "comparator-candidates-5",
+    "module": "JocelynWorkspace",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.GoodTriple.JocelynClaims.claim_6ba6889691d6b2a328ce28fdca1e59cdbe991411d020692d8694665c5705172c"
+    ],
+    "returncode": 0,
+    "elapsed_s": 13.92,
+    "stderr_tail": "",
+    "path": "<work>/comparator-candidates-5.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "3425a7ca0841195e6c124f6e863c62888ec724fac66226e87e67d1a5488a7be6",
+    "bytes": 34865105,
+    "lines": 662020,
+    "declarations": 8794,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   }
+  },
+  {
+   "label": "comparator-candidates-6",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.LatticeMoments.JocelynClaims.claim_de91d4e3bef4d0cbba6edddabc77ad8eded6df2ba7fc0116292af012ccd3b48a"
+   ],
+   "export": {
+    "label": "comparator-candidates-6",
+    "module": "JocelynWorkspace",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.LatticeMoments.JocelynClaims.claim_de91d4e3bef4d0cbba6edddabc77ad8eded6df2ba7fc0116292af012ccd3b48a"
+    ],
+    "returncode": 0,
+    "elapsed_s": 17.55,
+    "stderr_tail": "",
+    "path": "<work>/comparator-candidates-6.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "d2a31a0ab4acd1ad2ceb24df3d5bea3bc94525f0cb6842bf4fb6a61d7af4aefb",
+    "bytes": 86240440,
+    "lines": 1623754,
+    "declarations": 18833,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   }
+  },
+  {
+   "label": "comparator-candidates-7",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.LatticeTails.JocelynClaims.claim_d31e9b77d0f9dd7614934ea632cc8dcd6919398027eb82ef33c69bc75aa5c7c7"
+   ],
+   "export": {
+    "label": "comparator-candidates-7",
+    "module": "JocelynWorkspace",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.LatticeTails.JocelynClaims.claim_d31e9b77d0f9dd7614934ea632cc8dcd6919398027eb82ef33c69bc75aa5c7c7"
+    ],
+    "returncode": 0,
+    "elapsed_s": 15.69,
+    "stderr_tail": "",
+    "path": "<work>/comparator-candidates-7.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "e8465037c4f0fd9884bd7ea086369f5aafeffbb30a6f3991cf3f88e39b864322",
+    "bytes": 84583275,
+    "lines": 1592348,
+    "declarations": 18684,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   }
+  },
+  {
+   "label": "comparator-candidates-8",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.NonpowerfulMembers.JocelynClaims.claim_ceda7068de057b3d0d054ad2d5782ee486080d60f8cb605131c0e153f0538465"
+   ],
+   "export": {
+    "label": "comparator-candidates-8",
+    "module": "JocelynWorkspace",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.NonpowerfulMembers.JocelynClaims.claim_ceda7068de057b3d0d054ad2d5782ee486080d60f8cb605131c0e153f0538465"
+    ],
+    "returncode": 0,
+    "elapsed_s": 19.69,
+    "stderr_tail": "",
+    "path": "<work>/comparator-candidates-8.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "2cc5e9fa95e800be2cef72fb87ffcf79ebc3f97a0bf5c4d783da88796970f582",
+    "bytes": 184743671,
+    "lines": 3430933,
+    "declarations": 31462,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   }
+  },
+  {
+   "label": "comparator-candidates-9",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.PairExponentCertificate.JocelynClaims.claim_c433f729050128c23580094c6dc3e816f4d39627952688bc77da5939c6b6e165"
+   ],
+   "export": {
+    "label": "comparator-candidates-9",
+    "module": "JocelynWorkspace",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.PairExponentCertificate.JocelynClaims.claim_c433f729050128c23580094c6dc3e816f4d39627952688bc77da5939c6b6e165"
+    ],
+    "returncode": 0,
+    "elapsed_s": 15.26,
+    "stderr_tail": "",
+    "path": "<work>/comparator-candidates-9.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "bdc206e775d46bdfeb04c6aa13aa9c59470f379463f1203e7663da908d909487",
+    "bytes": 57664768,
+    "lines": 1096180,
+    "declarations": 13591,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   }
+  },
+  {
+   "label": "comparator-candidates-10",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.Paper3OriginalActualAuxiliaryPolynomial.JocelynClaims.claim_1d348efff0ed2d7d1daabd2d1147ea25df132caf1901a51df249fe2af2a5231b"
+   ],
+   "export": {
+    "label": "comparator-candidates-10",
+    "module": "JocelynWorkspace",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.Paper3OriginalActualAuxiliaryPolynomial.JocelynClaims.claim_1d348efff0ed2d7d1daabd2d1147ea25df132caf1901a51df249fe2af2a5231b"
+    ],
+    "returncode": 0,
+    "elapsed_s": 20.06,
+    "stderr_tail": "",
+    "path": "<work>/comparator-candidates-10.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "533b534580b6b1a6c57bcef4b96fb4a091a0e3495f8c50d7f79c46d032a92046",
+    "bytes": 208925190,
+    "lines": 3891577,
+    "declarations": 33402,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   }
+  },
+  {
+   "label": "comparator-candidates-11",
+   "declarations": [
+    "JocelynWorkspace.Erdos137.WidthThree.CentralSet.SmallGapExclusion.small_gap_exclusion"
+   ],
+   "export": {
+    "label": "comparator-candidates-11",
+    "module": "JocelynWorkspace",
+    "roots": [
+     "JocelynWorkspace.Erdos137.WidthThree.CentralSet.SmallGapExclusion.small_gap_exclusion"
+    ],
+    "returncode": 0,
+    "elapsed_s": 16.9,
+    "stderr_tail": "",
+    "path": "<work>/comparator-candidates-11.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "4edd696f78f92e4bc867a837ad43f1a256379eade9ae21b1f12d9792d44a717d",
+    "bytes": 96597330,
+    "lines": 1840940,
+    "declarations": 17943,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   }
+  },
+  {
+   "label": "comparator-candidates-12",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.StrictWindows.JocelynClaims.claim_f0cfddddf4e562b8ee8b00a4b8f6c47db3028e8425650db4312e3bcc8f4e26ef"
+   ],
+   "export": {
+    "label": "comparator-candidates-12",
+    "module": "JocelynWorkspace",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.StrictWindows.JocelynClaims.claim_f0cfddddf4e562b8ee8b00a4b8f6c47db3028e8425650db4312e3bcc8f4e26ef"
+    ],
+    "returncode": 0,
+    "elapsed_s": 15.81,
+    "stderr_tail": "",
+    "path": "<work>/comparator-candidates-12.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "b0a2955966fa678e1aaa07de27d11c4cf3fe71476300d3dff0f2b5229ea1e95e",
+    "bytes": 74893612,
+    "lines": 1412926,
+    "declarations": 17093,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   }
+  },
+  {
+   "label": "comparator-candidates-13",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.TripleExponentCertificate.JocelynClaims.claim_d17527abe8b1de31d39ee4bdd1ad8fe89d3a6868b05f6e4fab74571f916c8087"
+   ],
+   "export": {
+    "label": "comparator-candidates-13",
+    "module": "JocelynWorkspace",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.TripleExponentCertificate.JocelynClaims.claim_d17527abe8b1de31d39ee4bdd1ad8fe89d3a6868b05f6e4fab74571f916c8087"
+    ],
+    "returncode": 0,
+    "elapsed_s": 13.85,
+    "stderr_tail": "",
+    "path": "<work>/comparator-candidates-13.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "06b5917e409d3ddd936a34fcacdba1484510733e3f76a76d117fa2a988090334",
+    "bytes": 46150970,
+    "lines": 873844,
+    "declarations": 11411,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   }
+  }
+ ],
+ "statements": [
+  {
+   "file": "replay/statements/powerful-counting/AllWidthFromPairAndUnion.lean",
+   "sha256": "6cb8d03abf3c944c24e6bd3bb8fe1ab0b611f02a68dbe8ca6fb3511c3ec5ae4a",
+   "theorems": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromPairAndUnion.JocelynClaims.claim_fdb026ef91db27804011331a018c434c83ba1a1ce0d9de16bfd4e6f508f5c5f0"
+   ],
+   "compile_returncode": 0,
+   "compile_elapsed_s": 34.66,
+   "compile_output_tail": "<work>/statements-0/ReplayStatements0.lean:3:8: warning: declaration uses `sorry`\n",
+   "reference_export": {
+    "label": "reference-statements-0",
+    "module": "ReplayStatements0",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromPairAndUnion.JocelynClaims.claim_fdb026ef91db27804011331a018c434c83ba1a1ce0d9de16bfd4e6f508f5c5f0"
+    ],
+    "returncode": 0,
+    "elapsed_s": 17.73,
+    "stderr_tail": "",
+    "path": "<work>/reference-statements-0.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "d696a5bcb896b9f9b47194e87cbcba943de28a749d69b329614505bdd0691d1c",
+    "bytes": 72710050,
+    "lines": 1364290,
+    "declarations": 17539,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext",
+     "sorryAx"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   },
+   "comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/AllWidthFromPairAndUnion.lean",
+     "statement_file_index": 0,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromPairAndUnion.JocelynClaims.claim_fdb026ef91db27804011331a018c434c83ba1a1ce0d9de16bfd4e6f508f5c5f0",
+     "returncode": 0,
+     "elapsed_s": 3.98,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 17964,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromPairAndUnion.JocelynClaims.claim_fdb026ef91db27804011331a018c434c83ba1a1ce0d9de16bfd4e6f508f5c5f0"
+     }
+    }
+   ],
+   "stream_scratch_removed": true
+  },
+  {
+   "file": "replay/statements/powerful-counting/AllWidthFromUniformTriple.lean",
+   "sha256": "e0fa7d16c016f33262dfe78ecbfffc469858d4f9dc340f60110e83518f06f98d",
+   "theorems": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromUniformTriple.JocelynClaims.claim_2be59d9f161441036f3a5e723e095513f55f8e966c487d9815574cd2d95ecab2"
+   ],
+   "compile_returncode": 0,
+   "compile_elapsed_s": 17.57,
+   "compile_output_tail": "<work>/statements-1/ReplayStatements1.lean:3:8: warning: declaration uses `sorry`\n",
+   "reference_export": {
+    "label": "reference-statements-1",
+    "module": "ReplayStatements1",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromUniformTriple.JocelynClaims.claim_2be59d9f161441036f3a5e723e095513f55f8e966c487d9815574cd2d95ecab2"
+    ],
+    "returncode": 0,
+    "elapsed_s": 16.74,
+    "stderr_tail": "",
+    "path": "<work>/reference-statements-1.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "e6b9b2e8f5eeefce64e1298638c36788ba5d47c9e13c0cbfb680b1003c49de74",
+    "bytes": 72749184,
+    "lines": 1364360,
+    "declarations": 17539,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext",
+     "sorryAx"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   },
+   "comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/AllWidthFromUniformTriple.lean",
+     "statement_file_index": 1,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromUniformTriple.JocelynClaims.claim_2be59d9f161441036f3a5e723e095513f55f8e966c487d9815574cd2d95ecab2",
+     "returncode": 0,
+     "elapsed_s": 3.98,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 19462,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromUniformTriple.JocelynClaims.claim_2be59d9f161441036f3a5e723e095513f55f8e966c487d9815574cd2d95ecab2"
+     }
+    }
+   ],
+   "stream_scratch_removed": true
+  },
+  {
+   "file": "replay/statements/powerful-counting/CountingClosure.lean",
+   "sha256": "760fa7d2567cec591c0759417e039744bd973fa6fe7e1007bdddc1f868eb5ee5",
+   "theorems": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k3",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k2_reuss",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_uniform_reuss",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_prop_interval",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_Bred",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_UPI",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformwindows_TB",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformtriple",
+    "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.reuss_window_bridge"
+   ],
+   "compile_returncode": 0,
+   "compile_elapsed_s": 15.68,
+   "compile_output_tail": "<work>/statements-2/ReplayStatements2.lean:3:8: warning: declaration uses `sorry`\n<work>/statements-2/ReplayStatements2.lean:24:8: warning: declaration uses `sorry`\n<work>/statements-2/ReplayStatements2.lean:61:8: warning: declaration uses `sorry`\n<work>/statements-2/ReplayStatements2.lean:112:8: warning: declaration uses `sorry`\n<work>/statements-2/ReplayStatements2.lean:151:8: warning: declaration uses `sorry`\n<work>/statements-2/ReplayStatements2.lean:181:8: warning: declaration uses `sorry`\n<work>/statements-2/ReplayStatements2.lean:221:8: warning: declaration uses `sorry`\n<work>/statements-2/ReplayStatements2.lean:251:8: warning: declaration uses `sorry`\n<work>/statements-2/ReplayStatements2.lean:276:8: warning: declaration uses `sorry`\n",
+   "reference_export": {
+    "label": "reference-statements-2",
+    "module": "ReplayStatements2",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k3",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k2_reuss",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_uniform_reuss",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_prop_interval",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_Bred",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_UPI",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformwindows_TB",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformtriple",
+     "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.reuss_window_bridge"
+    ],
+    "returncode": 0,
+    "elapsed_s": 14.37,
+    "stderr_tail": "",
+    "path": "<work>/reference-statements-2.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "e0affb7ee99ec8431a160df36217f91e7b061bfdbaa48a26f3c805fc3966406a",
+    "bytes": 83597168,
+    "lines": 1563120,
+    "declarations": 19567,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext",
+     "sorryAx"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   },
+   "comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/CountingClosure.lean",
+     "statement_file_index": 2,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k3",
+     "returncode": 0,
+     "elapsed_s": 16.37,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 66116,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k3"
+     }
+    },
+    {
+     "file": "replay/statements/powerful-counting/CountingClosure.lean",
+     "statement_file_index": 2,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k2_reuss",
+     "returncode": 0,
+     "elapsed_s": 16.46,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 66116,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k2_reuss"
+     }
+    },
+    {
+     "file": "replay/statements/powerful-counting/CountingClosure.lean",
+     "statement_file_index": 2,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_uniform_reuss",
+     "returncode": 0,
+     "elapsed_s": 16.38,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 66116,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_uniform_reuss"
+     }
+    },
+    {
+     "file": "replay/statements/powerful-counting/CountingClosure.lean",
+     "statement_file_index": 2,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_prop_interval",
+     "returncode": 0,
+     "elapsed_s": 16.29,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 66116,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_prop_interval"
+     }
+    },
+    {
+     "file": "replay/statements/powerful-counting/CountingClosure.lean",
+     "statement_file_index": 2,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_Bred",
+     "returncode": 0,
+     "elapsed_s": 16.34,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 66116,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_Bred"
+     }
+    },
+    {
+     "file": "replay/statements/powerful-counting/CountingClosure.lean",
+     "statement_file_index": 2,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_UPI",
+     "returncode": 0,
+     "elapsed_s": 16.37,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 66116,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_UPI"
+     }
+    },
+    {
+     "file": "replay/statements/powerful-counting/CountingClosure.lean",
+     "statement_file_index": 2,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformwindows_TB",
+     "returncode": 0,
+     "elapsed_s": 16.16,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 66116,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformwindows_TB"
+     }
+    },
+    {
+     "file": "replay/statements/powerful-counting/CountingClosure.lean",
+     "statement_file_index": 2,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformtriple",
+     "returncode": 0,
+     "elapsed_s": 16.46,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 66116,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_lem_uniformtriple"
+     }
+    },
+    {
+     "file": "replay/statements/powerful-counting/CountingClosure.lean",
+     "statement_file_index": 2,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.reuss_window_bridge",
+     "returncode": 0,
+     "elapsed_s": 14.81,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 66116,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.reuss_window_bridge"
+     }
+    }
+   ],
+   "stream_scratch_removed": true
+  },
+  {
+   "file": "replay/statements/powerful-counting/DecompositionAndEnvelope.lean",
+   "sha256": "082989dcdb20b872cf1bf7b16fb3a55e3ffcaa6bf9a41ca196ac91c3e24ae9e2",
+   "theorems": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope.JocelynClaims.claim_9673eb5d3698f5f89673c095cc0c3dde8199485fa3a96de629d54ae5226908e2"
+   ],
+   "compile_returncode": 0,
+   "compile_elapsed_s": 55.42,
+   "compile_output_tail": "<work>/statements-3/ReplayStatements3.lean:3:8: warning: declaration uses `sorry`\n",
+   "reference_export": {
+    "label": "reference-statements-3",
+    "module": "ReplayStatements3",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope.JocelynClaims.claim_9673eb5d3698f5f89673c095cc0c3dde8199485fa3a96de629d54ae5226908e2"
+    ],
+    "returncode": 0,
+    "elapsed_s": 13.21,
+    "stderr_tail": "",
+    "path": "<work>/reference-statements-3.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "83b6015964dfff8dc0436ce5fecfb4c9867b3ad45eda7fc60650434ed177ea10",
+    "bytes": 45873983,
+    "lines": 863729,
+    "declarations": 11863,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext",
+     "sorryAx"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   },
+   "comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/DecompositionAndEnvelope.lean",
+     "statement_file_index": 3,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope.JocelynClaims.claim_9673eb5d3698f5f89673c095cc0c3dde8199485fa3a96de629d54ae5226908e2",
+     "returncode": 0,
+     "elapsed_s": 2.75,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 14506,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope.JocelynClaims.claim_9673eb5d3698f5f89673c095cc0c3dde8199485fa3a96de629d54ae5226908e2"
+     }
+    }
+   ],
+   "stream_scratch_removed": true
+  },
+  {
+   "file": "replay/statements/powerful-counting/GoodIndex.lean",
+   "sha256": "b63eb4c43980ffc9c375ec8fca11492830d044028bca9542aa000c51ead01c49",
+   "theorems": [
+    "JocelynWorkspace.Erdos137.FixedWidth.GoodIndex.three_consecutive_small_kernels"
+   ],
+   "compile_returncode": 0,
+   "compile_elapsed_s": 14.73,
+   "compile_output_tail": "<work>/statements-4/ReplayStatements4.lean:12:8: warning: declaration uses `sorry`\n",
+   "reference_export": {
+    "label": "reference-statements-4",
+    "module": "ReplayStatements4",
+    "roots": [
+     "JocelynWorkspace.Erdos137.FixedWidth.GoodIndex.three_consecutive_small_kernels"
+    ],
+    "returncode": 0,
+    "elapsed_s": 13.16,
+    "stderr_tail": "",
+    "path": "<work>/reference-statements-4.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "22aaa64702c90c1380e2b6caa9e02295d37194e4810d7b7ef72e84f22107cc2a",
+    "bytes": 17123283,
+    "lines": 326169,
+    "declarations": 4605,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext",
+     "sorryAx"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   },
+   "comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/GoodIndex.lean",
+     "statement_file_index": 4,
+     "name": "JocelynWorkspace.Erdos137.FixedWidth.GoodIndex.three_consecutive_small_kernels",
+     "returncode": 0,
+     "elapsed_s": 1.25,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 8657,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Erdos137.FixedWidth.GoodIndex.three_consecutive_small_kernels"
+     }
+    }
+   ],
+   "stream_scratch_removed": true
+  },
+  {
+   "file": "replay/statements/powerful-counting/GoodTriple.lean",
+   "sha256": "0fcf2de181c55061de2f8cc44b603a5944cc391d3d65d28026b6840b92bcbf95",
+   "theorems": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.GoodTriple.JocelynClaims.claim_6ba6889691d6b2a328ce28fdca1e59cdbe991411d020692d8694665c5705172c"
+   ],
+   "compile_returncode": 0,
+   "compile_elapsed_s": 14.41,
+   "compile_output_tail": "<work>/statements-5/ReplayStatements5.lean:3:8: warning: declaration uses `sorry`\n",
+   "reference_export": {
+    "label": "reference-statements-5",
+    "module": "ReplayStatements5",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.GoodTriple.JocelynClaims.claim_6ba6889691d6b2a328ce28fdca1e59cdbe991411d020692d8694665c5705172c"
+    ],
+    "returncode": 0,
+    "elapsed_s": 12.73,
+    "stderr_tail": "",
+    "path": "<work>/reference-statements-5.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "674335d08830a16de5aa514d4b4efa77b9b2dee27237ff7efba01358e2d4e211",
+    "bytes": 17123833,
+    "lines": 326180,
+    "declarations": 4605,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext",
+     "sorryAx"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   },
+   "comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/GoodTriple.lean",
+     "statement_file_index": 5,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.GoodTriple.JocelynClaims.claim_6ba6889691d6b2a328ce28fdca1e59cdbe991411d020692d8694665c5705172c",
+     "returncode": 0,
+     "elapsed_s": 1.28,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 8794,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.GoodTriple.JocelynClaims.claim_6ba6889691d6b2a328ce28fdca1e59cdbe991411d020692d8694665c5705172c"
+     }
+    }
+   ],
+   "stream_scratch_removed": true
+  },
+  {
+   "file": "replay/statements/powerful-counting/LatticeMoments.lean",
+   "sha256": "8b30d22900830f8774dc79e9fb46e27e87adbb66a07fe4fec21acf4c288afcf1",
+   "theorems": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.LatticeMoments.JocelynClaims.claim_de91d4e3bef4d0cbba6edddabc77ad8eded6df2ba7fc0116292af012ccd3b48a"
+   ],
+   "compile_returncode": 0,
+   "compile_elapsed_s": 14.62,
+   "compile_output_tail": "<work>/statements-6/ReplayStatements6.lean:3:8: warning: declaration uses `sorry`\n",
+   "reference_export": {
+    "label": "reference-statements-6",
+    "module": "ReplayStatements6",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.LatticeMoments.JocelynClaims.claim_de91d4e3bef4d0cbba6edddabc77ad8eded6df2ba7fc0116292af012ccd3b48a"
+    ],
+    "returncode": 0,
+    "elapsed_s": 14.19,
+    "stderr_tail": "",
+    "path": "<work>/reference-statements-6.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "9e45950d89b65aa9398d8b4e32e7eef87f5aa5a738bf5e4d49823de8362d29e5",
+    "bytes": 69730665,
+    "lines": 1311232,
+    "declarations": 16728,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext",
+     "sorryAx"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   },
+   "comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/LatticeMoments.lean",
+     "statement_file_index": 6,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeMoments.JocelynClaims.claim_de91d4e3bef4d0cbba6edddabc77ad8eded6df2ba7fc0116292af012ccd3b48a",
+     "returncode": 0,
+     "elapsed_s": 3.79,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 18833,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeMoments.JocelynClaims.claim_de91d4e3bef4d0cbba6edddabc77ad8eded6df2ba7fc0116292af012ccd3b48a"
+     }
+    }
+   ],
+   "stream_scratch_removed": true
+  },
+  {
+   "file": "replay/statements/powerful-counting/LatticeTails.lean",
+   "sha256": "3f58a8e31645c989ddeaa8f0b1867ce4845842404605c781750ddff7df9a74eb",
+   "theorems": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.LatticeTails.JocelynClaims.claim_d31e9b77d0f9dd7614934ea632cc8dcd6919398027eb82ef33c69bc75aa5c7c7"
+   ],
+   "compile_returncode": 0,
+   "compile_elapsed_s": 13.86,
+   "compile_output_tail": "<work>/statements-7/ReplayStatements7.lean:3:8: warning: declaration uses `sorry`\n",
+   "reference_export": {
+    "label": "reference-statements-7",
+    "module": "ReplayStatements7",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.LatticeTails.JocelynClaims.claim_d31e9b77d0f9dd7614934ea632cc8dcd6919398027eb82ef33c69bc75aa5c7c7"
+    ],
+    "returncode": 0,
+    "elapsed_s": 14.04,
+    "stderr_tail": "",
+    "path": "<work>/reference-statements-7.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "b7965cbfa19d737621fd1cef4d4555cda0b86eda0b88ff113d4a9682e1542702",
+    "bytes": 72677444,
+    "lines": 1364278,
+    "declarations": 17533,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext",
+     "sorryAx"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   },
+   "comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/LatticeTails.lean",
+     "statement_file_index": 7,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeTails.JocelynClaims.claim_d31e9b77d0f9dd7614934ea632cc8dcd6919398027eb82ef33c69bc75aa5c7c7",
+     "returncode": 0,
+     "elapsed_s": 3.94,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 18684,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeTails.JocelynClaims.claim_d31e9b77d0f9dd7614934ea632cc8dcd6919398027eb82ef33c69bc75aa5c7c7"
+     }
+    }
+   ],
+   "stream_scratch_removed": true
+  },
+  {
+   "file": "replay/statements/powerful-counting/NonpowerfulMembers.lean",
+   "sha256": "8d8ad2e517a83cc2394930cc66528f83390577ec86a587c0d4faa35afe2d14a1",
+   "theorems": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.NonpowerfulMembers.JocelynClaims.claim_ceda7068de057b3d0d054ad2d5782ee486080d60f8cb605131c0e153f0538465"
+   ],
+   "compile_returncode": 0,
+   "compile_elapsed_s": 13.93,
+   "compile_output_tail": "<work>/statements-8/ReplayStatements8.lean:3:8: warning: declaration uses `sorry`\n",
+   "reference_export": {
+    "label": "reference-statements-8",
+    "module": "ReplayStatements8",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.NonpowerfulMembers.JocelynClaims.claim_ceda7068de057b3d0d054ad2d5782ee486080d60f8cb605131c0e153f0538465"
+    ],
+    "returncode": 0,
+    "elapsed_s": 13.25,
+    "stderr_tail": "",
+    "path": "<work>/reference-statements-8.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "c9f4598c894b852227a2189a40e69318ff3d4db8acecf162ffc7e76cb371df9e",
+    "bytes": 72746943,
+    "lines": 1364321,
+    "declarations": 17539,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext",
+     "sorryAx"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   },
+   "comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/NonpowerfulMembers.lean",
+     "statement_file_index": 8,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.NonpowerfulMembers.JocelynClaims.claim_ceda7068de057b3d0d054ad2d5782ee486080d60f8cb605131c0e153f0538465",
+     "returncode": 0,
+     "elapsed_s": 6.47,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 31462,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.NonpowerfulMembers.JocelynClaims.claim_ceda7068de057b3d0d054ad2d5782ee486080d60f8cb605131c0e153f0538465"
+     }
+    }
+   ],
+   "stream_scratch_removed": true
+  },
+  {
+   "file": "replay/statements/powerful-counting/PairExponentCertificate.lean",
+   "sha256": "47620129439f7549987547958b8f44b1c476dac7801b72198a3209d18b56af84",
+   "theorems": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.PairExponentCertificate.JocelynClaims.claim_c433f729050128c23580094c6dc3e816f4d39627952688bc77da5939c6b6e165"
+   ],
+   "compile_returncode": 0,
+   "compile_elapsed_s": 14.39,
+   "compile_output_tail": "<work>/statements-9/ReplayStatements9.lean:3:8: warning: declaration uses `sorry`\n",
+   "reference_export": {
+    "label": "reference-statements-9",
+    "module": "ReplayStatements9",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.PairExponentCertificate.JocelynClaims.claim_c433f729050128c23580094c6dc3e816f4d39627952688bc77da5939c6b6e165"
+    ],
+    "returncode": 0,
+    "elapsed_s": 13.58,
+    "stderr_tail": "",
+    "path": "<work>/reference-statements-9.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "47605445b3ae44d5d1429bb012378a90f8fd1322aac682fea0cbb7be798ecc05",
+    "bytes": 24554126,
+    "lines": 464736,
+    "declarations": 6604,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext",
+     "sorryAx"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   },
+   "comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/PairExponentCertificate.lean",
+     "statement_file_index": 9,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.PairExponentCertificate.JocelynClaims.claim_c433f729050128c23580094c6dc3e816f4d39627952688bc77da5939c6b6e165",
+     "returncode": 0,
+     "elapsed_s": 2.03,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 13591,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.PairExponentCertificate.JocelynClaims.claim_c433f729050128c23580094c6dc3e816f4d39627952688bc77da5939c6b6e165"
+     }
+    }
+   ],
+   "stream_scratch_removed": true
+  },
+  {
+   "file": "replay/statements/powerful-counting/Paper3OriginalActualAuxiliaryPolynomial.lean",
+   "sha256": "55bc040e688c9c772d2b344bffb7ae7ebf09d4223471d6701c5c188c73fd035e",
+   "theorems": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.Paper3OriginalActualAuxiliaryPolynomial.JocelynClaims.claim_1d348efff0ed2d7d1daabd2d1147ea25df132caf1901a51df249fe2af2a5231b"
+   ],
+   "compile_returncode": 0,
+   "compile_elapsed_s": 14.42,
+   "compile_output_tail": "<work>/statements-10/ReplayStatements10.lean:3:8: warning: declaration uses `sorry`\n",
+   "reference_export": {
+    "label": "reference-statements-10",
+    "module": "ReplayStatements10",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.Paper3OriginalActualAuxiliaryPolynomial.JocelynClaims.claim_1d348efff0ed2d7d1daabd2d1147ea25df132caf1901a51df249fe2af2a5231b"
+    ],
+    "returncode": 0,
+    "elapsed_s": 16.29,
+    "stderr_tail": "",
+    "path": "<work>/reference-statements-10.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "38c6739320b770bbca41e46fa487ce20c635a0b3a08fb41e80cbe12ef0486565",
+    "bytes": 71402138,
+    "lines": 1342013,
+    "declarations": 17024,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext",
+     "sorryAx"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   },
+   "comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/Paper3OriginalActualAuxiliaryPolynomial.lean",
+     "statement_file_index": 10,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.Paper3OriginalActualAuxiliaryPolynomial.JocelynClaims.claim_1d348efff0ed2d7d1daabd2d1147ea25df132caf1901a51df249fe2af2a5231b",
+     "returncode": 0,
+     "elapsed_s": 6.87,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 33402,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.Paper3OriginalActualAuxiliaryPolynomial.JocelynClaims.claim_1d348efff0ed2d7d1daabd2d1147ea25df132caf1901a51df249fe2af2a5231b"
+     }
+    }
+   ],
+   "stream_scratch_removed": true
+  },
+  {
+   "file": "replay/statements/powerful-counting/SmallGapExclusion.lean",
+   "sha256": "40d99f8dc13c451abece634769301d051f4d0d2475da62f0ccaf8c126a27e8ec",
+   "theorems": [
+    "JocelynWorkspace.Erdos137.WidthThree.CentralSet.SmallGapExclusion.small_gap_exclusion"
+   ],
+   "compile_returncode": 0,
+   "compile_elapsed_s": 14.4,
+   "compile_output_tail": "<work>/statements-11/ReplayStatements11.lean:3:8: warning: declaration uses `sorry`\n",
+   "reference_export": {
+    "label": "reference-statements-11",
+    "module": "ReplayStatements11",
+    "roots": [
+     "JocelynWorkspace.Erdos137.WidthThree.CentralSet.SmallGapExclusion.small_gap_exclusion"
+    ],
+    "returncode": 0,
+    "elapsed_s": 14.51,
+    "stderr_tail": "",
+    "path": "<work>/reference-statements-11.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "305665c669c09e37174e88b5a603aa77002c1a8b71a2ce77324c19535f6be183",
+    "bytes": 69725028,
+    "lines": 1311093,
+    "declarations": 16728,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext",
+     "sorryAx"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   },
+   "comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/SmallGapExclusion.lean",
+     "statement_file_index": 11,
+     "name": "JocelynWorkspace.Erdos137.WidthThree.CentralSet.SmallGapExclusion.small_gap_exclusion",
+     "returncode": 0,
+     "elapsed_s": 4.15,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 17943,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Erdos137.WidthThree.CentralSet.SmallGapExclusion.small_gap_exclusion"
+     }
+    }
+   ],
+   "stream_scratch_removed": true
+  },
+  {
+   "file": "replay/statements/powerful-counting/StrictWindows.lean",
+   "sha256": "6edb0c145a89d05907274bae7ea4f64655a2933a20d7ce7c56702de9716436a6",
+   "theorems": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.StrictWindows.JocelynClaims.claim_f0cfddddf4e562b8ee8b00a4b8f6c47db3028e8425650db4312e3bcc8f4e26ef"
+   ],
+   "compile_returncode": 0,
+   "compile_elapsed_s": 14.22,
+   "compile_output_tail": "<work>/statements-12/ReplayStatements12.lean:3:8: warning: declaration uses `sorry`\n",
+   "reference_export": {
+    "label": "reference-statements-12",
+    "module": "ReplayStatements12",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.StrictWindows.JocelynClaims.claim_f0cfddddf4e562b8ee8b00a4b8f6c47db3028e8425650db4312e3bcc8f4e26ef"
+    ],
+    "returncode": 0,
+    "elapsed_s": 13.43,
+    "stderr_tail": "",
+    "path": "<work>/reference-statements-12.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "0392d75f7a629eac610c586ebc821d54f1ca5eeed57883897bcb7307160b22ac",
+    "bytes": 69683262,
+    "lines": 1310992,
+    "declarations": 16721,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext",
+     "sorryAx"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   },
+   "comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/StrictWindows.lean",
+     "statement_file_index": 12,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.StrictWindows.JocelynClaims.claim_f0cfddddf4e562b8ee8b00a4b8f6c47db3028e8425650db4312e3bcc8f4e26ef",
+     "returncode": 0,
+     "elapsed_s": 3.63,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 17093,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.StrictWindows.JocelynClaims.claim_f0cfddddf4e562b8ee8b00a4b8f6c47db3028e8425650db4312e3bcc8f4e26ef"
+     }
+    }
+   ],
+   "stream_scratch_removed": true
+  },
+  {
+   "file": "replay/statements/powerful-counting/TripleExponentCertificate.lean",
+   "sha256": "61e461581e2fc67a45db2e2c393ef681c072d095b0a5a32da13d66e6e9d188af",
+   "theorems": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.TripleExponentCertificate.JocelynClaims.claim_d17527abe8b1de31d39ee4bdd1ad8fe89d3a6868b05f6e4fab74571f916c8087"
+   ],
+   "compile_returncode": 0,
+   "compile_elapsed_s": 14.01,
+   "compile_output_tail": "<work>/statements-13/ReplayStatements13.lean:3:8: warning: declaration uses `sorry`\n",
+   "reference_export": {
+    "label": "reference-statements-13",
+    "module": "ReplayStatements13",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.TripleExponentCertificate.JocelynClaims.claim_d17527abe8b1de31d39ee4bdd1ad8fe89d3a6868b05f6e4fab74571f916c8087"
+    ],
+    "returncode": 0,
+    "elapsed_s": 12.18,
+    "stderr_tail": "",
+    "path": "<work>/reference-statements-13.ndjson",
+    "max_export_bytes": 1073741824,
+    "sha256": "9e05433e72d02869cafa574e9cec62d4006f3cf76e1b24cc9cb2e0a8bb23d31e",
+    "bytes": 24513783,
+    "lines": 463910,
+    "declarations": 6604,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext",
+     "sorryAx"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   },
+   "comparisons": [
+    {
+     "file": "replay/statements/powerful-counting/TripleExponentCertificate.lean",
+     "statement_file_index": 13,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.TripleExponentCertificate.JocelynClaims.claim_d17527abe8b1de31d39ee4bdd1ad8fe89d3a6868b05f6e4fab74571f916c8087",
+     "returncode": 0,
+     "elapsed_s": 1.75,
+     "status": "match",
+     "diagnostics": {
+      "axiom_audit": true,
+      "builtin_kernel_replay": false,
+      "comparator_source_commit": "14b5039e0b6a5171afa160920984e521817d4138",
+      "declarations": 11411,
+      "export_parser_source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+      "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "lean_version": "4.33.1",
+      "proof_accepted": false,
+      "schema": "jocelyn.comparator-diagnostics.v1",
+      "statement_comparison": true,
+      "theorem_name": "JocelynWorkspace.Formalization.PowerfulCounting.TripleExponentCertificate.JocelynClaims.claim_d17527abe8b1de31d39ee4bdd1ad8fe89d3a6868b05f6e4fab74571f916c8087"
+     }
+    }
+   ],
+   "stream_scratch_removed": true
+  }
+ ],
+ "reference_cache": null
+}
