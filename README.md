@@ -1,5 +1,7 @@
 # math-frontier
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23614471.svg)](https://doi.org/10.5281/zenodo.23614471)
+
 Can an AI research system built outside a lab, by one person, around models that
 anyone can use, do real mathematical research? Not answer exam questions or
 reproduce known proofs, but take an open problem, find its own way in, and come
