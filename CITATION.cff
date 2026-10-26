@@ -15,6 +15,15 @@ identifiers:
 date-released: 2026-10-24
 repository-code: "https://github.com/dannyply/math-frontier"
 license: Apache-2.0
+keywords:
+  - number theory
+  - powerful numbers
+  - consecutive integers
+  - Erdős problems
+  - Lean 4
+  - Mathlib
+  - formal verification
+  - AI-assisted mathematics
 references:
   - type: article
     title: "Counting powerful products of consecutive integers"
