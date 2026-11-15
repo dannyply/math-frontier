@@ -4,250 +4,1853 @@
   {
    "module": "JocelynWorkspace.Erdos137.FixedWidth.GoodIndex",
    "returncode": 0,
-   "elapsed_s": 31.7,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "ac09c9a2c594ea99f81c4849caa2ee029ce5cd8c5dba15ae0c614eee1b222f2e"
   },
   {
    "module": "JocelynWorkspace.Erdos137.FixedWidth.ThueWindow",
    "returncode": 0,
-   "elapsed_s": 19.2,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "2c8390ca29afb3e10ac731e7608a4821e150c6c8befe0812f0dd861408953931"
   },
   {
    "module": "JocelynWorkspace.Erdos137.WidthThree.CentralSet.SmallGapExclusion",
    "returncode": 0,
-   "elapsed_s": 45.5,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "85d9d74c3b5616f9b90c6d5d6621e9b7dfc32eb818aed74c4550099215279b6e"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromPairAndUnion",
    "returncode": 0,
-   "elapsed_s": 28.9,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "736079d9fe46f494dbcffaeb68073ce3bc2239d6e8dba63489e16522123017f7"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.AllWidthFromUniformTriple",
    "returncode": 0,
-   "elapsed_s": 29.2,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "750e40276e73121255f371759e7cf1d9d65dc19efa4377f3224f4bcea1705753"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope",
    "returncode": 0,
-   "elapsed_s": 20.5,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "e8aaef9912225344ffe886c76948229beba5e5030983728e09e4d49314b31340"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeMoments",
    "returncode": 0,
-   "elapsed_s": 58.9,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "be60e8b17acf6f7929ce4eaec87a3757dff498c40bd86869add1628dc7159bb4"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeTails",
    "returncode": 0,
-   "elapsed_s": 47.2,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "f64a0d80c15b772945d96df9eb959ce0da70c3559a672c89e6a79cdf775eefb3"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.NonpowerfulMembers",
    "returncode": 0,
-   "elapsed_s": 20.0,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "2f8256a21719ca76f826af5bf386e02ae92ce105a2136a062ed71944912c344b"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.PairExponentCertificate",
    "returncode": 0,
-   "elapsed_s": 34.4,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "1d0e4a3b6babb7943345cf6ab9ce34a3580fa7dd788c4f6986f8407775031047"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.Paper3OriginalActualAuxiliaryPolynomial",
    "returncode": 0,
-   "elapsed_s": 69.2,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "5c21ddf89e4c7f2296f6d0d32871671e7e6bdd91cf7da20f049a0f8c16786c1d"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.Paper3PointKernel",
    "returncode": 0,
-   "elapsed_s": 17.2,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "1f91d628dc93501e16521e680b8163d954c149acbd388c23e34c2f04d5994561"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.StrictWindows",
    "returncode": 0,
-   "elapsed_s": 31.9,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "795ed967a42a8c63fadbebeac7b01e513a7d5cacc860c4c652f5ebfd386061cc"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.TripleExponentCertificate",
    "returncode": 0,
-   "elapsed_s": 28.4,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "a40288be5955754d7d9cf0605e6ca74825759b3d8a4641c4e5b22a4ea49d7728"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.LowDegreeComponents",
    "returncode": 0,
-   "elapsed_s": 44.2,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "a09d956549423757e1ae790f66fdda7bd1c56845fa4f23713be8a3d4b62291ae"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.ComponentClassification",
    "returncode": 0,
-   "elapsed_s": 148.7,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "dbdc974ca9b4b0b8754485084c1a377f844d0d398643daf4ceed48e046e6ebc8"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.LemmaP",
    "returncode": 0,
-   "elapsed_s": 41.4,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "e69c5e333c8b2513f232f6b7cdb8550ddb0066695708bdcbed666ccdfc652647"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.IntervalCount",
    "returncode": 0,
-   "elapsed_s": 89.9,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "77370df09dd5389f7e79db46f76fc1887dff1ca9b0127743876d695cf80bbeb4"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.PellThueCounts",
    "returncode": 0,
-   "elapsed_s": 39.8,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "b5d0a8ae1a48400e9781217964edc10585ad910627f3977b29a0db5c809e0e89"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.ReducedCoordinates",
    "returncode": 0,
-   "elapsed_s": 74.6,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "a91fc767ba2943432fb44b8fafe539b81344155f30b8e7e6a63e183c71814a3b"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.ReducedBoxBound",
    "returncode": 0,
-   "elapsed_s": 22.8,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "783d90a9ee17cab67b23cddd7454878ea78dfeb7e12a874e0d61b47eada139bf"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.FixedWidthAssembly",
    "returncode": 0,
-   "elapsed_s": 35.8,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "53de99e402be8719053237a9069fe4671f876e0c8a1d7f8c9465a743a55cd3d6"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.PairAssembly",
    "returncode": 0,
-   "elapsed_s": 30.2,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "2aa2ca20b9d8897d97e64c7ee20e07fc392ce0f00484ea8d6ac48a7d09adfa23"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.HeathBrownBound",
    "returncode": 0,
-   "elapsed_s": 39.1,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "a49720f76cdc59642048a7eb66b81c20c9f5b818259e9ed9595a4c78386b6136"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.UniformLowDegree",
    "returncode": 0,
-   "elapsed_s": 40.0,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "77e104f54fe50810b66408c8022911aedd3ed0f91167a9ef70ec09711dc9520d"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.UniformWindows",
    "returncode": 0,
-   "elapsed_s": 93.9,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "917454ef3303af4fd6cce0e1eb02ece4034f4fd3c88d3158b259bf37005a4dcc"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.AllWidthAssembly",
    "returncode": 0,
-   "elapsed_s": 34.0,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "2ac190739db0fb1682c69002117810be0a0a572931eda2ec08078c5381f266bd"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.PairAssemblyReuss",
    "returncode": 0,
-   "elapsed_s": 28.4,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "8c1bf6e213c253f32525ed42804c4d528c279b2388e63cf955a9e1c2fd5b4d6c"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure",
    "returncode": 0,
-   "elapsed_s": 25.7,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "f4818d89ee35552a574a9d7b397eb17d94a85fcfa90bacb73549375995251d15"
   },
   {
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.GoodTriple",
    "returncode": 0,
-   "elapsed_s": 17.5,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "3c06b053a9a233e90c0897ad795bdb69221fcfbc3a40b692381447a7fed03fcb"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S11112e11",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "bb6f1e2f4dd9d2a89d84f8b4ec38c46d7491d5f073a660672f58312b3a258880"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S11797156",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "1f3bb2f95e931a6fab1ed0c3e3383ed89a7fd58f0d047186d5428b0625a74505"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S1463b785",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "3d941fac5f3c7889cfaaa194d9a644153afc952e4f236cf5aaf351effe4e235b"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S160aa257",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "d6268e85af8a509218085804dfb04f87ee2dafdc1145c29837e5191558ffc793"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S166bebe9",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "c83527abda5b986ddbc6e891464c95663355fab670bfa8112e43cf9292241170"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S1a1f3383",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "4436096803937dbb4a11dd3ed5846203ebcdca41443cb3edce0d1920d961be0f"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S1b75af8c",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "919c6317d6b0eb26a5e351a0f28d2209b8bec6198fdf9da15da99d536f2a1ba7"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S1bd2d745",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "53dbe8a2445ab3c2f1fb0700f13f6c13a0ef154f6257047fcbf61a74c8803b10"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S1fdb06b5",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "34840a985f9272f1cd0ffb65b4ff316e83ce48e86d1a3f0260cadda49237283b"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S27058e64",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "d21888f8ebc9ca18033f209755fd20df54640d577e87c089b4760497a7763a2e"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S30f04f02",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "44d9cf2d6d3a81756688918d025d332d5db4ef666e92ac947e0c6c8a66bcce08"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S31134e0c",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "98b6371b431621ccf4fd188a983d4dc1a93f6f8c5ae91e5517c0cb0a3edd1c4f"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S335fe9a1",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "1880efba0151c8518e911ed7567eae8eb30b467648225b33bd8648e43331f8a9"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S4211e715",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "74a6b0521d68fe80a5b9ee7c30bcdeae39b7894fda7fa947c4a27e46db3feee8"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S45a79942",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "4b4b49a9bc7a794c125003980704127482ac08fb6d96de392535dcc9f4e1b55a"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S48203c34",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "9f551d42258cc07ac471f5b5d404017536cd133ab815122065a7696f5fdc3fd5"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S4a0fdf45",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "d969ed3409486b31bce6b37f1e38c89f5eba3882b0baed0b7a92eb77564d2fd1"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S4be11d8f",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "2536cd672ab97dc38c5af3a04ce776d7b8ab8d0d2a4e1d3903815254a43cd5bf"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S4dbaca2c",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "86f5aa8eaea3178eadd08c90f5fa9322926bd1a97296b32b4e2726edcddd47cd"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S4e2556c6",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "6827d7347276abf458fceb945b893168febd7e4a67af40814532752016f313e4"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S4fcbc839",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "e2673f7b1b77cfddae8ad0aca96097153148fc6fb0d81e1ec46742c6d5982707"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S518618bb",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "297316cc83870008e2bad5950bcfffaf707bea9b1d45ec4f4e04f3bc4495cd72"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S5c844e97",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "2f08448f01bd913cee03147b937a1cda24ba3ff0574bfd689b19bc55f881e80a"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S5ecab545",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "bc78e2c392543f9137e30a00577aa94437b074cbb93091f9834188e334e6cc93"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S61c6e1a7",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "c3587a82ed3419e07f10cfbe1b026d4541abd414905733873320e5c87b8cbb04"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S65df95e8",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "ccce1f91531c2f3b23370c9039efe8a347b1bee457330237269918479f2fff47"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S6747b632",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "ea7ab4dda5e83bd245f628152a2d4fb0ea934918bed03f2961bad38667c8778d"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S6e12aa43",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "b2787537c5ff1f5a1de95d075677a8c0f0401ece1aa0457fd4acc8951595e52d"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S75c3b853",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "bda2f5d04c94ddb9c652edd910a7fd909459dd38fd1eaa51b0f1e67a3ca7eca7"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S825410c7",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "1672ca531b751bd4b8b31d8822cd7744684217fe3cdb12566b40fa698586b3c7"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S852ada5b",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "7012f92a93a6cf257dc99e11c30638ffa2b87cf6594f4bd324895ce6e7774b10"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S93e69752",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "81ae21368a4bbbd00030b293023384058cebb69b1d1e142a50433f395e29b59a"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S9458b27c",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "3184e5e935f5829d2f3b7f908a5bd387bbfa07bed33cf2dcab29905590fc035e"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S94d17769",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "e8db51e975cd4dc3d2c9861569f967a93840ba8d3660624fb4410fc3098cefef"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S96394400",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "87fdcf923422014cb17130e3943259ed1fb74a9eb8a80f4fc541ffa2abac5313"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S9652ac8c",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "062c202b1fdec6f6c618a06b501dd57a06f2f3ac4ed79831d71a6c4b38e02021"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S9757f934",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "82394af31bf51737d38928413361254078559ee0c7264ee2a34ca1aed93d5e07"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S9ac83253",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "d22df6161164ab2d3b82f4461e91bda4ce0a33865bd03442ff95f1b77df5ce4e"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S9f3929ee",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "ae27eaa68d8972cb3de46e7f95b855676dec1f2916485386a6c8febfc5dcb4f3"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sa4f9139d",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "2ae1303c7ee008fa65ce45cf0473fb51a3f6652fa85b0f31b1e7a5e075f1f250"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sa50e8b97",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "179cc6f9823b1318aed27722c04b06ce8035f85fe0261d5c8c04ce2a8f050e9d"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Saedfe0d7",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "01339d534e1c20501894bcd86ea47c66c5551edaf99f3b09fa182e4a09d57cfd"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sb23c796c",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "9b73131f70ad3d5704a9441f8fe955639f73470424fc4859f46acbc148852ab7"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sb47bec79",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "fe09e9f5160bfac772bb56213c1dc1de962c0127dbd65dce71a48345fe332749"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sb8604a17",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "ea68be06bcfd827acf81d0c51cae2c5c4ab11206bd79821f930500a644d551e6"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sb868eaea",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "77a1c62e1bc7cdb5b6e35c24945f9ff7167bf90d83a4c34064ed037a9b15cc50"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sb8e688cd",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "09a91dfac2946dd165c63fd44ac4fd8675edf0209d4af9ea11f97d1d3dcc4154"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sbfeb2b3e",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "e6fb87caed6b08bf886b838233abfa939d2ceb30f048751873409aebd63d5f29"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sc2541119",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "41f4483f7d353266ed39ae56d81df973a068443901443561311f107f38d2d05d"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sc8731f9d",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "a6c380ccae4135d5de6887c152ab67e1dd4593377468c661c582cd2ab0962d28"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sca0547c8",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "432326af1d3e278ef1a0227b06d81bdfd4701c67d1f243b83959971404e84794"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sd1b1f61f",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "9868fbe3be6bc760508d79d634e446ec0d08c3083243f919b004eb6d4f98e516"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sdd81c7c9",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "04e1e8ec38bc5816af53c28b79189536370b9e001b9db1be9a48ac296bd61191"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Se7122579",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "f88ad4f864ab002bbbb1e86a477fb8f8dc940b421e013bb3c13a3ad092f3f0fb"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sf88a75eb",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "ae64b8137c96c061fad07146b1e52dc2a149dd6e04175ba44ecfdcb39e305c74"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sfeca7c5b",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "9dfd7b7dfd5fe1cc005e819dad2a1679147d188818622ecac997abf1b5adc56d"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "73762397de9c02bb026054f8c407b1c895f5efa92e4a7397289a685472520555"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A1",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "eb7d8d9f2bfe02fc9feb0547149dde16d75d013230b23132906cd86fa0611e53"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S03b2acad",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "ad1794bc2c3cf5a5fccd14c06ff0a1cc30987365f6c835b4161e3387581e3bd1"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S0430ca7c",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "35d71a8c2b2e9a3057a4983bfd6303f5b378a9866f1ad1fb2a020ae705f276b7"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S078e7d20",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "e77d5377bbcf5bd18dcec4e9c36b711e1a3026223f932c350271082b2aee2027"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S109f3370",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "37f94b66cb8727f5d525aa8b546b557b8105e3fa1d07638c17a0fb2176148c70"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S11c3682d",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "b88746270bd60ece2d39dbfb11fc526e18cca88d53c7ef8d997a3e75650e2402"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S124d1a75",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "67d83b9911d70274018419c7b81ab528fedc7a07fc1ae93bf1118d2ba0b3dc78"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S17759d9f",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "b7d6e69930b6dc352844c543a339481cd8a84f4d594dccef3f0ec57b1fef39aa"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S1b64778e",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "2605c2fde51835df9f6c7140a8f779554949cf2c5f1b453216e2fc6b2c35da07"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S1e7cf533",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "f3033f454b6490734fa0558fc0ed911f706e8135647f0b9089ec18a3c3e6761a"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S208b505c",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "93d05d8c6d10c27eb9d3856320a25f9ac2a22deaf8c075b545f921f2fb3e85b8"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S2350ff1c",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "3473ca4dc5a4a81879012f3452b3ddf544d24b5f2d70bbc43189e9c17fd53b52"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S25167265",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "85b0a809ef2cfa7a6a178d178e436f1cbae4425f85156ec1d97e62e53fbcf24f"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S25f5c02a",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "3c081e055241024758202a16f362fb2550e432a60e3ae9999f34cd6bd6136c85"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S296108af",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "12e7fa1c85ad7212dbe603f10fd93cd98eb8c27a365cd0e53d9f72d775d5711e"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S2b84589f",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "bc0f409af41dc5ae7b67e681054b709e0c5a43de37ce0487c03988dd152bba34"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S376bcb36",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "577d01bc37058eb58a8c0a6a05c0ad8dcdcb3e1d57f7c0083e64300bca65f986"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S3a9f242c",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "7b0c2a81f429ddddb61e5b63377d3a2ef02f27add517e640e73f866ab8e2db61"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S3b72950f",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "0deb41a49534aa2c0b2d2e5f5536c034d04d7ebf0ce799748ff57860fed0ab01"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S4090edd7",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "8f1c535b59d0985c6c5b543cf2f853c280851a8909f879d1e2f8dee61064a294"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S40fa8f3f",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "208ffe2bb2912eaec6f88908a79a50fcd91c27a02613a03237f97c823675f40d"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S4655eae1",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "1a2a614a849a0c524df0cf620ff143ff5fc227c3821613b9f39646d272e3978b"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S48c923c1",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "12cb26e9c5a97631464f5a608c8a0a5ffffcfcc6458dfd014ae33fc44a128f63"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S4926c1f4",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "ce0b3a99c60ab986c0ff3a2e35cecda33001f64fa133f4f3cd6ad41e52c69f1b"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S4e61b76c",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "fc86523d7521530f5f859b7616ec66710c3d22ab6d5f701b093c7a782b1fb6be"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S4f28eb05",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "56740f3f0c5ac081fd40d72c13c7fcb857a151dbc7274a4b3ca3ad76365c93fa"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S50193082",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "dc423713e0f3c001669d507dc00a24faf2fe7653e657a0f171d259fe8e44a75c"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S54b4417b",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "4a3edefd2bc08fd7149cd3cbcd1480692165d57396e2342df9cec664899c0aa0"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S59b58d62",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "aab4461a70a99ef3746c907e289b4e9e3ce943d67d9ff31dd6d20b02769fce74"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S5a5b0bd5",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "77ce38c12e08ab8a20d4c080fd41efe2a1107dfef654288866b8a04674a08774"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S62e9dae0",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "e63b60fea861b630cef720a783f6f7b97814d9a2c189d2dde9d1129108354309"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S69647171",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "1ecf1b4be34f50479c613361803298991c5300ea591064a792c7dd5f77f9cc6e"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S6aa76dac",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "7533e4fbc56e4aeb4f2fbca99d60a2a9e33d2a71d08a5622a9756cb1235ab32b"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S6cc5a3e3",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "b542dc369608c4ccbe35bdfeba083e1767efdd0ffd342a82387a5e29368548e5"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S72392b81",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "568cd0eaeaa414a08518ba5692bdd76f490bac248dee63f17262937c3522db52"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S7510344d",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "44a155be071ae4fc4807f6b258a85121b2a865c790c2783323ffa1371f1adf55"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S77dab681",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "3df5a273638646ed1be03eb85ff40c003cff67b7b4ee02edfeabb70bd9e53834"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S7c60f425",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "960308e26ae0a5104bb69ecd29243a57aa02b474e3d82643d0b3c7d8bd487bf5"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S7d3914ac",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "498d774ddf7c3de304bbe659599e59537bf3888c8915fa39bbc9e012d9666f3f"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S7f3fefed",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "6c5c5aabea23e699ecb038a59c4c62c9112251023d2e589191f7531a4629c905"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S84900580",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "a7c06c2a701c2a34447b839fd5bf94a89eed9af1eb64c7a434369dbcd54cccf0"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S877de5f3",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": null,
+   "reused_completed_build": true,
+   "source_sha256": "893af4355ca7b49caf77432dd7a0b25a2d8409143cd31bcef8cdf307c64a5170"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S8f583f42",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 61.5,
+   "reused_completed_build": false,
+   "source_sha256": "980a4e9c1c94de81f4d011d14546da02a1ae02542ddc912c7b8c2dbe2463d447"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S93135965",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 14.2,
+   "reused_completed_build": false,
+   "source_sha256": "01d5927905fb3530567e175ac9567e95620069a27418d7e234aef568915418a3"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S93d0e676",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 28.0,
+   "reused_completed_build": false,
+   "source_sha256": "2d9b83c77f64a20e6d4b0818df25622b7c6df1bc0e36f80fcddb7e485129afb4"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S9511d4c3",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 18.4,
+   "reused_completed_build": false,
+   "source_sha256": "965c82b3521894a2cbe8f0a6fb14b16cad2a895bb6c545a2af9f48b99a537329"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S9589feb3",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 13.2,
+   "reused_completed_build": false,
+   "source_sha256": "cc1c3cb8e1b96bb54243e251969753f54ab176939a070f2de49736bf8ad57894"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S9ad0e971",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 15.7,
+   "reused_completed_build": false,
+   "source_sha256": "10b8f453612b8e582921f9b9ded436bcce3c459f297304bac798821cc7993b5b"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.S9f717b31",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 17.4,
+   "reused_completed_build": false,
+   "source_sha256": "43b3983bdb1a47e2d50ee77f6878c25a8e423f9f2fa29f6990d02aa265bbe3bd"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sa00cb9c7",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 48.4,
+   "reused_completed_build": false,
+   "source_sha256": "fe51090d616617b5c60dd782dd72e03f18cbcd25027c7dee763fcee7a5ab870d"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sa3e85b88",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 20.3,
+   "reused_completed_build": false,
+   "source_sha256": "a961fb249de0505ee909f9d185a6cd0bbf345520be8f518933a76674d4f1fd8e"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sa461fe12",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 21.7,
+   "reused_completed_build": false,
+   "source_sha256": "1fd243e7e92630c7ed8c4f927432f54852ce1ebfebc96a805c39694aa2a971dd"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sa48e2d62",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 21.3,
+   "reused_completed_build": false,
+   "source_sha256": "8e961592dbaaafabb4455186527e3f242382384729c723d13d5339060118cad1"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sa57df17a",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 24.2,
+   "reused_completed_build": false,
+   "source_sha256": "400ca726d481634405129daf9d112c546d279a22c8a9a60acfe185a7a75b8509"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sa821b93c",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 25.3,
+   "reused_completed_build": false,
+   "source_sha256": "ca6d79883ed5aa1c6a98d18a02b6667c7c443bc100f0dbdcfb015b3625e4a29e"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sa9c18fe1",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 23.6,
+   "reused_completed_build": false,
+   "source_sha256": "56451ceb8d686278f3ee5919f6c9642cab4881ac77530807c280b4c02de18e3c"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sab87e3d4",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 34.4,
+   "reused_completed_build": false,
+   "source_sha256": "ace52b7e0c6fbf7956ea9311d705114ae30c20609e2e6e960be5ba8bb473bfac"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sac09a8d3",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 93.3,
+   "reused_completed_build": false,
+   "source_sha256": "a8b0a76418d4b55d253a4ba2de7b1aa9b3dfd31f5d77b5c4e7243db846c06c49"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sb4a69aed",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 49.8,
+   "reused_completed_build": false,
+   "source_sha256": "af3d515827f34b6d8189e8b60e583ac89de25a5109a8c738571d1fd0cd8ce3f6"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sb5ac3c34",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 116.3,
+   "reused_completed_build": false,
+   "source_sha256": "022ac13ce54b0d8af6cf5f84dc419d44d1e2bd8e72b1fef7c9d513b0aaabe7c3"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sb673e431",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 14.1,
+   "reused_completed_build": false,
+   "source_sha256": "2167252c356f3560e956cd1d7c7276fe27da5621057023f9d4db4dd8270c46ad"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sb751f117",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 19.9,
+   "reused_completed_build": false,
+   "source_sha256": "54c30e2ecb8a95bb6186ae08742a0951ab716ab0058b3689ffdd4ffcb6bca1fc"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sbcd28934",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 33.4,
+   "reused_completed_build": false,
+   "source_sha256": "7566166471446154e2cac64d7d73cfcc40b0700bf18eba91ba399ca252a2028a"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sbe534c92",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 16.7,
+   "reused_completed_build": false,
+   "source_sha256": "efd19db896354298ce542b8a28566ea4593365a2ffa6be53ca32b9cadd181a70"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sbeb334b1",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 15.9,
+   "reused_completed_build": false,
+   "source_sha256": "59843a08aacb23631af96d84b1863e8bb8dea257eb0642fef796bdfa24420ea6"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sbefdd95b",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 21.8,
+   "reused_completed_build": false,
+   "source_sha256": "9973753e25e14b104f6389f3c12fbc4493970fe7af97a4729117842d4b825e79"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sc577efcd",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 16.6,
+   "reused_completed_build": false,
+   "source_sha256": "9bb144e65b5e998668a9492d0c15ff6310e28d5efe5bae8c00e23e9839d730e3"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sc7482db2",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 16.9,
+   "reused_completed_build": false,
+   "source_sha256": "9ec503e4069cefbd4a4b78ae532535c84f798e26f3fd2803925df877ad44faaa"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Scc53d7e3",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 16.4,
+   "reused_completed_build": false,
+   "source_sha256": "21d5d32446324283481ee683b02c5a8ba855b606290cec514fa8694e966abd60"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sd00ed590",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 19.3,
+   "reused_completed_build": false,
+   "source_sha256": "f8077e63f1cffa0a6d47362177d6704507ec7b1d137a9b89b57fd0de414f8867"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sd48e6c9f",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 19.6,
+   "reused_completed_build": false,
+   "source_sha256": "d0e4b162ebe419aebd29fe699489a741ffdb763ea712045f123aa3293ba1ba47"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sd55d8b9f",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 18.1,
+   "reused_completed_build": false,
+   "source_sha256": "928cb1e96e7e5aa2cea417153b081309736aa3ad569e1ba500a3569a45318b39"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sd96a648f",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 21.0,
+   "reused_completed_build": false,
+   "source_sha256": "113bce7bfbde9f0a635ac040eb5435a3bbfc535e25c51b37fa0e06088c68fc20"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sdaed3871",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 108.7,
+   "reused_completed_build": false,
+   "source_sha256": "aa8a269ad1a0e9d254c723f10a4b6321779dee5109f1be079c9f1e5fb27b27f8"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Se059a44d",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 53.3,
+   "reused_completed_build": false,
+   "source_sha256": "c8c31f340f00c19446dfee9f71789c328aa18d8b01b101523515979951437082"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Se37df572",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 27.0,
+   "reused_completed_build": false,
+   "source_sha256": "0e45b1d42fa5c91e730c2826c8dda563ce43e1cd63cd25c0373bd82fd7de9b8c"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Se3ca258b",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 18.0,
+   "reused_completed_build": false,
+   "source_sha256": "48c120e7c4328e9d7dcc82ae4c92d874c244452733f675efea0881f36d8474cd"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sec169b78",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 14.9,
+   "reused_completed_build": false,
+   "source_sha256": "e1c9b9a457dbcf785375c46b31e63eb8a0ac49aac87daadb4b2b666baaa3ba62"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sf885170c",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 19.6,
+   "reused_completed_build": false,
+   "source_sha256": "64dccb3b91983f46d54b7fd65c214b5157e98fae10d1f2161a3b059012fc902d"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalAB.Sfe868d81",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 15.5,
+   "reused_completed_build": false,
+   "source_sha256": "d775e4b48eeaf194e09e50f88d12e179a6d7600f0092497c3be5283ddeffcc46"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.FormalABV3",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 16.0,
+   "reused_completed_build": false,
+   "source_sha256": "e70dae167c96cc6b4a400bb26acc73fb6ffb3d73c5fb9a78a01f5b5a60beacd3"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A2",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 73.3,
+   "reused_completed_build": false,
+   "source_sha256": "e259fa1c2cc02e70175487a6499d5be24d4450ca583db914850219723ab85558"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A3",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 17.9,
+   "reused_completed_build": false,
+   "source_sha256": "31dbea183c726e6fa39a24d601dc2c6d241d04044effb67566cca42a6a79ef45"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A4",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 39.7,
+   "reused_completed_build": false,
+   "source_sha256": "7e23945d80ed759f06d0cd4b340f0a6c909d974efcd3883b245cc5d89d486f21"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A5",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 130.3,
+   "reused_completed_build": false,
+   "source_sha256": "871e472691cb9dfec356bc3de208ca7ebe5720c205f5b119a0b847e00328edc7"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A6",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 644.6,
+   "reused_completed_build": false,
+   "source_sha256": "9868c183765fb02219091e7401799289fbacf8512c18ce31ba28ace9b1a699fa"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A7",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 1633.4,
+   "reused_completed_build": false,
+   "source_sha256": "cdd08a064c0f682eb6f70ec5cd17efabeb9450c7a96a66f97819da35969ad692"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A8",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 295.8,
+   "reused_completed_build": false,
+   "source_sha256": "be69d02f0d826fd80c4a1ee9f617f9aedad438fbf75550afb12ddabd429f8645"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A9",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 23.6,
+   "reused_completed_build": false,
+   "source_sha256": "b0c2335a3ff34761530452e1534653ba5a87ac4a53f9eab8e68abaf3ca35f878"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A10",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 25.7,
+   "reused_completed_build": false,
+   "source_sha256": "f88dc1f3a3b7fc685411432483fb8781b307193488a8822804754aecfc030920"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A11",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 24.7,
+   "reused_completed_build": false,
+   "source_sha256": "8cb719d17e074af67cb44ee508f131e632e6c141f2f3353beef9b27fe6dbe873"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A12",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 34.8,
+   "reused_completed_build": false,
+   "source_sha256": "6efcb78dd35352e82397ed8d6431264b253f08238aa21b328a1503889c1d8be7"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A13",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 56.4,
+   "reused_completed_build": false,
+   "source_sha256": "497e9b43cb51e8866abf9e31c50fac0531741e52a364839ab5732a875cf0d6a3"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A14",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 20.0,
+   "reused_completed_build": false,
+   "source_sha256": "3db9a9943f209e30bc5ac48fe6e788152994548224aa3fd9d48cea9fce0f6ea2"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A15",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 24.2,
+   "reused_completed_build": false,
+   "source_sha256": "e73986f15429f1d0964c76623808a2877d2e344f3d53135c28ddbbcedc2d08d3"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A16",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 39.9,
+   "reused_completed_build": false,
+   "source_sha256": "0771244f392e6bba46b20488d98840729fe75b94cf0a371982fff26a74d92558"
+  },
+  {
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
+   "returncode": 0,
+   "warnings": 0,
+   "errors": 0,
+   "sorry": false,
+   "elapsed_s": 15.0,
+   "reused_completed_build": false,
+   "source_sha256": "985a552ca7e2d2e410e90a2d661fb4b5a71b9732fdcb4ec8bebfbfbde616af7a"
   },
   {
    "module": "JocelynWorkspace",
    "returncode": 0,
-   "elapsed_s": 17.3,
    "warnings": 0,
    "errors": 0,
-   "sorry": false
+   "sorry": false,
+   "elapsed_s": 12.3,
+   "reused_completed_build": false,
+   "source_sha256": "b609532950780f36af633a49719c8a88e2974615b11a39c5e34b39887fc879be"
   }
- ]
+ ],
+ "execution": "Resumed interrupted verification; 129 prior successful module compilations reused after source/artifact checkpoint verification. Remaining modules executed in recovery process."
 }

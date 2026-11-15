@@ -1,6 +1,6 @@
 {
  "schema": "math-frontier.release-manifest.v1",
- "description": "Release declarations of admitted results. Hand-written fields: name, family, result, title, role, headline, hypothesis, finite_certificate. Lean-derived fields, checked by scripts/audit.sh and replay/replay.py: module, kind, statement (default pp, width 100), statement_sha256 (sha256 of the pp.all type), axioms, native_axioms, evidence_level.",
+ "description": "Verification targets for registered results, including candidates. Admission and completed replay are determined by the registry and bound receipts, not by inclusion here or the target evidence-level label. Hand-written fields: name, family, result, title, role, headline, hypothesis, finite_certificate. Lean-derived fields, checked by scripts/audit.sh and replay/replay.py: module, kind, statement (default pp, width 100), statement_sha256 (sha256 of the pp.all type), axioms, native_axioms, evidence_level.",
  "toolchain": "leanprover/lean4:v4.33.1",
  "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
  "standard_axioms": [
@@ -18,6 +18,11 @@
    "id": "powerful-counting",
    "title": "Counting powerful products of consecutive integers",
    "description": "Theorems 1.1-1.3 of the counting paper, its paper-owned propositions, and the supporting declarations cited in its Appendix A. Results from the literature (Stewart, Castryck-Cluckers-Dittmann-Nguyen with N = 12, Gelfond, Reuss Theorem 1 at h = 1, Heath-Brown Theorem 15 with n = 2, Tao Lemma 3.1) enter only as named premises of the statements."
+  },
+  {
+   "id": "consecutive-counting",
+   "title": "Powerful polynomial values, consecutive power-free integers, and mixed full pairs",
+   "description": "Sixteen conditional statements presented in Papers 1–3, with five named external predicates in their stated subsets. Paper 1 covers A1–A4 and A11–A13; Paper 2 covers A5–A8; Paper 3 covers A9–A10 and A14–A16. A13 explicitly retains positive constants and saving. See the result registry for admission status."
   }
  ],
  "declarations": [
@@ -482,6 +487,342 @@
    "native_axioms": [],
    "evidence_level": "lean_nanoda_standard",
    "result": "powerful-counting"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A1",
+   "family": "consecutive-counting",
+   "result": "consecutive-counting",
+   "title": "Fixed integral nonsquare-discriminant quadratic: powerful values << N^(293/1220+eps).",
+   "role": "headline",
+   "headline": true,
+   "hypothesis": null,
+   "finite_certificate": null,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
+   "kind": "theorem",
+   "statement": "have StewartHyp :=\n  ∀ (q : ℕ),\n    3 ≤ q →\n      ∀ (a : Fin (q + 1) → ℤ),\n        Finset.univ.gcd a = 1 →\n          Squarefree\n              (∑ i, MvPolynomial.C ↑(a i) * MvPolynomial.X 0 ^ ↑i * MvPolynomial.X 1 ^ (q - ↑i)) →\n            ∀ (m : ℤ),\n              m ≠ 0 →\n                {rs | rs.1.gcd rs.2 = 1 ∧ ∑ i, a i * rs.1 ^ ↑i * rs.2 ^ (q - ↑i) = m}.encard ≤\n                  ↑(2800 * q ^ (1 + m.natAbs.primeFactors.card));\nhave CCDNAt := fun N c =>\n  ∀ (d : ℕ),\n    1 ≤ d →\n      ∀ (I : Ideal (MvPolynomial (Fin N) ℚ)),\n        I.IsPrime →\n          ringKrullDim (MvPolynomial (Fin N) ℚ ⧸ I) = 1 →\n            (∃ e s₀,\n                ∀ (s : ℕ),\n                  s₀ ≤ s →\n                    ↑(Module.finrank ℚ\n                          ↥(Submodule.map (Ideal.Quotient.mkₐ ℚ I).toLinearMap\n                              (MvPolynomial.restrictTotalDegree (Fin N) ℚ s))) =\n                      ↑d * ↑s + e) →\n              ∀ (B : ℝ),\n                1 ≤ B →\n                  ↑{P |\n                          (∀ f ∈ I, (MvPolynomial.eval fun i => ↑(P i)) f = 0) ∧\n                            ∀ (i : Fin N), |↑(P i)| ≤ B}.ncard ≤\n                    c * ↑d ^ 3 * B ^ (1 / ↑d) * (Real.log B + ↑d);\nhave CCDNThm3 := ∀ (N : ℕ), 2 ≤ N → ∃ c, CCDNAt N c;\nhave GelfondHyp :=\n  ∀ (n : ℕ),\n    ∃ c,\n      0 ≤ c ∧\n        ∀ (F G : MvPolynomial (Fin n) ℤ),\n          F ≠ 0 →\n            G ∣ F →\n              ∀ (H : ℝ),\n                (∀ (m : Fin n →₀ ℕ), |↑(MvPolynomial.coeff m F)| ≤ H) →\n                  ∀ (m : Fin n →₀ ℕ),\n                    |↑(MvPolynomial.coeff m G)| ≤ Real.exp (c * ↑F.totalDegree) * H;\nhave quadVal := fun a b c n => a * ↑n ^ 2 + b * ↑n + c;\nhave ZkFull := fun k m => ∀ (p : ℕ), Nat.Prime p → ↑p ∣ m → ↑p ^ k ∣ m;\nStewartHyp →\n  CCDNThm3 →\n    GelfondHyp →\n      ∀ (A B C : ℤ),\n        0 < A →\n          ¬IsSquare (B ^ 2 - 4 * A * C) →\n            ∀ (ε : ℝ),\n              0 < ε →\n                ∃ K,\n                  ∀ (N : ℝ),\n                    1 ≤ N →\n                      ↑{n |\n                              1 ≤ n ∧\n                                ↑n ≤ N ∧ 0 < quadVal A B C n ∧ ZkFull 2 (quadVal A B C n)}.ncard ≤\n                        K * N ^ (293 / 1220 + ε)",
+   "statement_sha256": "c16ad0a6068520083b3ebe4111479378079ea4b27ed8135af31a2bc58eacfc07",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A2",
+   "family": "consecutive-counting",
+   "result": "consecutive-counting",
+   "title": "Uniform powerful n^2+a^2 for 1<=|a|<=N^kappa, 0<=kappa<=289/1050, with the three-piece Theta.",
+   "role": "headline",
+   "headline": true,
+   "hypothesis": null,
+   "finite_certificate": null,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
+   "kind": "theorem",
+   "statement": "have powerful := fun m => ∀ (p : ℕ), Nat.Prime p → p ∣ m → p ^ 2 ∣ m;\nhave StewartHyp :=\n  ∀ (q : ℕ),\n    3 ≤ q →\n      ∀ (a : Fin (q + 1) → ℤ),\n        Finset.univ.gcd a = 1 →\n          Squarefree\n              (∑ i, MvPolynomial.C ↑(a i) * MvPolynomial.X 0 ^ ↑i * MvPolynomial.X 1 ^ (q - ↑i)) →\n            ∀ (m : ℤ),\n              m ≠ 0 →\n                {rs | rs.1.gcd rs.2 = 1 ∧ ∑ i, a i * rs.1 ^ ↑i * rs.2 ^ (q - ↑i) = m}.encard ≤\n                  ↑(2800 * q ^ (1 + m.natAbs.primeFactors.card));\nhave CCDNAt := fun N c =>\n  ∀ (d : ℕ),\n    1 ≤ d →\n      ∀ (I : Ideal (MvPolynomial (Fin N) ℚ)),\n        I.IsPrime →\n          ringKrullDim (MvPolynomial (Fin N) ℚ ⧸ I) = 1 →\n            (∃ e s₀,\n                ∀ (s : ℕ),\n                  s₀ ≤ s →\n                    ↑(Module.finrank ℚ\n                          ↥(Submodule.map (Ideal.Quotient.mkₐ ℚ I).toLinearMap\n                              (MvPolynomial.restrictTotalDegree (Fin N) ℚ s))) =\n                      ↑d * ↑s + e) →\n              ∀ (B : ℝ),\n                1 ≤ B →\n                  ↑{P |\n                          (∀ f ∈ I, (MvPolynomial.eval fun i => ↑(P i)) f = 0) ∧\n                            ∀ (i : Fin N), |↑(P i)| ≤ B}.ncard ≤\n                    c * ↑d ^ 3 * B ^ (1 / ↑d) * (Real.log B + ↑d);\nhave CCDNThm3 := ∀ (N : ℕ), 2 ≤ N → ∃ c, CCDNAt N c;\nhave GelfondHyp :=\n  ∀ (n : ℕ),\n    ∃ c,\n      0 ≤ c ∧\n        ∀ (F G : MvPolynomial (Fin n) ℤ),\n          F ≠ 0 →\n            G ∣ F →\n              ∀ (H : ℝ),\n                (∀ (m : Fin n →₀ ℕ), |↑(MvPolynomial.coeff m F)| ≤ H) →\n                  ∀ (m : Fin n →₀ ℕ),\n                    |↑(MvPolynomial.coeff m G)| ≤ Real.exp (c * ↑F.totalDegree) * H;\nhave Theta32 := fun κ =>\n  if κ ≤ 1 / 28 then (293 + 153 * κ) / 1220\n  else if κ ≤ 19 / 73 then (81 + 61 * κ) / 340 else (61 + 105 * κ) / 310;\nStewartHyp →\n  CCDNThm3 →\n    GelfondHyp →\n      ∀ (κ : ℝ),\n        0 ≤ κ →\n          κ ≤ 289 / 1050 →\n            ∀ (ε : ℝ),\n              0 < ε →\n                ∃ K,\n                  ∀ (N : ℝ),\n                    2 ≤ N →\n                      ∀ (a : ℤ),\n                        1 ≤ |a| →\n                          |↑a| ≤ N ^ κ →\n                            ↑{n | 1 ≤ n ∧ ↑n ≤ N ∧ powerful (n ^ 2 + a.natAbs ^ 2)}.ncard ≤\n                              K * N ^ (Theta32 κ + ε)",
+   "statement_sha256": "4b32d6892905b5f12547a92d0c9afdd53d85856ffb12aed81100f8a451aa447c",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A3",
+   "family": "consecutive-counting",
+   "result": "consecutive-counting",
+   "title": "Uniform quadratic count K L^B N^(389/1600), absolute K,B>0; coefficient-family sum bounded by C N^(390/1600).",
+   "role": "headline",
+   "headline": true,
+   "hypothesis": null,
+   "finite_certificate": null,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
+   "kind": "theorem",
+   "statement": "have StewartHyp := FormalAB.S94d17769.ConsecutiveCountingTargetsAB.StewartHyp;\nhave CCDNThm3 := FormalAB.S94d17769.ConsecutiveCountingTargetsAB.CCDNThm3;\nhave GelfondHyp := FormalAB.S94d17769.ConsecutiveCountingTargetsAB.GelfondHyp;\nhave quadVal := fun a b c n => a * ↑n ^ 2 + b * ↑n + c;\nhave ZkFull := fun k m => ∀ (p : ℕ), Nat.Prime p → ↑p ∣ m → ↑p ^ k ∣ m;\nhave SfCount := fun a b c N =>\n  {n | 1 ≤ n ∧ ↑n ≤ N ∧ 1 ≤ quadVal a b c n ∧ ZkFull 2 (quadVal a b c n)}.ncard;\nStewartHyp →\n  CCDNThm3 →\n    GelfondHyp →\n      ∃ K Bx,\n        0 < K ∧\n          0 < Bx ∧\n            (∀ (a b c : ℤ),\n                1 ≤ a →\n                  ¬IsSquare (b ^ 2 - 4 * a * c) →\n                    ∀ (L : ℝ),\n                      2 ≤ L →\n                        |↑a| ≤ L →\n                          |↑b| ≤ L →\n                            |↑c| ≤ L →\n                              ∀ (N : ℝ),\n                                2 ≤ N → ↑(SfCount a b c N) ≤ K * L ^ Bx * N ^ (389 / 1600)) ∧\n              ∃ C,\n                ∀ (N : ℝ),\n                  2 ≤ N →\n                    have M := ⌊N ^ (1 / (1600 * (Bx + 3)))⌋;\n                    (∑ a ∈ Finset.Icc 1 M,\n                        ∑ b ∈ Finset.Icc (-M) M,\n                          ∑ c ∈ Finset.Icc (-M) M,\n                            if IsSquare (b ^ 2 - 4 * a * c) then 0 else ↑(SfCount a b c N)) ≤\n                      C * N ^ (390 / 1600)",
+   "statement_sha256": "0115a9e565e22a3dccc1fe718e0813e9e65570be5369cbd756de3863b254ca6a",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A4",
+   "family": "consecutive-counting",
+   "result": "consecutive-counting",
+   "title": "Powerful 1+A t^3 uniformly with polynomial A cost and exponent3/5+eps; cube coefficients have exponent389/1600.",
+   "role": "headline",
+   "headline": true,
+   "hypothesis": null,
+   "finite_certificate": null,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
+   "kind": "theorem",
+   "statement": "have StewartHyp := FormalAB.S94d17769.ConsecutiveCountingTargetsAB.StewartHyp;\nhave CCDNThm3 := FormalAB.S94d17769.ConsecutiveCountingTargetsAB.CCDNThm3;\nhave GelfondHyp := FormalAB.S94d17769.ConsecutiveCountingTargetsAB.GelfondHyp;\nhave Z55 := fun m => ∀ (p : ℕ), Nat.Prime p → p ∣ m → p ^ 2 ∣ m;\nStewartHyp →\n  CCDNThm3 →\n    GelfondHyp →\n      (∃ Bx,\n          0 ≤ Bx ∧\n            ∀ (j98 : ℝ),\n              0 < j98 →\n                ∃ C,\n                  ∀ (A : ℕ),\n                    1 ≤ A →\n                      ∀ (T : ℝ),\n                        2 ≤ T →\n                          ↑{t | 1 ≤ t ∧ ↑t ≤ T ∧ Z55 (1 + A * t ^ 3)}.ncard ≤\n                            C * ↑A ^ Bx * T ^ (3 / 5 + j98)) ∧\n        ∃ B0 C,\n          ∀ (a : ℕ),\n            1 ≤ a →\n              ∀ (T : ℝ),\n                2 ≤ T →\n                  ↑{t | 1 ≤ t ∧ ↑t ≤ T ∧ Z55 (1 + a ^ 3 * t ^ 3)}.ncard ≤\n                    C * (↑a ^ 3) ^ B0 * T ^ (389 / 1600)",
+   "statement_sha256": "f91c455cf4bb1ca07ad3dbfb4279429c4491efc1955569d79f025aa42386bc25",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A5",
+   "family": "consecutive-counting",
+   "result": "consecutive-counting",
+   "title": "Consecutive squarefree pair error exponent(4 sqrt46-22)/9.",
+   "role": "headline",
+   "headline": true,
+   "hypothesis": null,
+   "finite_certificate": null,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
+   "kind": "theorem",
+   "statement": "have kFree := fun k n => ∀ (p : ℕ), Nat.Prime p → ¬p ^ k ∣ n;\nhave pairDensity := fun k => ∏' (p : Nat.Primes), (1 - 2 / ↑↑p ^ k);\nhave supNorm := fun G => G.support.sup fun m => (MvPolynomial.coeff m G).natAbs;\nhave Bihom := fun G a b => ∀ m ∈ G.support, m 0 + m 1 = a ∧ m 2 + m 3 = b;\nhave AbsIrred := fun G => Irreducible ((MvPolynomial.map (Int.castRingHom ℂ)) G);\nhave StewartHyp :=\n  ∀ (q : ℕ),\n    3 ≤ q →\n      ∀ (a : Fin (q + 1) → ℤ),\n        Finset.univ.gcd a = 1 →\n          Squarefree\n              (∑ i, MvPolynomial.C ↑(a i) * MvPolynomial.X 0 ^ ↑i * MvPolynomial.X 1 ^ (q - ↑i)) →\n            ∀ (m : ℤ),\n              m ≠ 0 →\n                {rs | rs.1.gcd rs.2 = 1 ∧ ∑ i, a i * rs.1 ^ ↑i * rs.2 ^ (q - ↑i) = m}.encard ≤\n                  ↑(2800 * q ^ (1 + m.natAbs.primeFactors.card));\nhave CCDNAt := fun N c =>\n  ∀ (d : ℕ),\n    1 ≤ d →\n      ∀ (I : Ideal (MvPolynomial (Fin N) ℚ)),\n        I.IsPrime →\n          ringKrullDim (MvPolynomial (Fin N) ℚ ⧸ I) = 1 →\n            (∃ e s₀,\n                ∀ (s : ℕ),\n                  s₀ ≤ s →\n                    ↑(Module.finrank ℚ\n                          ↥(Submodule.map (Ideal.Quotient.mkₐ ℚ I).toLinearMap\n                              (MvPolynomial.restrictTotalDegree (Fin N) ℚ s))) =\n                      ↑d * ↑s + e) →\n              ∀ (B : ℝ),\n                1 ≤ B →\n                  ↑{P |\n                          (∀ f ∈ I, (MvPolynomial.eval fun i => ↑(P i)) f = 0) ∧\n                            ∀ (i : Fin N), |↑(P i)| ≤ B}.ncard ≤\n                    c * ↑d ^ 3 * B ^ (1 / ↑d) * (Real.log B + ↑d);\nhave CCDNThm3 := ∀ (N : ℕ), 2 ≤ N → ∃ c, CCDNAt N c;\nhave HB2012Lemma2 :=\n  ∀ (a b : ℕ),\n    1 ≤ a →\n      1 ≤ b →\n        ∀ (ε : ℝ),\n          0 < ε →\n            ∃ C,\n              ∀ (G : MvPolynomial (Fin 4) ℤ),\n                Bihom G a b →\n                  AbsIrred G →\n                    ∀ (X : ℝ),\n                      1 ≤ X →\n                        have S :=\n                          {z |\n                            (z 0).gcd (z 1) = 1 ∧\n                              (z 2).gcd (z 3) = 1 ∧\n                                (MvPolynomial.eval z) G = 0 ∧ |↑(z 0)| ≤ X ∧ |↑(z 1)| ≤ X};\n                        S.Finite ∧ ↑S.ncard ≤ C * X ^ (2 / ↑b + ε) * ↑(supNorm G) ^ ε;\nhave kFreePairs := fun k x => {n ∈ Finset.Icc 1 ⌊x⌋₊ | kFree k n ∧ kFree k (n + 1)}.card;\nStewartHyp →\n  CCDNThm3 →\n    HB2012Lemma2 →\n      ∀ (ε : ℝ),\n        0 < ε →\n          ∃ C,\n            ∀ (x : ℝ),\n              2 ≤ x → |↑(kFreePairs 2 x) - x * pairDensity 2| ≤ C * x ^ ((4 * √46 - 22) / 9 + ε)",
+   "statement_sha256": "22acf264215565ccd8cfc13225269acad9c62322d87971b4678f21acdef3c99b",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A6",
+   "family": "consecutive-counting",
+   "result": "consecutive-counting",
+   "title": "Consecutive cubefree pair error exponent(44 sqrt58-13)/843.",
+   "role": "headline",
+   "headline": true,
+   "hypothesis": null,
+   "finite_certificate": null,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
+   "kind": "theorem",
+   "statement": "have kFree := fun k n => ∀ (p : ℕ), Nat.Prime p → ¬p ^ k ∣ n;\nhave pairDensity := fun k => ∏' (p : Nat.Primes), (1 - 2 / ↑↑p ^ k);\nhave supNorm := fun {σ} G => G.support.sup fun m => (MvPolynomial.coeff m G).natAbs;\nhave Bihom := fun G a b => ∀ m ∈ G.support, m 0 + m 1 = a ∧ m 2 + m 3 = b;\nhave AbsIrred := fun {σ} G => Irreducible ((MvPolynomial.map (Int.castRingHom ℂ)) G);\nhave StewartHyp :=\n  ∀ (q : ℕ),\n    3 ≤ q →\n      ∀ (a : Fin (q + 1) → ℤ),\n        Finset.univ.gcd a = 1 →\n          Squarefree\n              (∑ i, MvPolynomial.C ↑(a i) * MvPolynomial.X 0 ^ ↑i * MvPolynomial.X 1 ^ (q - ↑i)) →\n            ∀ (m : ℤ),\n              m ≠ 0 →\n                {rs | rs.1.gcd rs.2 = 1 ∧ ∑ i, a i * rs.1 ^ ↑i * rs.2 ^ (q - ↑i) = m}.encard ≤\n                  ↑(2800 * q ^ (1 + m.natAbs.primeFactors.card));\nhave CCDNAt := fun N c =>\n  ∀ (d : ℕ),\n    1 ≤ d →\n      ∀ (I : Ideal (MvPolynomial (Fin N) ℚ)),\n        I.IsPrime →\n          ringKrullDim (MvPolynomial (Fin N) ℚ ⧸ I) = 1 →\n            (∃ e s₀,\n                ∀ (s : ℕ),\n                  s₀ ≤ s →\n                    ↑(Module.finrank ℚ\n                          ↥(Submodule.map (Ideal.Quotient.mkₐ ℚ I).toLinearMap\n                              (MvPolynomial.restrictTotalDegree (Fin N) ℚ s))) =\n                      ↑d * ↑s + e) →\n              ∀ (B : ℝ),\n                1 ≤ B →\n                  ↑{P |\n                          (∀ f ∈ I, (MvPolynomial.eval fun i => ↑(P i)) f = 0) ∧\n                            ∀ (i : Fin N), |↑(P i)| ≤ B}.ncard ≤\n                    c * ↑d ^ 3 * B ^ (1 / ↑d) * (Real.log B + ↑d);\nhave CCDNThm3 := ∀ (N : ℕ), 2 ≤ N → ∃ c, CCDNAt N c;\nhave GelfondHyp :=\n  ∀ (n : ℕ),\n    ∃ c,\n      0 ≤ c ∧\n        ∀ (F G : MvPolynomial (Fin n) ℤ),\n          F ≠ 0 →\n            G ∣ F →\n              ∀ (H : ℝ),\n                (∀ (m : Fin n →₀ ℕ), |↑(MvPolynomial.coeff m F)| ≤ H) →\n                  ∀ (m : Fin n →₀ ℕ),\n                    |↑(MvPolynomial.coeff m G)| ≤ Real.exp (c * ↑F.totalDegree) * H;\nhave HB2012Lemma2 :=\n  ∀ (a b : ℕ),\n    1 ≤ a →\n      1 ≤ b →\n        ∀ (ε : ℝ),\n          0 < ε →\n            ∃ C,\n              ∀ (G : MvPolynomial (Fin 4) ℤ),\n                Bihom G a b →\n                  AbsIrred G →\n                    ∀ (X : ℝ),\n                      1 ≤ X →\n                        have S :=\n                          {z |\n                            (z 0).gcd (z 1) = 1 ∧\n                              (z 2).gcd (z 3) = 1 ∧\n                                (MvPolynomial.eval z) G = 0 ∧ |↑(z 0)| ≤ X ∧ |↑(z 1)| ≤ X};\n                        S.Finite ∧ ↑S.ncard ≤ C * X ^ (2 / ↑b + ε) * ↑(supNorm G) ^ ε;\nhave kFreePairs := fun k x => {n ∈ Finset.Icc 1 ⌊x⌋₊ | kFree k n ∧ kFree k (n + 1)}.card;\nStewartHyp →\n  CCDNThm3 →\n    GelfondHyp →\n      HB2012Lemma2 →\n        ∀ (ε : ℝ),\n          0 < ε →\n            ∃ C,\n              ∀ (x : ℝ),\n                2 ≤ x →\n                  |↑(kFreePairs 3 x) - x * pairDensity 3| ≤ C * x ^ ((44 * √58 - 13) / 843 + ε)",
+   "statement_sha256": "f5261cb1e3647e2399b7202c3cc51cae960d39e3f95bb0aa5f2de0cbbbbf6d9b",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A7",
+   "family": "consecutive-counting",
+   "result": "consecutive-counting",
+   "title": "Consecutive fourth-power-free pair error exponent(7 sqrt10393-289)/1458.",
+   "role": "headline",
+   "headline": true,
+   "hypothesis": null,
+   "finite_certificate": null,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
+   "kind": "theorem",
+   "statement": "have kFree := fun k n => ∀ (p : ℕ), Nat.Prime p → ¬p ^ k ∣ n;\nhave pairDensity := fun k => ∏' (p : Nat.Primes), (1 - 2 / ↑↑p ^ k);\nhave supNorm := fun {σ} G => G.support.sup fun m => (MvPolynomial.coeff m G).natAbs;\nhave Bihom := fun G a b => ∀ m ∈ G.support, m 0 + m 1 = a ∧ m 2 + m 3 = b;\nhave AbsIrred := fun {σ} G => Irreducible ((MvPolynomial.map (Int.castRingHom ℂ)) G);\nhave StewartHyp :=\n  ∀ (q : ℕ),\n    3 ≤ q →\n      ∀ (a : Fin (q + 1) → ℤ),\n        Finset.univ.gcd a = 1 →\n          Squarefree\n              (∑ i, MvPolynomial.C ↑(a i) * MvPolynomial.X 0 ^ ↑i * MvPolynomial.X 1 ^ (q - ↑i)) →\n            ∀ (m : ℤ),\n              m ≠ 0 →\n                {rs | rs.1.gcd rs.2 = 1 ∧ ∑ i, a i * rs.1 ^ ↑i * rs.2 ^ (q - ↑i) = m}.encard ≤\n                  ↑(2800 * q ^ (1 + m.natAbs.primeFactors.card));\nhave CCDNAt := fun N c =>\n  ∀ (d : ℕ),\n    1 ≤ d →\n      ∀ (I : Ideal (MvPolynomial (Fin N) ℚ)),\n        I.IsPrime →\n          ringKrullDim (MvPolynomial (Fin N) ℚ ⧸ I) = 1 →\n            (∃ e s₀,\n                ∀ (s : ℕ),\n                  s₀ ≤ s →\n                    ↑(Module.finrank ℚ\n                          ↥(Submodule.map (Ideal.Quotient.mkₐ ℚ I).toLinearMap\n                              (MvPolynomial.restrictTotalDegree (Fin N) ℚ s))) =\n                      ↑d * ↑s + e) →\n              ∀ (B : ℝ),\n                1 ≤ B →\n                  ↑{P |\n                          (∀ f ∈ I, (MvPolynomial.eval fun i => ↑(P i)) f = 0) ∧\n                            ∀ (i : Fin N), |↑(P i)| ≤ B}.ncard ≤\n                    c * ↑d ^ 3 * B ^ (1 / ↑d) * (Real.log B + ↑d);\nhave CCDNThm3 := ∀ (N : ℕ), 2 ≤ N → ∃ c, CCDNAt N c;\nhave GelfondHyp :=\n  ∀ (n : ℕ),\n    ∃ c,\n      0 ≤ c ∧\n        ∀ (F G : MvPolynomial (Fin n) ℤ),\n          F ≠ 0 →\n            G ∣ F →\n              ∀ (H : ℝ),\n                (∀ (m : Fin n →₀ ℕ), |↑(MvPolynomial.coeff m F)| ≤ H) →\n                  ∀ (m : Fin n →₀ ℕ),\n                    |↑(MvPolynomial.coeff m G)| ≤ Real.exp (c * ↑F.totalDegree) * H;\nhave HB2012Lemma2 :=\n  ∀ (a b : ℕ),\n    1 ≤ a →\n      1 ≤ b →\n        ∀ (ε : ℝ),\n          0 < ε →\n            ∃ C,\n              ∀ (G : MvPolynomial (Fin 4) ℤ),\n                Bihom G a b →\n                  AbsIrred G →\n                    ∀ (X : ℝ),\n                      1 ≤ X →\n                        have S :=\n                          {z |\n                            (z 0).gcd (z 1) = 1 ∧\n                              (z 2).gcd (z 3) = 1 ∧\n                                (MvPolynomial.eval z) G = 0 ∧ |↑(z 0)| ≤ X ∧ |↑(z 1)| ≤ X};\n                        S.Finite ∧ ↑S.ncard ≤ C * X ^ (2 / ↑b + ε) * ↑(supNorm G) ^ ε;\nhave kFreePairs := fun k x => {n ∈ Finset.Icc 1 ⌊x⌋₊ | kFree k n ∧ kFree k (n + 1)}.card;\nStewartHyp →\n  CCDNThm3 →\n    GelfondHyp →\n      HB2012Lemma2 →\n        ∀ (ε : ℝ),\n          0 < ε →\n            ∃ C,\n              ∀ (x : ℝ),\n                2 ≤ x →\n                  |↑(kFreePairs 4 x) - x * pairDensity 4| ≤ C * x ^ ((7 * √10393 - 289) / 1458 + ε)",
+   "statement_sha256": "bf13420feda1f6ad74291a31eaf8516e138f01e016e88d123be5d8d1fbbb8cd7",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A8",
+   "family": "consecutive-counting",
+   "result": "consecutive-counting",
+   "title": "Consecutive k-free pair error theta_k for every fixed5<=k<=123.",
+   "role": "headline",
+   "headline": true,
+   "hypothesis": null,
+   "finite_certificate": null,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
+   "kind": "theorem",
+   "statement": "have kFree := fun k n => ∀ (p : ℕ), Nat.Prime p → ¬p ^ k ∣ n;\nhave pairDensity := fun k => ∏' (p : Nat.Primes), (1 - 2 / ↑↑p ^ k);\nhave supNorm := fun {σ} G => G.support.sup fun m => (MvPolynomial.coeff m G).natAbs;\nhave Bihom := fun G a b => ∀ m ∈ G.support, m 0 + m 1 = a ∧ m 2 + m 3 = b;\nhave AbsIrred := fun {σ} G => Irreducible ((MvPolynomial.map (Int.castRingHom ℂ)) G);\nhave StewartHyp :=\n  ∀ (q : ℕ),\n    3 ≤ q →\n      ∀ (a : Fin (q + 1) → ℤ),\n        Finset.univ.gcd a = 1 →\n          Squarefree\n              (∑ i, MvPolynomial.C ↑(a i) * MvPolynomial.X 0 ^ ↑i * MvPolynomial.X 1 ^ (q - ↑i)) →\n            ∀ (m : ℤ),\n              m ≠ 0 →\n                {rs | rs.1.gcd rs.2 = 1 ∧ ∑ i, a i * rs.1 ^ ↑i * rs.2 ^ (q - ↑i) = m}.encard ≤\n                  ↑(2800 * q ^ (1 + m.natAbs.primeFactors.card));\nhave CCDNAt := fun N c =>\n  ∀ (d : ℕ),\n    1 ≤ d →\n      ∀ (I : Ideal (MvPolynomial (Fin N) ℚ)),\n        I.IsPrime →\n          ringKrullDim (MvPolynomial (Fin N) ℚ ⧸ I) = 1 →\n            (∃ e s₀,\n                ∀ (s : ℕ),\n                  s₀ ≤ s →\n                    ↑(Module.finrank ℚ\n                          ↥(Submodule.map (Ideal.Quotient.mkₐ ℚ I).toLinearMap\n                              (MvPolynomial.restrictTotalDegree (Fin N) ℚ s))) =\n                      ↑d * ↑s + e) →\n              ∀ (B : ℝ),\n                1 ≤ B →\n                  ↑{P |\n                          (∀ f ∈ I, (MvPolynomial.eval fun i => ↑(P i)) f = 0) ∧\n                            ∀ (i : Fin N), |↑(P i)| ≤ B}.ncard ≤\n                    c * ↑d ^ 3 * B ^ (1 / ↑d) * (Real.log B + ↑d);\nhave CCDNThm3 := ∀ (N : ℕ), 2 ≤ N → ∃ c, CCDNAt N c;\nhave GelfondHyp :=\n  ∀ (n : ℕ),\n    ∃ c,\n      0 ≤ c ∧\n        ∀ (F G : MvPolynomial (Fin n) ℤ),\n          F ≠ 0 →\n            G ∣ F →\n              ∀ (H : ℝ),\n                (∀ (m : Fin n →₀ ℕ), |↑(MvPolynomial.coeff m F)| ≤ H) →\n                  ∀ (m : Fin n →₀ ℕ),\n                    |↑(MvPolynomial.coeff m G)| ≤ Real.exp (c * ↑F.totalDegree) * H;\nhave HB2012Lemma2 :=\n  ∀ (a b : ℕ),\n    1 ≤ a →\n      1 ≤ b →\n        ∀ (ε : ℝ),\n          0 < ε →\n            ∃ C,\n              ∀ (G : MvPolynomial (Fin 4) ℤ),\n                Bihom G a b →\n                  AbsIrred G →\n                    ∀ (X : ℝ),\n                      1 ≤ X →\n                        have S :=\n                          {z |\n                            (z 0).gcd (z 1) = 1 ∧\n                              (z 2).gcd (z 3) = 1 ∧\n                                (MvPolynomial.eval z) G = 0 ∧ |↑(z 0)| ≤ X ∧ |↑(z 1)| ≤ X};\n                        S.Finite ∧ ↑S.ncard ≤ C * X ^ (2 / ↑b + ε) * ↑(supNorm G) ^ ε;\nhave kFreePairs := fun k x => {n ∈ Finset.Icc 1 ⌊x⌋₊ | kFree k n ∧ kFree k (n + 1)}.card;\nhave thetaK := fun k =>\n  have kr := ↑k;\n  have s := (2 * kr - 3 + √(580 * kr ^ 2 + 276 * kr + 9)) / (9 * kr * (2 * kr + 1));\n  ((3 * kr + 2) * s - 2) / (2 * kr + 1);\nStewartHyp →\n  CCDNThm3 →\n    GelfondHyp →\n      HB2012Lemma2 →\n        ∀ (k : ℕ),\n          5 ≤ k →\n            k ≤ 123 →\n              ∀ (ε : ℝ),\n                0 < ε →\n                  ∃ C,\n                    ∀ (x : ℝ),\n                      2 ≤ x → |↑(kFreePairs k x) - x * pairDensity k| ≤ C * x ^ (thetaK k + ε)",
+   "statement_sha256": "76f4740754b47d2eb78845f03e07865d1d4d4ed46edd9bcd4c0b23f9a64bf65c",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A9",
+   "family": "consecutive-counting",
+   "result": "consecutive-counting",
+   "title": "Mixed R_(r,s,h) bounded with theta0(r,s), each2<=r<=s and fixed nonzero signed h.",
+   "role": "headline",
+   "headline": true,
+   "hypothesis": null,
+   "finite_certificate": null,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
+   "kind": "theorem",
+   "statement": "have kFull := fun k m => ∀ (p : ℕ), Nat.Prime p → p ∣ m → p ^ k ∣ m;\nhave ZkFull := fun k m => ∀ (p : ℕ), Nat.Prime p → ↑p ∣ m → ↑p ^ k ∣ m;\nhave mixedR := fun r s h X =>\n  {n | 1 ≤ n ∧ ↑n ≤ X ∧ 1 ≤ ↑n + h ∧ kFull r n ∧ ZkFull s (↑n + h)}.ncard;\nhave StewartHyp :=\n  ∀ (q : ℕ),\n    3 ≤ q →\n      ∀ (a : Fin (q + 1) → ℤ),\n        Finset.univ.gcd a = 1 →\n          Squarefree\n              (∑ i, MvPolynomial.C ↑(a i) * MvPolynomial.X 0 ^ ↑i * MvPolynomial.X 1 ^ (q - ↑i)) →\n            ∀ (m : ℤ),\n              m ≠ 0 →\n                {rs | rs.1.gcd rs.2 = 1 ∧ ∑ i, a i * rs.1 ^ ↑i * rs.2 ^ (q - ↑i) = m}.encard ≤\n                  ↑(2800 * q ^ (1 + m.natAbs.primeFactors.card));\nhave BVThm12 :=\n  ∀ (ε : ℝ),\n    0 < ε →\n      ∀ (p q r : ℕ),\n        2 ≤ p →\n          2 ≤ q →\n            2 ≤ r →\n              ∃ C,\n                ∀ (a₁ a₂ a₃ : ℤ),\n                  a₁ ≠ 0 →\n                    a₂ ≠ 0 →\n                      a₃ ≠ 0 →\n                        ∀ (X Y Z : ℝ),\n                          2 ≤ X →\n                            2 ≤ Y →\n                              2 ≤ Z →\n                                have W := Real.exp √(Real.log X * Real.log Y / ↑r);\n                                ↑{v |\n                                        (↑(v.1.gcd v.2.1)).gcd v.2.2 = 1 ∧\n                                          |↑v.1| ≤ X ∧\n                                            |↑v.2.1| ≤ Y ∧\n                                              |↑v.2.2| ≤ Z ∧\n                                                a₁ * v.1 ^ p + a₂ * v.2.1 ^ q + a₃ * v.2.2 ^ r =\n                                                  0}.ncard ≤\n                                  C * (X * Y * Z) ^ ε *\n                                    (W ^ 2 + W * max X Y ^ (2 / √(max (max ↑p ↑q) 36)) +\n                                      W * max X Y ^ (1 / ↑r));\nhave theta0 := fun r s =>\n  have C := ⨆ J ∈ Finset.Icc 1 r, (↑J - 1 + 1 / ↑s) / (↑r * ↑J + ↑J * (↑J - 1) / 2);\n  min (1 / ↑s) ((1 + C) / (↑s + 1));\nBVThm12 →\n  StewartHyp →\n    ∀ (r s : ℕ),\n      2 ≤ r →\n        r ≤ s →\n          ∀ (h : ℤ),\n            h ≠ 0 →\n              ∀ (ε : ℝ),\n                0 < ε → ∃ C, ∀ (X : ℝ), 2 ≤ X → ↑(mixedR r s h X) ≤ C * X ^ (theta0 r s + ε)",
+   "statement_sha256": "1d981c104f87692593ea8e402af32ccf82ecb7c9f9b3b4a513a5770c36a4ea74",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A10",
+   "family": "consecutive-counting",
+   "result": "consecutive-counting",
+   "title": "Simultaneous mixed pairs(3,4),(4,5),(6,7), exponents13/55,4/21,23/167, fixed signed h!=0.",
+   "role": "headline",
+   "headline": true,
+   "hypothesis": null,
+   "finite_certificate": null,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
+   "kind": "theorem",
+   "statement": "have kFull := fun k m => ∀ (p : ℕ), Nat.Prime p → p ∣ m → p ^ k ∣ m;\nhave ZkFull := fun k m => ∀ (p : ℕ), Nat.Prime p → ↑p ∣ m → ↑p ^ k ∣ m;\nhave mixedR := fun r s h X =>\n  {n | 1 ≤ n ∧ ↑n ≤ X ∧ 1 ≤ ↑n + h ∧ kFull r n ∧ ZkFull s (↑n + h)}.ncard;\nhave StewartHyp :=\n  ∀ (q : ℕ),\n    3 ≤ q →\n      ∀ (a : Fin (q + 1) → ℤ),\n        Finset.univ.gcd a = 1 →\n          Squarefree\n              (∑ i, MvPolynomial.C ↑(a i) * MvPolynomial.X 0 ^ ↑i * MvPolynomial.X 1 ^ (q - ↑i)) →\n            ∀ (m : ℤ),\n              m ≠ 0 →\n                {rs | rs.1.gcd rs.2 = 1 ∧ ∑ i, a i * rs.1 ^ ↑i * rs.2 ^ (q - ↑i) = m}.encard ≤\n                  ↑(2800 * q ^ (1 + m.natAbs.primeFactors.card));\nhave BVThm12 :=\n  ∀ (ε : ℝ),\n    0 < ε →\n      ∀ (p q r : ℕ),\n        2 ≤ p →\n          2 ≤ q →\n            2 ≤ r →\n              ∃ C,\n                ∀ (a₁ a₂ a₃ : ℤ),\n                  a₁ ≠ 0 →\n                    a₂ ≠ 0 →\n                      a₃ ≠ 0 →\n                        ∀ (X Y Z : ℝ),\n                          2 ≤ X →\n                            2 ≤ Y →\n                              2 ≤ Z →\n                                have W := Real.exp √(Real.log X * Real.log Y / ↑r);\n                                ↑{v |\n                                        (↑(v.1.gcd v.2.1)).gcd v.2.2 = 1 ∧\n                                          |↑v.1| ≤ X ∧\n                                            |↑v.2.1| ≤ Y ∧\n                                              |↑v.2.2| ≤ Z ∧\n                                                a₁ * v.1 ^ p + a₂ * v.2.1 ^ q + a₃ * v.2.2 ^ r =\n                                                  0}.ncard ≤\n                                  C * (X * Y * Z) ^ ε *\n                                    (W ^ 2 + W * max X Y ^ (2 / √(max (max ↑p ↑q) 36)) +\n                                      W * max X Y ^ (1 / ↑r));\nBVThm12 →\n  StewartHyp →\n    ∀ (h : ℤ),\n      h ≠ 0 →\n        ∀ (ε : ℝ),\n          0 < ε →\n            ∃ C,\n              ∀ (X : ℝ),\n                2 ≤ X →\n                  ↑(mixedR 3 4 h X) ≤ C * X ^ (13 / 55 + ε) ∧\n                    ↑(mixedR 4 5 h X) ≤ C * X ^ (4 / 21 + ε) ∧\n                      ↑(mixedR 6 7 h X) ≤ C * X ^ (23 / 167 + ε)",
+   "statement_sha256": "27acc14462995cc1ec7ccf8af8fa0cfcdac30c63f920baae636a41973bdaf3fc",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A11",
+   "family": "consecutive-counting",
+   "result": "consecutive-counting",
+   "title": "Uniform powerful A t^2+1 estimate and mixed full n,n+1 saving for s=6,8 and2<=r<s.",
+   "role": "headline",
+   "headline": true,
+   "hypothesis": null,
+   "finite_certificate": null,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
+   "kind": "theorem",
+   "statement": "have StewartHyp := FormalAB.S94d17769.ConsecutiveCountingTargetsAB.StewartHyp;\nhave CCDNThm3 := FormalAB.S94d17769.ConsecutiveCountingTargetsAB.CCDNThm3;\nhave GelfondHyp := FormalAB.S94d17769.ConsecutiveCountingTargetsAB.GelfondHyp;\nhave powerful := fun m => ∀ (p : ℕ), Nat.Prime p → p ∣ m → p ^ 2 ∣ m;\nhave kFull := fun k m => ∀ (p : ℕ), Nat.Prime p → p ∣ m → p ^ k ∣ m;\nhave deltaS := fun s C1 =>\n  min (1 / (1600 * (C1 + 1)) / (4 * ↑s * (↑s + 1))) ((1 / ↑s - 49 / 400) / 2);\nStewartHyp →\n  CCDNThm3 →\n    GelfondHyp →\n      ∃ Cs C1,\n        0 < Cs ∧\n          0 < C1 ∧\n            (∀ (A : ℕ),\n                1 ≤ A →\n                  ∀ (T : ℝ),\n                    2 ≤ T →\n                      ↑{t | 1 ≤ t ∧ ↑t ≤ T ∧ powerful (A * t ^ 2 + 1)}.ncard ≤\n                        Cs * ↑A ^ C1 * T ^ (389 / 1600)) ∧\n              ∀ (s r : ℕ),\n                s = 6 ∨ s = 8 →\n                  2 ≤ r →\n                    r < s →\n                      ∀ (ε : ℝ),\n                        0 < ε →\n                          ∃ C,\n                            ∀ (X : ℝ),\n                              2 ≤ X →\n                                ↑{n | 1 ≤ n ∧ ↑n ≤ X ∧ kFull s n ∧ kFull r (n + 1)}.ncard ≤\n                                  C * X ^ (1 / ↑s - deltaS s C1 + ε)",
+   "statement_sha256": "3e5a7eb76534b75d6a9af1b72348406fb5bb5ec30299018aae4dacefd302bb64",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A12",
+   "family": "consecutive-counting",
+   "result": "consecutive-counting",
+   "title": "Positive-shift quadratic and mixed-full bounds, each fixed natural h>=1.",
+   "role": "headline",
+   "headline": true,
+   "hypothesis": null,
+   "finite_certificate": null,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
+   "kind": "theorem",
+   "statement": "have StewartHyp := FormalAB.S94d17769.ConsecutiveCountingTargetsAB.StewartHyp;\nhave CCDNThm3 := FormalAB.S94d17769.ConsecutiveCountingTargetsAB.CCDNThm3;\nhave GelfondHyp := FormalAB.S94d17769.ConsecutiveCountingTargetsAB.GelfondHyp;\nhave powerful := fun m => ∀ (p : ℕ), Nat.Prime p → p ∣ m → p ^ 2 ∣ m;\nhave kFull := fun k m => ∀ (p : ℕ), Nat.Prime p → p ∣ m → p ^ k ∣ m;\nhave deltaS := fun s C1 =>\n  min (1 / (1600 * (C1 + 1)) / (4 * ↑s * (↑s + 1))) ((1 / ↑s - 49 / 400) / 2);\nStewartHyp →\n  CCDNThm3 →\n    GelfondHyp →\n      ∀ (h : ℕ),\n        1 ≤ h →\n          ∃ Kh Ch,\n            1 ≤ Kh ∧\n              1 ≤ Ch ∧\n                (∀ (A : ℕ),\n                    1 ≤ A →\n                      ∀ (T : ℝ),\n                        2 ≤ T →\n                          ↑{t | 1 ≤ t ∧ ↑t ≤ T ∧ powerful (A * t ^ 2 + h)}.ncard ≤\n                            Kh * ↑A ^ Ch * T ^ (389 / 1600)) ∧\n                  ∀ (s r : ℕ),\n                    s = 6 ∨ s = 8 →\n                      2 ≤ r →\n                        r < s →\n                          ∀ (ε : ℝ),\n                            0 < ε →\n                              ∃ C,\n                                ∀ (X : ℝ),\n                                  2 ≤ X →\n                                    ↑{n | 1 ≤ n ∧ ↑n ≤ X ∧ kFull s n ∧ kFull r (n + h)}.ncard ≤\n                                      C * X ^ (1 / ↑s - deltaS s Ch + ε)",
+   "statement_sha256": "95039e69e7add80fd56d2edabcd32ae0fc2a13c4a923ee336058a27e43424ce7",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A13",
+   "family": "consecutive-counting",
+   "result": "consecutive-counting",
+   "title": "Nonsplit powerful A t^2-H estimate with positive witness functions; reverse neighbours n,n-1 with positive delta saving for s=6,8 and2<=r<s.",
+   "role": "headline",
+   "headline": true,
+   "hypothesis": null,
+   "finite_certificate": null,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
+   "kind": "theorem",
+   "statement": "have StewartHyp := FormalAB.S94d17769.ConsecutiveCountingTargetsAB.StewartHyp;\nhave CCDNThm3 := FormalAB.S94d17769.ConsecutiveCountingTargetsAB.CCDNThm3;\nhave GelfondHyp := FormalAB.S94d17769.ConsecutiveCountingTargetsAB.GelfondHyp;\nhave kFull := fun k m => ∀ (p : ℕ), Nat.Prime p → p ∣ m → p ^ k ∣ m;\nhave ZkFull := fun k m => ∀ (p : ℕ), Nat.Prime p → ↑p ∣ m → ↑p ^ k ∣ m;\nhave deltaS := fun s C1 =>\n  min (1 / (1600 * (C1 + 1)) / (4 * ↑s * (↑s + 1))) ((1 / ↑s - 49 / 400) / 2);\nStewartHyp →\n  CCDNThm3 →\n    GelfondHyp →\n      ∃ KH BH,\n        (∀ (H : ℕ), 1 ≤ H → 0 < KH H ∧ 0 < BH H) ∧\n          (∀ (s : ℕ), s = 6 ∨ s = 8 → 0 < deltaS s (BH 1)) ∧\n            (∀ (H : ℕ),\n                1 ≤ H →\n                  ∀ (A : ℕ),\n                    1 ≤ A →\n                      ¬IsSquare (A * H) →\n                        ∀ (T : ℝ),\n                          2 ≤ T →\n                            ↑{t |\n                                    1 ≤ t ∧\n                                      ↑t ≤ T ∧\n                                        1 ≤ ↑A * ↑t ^ 2 - ↑H ∧ ZkFull 2 (↑A * ↑t ^ 2 - ↑H)}.ncard ≤\n                              KH H * ↑A ^ BH H * T ^ (389 / 1600)) ∧\n              ∀ (s r : ℕ),\n                s = 6 ∨ s = 8 →\n                  2 ≤ r →\n                    r < s →\n                      ∀ (ε : ℝ),\n                        0 < ε →\n                          ∃ C,\n                            ∀ (X : ℝ),\n                              2 ≤ X →\n                                ↑{n | 2 ≤ n ∧ ↑n ≤ X ∧ kFull s n ∧ kFull r (n - 1)}.ncard ≤\n                                  C * X ^ (1 / ↑s - deltaS s (BH 1) + ε)",
+   "statement_sha256": "e81892a96e87038d77c072ff9c0f946096002434c711a2db634170ff8b366d55",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A14",
+   "family": "consecutive-counting",
+   "result": "consecutive-counting",
+   "title": "Totient range d<=a s/sqrt(phi(s)),0<a<sqrt2,eventually in s; positive mixed-full saving chosen before fixed nonzero h and eps.",
+   "role": "headline",
+   "headline": true,
+   "hypothesis": null,
+   "finite_certificate": null,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
+   "kind": "theorem",
+   "statement": "have kFull := fun k m => ∀ (p : ℕ), Nat.Prime p → p ∣ m → p ^ k ∣ m;\nhave ZkFull := fun k m => ∀ (p : ℕ), Nat.Prime p → ↑p ∣ m → ↑p ^ k ∣ m;\nhave mixedR := fun r s h X =>\n  {n | 1 ≤ n ∧ ↑n ≤ X ∧ 1 ≤ ↑n + h ∧ kFull r n ∧ ZkFull s (↑n + h)}.ncard;\nhave StewartHyp :=\n  ∀ (q : ℕ),\n    3 ≤ q →\n      ∀ (a : Fin (q + 1) → ℤ),\n        Finset.univ.gcd a = 1 →\n          Squarefree\n              (∑ i, MvPolynomial.C ↑(a i) * MvPolynomial.X 0 ^ ↑i * MvPolynomial.X 1 ^ (q - ↑i)) →\n            ∀ (m : ℤ),\n              m ≠ 0 →\n                {rs | rs.1.gcd rs.2 = 1 ∧ ∑ i, a i * rs.1 ^ ↑i * rs.2 ^ (q - ↑i) = m}.encard ≤\n                  ↑(2800 * q ^ (1 + m.natAbs.primeFactors.card));\nhave BVThm12 :=\n  ∀ (ε : ℝ),\n    0 < ε →\n      ∀ (p q r : ℕ),\n        2 ≤ p →\n          2 ≤ q →\n            2 ≤ r →\n              ∃ C,\n                ∀ (a₁ a₂ a₃ : ℤ),\n                  a₁ ≠ 0 →\n                    a₂ ≠ 0 →\n                      a₃ ≠ 0 →\n                        ∀ (X Y Z : ℝ),\n                          2 ≤ X →\n                            2 ≤ Y →\n                              2 ≤ Z →\n                                have W := Real.exp √(Real.log X * Real.log Y / ↑r);\n                                ↑{v |\n                                        (↑(v.1.gcd v.2.1)).gcd v.2.2 = 1 ∧\n                                          |↑v.1| ≤ X ∧\n                                            |↑v.2.1| ≤ Y ∧\n                                              |↑v.2.2| ≤ Z ∧\n                                                a₁ * v.1 ^ p + a₂ * v.2.1 ^ q + a₃ * v.2.2 ^ r =\n                                                  0}.ncard ≤\n                                  C * (X * Y * Z) ^ ε *\n                                    (W ^ 2 + W * max X Y ^ (2 / √(max (max ↑p ↑q) 36)) +\n                                      W * max X Y ^ (1 / ↑r));\nBVThm12 →\n  StewartHyp →\n    ∀ (a : ℝ),\n      0 < a →\n        a < √2 →\n          ∃ S0,\n            ∀ (s : ℕ),\n              S0 ≤ s →\n                ∀ (d : ℕ),\n                  1 ≤ d →\n                    ↑d ≤ a * ↑s / √↑s.totient →\n                      2 ≤ s - d ∧\n                        d < s - d ∧\n                          ∃ δ,\n                            0 < δ ∧\n                              ∀ (h : ℤ),\n                                h ≠ 0 →\n                                  ∀ (ε : ℝ),\n                                    0 < ε →\n                                      ∃ C,\n                                        ∀ (X : ℝ),\n                                          2 ≤ X → ↑(mixedR (s - d) s h X) ≤ C * X ^ (1 / ↑s - δ + ε)",
+   "statement_sha256": "e9a9314b6e635e0bf85e619f3a860a6429a287ed17e349090e4b7058f088822e",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A15",
+   "family": "consecutive-counting",
+   "result": "consecutive-counting",
+   "title": "Mixed-full bound with the common-divisor collapsed weighted-prefix exponent theta_g.",
+   "role": "headline",
+   "headline": true,
+   "hypothesis": null,
+   "finite_certificate": null,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
+   "kind": "theorem",
+   "statement": "have kFull := fun k m => ∀ (p : ℕ), Nat.Prime p → p ∣ m → p ^ k ∣ m;\nhave ZkFull := fun k m => ∀ (p : ℕ), Nat.Prime p → ↑p ∣ m → ↑p ^ k ∣ m;\nhave mixedR := fun r s h X =>\n  {n | 1 ≤ n ∧ ↑n ≤ X ∧ 1 ≤ ↑n + h ∧ kFull r n ∧ ZkFull s (↑n + h)}.ncard;\nhave StewartHyp :=\n  ∀ (q : ℕ),\n    3 ≤ q →\n      ∀ (a : Fin (q + 1) → ℤ),\n        Finset.univ.gcd a = 1 →\n          Squarefree\n              (∑ i, MvPolynomial.C ↑(a i) * MvPolynomial.X 0 ^ ↑i * MvPolynomial.X 1 ^ (q - ↑i)) →\n            ∀ (m : ℤ),\n              m ≠ 0 →\n                {rs | rs.1.gcd rs.2 = 1 ∧ ∑ i, a i * rs.1 ^ ↑i * rs.2 ^ (q - ↑i) = m}.encard ≤\n                  ↑(2800 * q ^ (1 + m.natAbs.primeFactors.card));\nhave BVThm12 :=\n  ∀ (ε : ℝ),\n    0 < ε →\n      ∀ (p q r : ℕ),\n        2 ≤ p →\n          2 ≤ q →\n            2 ≤ r →\n              ∃ C,\n                ∀ (a₁ a₂ a₃ : ℤ),\n                  a₁ ≠ 0 →\n                    a₂ ≠ 0 →\n                      a₃ ≠ 0 →\n                        ∀ (X Y Z : ℝ),\n                          2 ≤ X →\n                            2 ≤ Y →\n                              2 ≤ Z →\n                                have W := Real.exp √(Real.log X * Real.log Y / ↑r);\n                                ↑{v |\n                                        (↑(v.1.gcd v.2.1)).gcd v.2.2 = 1 ∧\n                                          |↑v.1| ≤ X ∧\n                                            |↑v.2.1| ≤ Y ∧\n                                              |↑v.2.2| ≤ Z ∧\n                                                a₁ * v.1 ^ p + a₂ * v.2.1 ^ q + a₃ * v.2.2 ^ r =\n                                                  0}.ncard ≤\n                                  C * (X * Y * Z) ^ ε *\n                                    (W ^ 2 + W * max X Y ^ (2 / √(max (max ↑p ↑q) 36)) +\n                                      W * max X Y ^ (1 / ↑r));\nhave thetaG := fun r s g =>\n  have I := {p ∈ Finset.Icc r (2 * r - 1) | g ∣ p};\n  have e := if hI : I.Nonempty then I.min' hI else 0;\n  have P := insert e ({p ∈ Finset.Icc r (2 * r - 1) | ¬g ∣ p});\n  have β := fun p => if p = e then 1 else ↑s / (↑s - 1);\n  have Cg := ⨆ t ∈ P, (∑ p ∈ P with p ≤ t, β p - 1) / ∑ p ∈ P with p ≤ t, ↑p * β p;\n  min (1 / ↑s) ((1 + Cg) / (↑s + 1));\nBVThm12 →\n  StewartHyp →\n    ∀ (r s g : ℕ),\n      2 ≤ r →\n        r ≤ s →\n          2 ≤ g →\n            g ∣ s →\n              {p ∈ Finset.Icc r (2 * r - 1) | g ∣ p}.Nonempty →\n                ∀ (h : ℤ),\n                  h ≠ 0 →\n                    ∀ (ε : ℝ),\n                      0 < ε → ∃ C, ∀ (X : ℝ), 2 ≤ X → ↑(mixedR r s h X) ≤ C * X ^ (thetaG r s g + ε)",
+   "statement_sha256": "2cada681f853e26cbdb36b99a8e4f3f175346f2e8451f874eea87795aa12f72d",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional"
+  },
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A16",
+   "family": "consecutive-counting",
+   "result": "consecutive-counting",
+   "title": "Mixed-full bound with theta_gcd; strict saving at composite triangular parameters.",
+   "role": "headline",
+   "headline": true,
+   "hypothesis": null,
+   "finite_certificate": null,
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
+   "kind": "theorem",
+   "statement": "have kFull := fun k m => ∀ (p : ℕ), Nat.Prime p → p ∣ m → p ^ k ∣ m;\nhave ZkFull := fun k m => ∀ (p : ℕ), Nat.Prime p → ↑p ∣ m → ↑p ^ k ∣ m;\nhave mixedR := fun r s h X =>\n  {n | 1 ≤ n ∧ ↑n ≤ X ∧ 1 ≤ ↑n + h ∧ kFull r n ∧ ZkFull s (↑n + h)}.ncard;\nhave StewartHyp :=\n  ∀ (q : ℕ),\n    3 ≤ q →\n      ∀ (a : Fin (q + 1) → ℤ),\n        Finset.univ.gcd a = 1 →\n          Squarefree\n              (∑ i, MvPolynomial.C ↑(a i) * MvPolynomial.X 0 ^ ↑i * MvPolynomial.X 1 ^ (q - ↑i)) →\n            ∀ (m : ℤ),\n              m ≠ 0 →\n                {rs | rs.1.gcd rs.2 = 1 ∧ ∑ i, a i * rs.1 ^ ↑i * rs.2 ^ (q - ↑i) = m}.encard ≤\n                  ↑(2800 * q ^ (1 + m.natAbs.primeFactors.card));\nhave BVThm12 :=\n  ∀ (ε : ℝ),\n    0 < ε →\n      ∀ (p q r : ℕ),\n        2 ≤ p →\n          2 ≤ q →\n            2 ≤ r →\n              ∃ C,\n                ∀ (a₁ a₂ a₃ : ℤ),\n                  a₁ ≠ 0 →\n                    a₂ ≠ 0 →\n                      a₃ ≠ 0 →\n                        ∀ (X Y Z : ℝ),\n                          2 ≤ X →\n                            2 ≤ Y →\n                              2 ≤ Z →\n                                have W := Real.exp √(Real.log X * Real.log Y / ↑r);\n                                ↑{v |\n                                        (↑(v.1.gcd v.2.1)).gcd v.2.2 = 1 ∧\n                                          |↑v.1| ≤ X ∧\n                                            |↑v.2.1| ≤ Y ∧\n                                              |↑v.2.2| ≤ Z ∧\n                                                a₁ * v.1 ^ p + a₂ * v.2.1 ^ q + a₃ * v.2.2 ^ r =\n                                                  0}.ncard ≤\n                                  C * (X * Y * Z) ^ ε *\n                                    (W ^ 2 + W * max X Y ^ (2 / √(max (max ↑p ↑q) 36)) +\n                                      W * max X Y ^ (1 / ↑r));\nhave thetaGcd := fun r s =>\n  have β := fun i => if 1 < (r + i).gcd s then 1 else ↑s / (↑s - 1);\n  have Cg :=\n    ⨆ J ∈ Finset.Icc 1 r, (∑ i ∈ Finset.range J, β i - 1) / ∑ i ∈ Finset.range J, ↑(r + i) * β i;\n  min (1 / ↑s) ((1 + Cg) / (↑s + 1));\nBVThm12 →\n  StewartHyp →\n    (∀ (r s : ℕ),\n        2 ≤ r →\n          r ≤ s →\n            ∀ (h : ℤ),\n              h ≠ 0 →\n                ∀ (ε : ℝ),\n                  0 < ε → ∃ C, ∀ (X : ℝ), 2 ≤ X → ↑(mixedR r s h X) ≤ C * X ^ (thetaGcd r s + ε)) ∧\n      ∀ (d : ℕ),\n        2 ≤ d →\n          ¬Nat.Prime (1 + d * (d + 1) / 2) →\n            thetaGcd (1 + d * (d - 1) / 2) (1 + d * (d + 1) / 2) < 1 / ↑(1 + d * (d + 1) / 2)",
+   "statement_sha256": "830c1f7c1510bec0532dde1171d45dca0806d645d39d7e7e89a48595bfa1b773",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms": [],
+   "evidence_level": "conditional"
   }
  ],
  "definitions": [],

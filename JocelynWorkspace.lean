@@ -14,3 +14,4 @@ import JocelynWorkspace.Formalization.PowerfulCounting.Paper3OriginalActualAuxil
 import JocelynWorkspace.Formalization.PowerfulCounting.Paper3PointKernel
 import JocelynWorkspace.Formalization.PowerfulCounting.StrictWindows
 import JocelynWorkspace.Formalization.PowerfulCounting.TripleExponentCertificate
+import JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting

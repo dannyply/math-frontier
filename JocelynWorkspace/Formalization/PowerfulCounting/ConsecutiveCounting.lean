@@ -1,0 +1,68 @@
+import JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A1
+import JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A2
+import JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A3
+import JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A4
+import JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A5
+import JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A6
+import JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A7
+import JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A8
+import JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A9
+import JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A10
+import JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A11
+import JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A12
+import JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A13
+import JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A14
+import JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A15
+import JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A16
+
+namespace JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting
+
+theorem A1 : type_of% @PaperA.S11a6bc635095.JocelynClaims.claim_20b1ff9d2fad7f666383d05573fc0436fdac6396167810bee558b98e1a6bcc82 :=
+  @PaperA.S11a6bc635095.JocelynClaims.claim_20b1ff9d2fad7f666383d05573fc0436fdac6396167810bee558b98e1a6bcc82
+
+theorem A2 : type_of% @PaperA.Sf7058b9637dc.JocelynClaims.claim_315b5a9f2e46c379201de6c6680ec5a47537cffcc88ab58c509854302c862521 :=
+  @PaperA.Sf7058b9637dc.JocelynClaims.claim_315b5a9f2e46c379201de6c6680ec5a47537cffcc88ab58c509854302c862521
+
+theorem A3 : type_of% @PaperA.S58d63b5176e0.JocelynClaims.claim_f6217e77d65202989a8b09b84502579a3faeb21c54d8230191013513359d90f5 :=
+  @PaperA.S58d63b5176e0.JocelynClaims.claim_f6217e77d65202989a8b09b84502579a3faeb21c54d8230191013513359d90f5
+
+theorem A4 : type_of% @PaperA.Sc55d469de11b.JocelynClaims.claim_f0af73eec4feca4a57820fead6fcc6985f3612db6f9304d7c39a27fd2e9a6349 :=
+  @PaperA.Sc55d469de11b.JocelynClaims.claim_f0af73eec4feca4a57820fead6fcc6985f3612db6f9304d7c39a27fd2e9a6349
+
+theorem A5 : type_of% @PaperA.S32a4b7f5a02f.JocelynClaims.claim_90995893858edc2f58555aa573a49ec751fccda5ed02bc6673f3ab6f88b88892 :=
+  @PaperA.S32a4b7f5a02f.JocelynClaims.claim_90995893858edc2f58555aa573a49ec751fccda5ed02bc6673f3ab6f88b88892
+
+theorem A6 : type_of% @PaperA.S25e34412cf61.JocelynClaims.claim_51a5699d9a6db90fcf629780d0539b877f3c3779461371510e5dc626ae1ed446 :=
+  @PaperA.S25e34412cf61.JocelynClaims.claim_51a5699d9a6db90fcf629780d0539b877f3c3779461371510e5dc626ae1ed446
+
+theorem A7 : type_of% @PaperA.Sfb8fd1d35ddf.JocelynClaims.claim_ff2cb1664b1e4087e381921e00eb990997a9289c392132e1b10946abe7f01a20 :=
+  @PaperA.Sfb8fd1d35ddf.JocelynClaims.claim_ff2cb1664b1e4087e381921e00eb990997a9289c392132e1b10946abe7f01a20
+
+theorem A8 : type_of% @PaperA.S8aa2de84fe9c.JocelynClaims.claim_a38587108f5194e02541ccf3b0f5418df9c01f1640a0a3e91720e9fe819e347c :=
+  @PaperA.S8aa2de84fe9c.JocelynClaims.claim_a38587108f5194e02541ccf3b0f5418df9c01f1640a0a3e91720e9fe819e347c
+
+theorem A9 : type_of% @PaperA.S65df95e8b43d.JocelynClaims.claim_6b6169cbc7077fa9ae6ddb0aab9241d3c391a13017f48af78af3193ce28570c1 :=
+  @PaperA.S65df95e8b43d.JocelynClaims.claim_6b6169cbc7077fa9ae6ddb0aab9241d3c391a13017f48af78af3193ce28570c1
+
+theorem A10 : type_of% @PaperA.S160aa257d3ac.JocelynClaims.claim_cd72a6c251d46062840481043a5a8342a3ea6c334918796675f5d3745065e060 :=
+  @PaperA.S160aa257d3ac.JocelynClaims.claim_cd72a6c251d46062840481043a5a8342a3ea6c334918796675f5d3745065e060
+
+theorem A11 : type_of% @PaperA.S4addf8d83516.JocelynClaims.claim_9048ee9d1cf29cb07b40e6eb1f1dc8c59c2a8c2b56b9bcd48daf61bd14946b29 :=
+  @PaperA.S4addf8d83516.JocelynClaims.claim_9048ee9d1cf29cb07b40e6eb1f1dc8c59c2a8c2b56b9bcd48daf61bd14946b29
+
+theorem A12 : type_of% @PaperA.S92aace92f94a.JocelynClaims.claim_963cfa51cc16cd8871853537ed9cb359726a2c7c742e639694cb88030a3f0a4a :=
+  @PaperA.S92aace92f94a.JocelynClaims.claim_963cfa51cc16cd8871853537ed9cb359726a2c7c742e639694cb88030a3f0a4a
+
+theorem A13 : type_of% @PaperA.Se4c1670b1d97.JocelynClaims.claim_9e20edce92690960c95d90b24264d3b8cae782bf3a0f090a271f65a7cbbebca4 :=
+  @PaperA.Se4c1670b1d97.JocelynClaims.claim_9e20edce92690960c95d90b24264d3b8cae782bf3a0f090a271f65a7cbbebca4
+
+theorem A14 : type_of% @PaperA.S11112e111200.JocelynClaims.claim_d2b2dc1bcb7fed076533b1285b9b4bb7bc334e222b2abfb65cc22473659d6587 :=
+  @PaperA.S11112e111200.JocelynClaims.claim_d2b2dc1bcb7fed076533b1285b9b4bb7bc334e222b2abfb65cc22473659d6587
+
+theorem A15 : type_of% @PaperA.S9458b27c876a.JocelynClaims.claim_5bdb7e44508ecd490e3fe27d64b55a757b023b57dcc6fbf5bd01fad37c97eb75 :=
+  @PaperA.S9458b27c876a.JocelynClaims.claim_5bdb7e44508ecd490e3fe27d64b55a757b023b57dcc6fbf5bd01fad37c97eb75
+
+theorem A16 : type_of% @PaperA.S48203c346624.JocelynClaims.claim_c4c9e6931c637e032fa1c9e22238e389326b4d6d54570b653ebd6fd5a0bcaace :=
+  @PaperA.S48203c346624.JocelynClaims.claim_c4c9e6931c637e032fa1c9e22238e389326b4d6d54570b653ebd6fd5a0bcaace
+
+end JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting
