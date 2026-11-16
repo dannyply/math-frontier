@@ -1,18 +1,17 @@
 cff-version: 1.2.0
 message: "If you use these results or this repository, please cite it as below."
 title: "math-frontier"
-abstract: "Mathematical results obtained with the Jocelyn research harness, each with a paper, a Lean formalization replayed by an independent kernel, and a registry record of its assumptions and checks."
+abstract: "Mathematical results obtained with the Jocelyn research harness, with papers, Lean sources and explicit registry records of assumptions and checks. Paper 0 is published; Paper 1 is intended for standalone publication. Admission records verification, not publication."
 type: software
 authors:
   - family-names: Plymesser
     given-names: Danny
-version: 1.0.1
+version: 1.1.0
 doi: 10.5281/zenodo.23614471
 identifiers:
   - type: doi
     value: 10.5281/zenodo.23614471
     description: All versions (concept DOI)
-date-released: 2026-10-24
 repository-code: "https://github.com/dannyply/math-frontier"
 license: Apache-2.0
 keywords:
@@ -34,3 +33,10 @@ references:
     doi: 10.5281/zenodo.23614742
     url: "https://doi.org/10.5281/zenodo.23614742"
     notes: "Preprint, version 1.0.1. AI-produced work; see the paper's verification and disclosure section."
+  - type: unpublished
+    title: "Powerful values of quadratic polynomials"
+    authors:
+      - family-names: Plymesser
+        given-names: Danny
+    year: 2026
+    notes: "Paper 1; standalone unpublished manuscript. The appendix maps its numbering to the verified formal interfaces and distinguishes written cubic corollaries. No paper DOI assigned here. See citations/powerful-polynomial-values.bib."

@@ -1,0 +1,415 @@
+{
+ "schema": "math-frontier.replay-receipt.v1",
+ "started_utc": "2026-11-15T20:38:34+00:00",
+ "elapsed_s": 435.2,
+ "repository": {
+  "git_head": "2ee914b43ed7f08121ddfce0775aac2243a640f3",
+  "git_tracked_dirty": false,
+  "git_tracked_changes": [],
+  "git_untracked": [],
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "dependencies": {
+   "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+   "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+   "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+   "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+   "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+   "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+   "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+   "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+   "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f"
+  },
+  "packages_symlinked": [
+   ".lake/packages",
+   ".lake/packages/Cli",
+   ".lake/packages/LeanSearchClient",
+   ".lake/packages/Qq",
+   ".lake/packages/aesop",
+   ".lake/packages/batteries",
+   ".lake/packages/importGraph",
+   ".lake/packages/mathlib",
+   ".lake/packages/plausible",
+   ".lake/packages/proofwidgets"
+  ],
+  "dependency_mode": "local-deps",
+  "dependencies_checked_out": {
+   "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+   "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+   "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+   "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+   "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+   "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+   "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+   "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+   "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f"
+  },
+  "dependencies_match_manifest": true,
+  "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "lean_githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+  "labels": [
+   "non-clean-deps"
+  ]
+ },
+ "declaration_source": "release/manifest.json",
+ "manifest_sha256": "4649989fdab4dc68fd1215650023a3fc8701ddea563fb51962af7287b1105eb3",
+ "tools": {
+  "exporter": {
+   "display_path": "<external>/lean4export",
+   "origin": "replay/_tools",
+   "source_repository": "https://github.com/leanprover/lean4export",
+   "source_commit": "411dce7db58a3afc60ecab2d211acd1042b593dc",
+   "sha256": "116d3e466424fe20aee62081ebadc82e75d02c1d3ddee522672d7cc7dbafd179"
+  },
+  "kernel": {
+   "display_path": "<external>/nanoda_bin",
+   "origin": "replay/_tools",
+   "source_repository": "https://github.com/ammkrn/nanoda_lib",
+   "source_commit": "05055695879dfebb6628a67da88ceca6cd6b0421",
+   "sha256": "5c839e366f0774aab19aba87070c09919314f346354e299ecbf38caba4f6458c"
+  },
+  "comparator": {
+   "display_path": "<external>/replay-comparator",
+   "origin": "replay/_tools",
+   "source_repository": "https://github.com/leanprover/comparator",
+   "source_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+   "sha256": "f3d0344be0182d8b97177bf4931312625d2bb078c304c5b19191700598f67e17"
+  }
+ },
+ "driver": {
+  "path": "replay/replay.py",
+  "sha256": "8cf1e5fddd9ce29acd35fe1f2bb53486b6af05d8d868186bf30fc73fe9c84dad",
+  "reference_cache_helper_sha256": "076cf0414d00a7f655fc555a1eafb5419a8c2f15c7eba21c4c4268b11a30b39a",
+  "audit_script_sha256": "89284ee30be5703f5184338e8d6ff764d14203b3d7579c5a13d84baea0d37ec1",
+  "export_roots": [
+   "Nat",
+   "String",
+   "String.mk",
+   "Char",
+   "Quot",
+   "Quot.mk",
+   "Quot.lift",
+   "Quot.ind",
+   "propext",
+   "Quot.sound",
+   "Classical.choice",
+   "Nat.add",
+   "Nat.sub",
+   "Nat.mul",
+   "Nat.pow",
+   "Nat.gcd",
+   "Nat.div",
+   "Nat.mod",
+   "Nat.beq",
+   "Nat.ble",
+   "Nat.land",
+   "Nat.lor",
+   "Nat.xor",
+   "Nat.shiftLeft",
+   "Nat.shiftRight",
+   "String.ofList",
+   "Char.ofNat",
+   "List",
+   "eagerReduce"
+  ],
+  "standard_axioms": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "statement_mode": "streaming",
+  "l1_batch_size": 0,
+  "max_export_mib": 4096,
+  "proof_verdicts_reused": false,
+  "argv": [
+   "--skip-build",
+   "--jobs",
+   "1",
+   "--nanoda-threads",
+   "1",
+   "--local-deps",
+   "--max-export-mib",
+   "4096",
+   "--min-free-gib",
+   "3",
+   "--receipt-dir",
+   "<receipts>",
+   "--work-dir",
+   "<work>",
+   "--receipt-name",
+   "consecutive-counting-negative.json",
+   "--only",
+   "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A13",
+   "--statements",
+   "replay/negative-control/ConsecutiveCountingNegative.lean"
+  ],
+  "host": "Darwin-arm64",
+  "min_free_disk_gib_seen": 5.09
+ },
+ "build": null,
+ "lean_audit_elapsed_s": 14.5,
+ "passes": {
+  "standard": {
+   "declarations": 1,
+   "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "elapsed_s": 233.3
+  },
+  "named_native": {
+   "declarations": 0,
+   "status": "not_applicable_no_native_decide_declarations",
+   "elapsed_s": 0.0
+  },
+  "comparator": {
+   "statement_files": 1,
+   "theorems": 1,
+   "files_failed_to_compile": [],
+   "statement_files_failed": [],
+   "mode": "streaming",
+   "comparison_occurrences": 1,
+   "elapsed_s": 184.0
+  }
+ },
+ "counts": {
+  "declarations": 1,
+  "duplicates_in_source": [],
+  "L1_standard_axioms_only": 1,
+  "L2_named_native_axioms": 0,
+  "rejected_other_axioms": 0,
+  "manifest_mismatches": {},
+  "nanoda_pass_standard_only": 1,
+  "nanoda_pass_with_named_native_axioms": 0,
+  "nanoda_standard_only_rejected_native_as_expected": 0,
+  "failures": [],
+  "distinct_native_axioms": 0,
+  "nanoda_runs": 1,
+  "nanoda_checked_declarations_total": 75500,
+  "nanoda_distinct_declarations_checked": 75500,
+  "export_bytes_total": 1669910980,
+  "export_bytes_max": 834955490,
+  "comparator": {
+   "mismatch": 1
+  },
+  "comparator_failures": [
+   "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A13"
+  ],
+  "comparator_statements_without_release_declaration": [],
+  "comparator_statement_files_failed": []
+ },
+ "declarations": [
+  {
+   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A13",
+   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
+   "kind": "theorem",
+   "evidence_level": "L1",
+   "manifest_evidence_level": "conditional",
+   "lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "lean_axioms_raw": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "native_axioms_raw": [],
+   "other_axioms": [],
+   "statement_sha256": "e81892a96e87038d77c072ff9c0f946096002434c711a2db634170ff8b366d55",
+   "statement_pp_sha256": "f43112386dc90cf9836e45ea0910ac62a0826eba5b6c4a48a765b71506816a51",
+   "manifest_check": {
+    "ok": true,
+    "mismatches": []
+   },
+   "nanoda_standard": {
+    "status": "pass",
+    "run": "standard-combined"
+   },
+   "nanoda_native": {
+    "status": "not_applicable"
+   },
+   "comparator_comparisons": [
+    {
+     "file": "replay/negative-control/ConsecutiveCountingNegative.lean",
+     "statement_file_index": 0,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A13",
+     "returncode": 1,
+     "elapsed_s": 21.11,
+     "message": "uncaught exception: Challenge and solution theorem statement do not match: 'JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A13'",
+     "status": "mismatch"
+    }
+   ],
+   "comparator": {
+    "returncode": 1,
+    "elapsed_s": 21.11,
+    "message": "uncaught exception: Challenge and solution theorem statement do not match: 'JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A13'",
+    "status": "mismatch"
+   }
+  }
+ ],
+ "runs": [
+  {
+   "label": "standard-combined",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A13"
+   ],
+   "export": {
+    "label": "standard-combined",
+    "module": "JocelynWorkspace",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A13"
+    ],
+    "returncode": 0,
+    "elapsed_s": 111.44,
+    "stderr_tail": "",
+    "path": "<work>/standard-combined.ndjson",
+    "max_export_bytes": 4294967296,
+    "sha256": "4a2c10721b42ac298358ae771e318f98cac02f2ce8aef2294f5ded43716f526f",
+    "bytes": 834955490,
+    "lines": 15622949,
+    "declarations": 75500,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   },
+   "export_axioms_outside_permitted": [],
+   "nanoda": {
+    "label": "standard-combined",
+    "status": "pass",
+    "returncode": 0,
+    "checked_declarations": 75500,
+    "permitted_axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "num_threads": 1,
+    "stack_bytes": 66060288,
+    "elapsed_s": 106.44,
+    "stdout_tail": "Checked 75500 declarations with no errors\n",
+    "stderr_tail": "",
+    "config_sha256": "08d139516c4b418362cbe34a3fb6642bf1fd58e03d037c61da057b6eea1cb4db"
+   }
+  },
+  {
+   "label": "comparator-candidates-0",
+   "declarations": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A13"
+   ],
+   "export": {
+    "label": "comparator-candidates-0",
+    "module": "JocelynWorkspace",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A13"
+    ],
+    "returncode": 0,
+    "elapsed_s": 112.74,
+    "stderr_tail": "",
+    "path": "<work>/comparator-candidates-0.ndjson",
+    "max_export_bytes": 4294967296,
+    "sha256": "4a2c10721b42ac298358ae771e318f98cac02f2ce8aef2294f5ded43716f526f",
+    "bytes": 834955490,
+    "lines": 15622949,
+    "declarations": 75500,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   }
+  }
+ ],
+ "statements": [
+  {
+   "file": "replay/negative-control/ConsecutiveCountingNegative.lean",
+   "sha256": "0a1f9569d0792f6dcfecc235494ff8271a613c018d1c1f7c116fd79307684acc",
+   "theorems": [
+    "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A13"
+   ],
+   "compile_returncode": 0,
+   "compile_elapsed_s": 20.77,
+   "compile_output_tail": "<work>/statements-0/ReplayStatements0.lean:4:8: warning: declaration uses `sorry`\n",
+   "reference_export": {
+    "label": "reference-statements-0",
+    "module": "ReplayStatements0",
+    "roots": [
+     "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A13"
+    ],
+    "returncode": 0,
+    "elapsed_s": 14.56,
+    "stderr_tail": "",
+    "path": "<work>/reference-statements-0.ndjson",
+    "max_export_bytes": 4294967296,
+    "sha256": "61c3b246eabe68c276cc64e5715238fc133bd73b542c2329febab92a055cd907",
+    "bytes": 81508938,
+    "lines": 1525627,
+    "declarations": 19138,
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext",
+     "sorryAx"
+    ],
+    "meta": {
+     "exporter": {
+      "name": "lean4export",
+      "version": "3.1.0"
+     },
+     "format": {
+      "version": "3.1.0"
+     },
+     "lean": {
+      "githash": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "version": "4.33.1"
+     }
+    },
+    "deleted_after_check": true
+   },
+   "comparisons": [
+    {
+     "file": "replay/negative-control/ConsecutiveCountingNegative.lean",
+     "statement_file_index": 0,
+     "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A13",
+     "returncode": 1,
+     "elapsed_s": 21.11,
+     "message": "uncaught exception: Challenge and solution theorem statement do not match: 'JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A13'",
+     "status": "mismatch"
+    }
+   ],
+   "stream_scratch_removed": true
+  }
+ ],
+ "reference_cache": null
+}

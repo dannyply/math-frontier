@@ -1,9 +1,12 @@
 # Admission checklist
 
-A result enters this repository only when every item below is done and recorded
+A result is admitted in this repository only when every item below is done and recorded
 in its registry record (`registry/<id>.json`, field `admission`). Results are
 admitted one at a time, each in its own commit. A record whose checklist is
-incomplete has status `candidate` and is listed as such.
+incomplete has status `candidate` and is listed separately. Candidate sources
+and verification targets may be present in the checkout and manifest without
+being admitted. A single formal result may support several manuscripts; each
+must identify its own claims and named premises.
 
 ## 1. Statement
 
@@ -40,7 +43,7 @@ incomplete has status `candidate` and is listed as such.
 
 ## 4. Independent replay
 
-- `scripts/replay.sh` (the sequence in the README) on a committed tree with no
+- `scripts/replay.sh` (the sequence in [REPRODUCIBILITY.md](REPRODUCIBILITY.md)) on a committed tree with no
   untracked files: Nanoda replays
   every declaration of the result with only the three standard axioms permitted,
   and Comparator matches each declaration against its independent statement file
@@ -54,7 +57,10 @@ incomplete has status `candidate` and is listed as such.
 - Written proofs of the new steps follow the routes of the Lean proofs; an
   appendix maps each statement to its Lean declarations.
 - The written proofs and the appendix names are reviewed against the Lean
-  sources by an independent reviewer.
+  sources by an independent reviewer. The record states the review's scope:
+  direct proof-body inspection, statement checks and extracted proof-chain
+  checks are distinguished. A review of one manuscript does not certify a
+  different manuscript.
 - The verification section states what the kernel checks, which premises are
   assumed, and points to this repository's receipt.
 - The disclosure states how the results were produced and that all reviews are
@@ -78,3 +84,16 @@ incomplete has status `candidate` and is listed as such.
 - Grades are stated exactly: numerical checks are labelled numerical, explicit
   results are labelled explicit where a non-explicit result covers more, and
   open items are listed in the record.
+
+## Publication and a standalone paper
+
+Admission is a mathematical evidence decision, not a publication event. A
+paper may be deposited on its own. Its theorem
+statements, external inputs, proof explanations, source mapping and
+verification status must be complete relative to its cited inputs. Paper 1
+meets this standalone requirement. The scope of a shared verification library
+does not determine which manuscript files belong in a deposit.
+
+A new paper receives its own citation record and, upon deposition, its own
+identifier. The repository DOI and Paper 0 DOI do not identify Paper 1. The
+[paper guide](PAPERS.md) records these distinctions.

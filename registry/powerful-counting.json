@@ -235,7 +235,7 @@
   },
   "hypotheses_compared": {
    "status": "done",
-   "note": "compared with the source texts: Stewart (journal), CCDN, Reuss and Tao (arXiv), Gelfond (Bombieri-Gubler Lemma 1.6.11), Heath-Brown (author's manuscript of the notes, and Reuss's thesis restatement); see hypotheses"
+   "note": "compared with the source texts: Stewart (journal), CCDN, Reuss and Tao (arXiv), Gelfond (Bombieri-Gubler Lemma 1.6.11), Heath-Brown (published LNM statement, author's manuscript of the notes, and Reuss's thesis restatement); see hypotheses"
   },
   "build": {
    "status": "done",

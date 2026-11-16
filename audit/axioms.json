@@ -266,66 +266,6 @@
    "statement_sha256": "f91c455cf4bb1ca07ad3dbfb4279429c4491efc1955569d79f025aa42386bc25"
   },
   {
-   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A5",
-   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
-   "axioms": [
-    "Classical.choice",
-    "Quot.sound",
-    "propext"
-   ],
-   "statement_sha256": "22acf264215565ccd8cfc13225269acad9c62322d87971b4678f21acdef3c99b"
-  },
-  {
-   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A6",
-   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
-   "axioms": [
-    "Classical.choice",
-    "Quot.sound",
-    "propext"
-   ],
-   "statement_sha256": "f5261cb1e3647e2399b7202c3cc51cae960d39e3f95bb0aa5f2de0cbbbbf6d9b"
-  },
-  {
-   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A7",
-   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
-   "axioms": [
-    "Classical.choice",
-    "Quot.sound",
-    "propext"
-   ],
-   "statement_sha256": "bf13420feda1f6ad74291a31eaf8516e138f01e016e88d123be5d8d1fbbb8cd7"
-  },
-  {
-   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A8",
-   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
-   "axioms": [
-    "Classical.choice",
-    "Quot.sound",
-    "propext"
-   ],
-   "statement_sha256": "76f4740754b47d2eb78845f03e07865d1d4d4ed46edd9bcd4c0b23f9a64bf65c"
-  },
-  {
-   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A9",
-   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
-   "axioms": [
-    "Classical.choice",
-    "Quot.sound",
-    "propext"
-   ],
-   "statement_sha256": "1d981c104f87692593ea8e402af32ccf82ecb7c9f9b3b4a513a5770c36a4ea74"
-  },
-  {
-   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A10",
-   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
-   "axioms": [
-    "Classical.choice",
-    "Quot.sound",
-    "propext"
-   ],
-   "statement_sha256": "27acc14462995cc1ec7ccf8af8fa0cfcdac30c63f920baae636a41973bdaf3fc"
-  },
-  {
    "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A11",
    "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
    "axioms": [
@@ -354,36 +294,6 @@
     "propext"
    ],
    "statement_sha256": "e81892a96e87038d77c072ff9c0f946096002434c711a2db634170ff8b366d55"
-  },
-  {
-   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A14",
-   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
-   "axioms": [
-    "Classical.choice",
-    "Quot.sound",
-    "propext"
-   ],
-   "statement_sha256": "e9a9314b6e635e0bf85e619f3a860a6429a287ed17e349090e4b7058f088822e"
-  },
-  {
-   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A15",
-   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
-   "axioms": [
-    "Classical.choice",
-    "Quot.sound",
-    "propext"
-   ],
-   "statement_sha256": "2cada681f853e26cbdb36b99a8e4f3f175346f2e8451f874eea87795aa12f72d"
-  },
-  {
-   "name": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A16",
-   "module": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting",
-   "axioms": [
-    "Classical.choice",
-    "Quot.sound",
-    "propext"
-   ],
-   "statement_sha256": "830c1f7c1510bec0532dde1171d45dca0806d645d39d7e7e89a48595bfa1b773"
   }
  ]
 }

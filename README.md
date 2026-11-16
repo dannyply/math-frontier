@@ -26,7 +26,7 @@ serious research with AI needs the resources of a large lab.
 
 This repository is my contribution to that evidence. Jocelyn was built by one
 person, on models anyone can subscribe to, with open tools: Lean, Mathlib and
-standard computer algebra. Each result here is checked by machines rather than
+standard computer algebra. Each admitted result here is checked by machines rather than
 taken on trust, so it can be judged on its merits. If results like these hold
 up, they support a simple claim: with careful orchestration and strict
 standards of evidence, real progress on hard questions is within reach of
@@ -43,11 +43,11 @@ into something anyone can pick up.
 
 ## What makes a result count
 
-Saying that an AI "proved something" is cheap. For a result to be included here,
+Saying that an AI "proved something" is cheap. For a result to be admitted here,
 three things have to hold.
 
 **It is correct, and checked by machines rather than taken on trust.** Every
-theorem is proved in [Lean](https://lean-lang.org), a proof assistant whose
+admitted theorem is proved in [Lean](https://lean-lang.org), a proof assistant whose
 kernel checks each logical step. The proofs are then replayed by a second,
 independently written kernel, and each formal statement is compared, symbol by
 symbol, with a copy written separately from the proof. Where a result rests on a
@@ -59,9 +59,9 @@ translates each formal statement back into ordinary mathematics, and the
 translation is compared with the paper. Any gap between what the paper claims
 and what Lean proves is fixed before the result is admitted.
 
-**It is new and worth having.** Each result improves on what was known, as far
-as a literature search can establish, and the paper says exactly which earlier
-results it builds on and improves.
+**It is new and worth having.** Each paper identifies its advances against the
+literature and distinguishes them from supporting lemmas, known consequences
+and formalized applications. Novelty is assessed by a documented search.
 
 The full checklist is in [ADMISSION.md](ADMISSION.md).
 
@@ -81,11 +81,24 @@ Castryck–Cluckers–Dittmann–Nguyen bound for integral points on curves.
 [DOI 10.5281/zenodo.23614742](https://doi.org/10.5281/zenodo.23614742) ·
 [record](registry/powerful-counting.json)
 
-[RESULTS.md](RESULTS.md) lists every result with its exact statements and assumptions.
+**Powerful values of quadratic polynomials.** How often does a quadratic
+polynomial take a powerful value? Building on the counting framework above,
+this paper gives the bound x^(293/1220+ε) for integral quadratics with positive
+leading coefficient and nonsquare discriminant. It also makes the estimates
+uniform as the coefficients vary, allowing them to be used inside other
+proofs and yielding new bounds for pairs of numbers with prescribed prime
+multiplicities. The counting framework becomes a tool for further discovery.
+[Paper 1](papers/powerful-polynomial-values/main.pdf) ·
+[record](registry/consecutive-counting.json) ·
+[connection to the counting paper](DISCOVERY.md)
+
+Paper 1 has completed repository verification and is intended for standalone
+publication. [PAPERS.md](PAPERS.md) gives the scope and status of Papers 0 and 1;
+[RESULTS.md](RESULTS.md) lists the claims, assumptions and formal statements.
 
 ## What is and is not claimed
 
-- The formal proofs are checked by two independent kernels. A reader still has
+- The admitted formal proofs are checked by two independent kernels. A reader still has
   to trust two things: that each formal statement says what its English version
   says, which is reviewed but cannot be machine-checked, and the theorems from
   the literature that a result assumes, which are named and compared with their
@@ -101,57 +114,30 @@ Castryck–Cluckers–Dittmann–Nguyen bound for integral points on curves.
 
 | Path | Contents |
 |---|---|
-| `RESULTS.md` | every admitted result with its exact statements and assumptions |
-| `papers/<id>/` | the paper, its PDF, citation and supplementary scripts |
+| `RESULTS.md` | admitted results, assumptions and formal statements |
+| `PAPERS.md` | Paper 0 and standalone Paper 1 |
+| `DISCOVERY.md` | how the powerful-product framework supports further results |
+| `REPRODUCIBILITY.md` | build, audit, replay and paper reproduction instructions |
+| `papers/<id>/` | manuscript source, supplied PDF and paper-specific supplementary files |
+| `citations/` | paper-specific citation records |
 | `registry/` | one record per result: claims, Lean declarations, assumptions and how each was checked |
-| `JocelynWorkspace/` | Lean sources |
-| `release/manifest.json` | every formal statement with its hash, axioms and evidence level |
+| `JocelynWorkspace/` | Lean sources; admission status is determined by the registry |
+| `release/manifest.json` | verification targets and statement fingerprints; presence alone is not admission |
 | `replay/` | independent statement files, negative controls, replay tooling and receipts |
 | `audit/` | build record and axiom audit |
 
 ## Reproducing the checks
 
-Lean 4.33.1 with Mathlib `0df444a360eaa60ab8c11dca51a86af692955474`
-(`lean-toolchain`, `lake-manifest.json`). From a fresh clone:
-
-```sh
-lake exe cache get                    # Mathlib's prebuilt files for the pinned commit
-scripts/build.sh --no-record          # compile module by module; fails on any warning
-scripts/audit.sh                      # axioms and full statement fingerprints against the manifest
-python3 scripts/test_fingerprint.py   # changing an exponent changes the fingerprint
-python3 scripts/registry.py check     # committed receipts, fingerprints and evidence binding
-```
-
-`--no-record` leaves the tracked build record `audit/build.json` untouched, so
-the tree stays as committed. The independent replay needs three tools built
-once, as described in [replay/TOOLS.md](replay/TOOLS.md). It writes its
-receipts outside the repository, so that both runs start from the committed
-tree:
-
-```sh
-R=$(mktemp -d)
-scripts/replay.sh --skip-build --receipt-dir "$R" --receipt-name powerful-counting.json
-scripts/replay.sh --skip-build --receipt-dir "$R" \
-  --only JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.Erdos137Final.counting_thm_k3 \
-  --statements replay/negative-control/CountingNegativeControl.lean \
-  --receipt-name powerful-counting-negative.json   # must fail with a Comparator mismatch
-```
-
-To register a replay, copy both receipts into `replay/receipts/`, then run
-`python3 scripts/registry.py bind <id>`; it refuses unless every bound source
-is identical to the commit both receipts were produced at. The replay never
-runs `lake build`; without `--skip-build` it compiles with `scripts/build.py`.
-The exact-arithmetic certificates are reproduced by
-`python3 certificates.py && python3 endpoint_cert.py` in
-`papers/powerful-counting/supplementary/`, and the paper by
-`scripts/build-paper.sh powerful-counting`.
+[REPRODUCIBILITY.md](REPRODUCIBILITY.md) gives the pinned dependencies and commands
+for building the Lean proofs, auditing assumptions, replaying the statements in
+an independent kernel, running negative controls and rebuilding the papers.
 
 ## License and citation
 
 Code, Lean sources and scripts: Apache License 2.0 ([LICENSE](LICENSE)). Papers and
 documentation: CC BY 4.0 ([LICENSE-papers.md](LICENSE-papers.md)). To cite the
-repository or a paper, see [CITATION.cff](CITATION.cff) and each paper's
-`citation.bib`.
+repository or a paper, see [CITATION.cff](CITATION.cff) and the
+[paper-specific citation records](PAPERS.md#citation-and-publication).
 
 ## Who did what
 

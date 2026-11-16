@@ -1,0 +1,170 @@
+{
+  "reviewers": "AI systems only; no human mathematical review",
+  "papers": [
+    {
+      "paper": "powerful-polynomial-values",
+      "claims": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A11",
+        "A12",
+        "A13"
+      ],
+      "tex_sha256": "4266857e1eeed4b63fbbdc1d29f0ddc30fb38654d6f087a2339bc4c53ab9c1a6",
+      "pdf_sha256": "3d0d9d5b61708ffb99fa8d40ab906ecfb80e99880d3f4d39e5de3c298c5bc6a1",
+      "statement_verdict": {
+        "A1": "EXACT",
+        "A2": "EXACT",
+        "A3": "INDIVIDUAL BOUND EXACT; the formal coefficient average supplies the displayed existential eta with witness 1/(1600(nu+3))",
+        "A4": "GENERAL PART EXACT; the cube-coefficient part of Corollary 1.4 is a stronger written consequence of A1, not an additional replayed declaration",
+        "A11": "EXACT SPECIALIZATION: included as h=1 in Theorem 1.5 (A12)",
+        "A12": "EXACT",
+        "A13": "EXACT"
+      },
+      "review_report_sha256": [
+        "f7748a03f97de73d3faff0c78e9fa7ecbdc4d4565108fc417c4c8a6d1f1e4c46",
+        "cbed0357c320c7106421da76d232d376316ef125a66cb7ed44fc77b7157f0dc1",
+        "1b22885b8a677cb8b9bdeab5231ada9217e4fb95410ffbd4f4a2d6f8326e1579",
+        "10814c302fa75b23b07a655e7381628eb90b6b5728912af9b114fdf045271928",
+        "0c5b661b98b6285900716f0ea9d7669d9345d3947ce2bf45151a845b19b12d22",
+        "10ff1a369be46dd4d00e0ea15c3c64de648654d2ce1159e82eac0bc48a92b407",
+        "a6feadd72f9d17bfb566d698a1fb4c32c5aa80a57ea3b4d02ec299d3ee47c774",
+        "100509ba32154e894693f77430ae6dc2eb16115eefef83b7555741e98fc57a56",
+        "1615a46e8f64ec1caec514af71000b824809ae1e207b2ee4af03126f88e86f38",
+        "cab576c8f19ae4b8b7212c8677f738c9c765035e260636e89f8c03dd5b949f7f",
+        "5a42aabece7b049f963c9abc4505205e0dfef44269fd4ad3ded38966d10330c1",
+        "106e9f992e7bfe97aef1f43279e2c5b95e215abd08bd6860abff9cb835299567",
+        "6f766cef45703b95df189662939db691c2d85d075c6fd8ab2c44e01a3fcbc49a",
+        "d0c5348c425dc42f8b8051a2ec9655d1eb854c5d969359c247827368406bf047",
+        "84b0f3daee39b28dbeccf21ceee35627a91f209f1041e3c11f38b2e0c7feac51",
+        "994f8a33210b705673b6cc04183fb266642603d157dd61e65df9984bed2a1d3b",
+        "7eedeba22e0f7d933139b789c32def6027423c3b0a797626e75467c172e9ec21",
+        "ebd4c6bf95cc73b29f17048bbbaf43e6f6499d6b39b3a47c98ebf2abb3a7ff72",
+        "38fc5cc85ade2cdda105a3e3c6ef0473ba2ef35733e9082cb75234df53abf4be",
+        "31805a96128e513d6aa836524b6c5f40fd0b533235b9570df5776a7f651de39d",
+        "9e2c20d4f3c4e25745e43b9a8b517dc01160a4cd25283556dfbcca74250c7c91",
+        "c659db8145002a7c8eb0380e4f6959a9d859eb44f526ae95abbdf4454bfbb8b4",
+        "920f515828c981b882f3925ee550ffca20e4873220baf52b40b7ae71f7811fd3",
+        "c5ccfc465d04347d5bc78da15983a96c94da002a8e508636cb76fb88226b2dc9",
+        "9abec8bc79fe695ca844fe28d5762e0c30b94520be9f3105bbde22dce78c52e8",
+        "5b2fd49fd82341469a410acd35c0661d0d53d33f8444b5fec0e1b395eeffcec0",
+        "013358a116cd30c6c33a03f49cecee0bdc1949f211efe00145d57b4f8e992ff0",
+        "5267f16a0d9cc045042d68f7fc396fe8479e021adba128a750c8d00ab61a0f51",
+        "1e84b7f38958d760fce3652c24dcadd000af63913f394c1f2a634ad56baa164b",
+        "ed6f53e276ebe4fc65a47470b12a51d14b3a7b02d4c60013c2fce68d2284f4c9",
+        "dc9f6421b630e34612b9b5e6fb1359460bf5871fc8f7abde6858de19cc82fc58",
+        "352165bbce2900ab43ec9dc008e575af8f1dc533d50e9aa6bc557896ee39c548",
+        "9343462bc4fc1ef027348192cc96c88da526157684bc51a91a57c712646b2975",
+        "e315d27e6624f74e32dbe5757743638a57e79b0b3c9f945faca7fe23b8700766",
+        "451bd580073c32a01b503f93e540bc565f153e454b2b9f736edee48f82e122fa",
+        "87be7dbd8bc58bc092edc990cc316c745969fd0c239bdf5b1b7a08cacb30cda9",
+        "a8a06debd742d09058f506d5bc29ffa7e66fb41ce6688479862194b1c2655c05"
+      ],
+      "scope": "Independent AI statement, proof-route and written-proof reviews, plus a fresh blind-first English-to-Lean and Lean-to-English review covering all 66 numbered items and the seven headline formal interfaces. Exact statements, composed proof routes and written refinements are distinguished in the source map and bidirectional review. This is not an exhaustive line-by-line Lean proof-body audit or a human mathematical review; no fresh formal replay was performed.",
+      "repository_admission": "admitted formal interfaces: existing integrated standard-axiom replay and same-commit statement negative control unchanged; written cubic consequences are distinguished in the appendix",
+      "reviewed_tex_sha256": "7f7722bbe6bce3669df4beeb885d77c5ad20b6277fe2415af68603f904027fca",
+      "post_review_layout": "37-page editorial revision; zero build warnings, all-page visual check and enlarged checks of the changed introduction.",
+      "bidirectional_review": {
+        "report": "verification/consecutive-counting/bidirectional-review.json",
+        "report_sha256": "2f242e1931a8c0d9eef66c5e43fc162a7790aca0aabfdc0d1b1f512657493931",
+        "source_map_sha256": "a8717148be0ab8386cfd962710768d1ae8ac174e080dd8df979fbedcf0cf6568",
+        "coverage": {
+          "numbered_items": 66,
+          "headline_paper_statements": 6,
+          "headline_formal_interfaces": [
+            "A1",
+            "A2",
+            "A3",
+            "A4",
+            "A11",
+            "A12",
+            "A13"
+          ],
+          "named_external_predicates": [
+            "ST",
+            "CC",
+            "GE"
+          ],
+          "derived_comparisons": 15,
+          "numbered_statements_changed": [
+            "def:cell",
+            "prop:A2weights",
+            "lem:perspective",
+            "prop:uniform-mixed",
+            "rem:rs",
+            "rem:exponent"
+          ],
+          "headline_statements_unchanged": true
+        },
+        "verdict": "SUPPORTED_WITH_EXPLICIT_WRITTEN_REFINEMENTS",
+        "corrections": [
+          {
+            "id": "E1",
+            "item": "Lemma 9.6",
+            "resolution": "Restrict kappa to 1/2, the domain of Theta_0; align the explanation of its application."
+          },
+          {
+            "id": "E2",
+            "item": "Remark 11.4",
+            "resolution": "Name arbitrary fixed positive shifts and the reverse shift -1 explicitly."
+          },
+          {
+            "id": "E3",
+            "item": "Proposition 11.3",
+            "resolution": "Choose the bound constant before all real Y>=2."
+          },
+          {
+            "id": "E4",
+            "item": "Literature comparison",
+            "resolution": "Require 1<=|a| in the cited and compared ranges; checked against retained primary Theorem A."
+          },
+          {
+            "id": "E5",
+            "item": "Proposition 9.5",
+            "resolution": "Place the absolute constant before the polynomial and integer-degree quantifiers."
+          },
+          {
+            "id": "C02",
+            "item": "Definition 5.2",
+            "resolution": "Clip the last cell at the branch endpoint; coverage and inclusion in the formal population are preserved."
+          },
+          {
+            "id": "W12.1",
+            "item": "Remark 12.1",
+            "resolution": "Describe the determinant threshold as the sufficient condition proved here, without claiming a universal necessity result."
+          }
+        ],
+        "initial_report_sha256": {
+          "english/ENGLISH-SPEC.json": "9e2c20d4f3c4e25745e43b9a8b517dc01160a4cd25283556dfbcca74250c7c91",
+          "english/ENGLISH-REVIEW.txt": "c659db8145002a7c8eb0380e4f6959a9d859eb44f526ae95abbdf4454bfbb8b4",
+          "lean/core/LEAN-SPEC.json": "920f515828c981b882f3925ee550ffca20e4873220baf52b40b7ae71f7811fd3",
+          "lean/core/LEAN-REVIEW.txt": "c5ccfc465d04347d5bc78da15983a96c94da002a8e508636cb76fb88226b2dc9",
+          "lean/uniform/LEAN-SPEC.json": "9abec8bc79fe695ca844fe28d5762e0c30b94520be9f3105bbde22dce78c52e8",
+          "lean/uniform/LEAN-REVIEW.txt": "5b2fd49fd82341469a410acd35c0661d0d53d33f8444b5fec0e1b395eeffcec0"
+        },
+        "final_check_sha256": {
+          "english": "87be7dbd8bc58bc092edc990cc316c745969fd0c239bdf5b1b7a08cacb30cda9",
+          "lean_uniform_and_source_map": "a8a06debd742d09058f506d5bc29ffa7e66fb41ce6688479862194b1c2655c05"
+        },
+        "formal_sources_unchanged": true,
+        "fresh_formal_replay": false,
+        "review_limits": [
+          "Semantic and proof-route review, not an exhaustive line-by-line proof-body audit.",
+          "Written refinements, explicit classical coefficient powers and derived literature comparisons are not additional independently replayed declarations.",
+          "External source faithfulness and novelty are covered only by the separately scoped literature reviews; they were not comprehensively repeated here.",
+          "All reviews are by AI systems; no human mathematical review is claimed."
+        ]
+      },
+      "editorial_update": {
+        "check": "verification/consecutive-counting/editorial-check.json",
+        "check_sha256": "57051ea28db3d46a69b27e607187128930fefc791563286aebc1137409a8c233",
+        "reviewed_tex_sha256": "7f7722bbe6bce3669df4beeb885d77c5ad20b6277fe2415af68603f904027fca",
+        "current_tex_sha256": "4266857e1eeed4b63fbbdc1d29f0ddc30fb38654d6f087a2339bc4c53ab9c1a6",
+        "scope": "Editorial introduction revision; all 66 numbered items and all text from Section 2 through the bibliography are byte-identical to the independently reviewed manuscript. The new exponent summary repeats choices already proved in Sections 10 and 11. No new independent review or replay."
+      }
+    }
+  ],
+  "statements_sha256": "09233a29d42178d2aef0709f2b0e8c0c7367efe6f42237b0dbdde069efcd1c84"
+}

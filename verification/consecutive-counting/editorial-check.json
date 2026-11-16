@@ -1,0 +1,31 @@
+{
+  "paper": "powerful-polynomial-values",
+  "scope": "Editorial clarification only; no new mathematical or independent review is claimed.",
+  "reviewed_tex_sha256": "7f7722bbe6bce3669df4beeb885d77c5ad20b6277fe2415af68603f904027fca",
+  "tex_sha256": "4266857e1eeed4b63fbbdc1d29f0ddc30fb38654d6f087a2339bc4c53ab9c1a6",
+  "pdf_sha256": "3d0d9d5b61708ffb99fa8d40ab906ecfb80e99880d3f4d39e5de3c298c5bc6a1",
+  "changes": [
+    "Summarise the existing coefficient-exponent choices from Sections 10 and 11 in the introduction.",
+    "Replace up to logarithms with a bound of order N^(2/5) up to logarithmic factors.",
+    "State in the introduction that the three published external estimates are inputs whose proofs are outside the Lean development."
+  ],
+  "reported_typos": {
+    "not_a_square": "Absent from the reviewed source and rendered PDF; correct wording retained.",
+    "graph_cover_v_squared": "Both the source and rendered PDF use v^2, consistent with omega=u+iv; formula retained."
+  },
+  "preservation": {
+    "numbered_items_unchanged": 66,
+    "section_2_through_end_byte_identical": true,
+    "formal_sources_and_receipts_unchanged": true,
+    "source_map_sha256": "a8717148be0ab8386cfd962710768d1ae8ac174e080dd8df979fbedcf0cf6568",
+    "bidirectional_review_sha256": "2f242e1931a8c0d9eef66c5e43fc162a7790aca0aabfdc0d1b1f512657493931"
+  },
+  "validation": {
+    "pdf_pages": 37,
+    "build_warnings": 0,
+    "visual_review": "All 37 pages inspected at overview scale; introduction pages 2-4 inspected enlarged. Alleged original typos checked visually on pages 1 and 23.",
+    "registry": "admitted records consistent; generated results current",
+    "replay_entrypoint": "scripts/replay.sh --help succeeded from outside the repository; no fresh proof replay"
+  },
+  "publication": "Exact published archive matching is not established by these local checks; no upload or publication performed."
+}

@@ -33,8 +33,8 @@ never how. The method is the harness's to find.
 directs helper agents that pursue different lines of attack in parallel:
 searching the literature, running computations, attempting proofs, formalizing
 arguments, and reviewing each other's work. Runs last hours, within budgets of
-time, compute and tool use that the harness enforces. Models from several
-providers can take part.
+time, compute and tool use that the harness enforces. The harness supports several providers; each research team uses a single
+provider, while separate runs and external reviews may use different providers.
 
 **Tools that check rather than persuade.** The agents work with the tools a
 mathematician would want, used in ways that produce checkable output:
@@ -71,7 +71,12 @@ harness: writing the paper, reviewing the written proofs against the
 Lean proofs, checking each external theorem against its source, and checking
 that each formal statement says what the paper says. In this repository a
 result is admitted only after that work and an independent replay of every
-proof; [ADMISSION.md](ADMISSION.md) gives the checklist.
+proof; [ADMISSION.md](ADMISSION.md) gives the checklist. Successful individual
+proof checks do not themselves satisfy repository admission. Paper 1 develops
+the counting framework of Paper 0; the [paper guide](PAPERS.md) records their
+scope and verification. Manuscript completion, repository admission and
+publication are separate facts. A draft or a manifest entry is not evidence
+that all three have occurred.
 
 ## What Jocelyn is not
 

@@ -1,0 +1,2203 @@
+{
+  "paper": "powerful-polynomial-values",
+  "verdict": "SUPPORTED_WITH_EXPLICIT_WRITTEN_REFINEMENTS",
+  "reviewers": "Three fresh AI reviewers; no human mathematical review.",
+  "protocol": "One reviewer extracted the English claims without Lean or the formal appendix. Two reviewers back-translated actual Lean declarations without the manuscript or prior verdicts. All initial reports were hash-frozen before comparison. Both directions were then checked, followed by separate correction reviews.",
+  "tex_sha256": "7f7722bbe6bce3669df4beeb885d77c5ad20b6277fe2415af68603f904027fca",
+  "pdf_sha256": "4a78e18307938d3e954bf76c4712926c9bebf4e5592566744d93a5f9eceef1d1",
+  "source_map_sha256": "a8717148be0ab8386cfd962710768d1ae8ac174e080dd8df979fbedcf0cf6568",
+  "coverage": {
+    "numbered_items": 66,
+    "headline_paper_statements": 6,
+    "headline_formal_interfaces": [
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A11",
+      "A12",
+      "A13"
+    ],
+    "named_external_predicates": [
+      "ST",
+      "CC",
+      "GE"
+    ],
+    "derived_comparisons": 15,
+    "numbered_statements_changed": [
+      "def:cell",
+      "prop:A2weights",
+      "lem:perspective",
+      "prop:uniform-mixed",
+      "rem:rs",
+      "rem:exponent"
+    ],
+    "headline_statements_unchanged": true
+  },
+  "headline_conclusion": "No headline scope weakening, omitted mathematical premise or infinite-cardinality vacuity was found. The general cubic part matches A4; the stronger cube-coefficient bound is the explicitly written A1 consequence. The other headline conclusions are supported under the three named literature premises, with stated witness/specialization identifications.",
+  "corrections": [
+    {
+      "id": "E1",
+      "item": "Lemma 9.6",
+      "resolution": "Restrict kappa to 1/2, the domain of Theta_0; align the explanation of its application."
+    },
+    {
+      "id": "E2",
+      "item": "Remark 11.4",
+      "resolution": "Name arbitrary fixed positive shifts and the reverse shift -1 explicitly."
+    },
+    {
+      "id": "E3",
+      "item": "Proposition 11.3",
+      "resolution": "Choose the bound constant before all real Y>=2."
+    },
+    {
+      "id": "E4",
+      "item": "Literature comparison",
+      "resolution": "Require 1<=|a| in the cited and compared ranges; checked against retained primary Theorem A."
+    },
+    {
+      "id": "E5",
+      "item": "Proposition 9.5",
+      "resolution": "Place the absolute constant before the polynomial and integer-degree quantifiers."
+    },
+    {
+      "id": "C02",
+      "item": "Definition 5.2",
+      "resolution": "Clip the last cell at the branch endpoint; coverage and inclusion in the formal population are preserved."
+    },
+    {
+      "id": "W12.1",
+      "item": "Remark 12.1",
+      "resolution": "Describe the determinant threshold as the sufficient condition proved here, without claiming a universal necessity result."
+    }
+  ],
+  "numbered_items": [
+    {
+      "label": "thm:fixed",
+      "number": "1.1",
+      "kind": "theorem",
+      "relation": "EXACT",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "A1 has the same ∀coefficients ∀ε ∃K ∀realN order, A>0, nonsquare integer discriminant of either sign, positive-value filter and exponent. Natural positive n is equivalent to positive integer n;0<f(n) is equivalent to f(n)≥1. The only global assumptions are the three matched published predicates.",
+      "targets": [
+        "A1"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A1",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting.lean",
+          "statement_lines": [
+            20,
+            20
+          ],
+          "sha256": "985a552ca7e2d2e410e90a2d661fb4b5a71b9732fdcb4ec8bebfbfbde616af7a"
+        },
+        {
+          "declaration": "PaperA.S11a6bc635095.JocelynClaims.claim_20b1ff9d2fad7f666383d05573fc0436fdac6396167810bee558b98e1a6bcc82",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A1.lean",
+          "statement_lines": [
+            2635,
+            2673
+          ],
+          "sha256": "eb7d8d9f2bfe02fc9feb0547149dde16d75d013230b23132906cd86fa0611e53"
+        }
+      ],
+      "statement_sha256": "c5048dc17517a61a9971d66c3a37ddef258e42b64e121afb98d02fe848dc5996",
+      "corrected_item": false
+    },
+    {
+      "label": "thm:uniform",
+      "number": "1.2",
+      "kind": "theorem",
+      "relation": "STRONGER",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "A3 explicitly selects positive K,ν before all coefficients,L,N and fixes the coefficient-average η=1/[1600(ν+3)]. Its average C is unrestricted in sign, but replace it by max(C,1) since N^(390/1600)>0. This yields the English positive C and η; finite integer floor/sum matches exactly. No ε or fixed-coefficient-only premise.",
+      "targets": [
+        "A3"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A3",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting.lean",
+          "statement_lines": [
+            26,
+            26
+          ],
+          "sha256": "985a552ca7e2d2e410e90a2d661fb4b5a71b9732fdcb4ec8bebfbfbde616af7a"
+        },
+        {
+          "declaration": "PaperA.S58d63b5176e0.JocelynClaims.claim_f6217e77d65202989a8b09b84502579a3faeb21c54d8230191013513359d90f5",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A3.lean",
+          "statement_lines": [
+            1171,
+            1198
+          ],
+          "sha256": "31dbea183c726e6fa39a24d601dc2c6d241d04044effb67566cca42a6a79ef45"
+        }
+      ],
+      "statement_sha256": "b6fbbb73130fd15b03d4f10afd84e26f106db51b3803a4080adadf5526fab2f9",
+      "corrected_item": false
+    },
+    {
+      "label": "thm:family",
+      "number": "1.3",
+      "kind": "theorem",
+      "relation": "EXACT",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "A2 matches κ range, inclusive piecewise breakpoints, uniformity in signed nonzero a, real N≥2 and ε. n²+natAbs(a)² equals the positive integer value n²+a². Actual prefix, population and divisor suppliers are supplied by source theorems in A2:5835–5890, not left as assumptions.",
+      "targets": [
+        "A2",
+        "I42"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A2",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting.lean",
+          "statement_lines": [
+            23,
+            23
+          ],
+          "sha256": "985a552ca7e2d2e410e90a2d661fb4b5a71b9732fdcb4ec8bebfbfbde616af7a"
+        },
+        {
+          "declaration": "PaperA.Sf7058b9637dc.JocelynClaims.claim_315b5a9f2e46c379201de6c6680ec5a47537cffcc88ab58c509854302c862521",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A2.lean",
+          "statement_lines": [
+            5847,
+            5884
+          ],
+          "sha256": "e259fa1c2cc02e70175487a6499d5be24d4450ca583db914850219723ab85558"
+        },
+        {
+          "declaration": "FormalAB.S4f28eb05.A2PerspectiveCertificate.perspective",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S4f28eb05.lean",
+          "statement_lines": {
+            "start_line": 39,
+            "end_line": 40
+          },
+          "sha256": "56740f3f0c5ac081fd40d72c13c7fcb857a151dbc7274a4b3ca3ad76365c93fa"
+        },
+        {
+          "declaration": "PaperA.Sf7058b9637dc.A2ActualPrefix.signed_original_count",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A2.lean",
+          "statement_lines": {
+            "start_line": 5739,
+            "end_line": 5745
+          },
+          "sha256": "e259fa1c2cc02e70175487a6499d5be24d4450ca583db914850219723ab85558"
+        }
+      ],
+      "statement_sha256": "fa43890c77916e583883312374fd4b1dfd8ed273277545d5f45a60a023d08356",
+      "corrected_item": false
+    },
+    {
+      "label": "cor:cubic",
+      "number": "1.4",
+      "kind": "corollary",
+      "relation": "DIFFERENT",
+      "disposition": "MIXED_FORMAL_AND_WRITTEN_SUPPORTED",
+      "reason": "A4 first conjunct matches the general cubic existential absolute ν1. Its second conjunct is weaker/different: C(a³)^B0 T^(389/1600), not the English ε-bound with coefficient power293/1220+ε. The stronger English cube statement follows by the written injection u=at, powerful(u³+1)⇒powerful(9(u²−u+1)), then A1. The formal appendix explicitly discloses this distinction and that ν1=180 comes from a separate ES proof.",
+      "targets": [
+        "A4",
+        "written-cube-consequence"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A4",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting.lean",
+          "statement_lines": [
+            29,
+            29
+          ],
+          "sha256": "985a552ca7e2d2e410e90a2d661fb4b5a71b9732fdcb4ec8bebfbfbde616af7a"
+        },
+        {
+          "declaration": "PaperA.Sc55d469de11b.JocelynClaims.claim_f0af73eec4feca4a57820fead6fcc6985f3612db6f9304d7c39a27fd2e9a6349",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A4.lean",
+          "statement_lines": [
+            6792,
+            6805
+          ],
+          "sha256": "7e23945d80ed759f06d0cd4b340f0a6c909d974efcd3883b245cc5d89d486f21"
+        }
+      ],
+      "statement_sha256": "3b4889fa45f001ee2576d9cd53b9d7c2efa054959156e5f904b718e789881bbe",
+      "corrected_item": false
+    },
+    {
+      "label": "thm:positive",
+      "number": "1.5",
+      "kind": "theorem",
+      "relation": "EXACT",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "A12 matches arbitrary positive integer h, witnesses Kh,Ch≥1, same Ch in δ, and all s∈{6,8},2≤r<s. Natural/integer positive shifts are equivalent. A11 is only the h=1 specialization and is not sufficient alone; A12:1895–1902,2171–2172 supplies arbitrary positive shifts.",
+      "targets": [
+        "A12",
+        "A11"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A12",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting.lean",
+          "statement_lines": [
+            53,
+            53
+          ],
+          "sha256": "985a552ca7e2d2e410e90a2d661fb4b5a71b9732fdcb4ec8bebfbfbde616af7a"
+        },
+        {
+          "declaration": "PaperA.S92aace92f94a.JocelynClaims.claim_963cfa51cc16cd8871853537ed9cb359726a2c7c742e639694cb88030a3f0a4a",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A12.lean",
+          "statement_lines": [
+            2199,
+            2215
+          ],
+          "sha256": "6efcb78dd35352e82397ed8d6431264b253f08238aa21b328a1503889c1d8be7"
+        },
+        {
+          "declaration": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A11",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting.lean",
+          "statement_lines": [
+            50,
+            50
+          ],
+          "sha256": "985a552ca7e2d2e410e90a2d661fb4b5a71b9732fdcb4ec8bebfbfbde616af7a"
+        },
+        {
+          "declaration": "PaperA.S4addf8d83516.JocelynClaims.claim_9048ee9d1cf29cb07b40e6eb1f1dc8c59c2a8c2b56b9bcd48daf61bd14946b29",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A11.lean",
+          "statement_lines": [
+            1796,
+            1812
+          ],
+          "sha256": "8cb719d17e074af67cb44ee508f131e632e6c141f2f3353beef9b27fe6dbe873"
+        }
+      ],
+      "statement_sha256": "3d5c52243f75ab59dc4b705a9543d0fe52cea5a75a4138b2215397617c349c88",
+      "corrected_item": false
+    },
+    {
+      "label": "thm:reverse",
+      "number": "1.6",
+      "kind": "theorem",
+      "relation": "STRONGER",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "Canonical A13 with name ending bca4 explicitly gives K*,ν*>0 at every H′≥1, first estimate under AH′ nonsquare, and reverse neighbour only−1. It additionally asserts δ>0. Natural n−1 coincides with integer subtraction under n≥2. Square n are included via a separately proved route; there is no arbitrary reverse-h claim.",
+      "targets": [
+        "A13",
+        "I45"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting.A13",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting.lean",
+          "statement_lines": [
+            56,
+            56
+          ],
+          "sha256": "985a552ca7e2d2e410e90a2d661fb4b5a71b9732fdcb4ec8bebfbfbde616af7a"
+        },
+        {
+          "declaration": "PaperA.Se4c1670b1d97.JocelynClaims.claim_9e20edce92690960c95d90b24264d3b8cae782bf3a0f090a271f65a7cbbebca4",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A13.lean",
+          "statement_lines": [
+            5711,
+            5728
+          ],
+          "sha256": "497e9b43cb51e8866abf9e31c50fac0531741e52a364839ab5732a875cf0d6a3"
+        },
+        {
+          "declaration": "PaperA.Se4c1670b1d97.Q002.q045",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A13.lean",
+          "statement_lines": {
+            "start_line": 3789,
+            "end_line": 3800
+          },
+          "sha256": "497e9b43cb51e8866abf9e31c50fac0531741e52a364839ab5732a875cf0d6a3"
+        },
+        {
+          "declaration": "PaperA.Se4c1670b1d97.zA.yp",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A13.lean",
+          "statement_lines": {
+            "start_line": 3877,
+            "end_line": 3885
+          },
+          "sha256": "497e9b43cb51e8866abf9e31c50fac0531741e52a364839ab5732a875cf0d6a3"
+        },
+        {
+          "declaration": "PaperA.Se4c1670b1d97.Q.C11.PCA.y4",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A13.lean",
+          "statement_lines": {
+            "start_line": 3680,
+            "end_line": 3683
+          },
+          "sha256": "497e9b43cb51e8866abf9e31c50fac0531741e52a364839ab5732a875cf0d6a3"
+        }
+      ],
+      "statement_sha256": "66fa2b63ddf3f328189d20af6b69d0a16f1ce5346cc5c3e62b950d46f9d44d28",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:ideal",
+      "number": "3.1",
+      "kind": "lemma",
+      "relation": "EXACT",
+      "disposition": "PROOF_LOCAL_SUPPORTED",
+      "reason": "I01 local actual_ideal_decomposition combines ideal_split and bad_exponents for(αn); it gives nonzero factors,R|(4AΔ),and even squarefree R. This is inside the cover proof, not a separate exported lemma with the English name.",
+      "targets": [
+        "I01"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S9f3929ee.A1ArithmeticInterface.balanced_finite_cover_attempt",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S9f3929ee.lean",
+          "statement_lines": [
+            351,
+            351
+          ],
+          "sha256": "ae27eaa68d8972cb3de46e7f95b855676dec1f2916485386a6c8febfc5dcb4f3"
+        },
+        {
+          "declaration": "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope.JocelynDecomp.decomp_one",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/DecompositionAndEnvelope.lean",
+          "statement_lines": [
+            97,
+            100
+          ],
+          "sha256": "e8aaef9912225344ffe886c76948229beba5e5030983728e09e4d49314b31340"
+        }
+      ],
+      "statement_sha256": "5a21b369a6eeea9e217fea63daaa02ea6039ae5a2ea91223374e743748f3abb9",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:unbalanced",
+      "number": "3.2",
+      "kind": "lemma",
+      "relation": "STRONGER",
+      "disposition": "PROOF_LOCAL_SUPPORTED",
+      "reason": "S9f3929ee:732–735 gives the same finite-label coefficient times Y³X² identity for any natural n with positive full f(n), with nonzero integral Y,X; English n≥1 is a restriction. Labels and chosen representatives are construction-specific.",
+      "targets": [
+        "I01"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S9f3929ee.A1ArithmeticInterface.balanced_finite_cover_attempt",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S9f3929ee.lean",
+          "statement_lines": [
+            351,
+            351
+          ],
+          "sha256": "ae27eaa68d8972cb3de46e7f95b855676dec1f2916485386a6c8febfc5dcb4f3"
+        },
+        {
+          "declaration": "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope.JocelynDecomp.decomp_one",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/DecompositionAndEnvelope.lean",
+          "statement_lines": [
+            97,
+            100
+          ],
+          "sha256": "e8aaef9912225344ffe886c76948229beba5e5030983728e09e4d49314b31340"
+        }
+      ],
+      "statement_sha256": "448977c02c65c4252c41c59d22c28a102bf5743d4c8aeb519de96e40b42e7c1d",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:balance",
+      "number": "3.3",
+      "kind": "lemma",
+      "relation": "WEAKER",
+      "disposition": "PROOF_LOCAL_AND_WRITTEN_SUPPORTED",
+      "reason": "The local real_balance assertion has an integral unit e and bound for the norm of the transformed element, and does not expose the separate norm(e)=1 conjunct. Its proof constructs e from a norm-one Pell solution at940–953; norm preservation supplies the English RHS |N(Y)|. The written minimization proof independently covers the stated scope.",
+      "targets": [
+        "I01"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S9f3929ee.A1ArithmeticInterface.balanced_finite_cover_attempt",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S9f3929ee.lean",
+          "statement_lines": [
+            351,
+            351
+          ],
+          "sha256": "ae27eaa68d8972cb3de46e7f95b855676dec1f2916485386a6c8febfc5dcb4f3"
+        },
+        {
+          "declaration": "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope.JocelynDecomp.decomp_one",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/DecompositionAndEnvelope.lean",
+          "statement_lines": [
+            97,
+            100
+          ],
+          "sha256": "e8aaef9912225344ffe886c76948229beba5e5030983728e09e4d49314b31340"
+        }
+      ],
+      "statement_sha256": "3c2e4bcfd23a14c4a747e0f9c791b6d5aba0d028210f2c404200b2ce521839c5",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:growth",
+      "number": "3.4",
+      "kind": "lemma",
+      "relation": "WEAKER",
+      "disposition": "PROOF_LOCAL_AND_WRITTEN_SUPPORTED",
+      "reason": "Local alpha_growth chooses exactly n0=|B|+2|Δ|+1 and the same G0 (|A|=A), but exports existential constants and absolute norms; sz uses Δ rather than |Δ|. Its proof proves nonnegative norm, and the English argument gives positive norm and the energy inequality for both signs (negative Δ gives energy=norm). Literal displayed English is stronger than the local exported assertion.",
+      "targets": [
+        "I01"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S9f3929ee.A1ArithmeticInterface.balanced_finite_cover_attempt",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S9f3929ee.lean",
+          "statement_lines": [
+            351,
+            351
+          ],
+          "sha256": "ae27eaa68d8972cb3de46e7f95b855676dec1f2916485386a6c8febfc5dcb4f3"
+        },
+        {
+          "declaration": "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope.JocelynDecomp.decomp_one",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/DecompositionAndEnvelope.lean",
+          "statement_lines": [
+            97,
+            100
+          ],
+          "sha256": "e8aaef9912225344ffe886c76948229beba5e5030983728e09e4d49314b31340"
+        }
+      ],
+      "statement_sha256": "c8a3ea47c204a48904a6396825fa0064b0eb4bd50be63dce3d729bcbf18d5753",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:balancedcover",
+      "number": "3.5",
+      "kind": "lemma",
+      "relation": "WEAKER",
+      "disposition": "PROOF_LOCAL_AND_WRITTEN_SUPPORTED",
+      "reason": "balanced_integral_cover supplies M≥1 and existential n0, the identity and both energy/norm bounds; positivity is an explicit premise. In English n0 is explicit and positivity follows from growth. Internal witnesses and the English growth step support the stronger presentation; no external counting input added.",
+      "targets": [
+        "I01"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S9f3929ee.A1ArithmeticInterface.balanced_finite_cover_attempt",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S9f3929ee.lean",
+          "statement_lines": [
+            351,
+            351
+          ],
+          "sha256": "ae27eaa68d8972cb3de46e7f95b855676dec1f2916485386a6c8febfc5dcb4f3"
+        },
+        {
+          "declaration": "JocelynWorkspace.Formalization.PowerfulCounting.DecompositionAndEnvelope.JocelynDecomp.decomp_one",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/DecompositionAndEnvelope.lean",
+          "statement_lines": [
+            97,
+            100
+          ],
+          "sha256": "e8aaef9912225344ffe886c76948229beba5e5030983728e09e4d49314b31340"
+        }
+      ],
+      "statement_sha256": "ac589914cbc92886bb9dba0074dade2d5661f2c31d3a1b21cac9b8cef573b55c",
+      "corrected_item": false
+    },
+    {
+      "label": "def:point",
+      "number": "3.6",
+      "kind": "definition",
+      "relation": "STRONGER",
+      "disposition": "DEFINITION_SPECIALIZATION_SUPPORTED",
+      "reason": "C01 permits arbitrary nonsingular rational bases and parameter ranges; restricting to the English chart/basis,H≥1,n≥1 gives the English predicate. Extra biform=rhs conjunct follows from the chart coefficient identity and element identity. It does not add powerfulness. No claimed unconditional equality for arbitrary formal CoverType and a fixed English label.",
+      "targets": [
+        "C01"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S61c6e1a7.A1ArithmeticChartSupplier.ArithmeticPoint",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S61c6e1a7.lean",
+          "statement_lines": [
+            4777,
+            4794
+          ],
+          "sha256": "c3587a82ed3419e07f10cfbe1b026d4541abd414905733873320e5c87b8cbb04"
+        }
+      ],
+      "statement_sha256": "70a0da7b23bc2f41a06810bb3975c8b3b96d9d156b60a7ba4783e0b5b9de3fef",
+      "corrected_item": false
+    },
+    {
+      "label": "prop:charts",
+      "number": "3.7",
+      "kind": "proposition",
+      "relation": "WEAKER",
+      "disposition": "ROUTE_AND_WRITTEN_SUPPORTED",
+      "reason": "I02 concludes existence of a finite CoverType list,H,n0; English fixes a particular construction and explicit n0 beforehand. The internal I01 construction and written content reduction support those choices; the exported type alone only promises some threshold/list. CoverType identities are proved by the construction, not arbitrary caller assumptions.",
+      "targets": [
+        "I02"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S9f3929ee.A1ArithmeticInterface.balanced_finite_cover_attempt",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S9f3929ee.lean",
+          "statement_lines": [
+            351,
+            351
+          ],
+          "sha256": "ae27eaa68d8972cb3de46e7f95b855676dec1f2916485386a6c8febfc5dcb4f3"
+        }
+      ],
+      "statement_sha256": "5ec7335027e5750a21fe47fdf15e7396f6f34728b6f97a8a4fc3230a9fe1d7ac",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:recover",
+      "number": "3.8",
+      "kind": "lemma",
+      "relation": "STRONGER",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "I03 uniqueness needs only A≠0 and the full point identity. WindowRepresentatives explicitly gives finiteness, coordinate bounds and injective choices. Tag indices may repeat cover types, enlarging the count; this is harmless for upper bounds. The English per-point height inequality follows from the same point inequalities.",
+      "targets": [
+        "I03"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "PaperA.S11a6bc635095.A1PopulationCanonical.point_tuple_unique",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A1.lean",
+          "statement_lines": [
+            1766,
+            1769
+          ],
+          "sha256": "eb7d8d9f2bfe02fc9feb0547149dde16d75d013230b23132906cd86fa0611e53"
+        },
+        {
+          "declaration": "PaperA.S11a6bc635095.A1PopulationCanonical.actualWindowPopulationCountingSupplier",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A1.lean",
+          "statement_lines": [
+            2061,
+            2062
+          ],
+          "sha256": "eb7d8d9f2bfe02fc9feb0547149dde16d75d013230b23132906cd86fa0611e53"
+        }
+      ],
+      "statement_sha256": "00b5a55384cd4590c3a4f90bc5f8d5020a47907c86d3182538e7813b5b3318c8",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:slopes",
+      "number": "3.9",
+      "kind": "lemma",
+      "relation": "WEAKER",
+      "disposition": "ROUTE_AND_WRITTEN_SUPPORTED",
+      "reason": "I04 supplies balanced patches and the H³/n residual bound for every dominant choice of every listed arithmetic point. It does not expose the signed identity R=1/(dy³dx²) in its final interface; that identity follows directly from the coefficient/element identities as the English proof states. No loss in needed count scope.",
+      "targets": [
+        "I04"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S9f3929ee.A1ArithmeticChartSupplier.actualArithmeticChartSupplier_attempt",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S9f3929ee.lean",
+          "statement_lines": [
+            2226,
+            2226
+          ],
+          "sha256": "ae27eaa68d8972cb3de46e7f95b855676dec1f2916485386a6c8febfc5dcb4f3"
+        }
+      ],
+      "statement_sha256": "37b00068de9bb58847f478fbe660a74617db1dc0f0a63af39f151833b4571724",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:norms",
+      "number": "3.10",
+      "kind": "lemma",
+      "relation": "DIFFERENT_DIRECT_DOMAINS",
+      "disposition": "SUPPORTED_BY_ELEMENTARY_DERIVATION",
+      "reason": "The formal interface drops some arithmetic premises but adds X>=2 and X<n. The written conclusion follows directly from U,V>=1 and U^3 V^2<=H^6 n^2<=4H^6 X^2; neither direct domain is globally stronger.",
+      "targets": [
+        "I05"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "PaperA.S11a6bc635095.A1PopulationCanonical.actualNormalizedPoint",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A1.lean",
+          "statement_lines": [
+            1620,
+            1620
+          ],
+          "sha256": "eb7d8d9f2bfe02fc9feb0547149dde16d75d013230b23132906cd86fa0611e53"
+        }
+      ],
+      "statement_sha256": "f27fe9e39f7d68b1113fca20a16a498e34ad0c4da47e979dab22531d49c375f9",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:partition",
+      "number": "3.11",
+      "kind": "lemma",
+      "relation": "EXACT",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "I06 expands to unique nonempty dyadic bins, exact cardinal sum, same half-open endpoints,O_A((1+logX)²) count and32A cap product. Finite set versus Finset representations do not change the assertion.",
+      "targets": [
+        "I06"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S335fe9a1.A1NormDyadic.genericNormPartition",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S335fe9a1.lean",
+          "statement_lines": [
+            260,
+            260
+          ],
+          "sha256": "1880efba0151c8518e911ed7567eae8eb30b467648225b33bd8648e43331f8a9"
+        }
+      ],
+      "statement_sha256": "b6f691e48f7e847c70ed14d10034dc73ee49ac4be37fef0ca428ae1d6db92dd2",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:prefix",
+      "number": "3.12",
+      "kind": "lemma",
+      "relation": "STRONGER",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "Both existential and quantitative versions exist. Quantitative max(2,max(2X0,2n1)) equals English max(2,2X0,2n1); same real ranges and positive θ. Positive K is additionally available.",
+      "targets": [
+        "I07"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.Sb47bec79.A1WindowPrefix.windowToPrefix",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sb47bec79.lean",
+          "statement_lines": [
+            43,
+            43
+          ],
+          "sha256": "fe09e9f5160bfac772bb56213c1dc1de962c0127dbd65dce71a48345fe332749"
+        },
+        {
+          "declaration": "FormalAB.S376bcb36.A3QuantitativePrefix.quantitativeWindowToPrefix",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S376bcb36.lean",
+          "statement_lines": [
+            5072,
+            5080
+          ],
+          "sha256": "577d01bc37058eb58a8c0a6a05c0ad8dcdcb3e1d57f7c0083e64300bca65f986"
+        }
+      ],
+      "statement_sha256": "2add6505a37b234ce96be37785b948843f48025644bcfece0716d75e29f0f9a2",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:cubes",
+      "number": "4.1",
+      "kind": "lemma",
+      "relation": "EXACT",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "I08 determinant nonzero is linear-form independence; complex scalar hypotheses and nonzero squarefree cubic conclusion match.",
+      "targets": [
+        "I08"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.Sc2541119.A1XAxisCubicAlgebra.independent_cubes",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sc2541119.lean",
+          "statement_lines": [
+            470,
+            476
+          ],
+          "sha256": "41f4483f7d353266ed39ae56d81df973a068443901443561311f107f38d2d05d"
+        },
+        {
+          "declaration": "FormalAB.Sc2541119.A1OriginalAxisCounts.original_cubic_fibre_count",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sc2541119.lean",
+          "statement_lines": [
+            883,
+            883
+          ],
+          "sha256": "41f4483f7d353266ed39ae56d81df973a068443901443561311f107f38d2d05d"
+        }
+      ],
+      "statement_sha256": "569b47d5181d8673f469573c26a82743f32ef6b811246374bf69849989e99341",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:cubicfibre",
+      "number": "4.2",
+      "kind": "lemma",
+      "relation": "EXACT",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "I08 includes explicit finite count5600τ(e)3^(1+ω(e)), uniformly every nonzero signed x, not only primitive/bounded x. CoverType RHS is positive; ST matches.",
+      "targets": [
+        "I08"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.Sc2541119.A1XAxisCubicAlgebra.independent_cubes",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sc2541119.lean",
+          "statement_lines": [
+            470,
+            476
+          ],
+          "sha256": "41f4483f7d353266ed39ae56d81df973a068443901443561311f107f38d2d05d"
+        },
+        {
+          "declaration": "FormalAB.Sc2541119.A1OriginalAxisCounts.original_cubic_fibre_count",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sc2541119.lean",
+          "statement_lines": [
+            883,
+            883
+          ],
+          "sha256": "41f4483f7d353266ed39ae56d81df973a068443901443561311f107f38d2d05d"
+        }
+      ],
+      "statement_sha256": "4851446238f4c2bf51398145e66147de7b09e34610d5a16aa73a53cd379f8af9",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:quadfibre",
+      "number": "4.3",
+      "kind": "lemma",
+      "relation": "STRONGER",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "I09 has identical h,ε,H,Z,coefficient quantifiers, allows all nonzero discriminants including squares, and explicitly supplies positive C and finiteness. No extra ST premise.",
+      "targets": [
+        "I09"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.Sc2541119.A1QuadraticComponents.signed_binary_quadratic_count",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sc2541119.lean",
+          "statement_lines": [
+            1232,
+            1232
+          ],
+          "sha256": "41f4483f7d353266ed39ae56d81df973a068443901443561311f107f38d2d05d"
+        },
+        {
+          "declaration": "FormalAB.Sc2541119.A1ArithmeticAxis.actualYAxisNonvanishing_attempt",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sc2541119.lean",
+          "statement_lines": [
+            1636,
+            1637
+          ],
+          "sha256": "41f4483f7d353266ed39ae56d81df973a068443901443561311f107f38d2d05d"
+        }
+      ],
+      "statement_sha256": "d63d9c46b97a966bc3589e173ad3ecf2cf2d4afb9ad1a96c4b63246da98b3fb3",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:quaddisc",
+      "number": "4.4",
+      "kind": "lemma",
+      "relation": "STRONGER",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "I09 proves nonzero quadratic discriminant for any nonzero y, plus embedding nonvanishing. Primitivity not imposed.",
+      "targets": [
+        "I09"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.Sc2541119.A1QuadraticComponents.signed_binary_quadratic_count",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sc2541119.lean",
+          "statement_lines": [
+            1232,
+            1232
+          ],
+          "sha256": "41f4483f7d353266ed39ae56d81df973a068443901443561311f107f38d2d05d"
+        },
+        {
+          "declaration": "FormalAB.Sc2541119.A1ArithmeticAxis.actualYAxisNonvanishing_attempt",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sc2541119.lean",
+          "statement_lines": [
+            1636,
+            1637
+          ],
+          "sha256": "41f4483f7d353266ed39ae56d81df973a068443901443561311f107f38d2d05d"
+        }
+      ],
+      "statement_sha256": "b9be2a64cc846714e642cf1ba057558e16a5cf0055330f8583eca138f0651703",
+      "corrected_item": false
+    },
+    {
+      "label": "prop:easy",
+      "number": "4.5",
+      "kind": "proposition",
+      "relation": "EXACT",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "Tagged I10 matches X,D,E product and norm caps. Its full ArithmeticPoint witnesses are exactly established by chart coverage; choosing the finite set of relevant triples yields English count. No hidden lower-bin condition.",
+      "targets": [
+        "I10"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.Sc2541119.A1OriginalAxisCounts.original_norm_box_fallback",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sc2541119.lean",
+          "statement_lines": [
+            2112,
+            2112
+          ],
+          "sha256": "41f4483f7d353266ed39ae56d81df973a068443901443561311f107f38d2d05d"
+        },
+        {
+          "declaration": "PaperA.S11a6bc635095.A1CanonicalEasy.actualTaggedNormBoxFallback",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A1.lean",
+          "statement_lines": [
+            2306,
+            2306
+          ],
+          "sha256": "eb7d8d9f2bfe02fc9feb0547149dde16d75d013230b23132906cd86fa0611e53"
+        }
+      ],
+      "statement_sha256": "972f044b3a207be2f02d1000f0f82726aba77ee00c24db8acc39c1d05b7dae41",
+      "corrected_item": false
+    },
+    {
+      "label": "prop:branches",
+      "number": "5.1",
+      "kind": "proposition",
+      "relation": "STRONGER",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "I11 graph theorem uses general valid anti-trace data; I04 establishes validity. It gives strict nondegenerate intervals, all finite derivative orders and the same residual cover, with zero branches allowed. Global functions with local smoothness can represent English locally defined branches by arbitrary extension.",
+      "targets": [
+        "I11"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S61c6e1a7.A1AntiTraceCharts.finiteSmoothGraphCharts",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S61c6e1a7.lean",
+          "statement_lines": [
+            4281,
+            4281
+          ],
+          "sha256": "c3587a82ed3419e07f10cfbe1b026d4541abd414905733873320e5c87b8cbb04"
+        },
+        {
+          "declaration": "FormalAB.S1b75af8c.A1SameCellGrid.sameCellGrid",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S1b75af8c.lean",
+          "statement_lines": [
+            721,
+            721
+          ],
+          "sha256": "919c6317d6b0eb26a5e351a0f28d2209b8bec6198fdf9da15da99d536f2a1ba7"
+        }
+      ],
+      "statement_sha256": "f243f5a442f57682844bc650bad9d32b5adf0a6fdad6b36d7b2e403fd7e88ff4",
+      "corrected_item": false
+    },
+    {
+      "label": "def:cell",
+      "number": "5.2",
+      "kind": "definition",
+      "relation": "FORMAL_POPULATION_CONTAINS_WRITTEN_POPULATION",
+      "disposition": "DEFINITION_ALIGNED_BY_SUBSET",
+      "reason": "The written interval is clipped at b_j. Every eligible written point maps injectively into the formal cell; the formal population can be larger because it need not originate from a positive powerful polynomial value. Its vanishing and auxiliary conclusions apply to this subset.",
+      "targets": [
+        "C02"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S61c6e1a7.A1ActualCellApplication.actualCellSet",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S61c6e1a7.lean",
+          "statement_lines": [
+            4966,
+            4998
+          ],
+          "sha256": "c3587a82ed3419e07f10cfbe1b026d4541abd414905733873320e5c87b8cbb04"
+        }
+      ],
+      "statement_sha256": "0e95c3ca87519b9a968ee13171ceb88c6b3b9c146845eac1c97d714b5b9ca46c",
+      "corrected_item": true
+    },
+    {
+      "label": "lem:contact",
+      "number": "5.3",
+      "kind": "lemma",
+      "relation": "EXACT",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "I12 matches both bidegree upper bounds and fifth-order weighted contact for arbitrary polynomial g and0<μ<1/5.",
+      "targets": [
+        "I12"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S61c6e1a7.A1WeightedJet.contact_above",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S61c6e1a7.lean",
+          "statement_lines": [
+            261,
+            265
+          ],
+          "sha256": "c3587a82ed3419e07f10cfbe1b026d4541abd414905733873320e5c87b8cbb04"
+        },
+        {
+          "declaration": "FormalAB.S61c6e1a7.A1WeightedJet.mixed_filtration",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S61c6e1a7.lean",
+          "statement_lines": [
+            287,
+            292
+          ],
+          "sha256": "c3587a82ed3419e07f10cfbe1b026d4541abd414905733873320e5c87b8cbb04"
+        }
+      ],
+      "statement_sha256": "a0f7a3e71dbf69132cafd3ecace5c8e15dbdbcbcb6e251f5de63082da6349550",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:mixed",
+      "number": "5.4",
+      "kind": "lemma",
+      "relation": "STRONGER",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "I12 uses truncated natural subtraction, yielding max(rectangle−jetcount,0)≤dimension. This implies the English real/integer difference bound; when the difference is negative the English claim is weaker. Degree and order quantifiers match.",
+      "targets": [
+        "I12"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S61c6e1a7.A1WeightedJet.contact_above",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S61c6e1a7.lean",
+          "statement_lines": [
+            261,
+            265
+          ],
+          "sha256": "c3587a82ed3419e07f10cfbe1b026d4541abd414905733873320e5c87b8cbb04"
+        },
+        {
+          "declaration": "FormalAB.S61c6e1a7.A1WeightedJet.mixed_filtration",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S61c6e1a7.lean",
+          "statement_lines": [
+            287,
+            292
+          ],
+          "sha256": "c3587a82ed3419e07f10cfbe1b026d4541abd414905733873320e5c87b8cbb04"
+        }
+      ],
+      "statement_sha256": "6568e483240ade63f0e0f79ec4e3c233671a49f78272766869dc6b0d2971c918",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:triangle",
+      "number": "5.5",
+      "kind": "lemma",
+      "relation": "STRONGER",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "I13 proves the same formula for every μ>0,h≥0, extending the inherited English μ<1/5 context.",
+      "targets": [
+        "I13"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S61c6e1a7.A1FiniteQuantitative.jetTriangleBound",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S61c6e1a7.lean",
+          "statement_lines": [
+            701,
+            701
+          ],
+          "sha256": "c3587a82ed3419e07f10cfbe1b026d4541abd414905733873320e5c87b8cbb04"
+        },
+        {
+          "declaration": "FormalAB.S61c6e1a7.A1FiltrationIdentity.integral_le_minor",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S61c6e1a7.lean",
+          "statement_lines": [
+            603,
+            608
+          ],
+          "sha256": "c3587a82ed3419e07f10cfbe1b026d4541abd414905733873320e5c87b8cbb04"
+        }
+      ],
+      "statement_sha256": "07452651988eae6ec9feb5033a8e63f3fa8581177efde5269ceb310593a16c46",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:layer",
+      "number": "5.6",
+      "kind": "lemma",
+      "relation": "EXACT",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "I13 uses t>0 Lebesgue integral versus English0-to-infinity; endpoint has measure0. Finite matrix, strict row cutoff, nonnegative weights and nonzero minor match; no extra minor-existence assumption.",
+      "targets": [
+        "I13"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S61c6e1a7.A1FiniteQuantitative.jetTriangleBound",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S61c6e1a7.lean",
+          "statement_lines": [
+            701,
+            701
+          ],
+          "sha256": "c3587a82ed3419e07f10cfbe1b026d4541abd414905733873320e5c87b8cbb04"
+        },
+        {
+          "declaration": "FormalAB.S61c6e1a7.A1FiltrationIdentity.integral_le_minor",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S61c6e1a7.lean",
+          "statement_lines": [
+            603,
+            608
+          ],
+          "sha256": "c3587a82ed3419e07f10cfbe1b026d4541abd414905733873320e5c87b8cbb04"
+        }
+      ],
+      "statement_sha256": "0780c0f5308b37bcbf2b476834a23e171f4780dac9e4e0d1a13330607f8ce495",
+      "corrected_item": false
+    },
+    {
+      "label": "prop:surplus",
+      "number": "5.7",
+      "kind": "proposition",
+      "relation": "EXACT",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "I14 finiteMinorMargin gives strict surplus for every admissible q,g,basis,minor. Expanded lossA+lossB=bμ²(11+1/μ)+bμ(60μ+11)+6 andρ=(305μ−57)/18, exactly the English q threshold. Path/profile definitions and integration are established.",
+      "targets": [
+        "I14"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S61c6e1a7.A1FiniteQuantitative.path_data",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S61c6e1a7.lean",
+          "statement_lines": [
+            837,
+            847
+          ],
+          "sha256": "c3587a82ed3419e07f10cfbe1b026d4541abd414905733873320e5c87b8cbb04"
+        },
+        {
+          "declaration": "FormalAB.S61c6e1a7.A1ProfileCertificate.profileIntegral_eq",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S61c6e1a7.lean",
+          "statement_lines": [
+            371,
+            372
+          ],
+          "sha256": "c3587a82ed3419e07f10cfbe1b026d4541abd414905733873320e5c87b8cbb04"
+        },
+        {
+          "declaration": "FormalAB.S61c6e1a7.A1FiniteQuantitative.finiteMinorMargin",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S61c6e1a7.lean",
+          "statement_lines": [
+            1290,
+            1290
+          ],
+          "sha256": "c3587a82ed3419e07f10cfbe1b026d4541abd414905733873320e5c87b8cbb04"
+        }
+      ],
+      "statement_sha256": "776a68ff2dadef752c000664cbf175dd3b7068ce61c53d092e6b69bdf6afdad8",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:rowcap",
+      "number": "5.8",
+      "kind": "lemma",
+      "relation": "STRONGER",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "I15 supplies the same (2H³X)^q bound under the explicit coordinate/resource inequalities, requiring fewer point hypotheses. No existential row-size assumption is substituted.",
+      "targets": [
+        "I15"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S61c6e1a7.A1ActualOriginalRow.originalRowCap",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S61c6e1a7.lean",
+          "statement_lines": [
+            4559,
+            4559
+          ],
+          "sha256": "c3587a82ed3419e07f10cfbe1b026d4541abd414905733873320e5c87b8cbb04"
+        },
+        {
+          "declaration": "FormalAB.S61c6e1a7.A1UniformTaylor.uniformTaylorGraph",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S61c6e1a7.lean",
+          "statement_lines": [
+            1899,
+            1899
+          ],
+          "sha256": "c3587a82ed3419e07f10cfbe1b026d4541abd414905733873320e5c87b8cbb04"
+        }
+      ],
+      "statement_sha256": "caa1e23b8e008abe534a5bcbb8422322a81e8a317dee5c95954e4879456c1758",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:taylor",
+      "number": "5.9",
+      "kind": "lemma",
+      "relation": "STRONGER",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "I15 uniformTaylorGraph permits general α+βu, degree limits and M≥0. Takeα=c0,β=1,A=3q,B=2q,D=2,L=κ. Constants are chosen before g and coefficients; local functions can be extended globally.",
+      "targets": [
+        "I15"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S61c6e1a7.A1ActualOriginalRow.originalRowCap",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S61c6e1a7.lean",
+          "statement_lines": [
+            4559,
+            4559
+          ],
+          "sha256": "c3587a82ed3419e07f10cfbe1b026d4541abd414905733873320e5c87b8cbb04"
+        },
+        {
+          "declaration": "FormalAB.S61c6e1a7.A1UniformTaylor.uniformTaylorGraph",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S61c6e1a7.lean",
+          "statement_lines": [
+            1899,
+            1899
+          ],
+          "sha256": "c3587a82ed3419e07f10cfbe1b026d4541abd414905733873320e5c87b8cbb04"
+        }
+      ],
+      "statement_sha256": "3b74e08ba814acfc2a3585e728b470a6ffc83974247bb819d8614d05a0fc9c9e",
+      "corrected_item": false
+    },
+    {
+      "label": "prop:vanish",
+      "number": "5.10",
+      "kind": "proposition",
+      "relation": "EXISTENTIAL_WRAPPER_WITH_GENERAL_FIXED_Q_ROUTE",
+      "disposition": "WRITTEN_STRONGER_SUPPORTED",
+      "reason": "The exported actual-cell theorem chooses q existentially. The written statement for every q satisfying its threshold is supported by the fixed-q determinant, Taylor and minor arguments. The clipped written cell maps into the formal cell, so no cell-domain mismatch remains.",
+      "targets": [
+        "I16"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S61c6e1a7.A1OriginalDeterminant.original_integer_minor_uniform_chart",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S61c6e1a7.lean",
+          "statement_lines": [
+            3138,
+            3171
+          ],
+          "sha256": "c3587a82ed3419e07f10cfbe1b026d4541abd414905733873320e5c87b8cbb04"
+        },
+        {
+          "declaration": "FormalAB.S61c6e1a7.A1ActualCellApplication.actual_cell_all_minors",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S61c6e1a7.lean",
+          "statement_lines": [
+            5610,
+            5611
+          ],
+          "sha256": "c3587a82ed3419e07f10cfbe1b026d4541abd414905733873320e5c87b8cbb04"
+        }
+      ],
+      "statement_sha256": "8f9d7dd491dc5f777f1c4acf70ecf086eca52e276a9100e1b9ef06b49b64a4aa",
+      "corrected_item": false
+    },
+    {
+      "label": "prop:aux",
+      "number": "5.11",
+      "kind": "proposition",
+      "relation": "GENERAL_FIXED_Q_ROUTE",
+      "disposition": "WRITTEN_STRONGER_SUPPORTED",
+      "reason": "The exported wrapper supplies the stated nonzero bihomogeneous auxiliary form and coefficient bound for its selected q. The written assertion for every admissible q follows from the fixed-q vanishing argument and the cofactor/kernel construction. The clipped written cells are subsets of the formal cells; empty cells and rank zero are handled in both routes.",
+      "targets": [
+        "I17"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "JocelynWorkspace.Formalization.PowerfulCounting.Paper3OriginalActualAuxiliaryPolynomial.Paper3Cofactor.rectangular_kernel_height",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/Paper3OriginalActualAuxiliaryPolynomial.lean",
+          "statement_lines": [
+            2469,
+            2477
+          ],
+          "sha256": "5c21ddf89e4c7f2296f6d0d32871671e7e6bdd91cf7da20f049a0f8c16786c1d"
+        },
+        {
+          "declaration": "FormalAB.S61c6e1a7.A1ActualCellApplication.actual_original_cell_auxiliary",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S61c6e1a7.lean",
+          "statement_lines": [
+            5686,
+            5687
+          ],
+          "sha256": "c3587a82ed3419e07f10cfbe1b026d4541abd414905733873320e5c87b8cbb04"
+        }
+      ],
+      "statement_sha256": "98e76226ca15d98267a9e4a066c3afe77f963d5168eef1447518ce70bb42ec8f",
+      "corrected_item": false
+    },
+    {
+      "label": "prop:components",
+      "number": "6.1",
+      "kind": "proposition",
+      "relation": "STRONGER",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "I18 has same uniform transformed component count and finite box, with positive K and degree/height exponents allowed0 as well. CoverType list fixed before K; no irreducibility requirement on Q. All three named inputs supplied.",
+      "targets": [
+        "I18"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S94d17769.A1AllComponents.uniform_actual_finite_component_count",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S94d17769.lean",
+          "statement_lines": [
+            5895,
+            5896
+          ],
+          "sha256": "e8db51e975cd4dc3d2c9861569f967a93840ba8d3660624fb4410fc3098cefef"
+        }
+      ],
+      "statement_sha256": "881b82e5d4b5db2e456287f30140e41cf4631f8d2920b8d07a5ba0486a2c38e4",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:factor",
+      "number": "6.2",
+      "kind": "lemma",
+      "relation": "DIFFERENT",
+      "disposition": "FORMAL_ROUTE_SUPPORTS_RECLASSIFICATION",
+      "reason": "I19 classifies all min-degree-one mixed factors as absolutely irreducible and remaining factors with both degrees≥2 as rationally irreducible. English instead splits by weighted degree<10 versus≥10. Reclassifying the formal list gives exactly the English four low types and remaining high types; high min-degree-one factors are also rationally irreducible. Same zero cover and GE height bound.",
+      "targets": [
+        "I19"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.C02.PcClassify.clq",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/CountingClosure/ComponentClassification.lean",
+          "statement_lines": [
+            1119,
+            1144
+          ],
+          "sha256": "dbdc974ca9b4b0b8754485084c1a377f844d0d398643daf4ceed48e046e6ebc8"
+        }
+      ],
+      "statement_sha256": "c2c67f02173fa121372b4c7e445ecbc1a466b80325f1b4e99f4d794092a0d834",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:lines",
+      "number": "6.3",
+      "kind": "lemma",
+      "relation": "EXACT",
+      "disposition": "FORMAL_SUPPORTED_WITH_ESTABLISHED_PREMISES",
+      "reason": "I20 uniform_pure_lines assumes signed quadratic and original cubic fibre suppliers; I09 and I08 establish them. Thus its extra premise names are not unresolved hypotheses. Both signed primitive line zeros are counted; uniform exponent and variable bounds match.",
+      "targets": [
+        "I20"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S94d17769.A1LineTrial.line_set_bound",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S94d17769.lean",
+          "statement_lines": [
+            3396,
+            3399
+          ],
+          "sha256": "e8db51e975cd4dc3d2c9861569f967a93840ba8d3660624fb4410fc3098cefef"
+        },
+        {
+          "declaration": "FormalAB.S94d17769.A1ActualUniformLines.uniform_pure_lines",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S94d17769.lean",
+          "statement_lines": [
+            5481,
+            5495
+          ],
+          "sha256": "e8db51e975cd4dc3d2c9861569f967a93840ba8d3660624fb4410fc3098cefef"
+        }
+      ],
+      "statement_sha256": "0f1aa7a0b9b5a4577e31bac834661c630c02109702fcb8d8f7b80853094b81da",
+      "corrected_item": false
+    },
+    {
+      "label": "prop:low",
+      "number": "6.4",
+      "kind": "proposition",
+      "relation": "STRONGER",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "I21 signed_embedded_component_count has identical h,α,β,min1,ε and unrestricted F/presentation uniformity, plus finiteness and positive C. The three-roots subsidiary condition holds because β=1 gives odd β, while α=1 gives2α<3β. Resultant/kernel facts are proved source dependencies, not unestablished inputs.",
+      "targets": [
+        "I21"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S94d17769.A1QuadraticComponents.signed_embedded_component_count",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S94d17769.lean",
+          "statement_lines": [
+            806,
+            806
+          ],
+          "sha256": "e8db51e975cd4dc3d2c9861569f967a93840ba8d3660624fb4410fc3098cefef"
+        },
+        {
+          "declaration": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.C01.PcRes.p_res2",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/CountingClosure/LowDegreeComponents.lean",
+          "statement_lines": [
+            2242,
+            2249
+          ],
+          "sha256": "a09d956549423757e1ae790f66fdda7bd1c56845fa4f23713be8a3d4b62291ae"
+        },
+        {
+          "declaration": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.C01.PcKer.p_kernel",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/CountingClosure/LowDegreeComponents.lean",
+          "statement_lines": [
+            2583,
+            2592
+          ],
+          "sha256": "a09d956549423757e1ae790f66fdda7bd1c56845fa4f23713be8a3d4b62291ae"
+        },
+        {
+          "declaration": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.C01.PcCurves.three_roots_gen",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/CountingClosure/LowDegreeComponents.lean",
+          "statement_lines": [
+            866,
+            876
+          ],
+          "sha256": "a09d956549423757e1ae790f66fdda7bd1c56845fa4f23713be8a3d4b62291ae"
+        }
+      ],
+      "statement_sha256": "50c195649e8ae6b23ee6d70ac947acfb59191b183eae3af5dfb6463239eb429f",
+      "corrected_item": false
+    },
+    {
+      "label": "cor:low",
+      "number": "6.5",
+      "kind": "corollary",
+      "relation": "STRONGER",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "I22 takes rational irreducibility and weighted degree<10; it establishes the absolute irreducibility needed for I21. GE gives required factor bound. Extra real height-exponent range extends the English setting and is harmless.",
+      "targets": [
+        "I22"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S94d17769.A1ActualLowComponent.actual_low_mixed_component_count",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S94d17769.lean",
+          "statement_lines": [
+            5299,
+            5299
+          ],
+          "sha256": "e8db51e975cd4dc3d2c9861569f967a93840ba8d3660624fb4410fc3098cefef"
+        }
+      ],
+      "statement_sha256": "1f0391d09af0ac0a5e08a631320d1e804bfbafd61540fd63ff592537d95734e5",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:P",
+      "number": "6.6",
+      "kind": "lemma",
+      "relation": "STRONGER",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "I23 literal type matches d=2α+3β,Ω=max(1,Λ1³Υ1²),all signed primitive box points and factor2. Formal homogeneous support condition even allows F=0, producing an empty F=e set. Rational irreducibility and CC only, without coefficient restrictions, match.",
+      "targets": [
+        "I23"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "JocelynWorkspace.Formalization.PowerfulCounting.CountingClosure.C03.PcLemP.lemP_core",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/CountingClosure/LemmaP.lean",
+          "statement_lines": {
+            "start_line": 1229,
+            "end_line": 1254
+          },
+          "sha256": "e69c5e333c8b2513f232f6b7cdb8550ddb0066695708bdcbed666ccdfc652647"
+        }
+      ],
+      "statement_sha256": "f909bd0cc4ba9d890a952fa09c88543eb599605bacdadbaa4a0e6c07a59a2d32",
+      "corrected_item": false
+    },
+    {
+      "label": "cor:high",
+      "number": "6.7",
+      "kind": "corollary",
+      "relation": "STRONGER",
+      "disposition": "FORMAL_SUPPORTED_WITH_ESTABLISHED_PREMISES",
+      "reason": "I24 uniform_high_from_core assumes PublishedCoreStatement and CC; published_core directly invokes I23. It allows arbitrary F,h,Q heights and proves finite count with same exponent. English explicit sufficient K3 is written arithmetic from LemmaP, not literally named by the exported∃K.",
+      "targets": [
+        "I24"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S94d17769.A1HighComponent.published_core",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S94d17769.lean",
+          "statement_lines": {
+            "start_line": 5404,
+            "end_line": 5404
+          },
+          "sha256": "e8db51e975cd4dc3d2c9861569f967a93840ba8d3660624fb4410fc3098cefef"
+        },
+        {
+          "declaration": "FormalAB.S94d17769.A1HighComponent.uniform_high_from_core",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S94d17769.lean",
+          "statement_lines": {
+            "start_line": 2988,
+            "end_line": 3010
+          },
+          "sha256": "e8db51e975cd4dc3d2c9861569f967a93840ba8d3660624fb4410fc3098cefef"
+        }
+      ],
+      "statement_sha256": "95a3875873b35f72fa57b9a08064563b3164d7cda9740130465ad4de7b19c86d",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:strips",
+      "number": "7.1",
+      "kind": "lemma",
+      "relation": "FORMAL_STRONGER",
+      "disposition": "FORMAL_SUPPORTED_ON_CLIPPED_CELLS",
+      "reason": "The formal strip theorem handles arbitrary pairs with nonzero denominator coordinates and general graph data. The written clipped cells satisfy its interval and derivative-domain hypotheses, and the paper supplies all parameters needed for the strip inclusion.",
+      "targets": [
+        "I25"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S4fcbc839.A1CellStrip.originalPairsInCellStrips",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S4fcbc839.lean",
+          "statement_lines": {
+            "start_line": 122,
+            "end_line": 122
+          },
+          "sha256": "e2673f7b1b77cfddae8ad0aca96097153148fc6fb0d81e1ec46742c6d5982707"
+        }
+      ],
+      "statement_sha256": "ef966d8f4977dcaafe675102d583fd24a0b01387014e4bb4acf0d4aba3ea54ff",
+      "corrected_item": false
+    },
+    {
+      "label": "prop:bridge",
+      "number": "7.2",
+      "kind": "proposition",
+      "relation": "WEAKER",
+      "disposition": "PROOF_AND_WRITTEN_SUPPORTED",
+      "reason": "I26 exports existential C(K) and Gauss-reduced bases, not explicit4(K+1) or a least-vector clause. Source height_main explicitly chooses4(K+1) at872. In dimension2 Gauss-reduced first column is a shortest nonzero lattice vector (integer combination estimate); the English direct shortest-vector construction supplies this too. Uniform coordinate/basis claims are supported, though not exact exported wording.",
+      "targets": [
+        "I26"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S5ecab545.A1BridgeTrial.bridge_main",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S5ecab545.lean",
+          "statement_lines": {
+            "start_line": 1155,
+            "end_line": 1155
+          },
+          "sha256": "bc78e2c392543f9137e30a00577aa94437b074cbb93091f9834188e334e6cc93"
+        }
+      ],
+      "statement_sha256": "64035ddcafb4d4ba7acdd22c093f512b71aaf552ebf909d3673db88c8b39fc48",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:percell",
+      "number": "7.3",
+      "kind": "lemma",
+      "relation": "EXACT",
+      "disposition": "FORMAL_SUPPORTED_WITH_ESTABLISHED_PREMISES",
+      "reason": "I27 transport has explicit coefficient growth and exact evaluation; per-cell reduction takes component count and height budget. A1:1524–1532 supplies canonical_component_count and unifiedHeightBudget, both proved. Choosing actual auxiliary G and reduced bases gives the English bound; no caller-assumed conclusion remains.",
+      "targets": [
+        "I27"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.Sbfeb2b3e.A1AuxTransport.auxiliary_transport",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sbfeb2b3e.lean",
+          "statement_lines": {
+            "start_line": 360,
+            "end_line": 360
+          },
+          "sha256": "e6fb87caed6b08bf886b838233abfa939d2ceb30f048751873409aebd63d5f29"
+        },
+        {
+          "declaration": "PaperA.S11a6bc635095.FormalAB.S61c6e1a7.A1PerCellHeightCount.per_cell_height_count_reduction",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A1.lean",
+          "statement_lines": {
+            "start_line": 913,
+            "end_line": 913
+          },
+          "sha256": "eb7d8d9f2bfe02fc9feb0547149dde16d75d013230b23132906cd86fa0611e53"
+        }
+      ],
+      "statement_sha256": "54800f09d555616e1db2e3b3b59cb44236b30a16c9296628a4e4bfa8af2ac26b",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:tail",
+      "number": "7.4",
+      "kind": "lemma",
+      "relation": "WEAKER",
+      "disposition": "WRITTEN_STRONGER_SUPPORTED",
+      "reason": "I28 integerTail requires reduced bases,M<D,and Λ above a threshold, unlike arbitrary nonzero vectors,D>0,allΛ in English. The English smallΛ proof uses #I≤K0M and M≥1; the largeΛ proof counts arbitrary integer numerator/denominator directions and separated slopes. It is valid without reducedness,primitivity orD>M. Thus a genuine broader written lemma, not an invalid main application.",
+      "targets": [
+        "I28"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeTails.JocelynTails.tail_abstract",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/LatticeTails.lean",
+          "statement_lines": {
+            "start_line": 94,
+            "end_line": 102
+          },
+          "sha256": "f64a0d80c15b772945d96df9eb959ce0da70c3559a672c89e6a79cdf775eefb3"
+        },
+        {
+          "declaration": "FormalAB.S27058e64.A1IntegerStrip.integerTail",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S27058e64.lean",
+          "statement_lines": {
+            "start_line": 274,
+            "end_line": 274
+          },
+          "sha256": "d21888f8ebc9ca18033f209755fd20df54640d577e87c089b4760497a7763a2e"
+        }
+      ],
+      "statement_sha256": "4a9a4948f847c85cb96f0e785eb8a78462adadb3ebccb0f7d5306e1c0b3b0f85",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:moments",
+      "number": "7.5",
+      "kind": "lemma",
+      "relation": "WEAKER",
+      "disposition": "WRITTEN_STRONGER_SUPPORTED",
+      "reason": "I29 concrete mixed moment restricts to reduced bases and M<D,E; abstract moment_from_tails requires a tail supplier. English full-scope tail lemma supplies that and its dyadic proof gives any0<θ<2,then Cauchy–Schwarz gives the mixed bound for arbitrary nonzero vectors and allD,E>0. Broader written proof supports scope.",
+      "targets": [
+        "I29"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "JocelynWorkspace.Formalization.PowerfulCounting.LatticeMoments.JocelynMoments.moment_from_tails",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/LatticeMoments.lean",
+          "statement_lines": {
+            "start_line": 630,
+            "end_line": 636
+          },
+          "sha256": "be60e8b17acf6f7929ce4eaec87a3757dff498c40bd86869add1628dc7159bb4"
+        },
+        {
+          "declaration": "FormalAB.S27058e64.A1IntegerStrip.integerMixedMoment",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S27058e64.lean",
+          "statement_lines": {
+            "start_line": 580,
+            "end_line": 580
+          },
+          "sha256": "d21888f8ebc9ca18033f209755fd20df54640d577e87c089b4760497a7763a2e"
+        }
+      ],
+      "statement_sha256": "71abf98a4e04cef11b428711b3102f0badf510564866193e2c26501acacf9252",
+      "corrected_item": false
+    },
+    {
+      "label": "prop:hard",
+      "number": "7.6",
+      "kind": "proposition",
+      "relation": "EXACT",
+      "disposition": "FORMAL_SUPPORTED_WITH_ESTABLISHED_PREMISES",
+      "reason": "I30 matches cap/resource/count bound on tagged finite arithmetic populations. SourceChartData is conclusion-bearing but supplied by the arithmetic chart theorem I04; per-cell,bridge,moments and auxiliary suppliers are explicitly assembled at A1:1524–1532. Restricting its population to powerful windows yields English S(X).",
+      "targets": [
+        "I30"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "PaperA.S11a6bc635095.FormalAB.S61c6e1a7.A1ActualHardNormBox.actual_hard_norm_box",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A1.lean",
+          "statement_lines": {
+            "start_line": 1524,
+            "end_line": 1524
+          },
+          "sha256": "eb7d8d9f2bfe02fc9feb0547149dde16d75d013230b23132906cd86fa0611e53"
+        }
+      ],
+      "statement_sha256": "4e9b4497389caa071262df4c2ab2a5fb5473a3fc1f9c655c111351b2d00ca7f5",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:schedule",
+      "number": "7.7",
+      "kind": "lemma",
+      "relation": "WEAKER",
+      "disposition": "WRITTEN_EXPLICIT_SCHEDULE_SUPPORTED",
+      "reason": "I31 existentially selects μ,δ and a large-X threshold, allowing arbitrary logarithmic power k and signed counts. English fixes η=min(1/1000,ε/4),μ=57/305+η,δ=ε/4 and claims everyX≥2. Its proof directly verifies those choices and absorbs logs uniformly onX≥2; formal existential schedule is sufficient but not identical.",
+      "targets": [
+        "I31"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S27058e64.A1MomentAssembly.logCeilFallbackSchedule",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S27058e64.lean",
+          "statement_lines": {
+            "start_line": 849,
+            "end_line": 849
+          },
+          "sha256": "d21888f8ebc9ca18033f209755fd20df54640d577e87c089b4760497a7763a2e"
+        },
+        {
+          "declaration": "PaperA.S11a6bc635095.A1FiniteWindowAssembly.finite_carrier_window_reduction",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A1.lean",
+          "statement_lines": {
+            "start_line": 2440,
+            "end_line": 2441
+          },
+          "sha256": "eb7d8d9f2bfe02fc9feb0547149dde16d75d013230b23132906cd86fa0611e53"
+        }
+      ],
+      "statement_sha256": "b835237ed2c24698560fff93007aac32188f2bacdc114876c1720d20b585b5a2",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:A3boundedbalance",
+      "number": "8.1",
+      "kind": "lemma",
+      "relation": "STRONGER",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "U01 has exactly constants3 and6,all squarefree d≥2,R>0,and includes explicit numerator nonzero. Norm lower bound forces denominator nonzero. No unit condition silently imposed.",
+      "targets": [
+        "U01"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S376bcb36.A3NonunitBalancing.BoundedNormRatioBalancingStatement",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S376bcb36.lean",
+          "statement_lines": {
+            "start_line": 2391,
+            "end_line": 2404
+          },
+          "sha256": "577d01bc37058eb58a8c0a6a05c0ad8dcdcb3e1d57f7c0083e64300bca65f986"
+        },
+        {
+          "declaration": "FormalAB.S376bcb36.A3NonunitBalancing.bounded_norm_ratio_balancing",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S376bcb36.lean",
+          "statement_lines": {
+            "start_line": 2407,
+            "end_line": 2407
+          },
+          "sha256": "577d01bc37058eb58a8c0a6a05c0ad8dcdcb3e1d57f7c0083e64300bca65f986"
+        }
+      ],
+      "statement_sha256": "61fcde52e4104a411a167c3bc1ad32cf62ca754989aba1d83fdc8096ae436c70",
+      "corrected_item": false
+    },
+    {
+      "label": "prop:A3lift",
+      "number": "8.2",
+      "kind": "proposition",
+      "relation": "WEAKER",
+      "disposition": "DEEPER_FORMAL_ROUTE_SUPPORTED",
+      "reason": "I32 supplier discards Δ=d s² in its public conclusion. However OriginalToPrimitiveResourceStatement atS376bcb36:4579–4645 explicitly includes the decomposition plus primitive trace identity,embedding and squared resource bounds; theorem originalToPrimitiveResource proves it. I32 proof obtains hdisc at5387–5388 and deliberately drops it at5389. Retaining that witness and the same resource-root step supplies the English result; injectivity is separately proved.",
+      "targets": [
+        "I32"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S376bcb36.A3GlobalAssembly.original_count_lift_supplier",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S376bcb36.lean",
+          "statement_lines": {
+            "start_line": 5370,
+            "end_line": 5383
+          },
+          "sha256": "577d01bc37058eb58a8c0a6a05c0ad8dcdcb3e1d57f7c0083e64300bca65f986"
+        },
+        {
+          "declaration": "FormalAB.S376bcb36.A3GlobalAssembly.fixed_lift_injective",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S376bcb36.lean",
+          "statement_lines": {
+            "start_line": 5425,
+            "end_line": 5429
+          },
+          "sha256": "577d01bc37058eb58a8c0a6a05c0ad8dcdcb3e1d57f7c0083e64300bca65f986"
+        }
+      ],
+      "statement_sha256": "67db3825bf3a7a97a6917fdb2272abdac70914a5d320d807a160f5b4e077be86",
+      "corrected_item": false
+    },
+    {
+      "label": "prop:A3fallback",
+      "number": "8.3",
+      "kind": "proposition",
+      "relation": "STRONGER",
+      "disposition": "FORMAL_SUPPORTED_WITH_ESTABLISHED_PREMISES",
+      "reason": "I33 original-coordinate theorem is uniform even over bounded unimodular transforms; specialize identity and boxes. Generic original_box_fallback has FallbackCounts input, but first theorem proves that supplier under ST. Same L/Z/e bounds; explicit finite solution set.",
+      "targets": [
+        "I33"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S17759d9f.A3OriginalComponents.original_coordinate_fixing_count",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S17759d9f.lean",
+          "statement_lines": {
+            "start_line": 1913,
+            "end_line": 1932
+          },
+          "sha256": "b7d6e69930b6dc352844c543a339481cd8a84f4d594dccef3f0ec57b1fef39aa"
+        },
+        {
+          "declaration": "PaperA.S58d63b5176e0.A3AllBinSpecializations.original_box_fallback",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A3.lean",
+          "statement_lines": {
+            "start_line": 659,
+            "end_line": 674
+          },
+          "sha256": "31dbea183c726e6fa39a24d601dc2c6d241d04044effb67566cca42a6a79ef45"
+        }
+      ],
+      "statement_sha256": "6cbfe0df71828433a05f898d149b02b182c73888378dd6eeda74995588500d3b",
+      "corrected_item": false
+    },
+    {
+      "label": "prop:A3graph",
+      "number": "8.4",
+      "kind": "proposition",
+      "relation": "EXACT",
+      "disposition": "FORMAL_SUPPORTED_WITH_ESTABLISHED_PREMISES",
+      "reason": "I34 assumes PolynomialImaginaryChartStatement. Source S4090edd7:4337 proves it, and the actual wrapper at5250–5252 passes polynomial_imaginary_chart to graph_cover_of_owned_imaginary. Hence no unproved graph premise remains. Four orientations,common derivative bounds and polynomial thresholds match.",
+      "targets": [
+        "I34"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S4090edd7.A3BalancedOriginalGraphCover.graph_cover_of_owned_imaginary",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S4090edd7.lean",
+          "statement_lines": {
+            "start_line": 4923,
+            "end_line": 4925
+          },
+          "sha256": "8f1c535b59d0985c6c5b543cf2f853c280851a8909f879d1e2f8dee61064a294"
+        }
+      ],
+      "statement_sha256": "86221f8e64eeee780c95d9321b52c5b7c4f60e7b6ca0931a7d35d86f4a8c544c",
+      "corrected_item": false
+    },
+    {
+      "label": "prop:A3good",
+      "number": "8.5",
+      "kind": "proposition",
+      "relation": "STRONGER",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "I35 has the same absolute Taylor-order-first quantifier order,threshold and97/400+δ exponent. Its bounded unimodular matrices include the four swaps; dominance gives nonzero denominators and|ζ|≤1. Those extra-looking premises are definitions of an orientation, not restrictions on English points.",
+      "targets": [
+        "I35"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.Sac09a8d3.A3OriginalGoodChartBox.original_good_chart_box",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sac09a8d3.lean",
+          "statement_lines": {
+            "start_line": 5341,
+            "end_line": 5341
+          },
+          "sha256": "a8b0a76418d4b55d253a4ba2de7b1aa9b3dfd31f5d77b5c4e7243db846c06c49"
+        }
+      ],
+      "statement_sha256": "320d09c8b5c18e0a2a6c4aa6ecd12a717014707f2499a198466833fbdb431ee8",
+      "corrected_item": false
+    },
+    {
+      "label": "prop:A3shell",
+      "number": "8.6",
+      "kind": "proposition",
+      "relation": "EXACT",
+      "disposition": "FORMAL_SUPPORTED_WITH_ESTABLISHED_PREMISES",
+      "reason": "I36 generic assembly has arbitrary predicates/functions and requires all components, but A3:1065–1078 instantiates actual embeddings and actual partition,fallback,good-box,graph theorems. Final owned trace count explicitly has finite balanced shell and same polynomial loss. Do not infer closure merely from the generic assembly name.",
+      "targets": [
+        "I36"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S4926c1f4.A3ActualHeightDyadic.actual_height_partition",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S4926c1f4.lean",
+          "statement_lines": {
+            "start_line": 131,
+            "end_line": 131
+          },
+          "sha256": "ce0b3a99c60ab986c0ff3a2e35cecda33001f64fa133f4f3cd6ad41e52c69f1b"
+        },
+        {
+          "declaration": "PaperA.S58d63b5176e0.A3AllBinSpecializations.assemble_proved_components",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A3.lean",
+          "statement_lines": {
+            "start_line": 868,
+            "end_line": 872
+          },
+          "sha256": "31dbea183c726e6fa39a24d601dc2c6d241d04044effb67566cca42a6a79ef45"
+        }
+      ],
+      "statement_sha256": "4da6e744416b8ac60a47ee7b8f2f3039b147e5d43639952f339908c0d0d54f90",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:A2labels",
+      "number": "9.1",
+      "kind": "lemma",
+      "relation": "WEAKER",
+      "disposition": "WRITTEN_COARSENING_OF_FORMAL_DATA_SUPPORTED",
+      "reason": "I38 population_transfer exports4τ(a)^4 labels(gamma,gy,gx). Its proved finiteGammaCover has≤4·4^ω(a) gamma choices; primitive_content_reduction givesℓ=gy³gx²|a. Coalesce the two contents intoℓ:≤τ(a) choices, yielding4·4^ω(a)τ(a)≤4τ(a)^3. This is the English written bound, not the exported population count; recovery is exact.",
+      "targets": [
+        "I38"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "A2RawGaussian_Se3ca258b.finiteGammaCover",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Se3ca258b.lean",
+          "statement_lines": {
+            "start_line": 773,
+            "end_line": 773
+          },
+          "sha256": "48c120e7c4328e9d7dcc82ae4c92d874c244452733f675efea0881f36d8474cd"
+        },
+        {
+          "declaration": "A2ContentInherited_Se3ca258b.primitive_content_reduction",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Se3ca258b.lean",
+          "statement_lines": {
+            "start_line": 870,
+            "end_line": 870
+          },
+          "sha256": "48c120e7c4328e9d7dcc82ae4c92d874c244452733f675efea0881f36d8474cd"
+        },
+        {
+          "declaration": "A2PopulationTransfer_Se3ca258b.population_transfer",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Se3ca258b.lean",
+          "statement_lines": {
+            "start_line": 1103,
+            "end_line": 1103
+          },
+          "sha256": "48c120e7c4328e9d7dcc82ae4c92d874c244452733f675efea0881f36d8474cd"
+        }
+      ],
+      "statement_sha256": "e62adcfc2bd6a4c9159c4904e7d9204346c0fe2f398323325cf27648ac324095",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:A2quaduniform",
+      "number": "9.2",
+      "kind": "lemma",
+      "relation": "EXACT_WITH_EXTRA_FINITE_CONCLUSION",
+      "disposition": "FORMAL_STATEMENT_SUPPORTED",
+      "reason": "The mapped unconditional theorem has exactly the signed quadratic fibre estimate, including uniformity in nonzero h, and explicitly proves finiteness. Its Pell proof differs from the written Vaughan–Wooley proof.",
+      "targets": [],
+      "formal_evidence": [],
+      "statement_sha256": "2b3992e2fe0d3c3d448938f7626d2e66d1aece2388da8952f87dfeab525435c8",
+      "corrected_item": false
+    },
+    {
+      "label": "prop:A2fallback",
+      "number": "9.3",
+      "kind": "proposition",
+      "relation": "STRONGER",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "I39 whole_count matches all signed γ,h,realR≥2,Euclidean norm product and exponent. It proves RawQuadratic from the theorem above rather than assuming an external VW premise. ST is the sole named input.",
+      "targets": [
+        "I39"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.Se37df572.A2GaussianNormFallback.whole_count",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Se37df572.lean",
+          "statement_lines": {
+            "start_line": 1765,
+            "end_line": 1765
+          },
+          "sha256": "0e45b1d42fa5c91e730c2826c8dda563ce43e1cd63cd25c0373bd82fd7de9b8c"
+        }
+      ],
+      "statement_sha256": "ee22eff21dd0eb8bc7b3edc3d717d22cbdf5310171e8d1f27d2a58b5127c32fa",
+      "corrected_item": false
+    },
+    {
+      "label": "prop:A2shell",
+      "number": "9.4",
+      "kind": "proposition",
+      "relation": "STRONGER",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "I40 actual_shell directly has onlyST,CC,GE,uniformδ,ε constants and all a≤√X,ℓ|a,1≤Nγ≤a². It handles any such label, broader than the selected label list. Piecewise m0 equals English max on[0,1/2]; all branch/minor/component suppliers are internal route components.",
+      "targets": [
+        "I40"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S078e7d20.A2UniformPhase.uniform_phase_charts",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S078e7d20.lean",
+          "statement_lines": {
+            "start_line": 842,
+            "end_line": 842
+          },
+          "sha256": "e77d5377bbcf5bd18dcec4e9c36b711e1a3026223f932c350271082b2aee2027"
+        },
+        {
+          "declaration": "PaperA.Sf7058b9637dc.A2GrowingMinorPureV2.uniformGrowingMinor",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A2.lean",
+          "statement_lines": {
+            "start_line": 2998,
+            "end_line": 2998
+          },
+          "sha256": "e259fa1c2cc02e70175487a6499d5be24d4450ca583db914850219723ab85558"
+        },
+        {
+          "declaration": "PaperA.Sf7058b9637dc.A2GaussianComponents.uniform_component_positive",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A2.lean",
+          "statement_lines": {
+            "start_line": 820,
+            "end_line": 844
+          },
+          "sha256": "e259fa1c2cc02e70175487a6499d5be24d4450ca583db914850219723ab85558"
+        },
+        {
+          "declaration": "PaperA.Sf7058b9637dc.A2ShellAggregate.actual_shell",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A2.lean",
+          "statement_lines": {
+            "start_line": 4727,
+            "end_line": 4731
+          },
+          "sha256": "e259fa1c2cc02e70175487a6499d5be24d4450ca583db914850219723ab85558"
+        }
+      ],
+      "statement_sha256": "9650e119ffc20c9afe48ef33ec65b2c98bd28d4502049b18ae267f5b1daa8ba3",
+      "corrected_item": false
+    },
+    {
+      "label": "prop:A2weights",
+      "number": "9.5",
+      "kind": "proposition",
+      "relation": "DIFFERENT",
+      "disposition": "FORMAL_ROUTE_AND_WRITTEN_SUPPORTED",
+      "reason": "I41 provides an exact stronger affine row cost for t≥1/3 and interpolation for the same monomial family; I14 supplies the small-t bound. Together with the written uniform loss estimate they give the three English regimes and an absolute c5. I41 rowMargin is a different two-scale consequence, not by itself the English wq proposition. Preserve c5 independence from g.",
+      "targets": [
+        "I41"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "PaperA.Sf7058b9637dc.A2PrivateAffineRank.adapted_minor_weight",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A2.lean",
+          "statement_lines": {
+            "start_line": 1740,
+            "end_line": 1748
+          },
+          "sha256": "e259fa1c2cc02e70175487a6499d5be24d4450ca583db914850219723ab85558"
+        },
+        {
+          "declaration": "PaperA.Sf7058b9637dc.A2PrivateAffineRank.affine_row_cost",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A2.lean",
+          "statement_lines": {
+            "start_line": 1903,
+            "end_line": 1914
+          },
+          "sha256": "e259fa1c2cc02e70175487a6499d5be24d4450ca583db914850219723ab85558"
+        },
+        {
+          "declaration": "PaperA.Sf7058b9637dc.A2GrowingMinorPrivate.same_minor_chord",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A2.lean",
+          "statement_lines": {
+            "start_line": 1949,
+            "end_line": 1959
+          },
+          "sha256": "e259fa1c2cc02e70175487a6499d5be24d4450ca583db914850219723ab85558"
+        },
+        {
+          "declaration": "PaperA.Sf7058b9637dc.A2GrowingMinorPrivate.rowMargin",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A2.lean",
+          "statement_lines": {
+            "start_line": 2827,
+            "end_line": 2843
+          },
+          "sha256": "e259fa1c2cc02e70175487a6499d5be24d4450ca583db914850219723ab85558"
+        }
+      ],
+      "statement_sha256": "5e8433b08d4e867f814b521351de3e00c76efc925497883eb1889e202a90fa42",
+      "corrected_item": true
+    },
+    {
+      "label": "lem:perspective",
+      "number": "9.6",
+      "kind": "lemma",
+      "relation": "FORMAL_STRONGER",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "The paper restricts both Theta_0 arguments to [0,1/2]. The formal affine-maximum perspective theorem has a larger domain and supplies the displayed inequality.",
+      "targets": [
+        "I42"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S4f28eb05.A2PerspectiveCertificate.perspective",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S4f28eb05.lean",
+          "statement_lines": {
+            "start_line": 39,
+            "end_line": 40
+          },
+          "sha256": "56740f3f0c5ac081fd40d72c13c7fcb857a151dbc7274a4b3ca3ad76365c93fa"
+        },
+        {
+          "declaration": "PaperA.Sf7058b9637dc.A2ActualPrefix.signed_original_count",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A2.lean",
+          "statement_lines": {
+            "start_line": 5739,
+            "end_line": 5745
+          },
+          "sha256": "e259fa1c2cc02e70175487a6499d5be24d4450ca583db914850219723ab85558"
+        }
+      ],
+      "statement_sha256": "f842bcc6840e359c34ca245a482d0f825cea2462a4c7c5d83ecc0cb77fcf5fb8",
+      "corrected_item": true
+    },
+    {
+      "label": "lem:cubic-classical-fibres",
+      "number": "10.1",
+      "kind": "lemma",
+      "relation": "WRITTEN_ONLY",
+      "disposition": "WRITTEN_EXTERNAL_DERIVATION",
+      "reason": "No exact target identified for the two ES-based A^178/A^62 fibre bounds. Their quantifiers/zero exclusion remain those frozen in phase1. A4 formal proof takes another route and does not replay these numerical coefficient exponents. Appendix correctly distinguishes classical proof and ν1=180.",
+      "targets": [],
+      "formal_evidence": [],
+      "statement_sha256": "a23c2ebca0586b41ec62834d9893de31605b73c46db0aed51af9e855cda066c6",
+      "corrected_item": false
+    },
+    {
+      "label": "cor:shift",
+      "number": "11.1",
+      "kind": "corollary",
+      "relation": "WRITTEN_ONLY",
+      "disposition": "DERIVED_FROM_MATCHED_A3",
+      "reason": "Direct substitutions into A3 at L=2Ah and L=A+H′+2≤(H′+3)A give both exact stated constants. Δ=−4Ah negative for+shift; Δ=4AH′ nonsquare precisely underAH′ nonsquare. A12 proof contains the positive-shift calculation before enlarging constants.",
+      "targets": [],
+      "formal_evidence": [],
+      "statement_sha256": "e70c6393af57a80568ad0d57ce5e9b7ee491b0b971ca9cba4438ccc592937bdc",
+      "corrected_item": false
+    },
+    {
+      "label": "lem:row",
+      "number": "11.2",
+      "kind": "lemma",
+      "relation": "STRONGER",
+      "disposition": "FORMAL_SUPPORTED",
+      "reason": "I43 explicit canonical-row definition and product theorem match all exponents; natural truncated subtraction equals ordinary nonnegative exponent because fullness ensuresquotient≥1 when residue>0. Positivity added. Recovery follows product identity.",
+      "targets": [
+        "I43"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "FormalAB.S160aa257.ConsecutiveCountingTargetsAB.fullCanonicalRow_product",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S160aa257.lean",
+          "statement_lines": {
+            "start_line": 224,
+            "end_line": 227
+          },
+          "sha256": "d6268e85af8a509218085804dfb04f87ee2dafdc1145c29837e5191558ffc793"
+        }
+      ],
+      "statement_sha256": "085548488ba106c5887260555ebdf3c89dc334c81091344f3c3201f9916e0148",
+      "corrected_item": false
+    },
+    {
+      "label": "prop:uniform-mixed",
+      "number": "11.3",
+      "kind": "proposition",
+      "relation": "WRITTEN_GENERALIZATION_OF_FORMAL_INSTANCES",
+      "disposition": "WRITTEN_GENERAL_TRANSFER_SUPPORTED",
+      "reason": "The signed-h conditional row argument supports the displayed formulation, with a constant chosen before all Y>=2. Concrete formal interfaces cover the listed positive-shift and nonsquare reverse instances; no unconditional arbitrary negative-shift estimate is inferred.",
+      "targets": [
+        "I44"
+      ],
+      "formal_evidence": [
+        {
+          "declaration": "PaperA.S4addf8d83516.A11Transfer.delta_parameters",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A11.lean",
+          "statement_lines": {
+            "start_line": 1462,
+            "end_line": 1468
+          },
+          "sha256": "8cb719d17e074af67cb44ee508f131e632e6c141f2f3353beef9b27fe6dbe873"
+        },
+        {
+          "declaration": "PaperA.S4addf8d83516.A11Transfer.uniform_to_mixed",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A11.lean",
+          "statement_lines": {
+            "start_line": 1490,
+            "end_line": 1497
+          },
+          "sha256": "8cb719d17e074af67cb44ee508f131e632e6c141f2f3353beef9b27fe6dbe873"
+        },
+        {
+          "declaration": "PaperA.S92aace92f94a.A11Transfer.delta_parameters",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A12.lean",
+          "statement_lines": {
+            "start_line": 1462,
+            "end_line": 1468
+          },
+          "sha256": "6efcb78dd35352e82397ed8d6431264b253f08238aa21b328a1503889c1d8be7"
+        },
+        {
+          "declaration": "PaperA.S92aace92f94a.A11Transfer.uniform_to_mixed",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A12.lean",
+          "statement_lines": {
+            "start_line": 1490,
+            "end_line": 1497
+          },
+          "sha256": "6efcb78dd35352e82397ed8d6431264b253f08238aa21b328a1503889c1d8be7"
+        },
+        {
+          "declaration": "PaperA.Se4c1670b1d97.Q001.q071",
+          "path": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A13.lean",
+          "statement_lines": {
+            "start_line": 5375,
+            "end_line": 5384
+          },
+          "sha256": "497e9b43cb51e8866abf9e31c50fac0531741e52a364839ab5732a875cf0d6a3"
+        }
+      ],
+      "statement_sha256": "47c7efa7a7777fbe5b4e0aa87db8310639ac22de5709710bf7b4a4ca960b5cdb",
+      "corrected_item": true
+    },
+    {
+      "label": "rem:rs",
+      "number": "11.4",
+      "kind": "remark",
+      "relation": "WRITTEN_DEDUCTIONS_FROM_FORMAL_RESULTS",
+      "disposition": "WRITTEN_SCOPE_AND_PARAMETER_DEDUCTIONS_SUPPORTED",
+      "reason": "The unconditional shifts are every fixed positive +h and the reverse shift -1. Independence from r follows by containment in the powerful-neighbour case. The displayed savings follow by elementary arithmetic.",
+      "targets": [],
+      "formal_evidence": [],
+      "statement_sha256": "53e2d432bbcf013b17b0eab09b955220491694f31b85891c4f9a83e0fdc8c47d",
+      "corrected_item": true
+    },
+    {
+      "label": "rem:exponent",
+      "number": "12.1",
+      "kind": "remark",
+      "relation": "WRITTEN_METHOD_DESCRIPTION",
+      "disposition": "DERIVED_METHOD_DESCRIPTION",
+      "reason": "The sufficient determinant condition and schedule give the stated infimum within this route. This is not a universal optimality or necessity theorem.",
+      "targets": [],
+      "formal_evidence": [],
+      "statement_sha256": "f36324d93b07be7da2f1e78b500483948a0d05a23bd06c63278144527f9140fb",
+      "corrected_item": true
+    }
+  ],
+  "named_predicates": "ST/CC/GE match their written mathematical predicates. Their published proofs remain outside the formal development; this review does not re-establish the cited literature.",
+  "formal_evidence": {
+    "new_replay": false,
+    "source_modules_hash_checked": 185,
+    "source_mismatches": [],
+    "statement_file_mismatches": [],
+    "receipt": "replay/receipts/consecutive-counting.json",
+    "receipt_sha256": "b289a51a7ab847a52a11f86c5be9ce5c2ab7fd78b89e0334272ddfabc66e1805",
+    "negative_receipt": "replay/receipts/consecutive-counting-negative.json",
+    "negative_sha256": "c9298a06bbb176b4e1a6e780de2b5815af5328a003bbfa1b2477e7c8e3a3806a",
+    "declarations": 38,
+    "standard_axioms_passed": 38,
+    "independent_statement_matches": 38
+  },
+  "review_report_sha256": {
+    "english/ENGLISH-SPEC.json": "9e2c20d4f3c4e25745e43b9a8b517dc01160a4cd25283556dfbcca74250c7c91",
+    "english/ENGLISH-REVIEW.txt": "c659db8145002a7c8eb0380e4f6959a9d859eb44f526ae95abbdf4454bfbb8b4",
+    "lean/core/LEAN-SPEC.json": "920f515828c981b882f3925ee550ffca20e4873220baf52b40b7ae71f7811fd3",
+    "lean/core/LEAN-REVIEW.txt": "c5ccfc465d04347d5bc78da15983a96c94da002a8e508636cb76fb88226b2dc9",
+    "lean/uniform/LEAN-SPEC.json": "9abec8bc79fe695ca844fe28d5762e0c30b94520be9f3105bbde22dce78c52e8",
+    "lean/uniform/LEAN-REVIEW.txt": "5b2fd49fd82341469a410acd35c0661d0d53d33f8444b5fec0e1b395eeffcec0",
+    "english/COMPARISON.json": "013358a116cd30c6c33a03f49cecee0bdc1949f211efe00145d57b4f8e992ff0",
+    "english/COMPARISON.txt": "5267f16a0d9cc045042d68f7fc396fe8479e021adba128a750c8d00ab61a0f51",
+    "lean/core/COMPARISON.json": "1e84b7f38958d760fce3652c24dcadd000af63913f394c1f2a634ad56baa164b",
+    "lean/core/COMPARISON.txt": "ed6f53e276ebe4fc65a47470b12a51d14b3a7b02d4c60013c2fce68d2284f4c9",
+    "lean/uniform/COMPARISON.json": "dc9f6421b630e34612b9b5e6fb1359460bf5871fc8f7abde6858de19cc82fc58",
+    "lean/uniform/COMPARISON.txt": "352165bbce2900ab43ec9dc008e575af8f1dc533d50e9aa6bc557896ee39c548",
+    "english/FIX-REVIEW.json": "9343462bc4fc1ef027348192cc96c88da526157684bc51a91a57c712646b2975",
+    "english/FIX-REVIEW.txt": "e315d27e6624f74e32dbe5757743638a57e79b0b3c9f945faca7fe23b8700766",
+    "lean/core/FIX-REVIEW.txt": "451bd580073c32a01b503f93e540bc565f153e454b2b9f736edee48f82e122fa",
+    "english/FINAL-CHECK.txt": "87be7dbd8bc58bc092edc990cc316c745969fd0c239bdf5b1b7a08cacb30cda9",
+    "lean/uniform/FINAL-CHECK.txt": "a8a06debd742d09058f506d5bc29ffa7e66fb41ce6688479862194b1c2655c05"
+  },
+  "limits": [
+    "Semantic and proof-route review, not an exhaustive line-by-line proof-body audit.",
+    "Written refinements, explicit classical coefficient powers and derived literature comparisons are not additional independently replayed declarations.",
+    "External source faithfulness and novelty are covered only by the separately scoped literature reviews; they were not comprehensively repeated here.",
+    "All reviews are by AI systems; no human mathematical review is claimed."
+  ],
+  "source_map": "verification/consecutive-counting/manuscript-source-map.json"
+}

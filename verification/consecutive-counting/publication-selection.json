@@ -1,0 +1,21 @@
+{
+  "schema": "math-frontier.publication-selection.v1",
+  "scope": "Papers 0 and 1",
+  "release_targets": 29,
+  "paper1_interfaces": [
+    "A1",
+    "A11",
+    "A12",
+    "A13",
+    "A2",
+    "A3",
+    "A4"
+  ],
+  "retained_replay_interfaces": 38,
+  "replayed_source_commit": "2ee914b43ed7f08121ddfce0775aac2243a640f3",
+  "replay_receipt_sha256": "b289a51a7ab847a52a11f86c5be9ce5c2ab7fd78b89e0334272ddfabc66e1805",
+  "selected_statement_cores_unchanged": true,
+  "bound_proof_files_unchanged": true,
+  "fresh_replay": false,
+  "scope_note": "The source library and independent statement file retain their full checked contents. The publication manifest and registry select only the formal targets used by Papers 0 and 1. No additional manuscript or publication claim follows from the retained library."
+}

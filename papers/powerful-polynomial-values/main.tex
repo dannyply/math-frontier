@@ -1,0 +1,2915 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage[hidelinks]{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\theoremstyle{definition}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}[lemma]{Proposition}
+\newtheorem{corollary}[lemma]{Corollary}
+\newtheorem{definition}[lemma]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[lemma]{Remark}
+\theoremstyle{definition}
+\newtheorem{theorem}[lemma]{Theorem}
+\numberwithin{equation}{section}
+\newcommand{\Q}{\mathbb Q}\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}\newcommand{\Z}{\mathbb Z}\newcommand{\N}{\mathbb N}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\eps}{\varepsilon}\newcommand{\card}{\#}
+\newcommand{\ST}{\mathsf{ST}}\newcommand{\CC}{\mathsf{CC}}\newcommand{\GE}{\mathsf{GE}}
+\newcommand{\lean}{Lean}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\Nm}{\operatorname{N}}
+\newcommand{\hgt}{\operatorname{ht}}
+\renewcommand{\labelitemi}{--}
+\setlength{\emergencystretch}{3em}
+\title{Powerful values of quadratic polynomials}
+\author{Danny Plymesser}
+\date{15 November 2026}
+\begin{document}\maketitle
+\begin{abstract}
+Let $f$ be a quadratic polynomial with integer coefficients, positive
+leading coefficient and nonsquare discriminant. We show that the number of
+$n\le N$ with $f(n)$ powerful is $O(N^{\vartheta})$ for every
+$\vartheta>293/1220$. A second bound has the exponent $389/1600$ and a constant
+that grows only polynomially with the coefficients of $f$; it is applied to
+pairs consisting of a $6$-full or $8$-full integer and a neighbouring
+powerful integer. A fixed-quadratic substitution also gives a bound for
+$1+a^3t^3$. The proofs factor $f(n)$ in the quadratic
+field of its discriminant, apply a determinant method with two contact
+polynomials to the resulting equation of bidegree three and two, and count
+the points on the auxiliary curves with the lifted-curve estimate
+of~\cite{powerful}. The main quadratic and mixed-full bounds are also
+formalised in \lean, with the three external estimates recorded explicitly.
+\end{abstract}
+
+\section{Introduction}\label{sec:intro}
+A positive integer $m$ is \emph{powerful} if $p^2\mid m$ for every prime
+$p\mid m$, and \emph{$k$-full} if $p^k\mid m$ for every prime $p\mid m$.
+There are about $x^{1/2}$ powerful integers up to $x$. For integers $a,b,c$
+put
+\[
+ S(a,b,c;N)=\card\{1\le n\le N:\ an^2+bn+c\ge1,\ an^2+bn+c\textnormal{ powerful}\}.
+\]
+The values $an^2+bn+c$ with $n\le N$ have size $N^2$, so counting powerful
+integers gives only $S(a,b,c;N)\ll N$. The elementary count of
+Section~\ref{sec:easy} gives $N^{2/5+\eps}$, and the true order is expected
+to be far smaller. This paper proves upper bounds for $S(a,b,c;N)$ when the
+discriminant $b^2-4ac$ is not a square. It develops the counting method
+of~\cite{powerful} for polynomial values, including families in which the
+coefficients vary.
+
+\subsection{Quadratic estimates}\label{sec:results}
+\begin{theorem}[fixed quadratic]\label{thm:fixed}
+Let $A,B,C\in\Z$ with $A>0$ and $B^2-4AC$ not a square.
+For every $\eps>0$ there is $K$ such that
+\[
+ S(A,B,C;N)\le KN^{293/1220+\eps}\qquad(N\ge1).
+\]
+\end{theorem}
+Here $K$ depends on $A,B,C,\eps$, and $N$ is real. Negative discriminants
+are allowed.
+
+\begin{theorem}[polynomial dependence on the height]\label{thm:uniform}
+There are absolute constants $K,\nu>0$ such that for
+all $a,b,c\in\Z$ with $a\ge1$ and $b^2-4ac$ not a square, every real
+$L\ge2$ with $|a|,|b|,|c|\le L$, and every $N\ge2$,
+\[
+ S(a,b,c;N)\le KL^{\nu}N^{389/1600}.
+\]
+Moreover there are absolute $\eta,C>0$ such that, with
+$M_0=\lfloor N^{\eta}\rfloor$,
+\[
+ \sum_{a=1}^{M_0}\ \sum_{|b|\le M_0}\ \sum_{\substack{|c|\le M_0\\ b^2-4ac\textnormal{ not a square}}}
+ S(a,b,c;N)\le CN^{390/1600}\qquad(N\ge2).
+\]
+\end{theorem}
+Neither bound has an $\eps$. The exponent $\nu$ is not computed. The second
+bound follows by summing the first; one may take
+$\eta=1/(1600(\nu+3))$. See
+Sections~\ref{sec:A3proof} and~\ref{sec:A3remarks}.
+
+\begin{theorem}[the family $n^2+a^2$]\label{thm:family}
+Put
+\[
+ \Theta(\kappa)=\begin{cases}
+ (293+153\kappa)/1220,&\kappa\le1/28,\\
+ (81+61\kappa)/340,&1/28<\kappa\le19/73,\\
+ (61+105\kappa)/310,&\kappa>19/73.
+ \end{cases}
+\]
+For every $0\le\kappa\le289/1050$ and $\eps>0$ there is $K$ such that, for
+all $N\ge2$ and all $a\in\Z$ with $1\le|a|\le N^{\kappa}$,
+\[
+ \card\{1\le n\le N:n^2+a^2\textnormal{ is powerful}\}\le KN^{\Theta(\kappa)+\eps}.
+\]
+\end{theorem}
+The function $\Theta$ is continuous, with $\Theta(0)=293/1220$ and
+$\Theta(289/1050)=29/100$.
+
+\subsection{Cubic values and full pairs}
+\begin{corollary}[cubic values]\label{cor:cubic}
+There is an absolute $\nu_1\ge0$ such that for every $\eps>0$
+there is $C$ with
+\[
+ \card\{1\le t\le T:1+At^3\textnormal{ is powerful}\}\le CA^{\nu_1}T^{3/5+\eps}
+ \qquad(A\ge1,\ T\ge2).
+\]
+For every $\eps>0$ there is also $C_\eps$ such that
+\[
+ \card\{1\le t\le T:1+a^3t^3\textnormal{ is powerful}\}
+ \le C_\eps(aT)^{293/1220+\eps}\qquad(a\ge1,\ T\ge2).
+\]
+\end{corollary}
+
+Here $A,a$ are positive integers and $T$ is real.
+
+In the following two theorems $s\in\{6,8\}$, and for real $z>0$
+\[
+ \delta_s(z)=\min\Bigl\{\frac{1}{6400(z+1)s(s+1)},\ \frac12\Bigl(\frac1s-\frac{49}{400}\Bigr)\Bigr\},
+\]
+which is positive. The trivial bound for the number of $s$-full $n\le Y$ is
+$\ll Y^{1/s}$.
+
+\begin{theorem}[a positive shift]\label{thm:positive}
+For every integer $h\ge1$ there are $K_h,C_h\ge1$ such
+that
+\[
+ \card\{1\le t\le T:At^2+h\textnormal{ is powerful}\}\le K_hA^{C_h}T^{389/1600}
+ \qquad(A\ge1,\ T\ge2),
+\]
+and for all $s\in\{6,8\}$, $2\le r<s$ and $\eps>0$ there is $C$ with
+\[
+ \card\{1\le n\le Y:n\textnormal{ is }s\textnormal{-full},\ n+h\textnormal{ is }r\textnormal{-full}\}
+ \le CY^{1/s-\delta_s(C_h)+\eps}\qquad(Y\ge2).
+\]
+\end{theorem}
+
+\begin{theorem}[the reverse neighbour]\label{thm:reverse}
+There are functions $K_*,\nu_*:\N\to\R$, with
+$K_*(H')>0$ and $\nu_*(H')>0$ for every $H'\ge1$, such that for all
+$A,H'\ge1$ with $AH'$ not a square and all $T\ge2$,
+\[
+ \card\{1\le t\le T:At^2-H'\ge1,\ At^2-H'\textnormal{ is powerful}\}
+ \le K_*(H')A^{\nu_*(H')}T^{389/1600},
+\]
+and for all $s\in\{6,8\}$, $2\le r<s$ and $\eps>0$ there is $C$ with
+\[
+ \card\{2\le n\le Y:n\textnormal{ is }s\textnormal{-full},\ n-1\textnormal{ is }r\textnormal{-full}\}
+ \le CY^{1/s-\delta_s(\nu_*(1))+\eps}\qquad(Y\ge2).
+\]
+\end{theorem}
+The proofs use only that the neighbour is powerful
+(Remark~\ref{rem:rs}).
+
+The coefficient exponents in these applications can be chosen from a
+single constant: Section~\ref{sec:consequences} takes
+$C_h=\max(1,\nu)$ and $\nu_*(H')=\nu$, with $\nu$ from
+Theorem~\ref{thm:uniform}. Thus the shifts affect $K_h$ and $K_*(H')$,
+but need not affect these exponents. The separate cubic argument in
+Section~\ref{sec:A4} permits the absolute choice $\nu_1=180$.
+
+\subsection{Comparison with earlier work}\label{sec:compare}
+For a fixed quadratic with nonzero discriminant,
+Wongcharoenbhorn--Meemark~\cite[Theorem~B]{wm} prove the exponent
+$\approx0.4769$, and the unrefereed manuscript~\cite[Theorem~1.3]{saito}
+states $2/5$. Both allow square discriminants, which
+Theorem~\ref{thm:fixed} excludes. For $n^2+a^2$,
+\cite[Theorem~A]{wm} gives $29/100$ uniformly for
+$1\le|a|\le N^{29/100}$; for $n^2+1$, Puchta~\cite{puchta} proved a bound
+of order $N^{2/5}$ up to logarithmic factors.
+Theorem~\ref{thm:fixed} gives $293/1220$ for fixed $a\ne0$.
+Theorem~\ref{thm:family} improves $29/100$ in the shorter range
+$1\le|a|\le N^\kappa$, $\kappa<289/1050$, with equality at the endpoint.
+
+Polynomial coefficient dependence alone is not new.
+Evertse--Silverman~\cite[Theorem~1]{es} and
+Vaughan--Wooley~\cite[Lemma~3.5]{vw}, with elementary class-number bounds,
+give $S(a,b,c;N)\ll_\eps L^{39}N^{2/5+\eps}$ in the range of
+Theorem~\ref{thm:uniform}. Appendix~\ref{app:classical} derives this coarse
+coefficient power. The distinction in Theorem~\ref{thm:uniform} is the
+exponent $389/1600$ with an absolute polynomial height loss; we found no
+earlier bound combining these features for all the stated quadratics.
+The coefficient average in~\cite[Remark~4.5]{wm}, over heights at least
+$N^{2+\eps}$, concerns a different range.
+
+The cubic bounds are applications. The general estimate follows from
+Evertse--Silverman; the cube-coefficient estimate follows from
+Theorem~\ref{thm:fixed} by factoring $u^3+1$. The same reduction
+and~\cite{saito} give $(aT)^{2/5+\eps}$. For the mixed-full applications,
+the cases $(r,s)=(2,6),(3,6),(2,8),(3,8),(4,8)$ improve $Y^{1/s}$;
+we found no stronger literature bound for these cases with the stated
+shifts and orientation. The other pairs illustrate the method without
+a best-known-bound claim.
+
+Related results address different questions: infinitely many powerful
+$n^2+k$ for almost all $k$~\cite{ddl}, long blocks under Vojta's
+conjecture~\cite{pasten}, and counts of norm-form or $S$-squareful values
+in several variables~\cite{streeter,pohl}. The latter do not yield our
+one-variable estimates by fixing a coordinate. Under $abc$ the quadratic
+count is $\ll N^\eps$~\cite[Proposition~3.7]{wm}; no such conjecture is
+assumed here. These comparisons are not an exhaustive literature search.
+
+\subsection{Method and scope}\label{sec:notclaimed}
+Put $\Delta=B^2-4AC$. The element $(2An+B)+\sqrt\Delta$ has norm
+$4Af(n)$. Factoring its ideal, choosing class representatives and
+balancing conjugates reduces a powerful value to
+$\gamma\mathsf Y^3\mathsf X^2=(2An+B)+\sqrt\Delta$.
+In primitive coordinates $y,x\in\Z^2$ this gives
+\begin{equation}\label{eq:introF}
+ F(y;x)=e\ne0,\qquad \deg F=(3,2).
+\end{equation}
+This replaces the equation $e^3v^2-d^3u^2=h$ in~\cite{powerful}.
+Thue and Pell estimates handle boxes with a short side. In the other
+boxes the slopes lie within $O(1/n)$ of a real curve.
+Heath-Brown's determinant method~\cite{hbannals,hb} places the points in
+each slope interval of length $X^{-\mu}$ on an auxiliary curve when
+$\mu>57/305$. The threshold comes from two contact polynomials of
+bidegrees $(2,1)$ and $(1,2)$ and fifth-order vanishing.
+Low-degree components have $X^{o(1)}$ points; the remaining components
+are counted by the lifted-curve lemma of~\cite{powerful}, using the
+affine-curve bound of~\cite{ccdn}. Lattice moments then give
+$X^{1/10+3\mu/4+o(1)}$, with limiting exponent $293/1220$.
+
+Sections~\ref{sec:charts}--\ref{sec:sum} carry this out for a fixed
+quadratic. Section~\ref{sec:uniform} makes the coefficient losses
+polynomial, using bounded-norm balancing elements and quantitative graph
+charts. Section~\ref{sec:A2} exploits the Gaussian structure of $n^2+a^2$.
+The applications follow in Sections~\ref{sec:A4} and~\ref{sec:consequences}.
+Split quadratics such as $n(n+1)$ are excluded here and treated
+in~\cite{powerful}. The fixed-quadratic constant is not effective; the
+uniform coefficient exponent is absolute but large and uncomputed.
+The coefficient average and mixed-full savings are therefore asymptotic,
+not practical numerical estimates. The exponent $389/1600$ is not optimized.
+
+The main quadratic and mixed-full bounds also have proofs in \lean~4
+with Mathlib. Three published estimates, stated in
+Section~\ref{sec:cited}, enter that formalisation as explicit hypotheses.
+Their proofs lie outside the \lean\ development, so its conclusions are
+conditional on these inputs. The mathematical arguments invoke the
+published theorems. Section~\ref{sec:status}
+and Appendix~\ref{app:lean} describe the verification and authorship and
+map the paper's statements to the formal interfaces.
+
+\section{Notation and results from the literature}\label{sec:cited}
+Counted variables are positive integers unless stated otherwise. An
+unspecified constant may depend on the parameters that precede it in the
+statement and on nothing else. We write $\omega(m)$ for the number of
+distinct prime divisors of $m$, $\tau(m)$ for the number of divisors, and
+$\|G\|$ for the largest absolute value of a coefficient of a polynomial
+$G$. A vector $y=(y_0,y_1)\in\Z^2$ is \emph{primitive} if
+$\gcd(y_0,y_1)=1$, and $\hgt(y)=\max(|y_0|,|y_1|)$. A polynomial in two
+pairs of variables is \emph{bihomogeneous of bidegree $(\alpha,\beta)$} if
+it is homogeneous of degree $\alpha$ in the first pair and of degree
+$\beta$ in the second.
+
+We use the following three published estimates throughout. They are stated
+in the forms needed here. In the \lean\ development these statements are
+explicit hypotheses; the external theorems themselves are not formalised
+in this repository.
+
+\paragraph{$\ST$ (Stewart \cite[Theorem~1 and p.~796]{stewart}).}
+Let $F\in\Z[u,v]$ be a binary form of degree $\deg F\ge3$ with coprime
+coefficients that is squarefree in $\Q[u,v]$. Then for every nonzero
+$m\in\Z$,
+\[
+ \card\{(u,v)\in\Z^2:\gcd(u,v)=1,\ F(u,v)=m\}\le2800\,(\deg F)^{1+\omega(|m|)}.
+\]
+
+\paragraph{$\CC$ (Castryck--Cluckers--Dittmann--Nguyen \cite[Theorem~3]{ccdn}).}
+For every integer $w\ge2$ there is $c_w$ with the following property. Let
+$I\subset\Q[z_1,\dots,z_w]$ be a prime ideal defining an affine curve of
+degree $d\ge1$; that is, the quotient $\Q[z_1,\dots,z_w]/I$ has Krull
+dimension one and, for all large $k$, the polynomials of degree at most $k$
+span a subspace of dimension $dk+k_0$ in it, for some integer $k_0$. Then for
+every $\Omega\ge1$ the number of integer zeros $P$ of $I$ with
+$\max_i|P_i|\le\Omega$ is at most
+\[
+ c_w\,d^3\Omega^{1/d}(\log\Omega+d).
+\]
+
+\paragraph{$\GE$ (Gelfond; \cite[Lemma~1.6.11]{bg}).}
+For every $w$ there is $c\ge0$ such that if $F,G\in\Z[z_1,\dots,z_w]$,
+$F\ne0$ and $G\mid F$, then $\|G\|\le\exp(c\deg F)\,\|F\|$, where $\deg F$
+is the total degree.
+
+\medskip
+In $\ST$ reducible forms are allowed, and $(u,v)$ and $(-u,-v)$ are counted
+separately. In $\CC$ the curve need not be geometrically irreducible. We
+use $\CC$ only for $w=12$ and $\GE$ only for $w=4$.
+Section~\ref{sec:status} describes the comparison with the sources.
+
+\section{Arithmetic charts}\label{sec:charts}
+Throughout Sections~\ref{sec:charts}--\ref{sec:sum}, fix integers
+$A>0,B,C$ with nonsquare $\Delta=B^2-4AC$, and let $f(n)=An^2+Bn+C$;
+constants may depend on them. Write $\theta=\sqrt\Delta$ and
+$\Nm(a+b\theta)=a^2-\Delta b^2$, which vanishes only at zero.
+We call $a,b$ the rational and $\sqrt\Delta$-coordinates.
+Using the finite class group and, for $\Delta>0$, a norm-one unit,
+we construct finitely many integral forms $F_\chi$ of bidegree $(3,2)$
+whose primitive solutions $F_\chi(y;x)=e_\chi$ cover the powerful
+values. No hypothesis from the literature is used here.
+
+\subsection{Factorisation in the maximal order}
+Let $\OO$ be the maximal order of $\Q(\sqrt\Delta)$. For $n\ge1$ put
+$\alpha_n=(2An+B)+\theta$, which lies in $\OO$ because
+$\Delta\equiv B^2\pmod4$, and
+$\bar\alpha_n=(2An+B)-\theta$. Then
+\begin{equation}\label{eq:alphanorm}
+ \alpha_n\bar\alpha_n=(2An+B)^2-\Delta=4A\,f(n).
+\end{equation}
+Every powerful integer is $d_0^3u_0^2$ with $d_0,u_0\ge1$: take
+$d_0$ to be the product of primes occurring to odd exponent.
+
+\begin{lemma}\label{lem:ideal}
+Let $n\ge1$ with $f(n)>0$ and $f(n)$ powerful. Then
+$(\alpha_n)=R\,\mathcal A^3\mathcal B^2$ with nonzero ideals
+$R,\mathcal A,\mathcal B$ of $\OO$ such that $R$ divides $(4A\Delta)$.
+\end{lemma}
+\begin{proof}
+Write $f(n)=d_0^3u_0^2$. If $v_P(\alpha_n)=1$, then either
+$\bar\alpha_n\in P$, giving $2\theta\in P$ and $P\mid(4\Delta)$, or
+$v_P(\bar\alpha_n)=0$. In the latter case $P\nmid(4A)$ would give
+$1=3v_P(d_0)+2v_P(u_0)$ by \eqref{eq:alphanorm}, a contradiction.
+Thus all exponent-one prime ideals divide $(4A\Delta)$. Put these into
+$R$, allocate an odd exponent $e\ge3$ as $3+2((e-3)/2)$ to
+$\mathcal A^3\mathcal B^2$, and allocate even exponents to $\mathcal B^2$.
+\end{proof}
+
+Fix integral ideal representatives $\mathcal R$ of the finite class
+group and nonzero $\rho_I\in I$ for each $I\in\mathcal R$.
+Let $\mathcal J$ consist of triples $\pi=(R,I,J)$ with
+$R\mid(4A\Delta)$ and $I,J\in\mathcal R$. Choose a generator
+$g_\pi$ of $RI^3J^2$ when principal, and put $g_\pi=1$ otherwise;
+set $c_\pi=g_\pi/(\rho_I^3\rho_J^2)\ne0$.
+
+\begin{lemma}\label{lem:unbalanced}
+For every $n\ge1$ with $f(n)>0$ powerful there are $\pi\in\mathcal J$ and
+nonzero $\mathsf Y,\mathsf X\in\OO$ with $\alpha_n=c_\pi \mathsf Y^3\mathsf X^2$.
+\end{lemma}
+\begin{proof}
+Write $\mathcal A=(\mathsf Y_0)I$, $\mathcal B=(\mathsf X_0)J$ using
+Lemma~\ref{lem:ideal} and the class representatives. Then $RI^3J^2$ is
+principal and $\alpha_n=\epsilon g_\pi\mathsf Y_0^3\mathsf X_0^2$ for a
+unit $\epsilon$. Set $\mathsf Y=\epsilon\mathsf Y_0\rho_I$ and
+$\mathsf X=\epsilon^{-1}\mathsf X_0\rho_J$. These are integral since
+$\mathsf Y_0\rho_I\in\mathcal A$, $\mathsf X_0\rho_J\in\mathcal B$;
+the powers of $\epsilon$ give the required identity.
+\end{proof}
+
+Fix $m_{\OO}\ge1$ with $\OO\subset m_{\OO}^{-1}\Z[\theta]$ and put
+$\iota(y)=(y_0+y_1\theta)/m_{\OO}$ for $y\in\Z^2$.
+Then $m_{\OO}^2\Nm\iota(y)=y_0^2-\Delta y_1^2$ is integral,
+and nonzero for $y\ne0$.
+
+\subsection{Balancing}
+Put $\|a+b\theta\|^2=a^2+|\Delta|b^2$. For $\Delta<0$ this is
+$\Nm z$; for $\Delta>0$ we normalize by units. For $\Delta>0$, direct expansion gives
+\begin{equation}\label{eq:parallelogram}
+ 2\|z\|^2\|w\|^2=\|zw\|^2+\|\bar zw\|^2 .
+\end{equation}
+Consequently $\|zw\|^2\le2\|z\|^2\|w\|^2$,
+$\|z^3\|^2\le4\|z\|^6$, and, using $\bar z(zw)=(\Nm z)w$,
+$(\Nm z)^2\|w\|^2\le2\|z\|^2\|zw\|^2$.
+Also $\|z^2\|^2-\|z\|^4=4\Delta a^2b^2\ge0$.
+
+\begin{lemma}\label{lem:balance}
+Let $\Delta>0$. There are a unit $\epsilon_0$ of $\OO$ of norm $1$ and
+$U_0\ge1$ such that for every nonzero $\mathsf Y\in\OO$ there is $k\in\Z$ with
+$\|\epsilon_0^{2k}\mathsf Y\|^2\le U_0\,|\Nm \mathsf Y|$.
+\end{lemma}
+\begin{proof}
+Choose a Pell unit $\epsilon_0=x_1+y_1\theta$ with integers $x_1>1$,
+$y_1>0$ and norm $1$. Write $\epsilon_0^2=U_0+V_0\theta$, where
+$U_0>1$, $V_0>0$ and $U_0^2-\Delta V_0^2=1$. Minimize the nonnegative
+integer $m_{\OO}^2\|\epsilon_0^{2k}\mathsf Y\|^2$ over $k\in\Z$,
+and write the minimizing element as $a+b\theta$, with
+$s_+=a^2+\Delta b^2$ and $s_-=a^2-\Delta b^2=\Nm\mathsf Y$.
+The neighboring values are
+$(U_0^2+\Delta V_0^2)s_+\pm4U_0V_0\Delta ab$; minimality gives
+$V_0s_+\pm2U_0ab\ge0$. Therefore
+\[
+ U_0^2s_-^2-s_+^2
+ =\Delta(V_0s_+-2U_0ab)(V_0s_++2U_0ab)\ge0,
+\]
+which proves the bound.
+\end{proof}
+
+\begin{lemma}\label{lem:growth}
+Let $n_0=|B|+2|\Delta|+1$ and $G_0=(2A+|B|)^2+|\Delta|+1$. For $n\ge n_0$,
+\[
+ n^2\le2\,\Nm\alpha_n,\qquad \Nm\alpha_n\le G_0n^2,\qquad
+ \|\alpha_n\|^2\le3\,\Nm\alpha_n ,
+\]
+and hence $f(n)>0$.
+\end{lemma}
+\begin{proof}
+Let $m=2An+B$. Since $A\ge1$ and $n\ge|B|$ we have $n\le m\le(2A+|B|)n$, and
+$m^2\ge n^2\ge2|\Delta|$. The three bounds follow from
+$\Nm\alpha_n=m^2-\Delta$ and $\|\alpha_n\|^2=m^2+|\Delta|$.
+\end{proof}
+
+\begin{lemma}\label{lem:balancedcover}
+There is $U_1\ge1$ such that for every $n\ge n_0$ with $f(n)$ powerful there
+are $\pi\in\mathcal J$ and nonzero $\mathsf Y,\mathsf X\in\OO$ with $\alpha_n=c_\pi \mathsf Y^3\mathsf X^2$,
+$\|\mathsf Y\|^2\le U_1|\Nm \mathsf Y|$ and $\|\mathsf X\|^2\le U_1|\Nm \mathsf X|$.
+\end{lemma}
+\begin{proof}
+For $\Delta<0$ use Lemma~\ref{lem:unbalanced} and $U_1=1$.
+For $\Delta>0$, replace its pair $(\mathsf Y,\mathsf X)$ by
+$(\epsilon_0^{2k}\mathsf Y,\epsilon_0^{-3k}\mathsf X)$ using
+Lemma~\ref{lem:balance}. The product is unchanged and
+$\|\mathsf Y\|^2\le U_0|\Nm\mathsf Y|$. With $c=c_\pi$,
+\eqref{eq:parallelogram} and Lemma~\ref{lem:growth} give
+\[
+ (\Nm(c\mathsf Y^3))^2\|\mathsf X\|^4
+ \le2\|c\mathsf Y^3\|^2\|\alpha_n\|^2
+ \le48\|c\|^2U_0^3|\Nm\mathsf Y|^3|\Nm\alpha_n|.
+\]
+Substitute $|\Nm\alpha_n|=|\Nm c|\,|\Nm\mathsf Y|^3|\Nm\mathsf X|^2$
+and cancel to obtain
+$|\Nm c|\,\|\mathsf X\|^4\le48\|c\|^2U_0^3|\Nm\mathsf X|^2$.
+One may take $U_1=U_0+1+\sum_\pi48\|c_\pi\|^2U_0^3/|\Nm c_\pi|$.
+\end{proof}
+
+\subsection{The charts}
+Clear denominators in the $\sqrt\Delta$-coordinate of
+$c_\pi\iota(y)^3\iota(x)^2$ to obtain an integral form $F_\pi$
+of bidegree $(3,2)$ and a denominator $e_\pi\ge1$.
+A \emph{chart} is $\chi=(\pi,g,g')$ with $\pi\in\mathcal J$,
+$1\le g,g'\le G_1=1+\sum_\pi e_\pi$. Set
+$\gamma_\chi=g^3g'^2c_\pi$, $e_\chi=e_\pi$ and
+$F_\chi=g^3g'^2F_\pi$, so
+\begin{equation}\label{eq:coeffid}
+ F_\chi(y;x)=e_\chi\cdot\bigl(\sqrt\Delta\textnormal{-coordinate of }
+ \gamma_\chi\,\iota(y)^3\iota(x)^2\bigr).
+\end{equation}
+The set $\mathcal X$ of charts is finite. The form $F_\chi$ is not zero:
+otherwise \eqref{eq:coeffid} at $\iota(y)=\iota(x)=1$ and at
+$\iota(y)=\theta$, $\iota(x)=1$ (where $\theta^3=\Delta\theta$) would show
+that both coordinates of $\gamma_\chi$ vanish.
+
+\begin{definition}\label{def:point}
+Let $H\ge1$, $\chi\in\mathcal X$ and $n\ge1$. A pair $(y,x)$ of primitive
+vectors in $\Z^2$ is an \emph{arithmetic point of $\chi$ over $n$} if
+\begin{equation}\label{eq:element}
+ \gamma_\chi\,\iota(y)^3\iota(x)^2=(2An+B)+\sqrt\Delta
+\end{equation}
+and, with $D_y=|\Nm\iota(y)|$ and $D_x=|\Nm\iota(x)|$,
+\[
+ H^{-1}\le D_y,\quad H^{-1}D_y\le\hgt(y)^2\le HD_y,\quad
+ H^{-1}\le D_x,\quad H^{-1}D_x\le\hgt(x)^2\le HD_x,
+\]
+\[
+ H^{-1}n^2\le D_y^3D_x^2\le Hn^2 .
+\]
+\end{definition}
+By \eqref{eq:coeffid} and \eqref{eq:element} an arithmetic point satisfies
+$F_\chi(y;x)=e_\chi$.
+
+\begin{proposition}\label{prop:charts}
+There is $H\ge1$ such that for every $n\ge n_0$ with $f(n)$ powerful there
+are a chart $\chi\in\mathcal X$ and an arithmetic point of $\chi$ over $n$.
+\end{proposition}
+\begin{proof}
+Represent the balanced pair of Lemma~\ref{lem:balancedcover} by
+$y',x'\in\Z^2$. Since $F_\pi(y';x')=e_\pi$, their contents $g,g'$ satisfy
+$g^3g'^2\mid e_\pi$. Thus $\chi=(\pi,g,g')\in\mathcal X$, and the
+primitive vectors $y=y'/g$, $x=x'/g'$ satisfy \eqref{eq:element}.
+Balancing is unchanged by scaling. Moreover
+\[
+ 1\le m_{\OO}^2D_y=|y_0^2-\Delta y_1^2|
+ \le(1+|\Delta|)\hgt(y)^2,
+ \qquad \hgt(y)^2\le m_{\OO}^2U_1D_y,
+\]
+and likewise for $x$. Taking norms gives
+$|\Nm\gamma_\chi|D_y^3D_x^2\in[n^2/2,G_0n^2]$ by
+Lemma~\ref{lem:growth}. A sufficiently large $H$, uniform over the
+finite chart list, gives all the required inequalities.
+\end{proof}
+
+\begin{lemma}\label{lem:recover}
+If $(y,x)$ is an arithmetic point of $\chi$ over $n$ and over $n'$, then
+$n=n'$; and $\hgt(y),\hgt(x)\le H^3n$. Consequently, for $X\ge1$ let
+$\mathcal W(X)$ be the set of $n\ge n_0$ with $X<n\le2X$ and $f(n)$
+powerful, and $\mathcal S(X)$ the set of all triples $(\chi,y,x)$ such that
+$(y,x)$ is an arithmetic point of $\chi$ over some $n\in\mathcal W(X)$. Then
+$\mathcal S(X)$ is finite and $\card\mathcal W(X)\le\card\mathcal S(X)$.
+\end{lemma}
+\begin{proof}
+The rational coordinate in \eqref{eq:element} determines $n$ since
+$A\ne0$. As $HD_y,HD_x\ge1$,
+$\hgt(y)^2\le HD_y\le H^5D_y^3D_x^2\le H^6n^2$, and likewise for $x$.
+Thus $\mathcal S(X)$ is finite; choosing a triple for each $n$ by
+Proposition~\ref{prop:charts} gives an injection.
+\end{proof}
+A given $n$ may be represented by several triples; all bounds below are
+upper bounds for the number of triples.
+
+\subsection{Slopes and the real curve}
+Write $\sigma_\pm(a+b\theta)=a\pm b\sqrt\Delta$.
+A \emph{dominant coordinate} $d_y$ of primitive $y$ has
+$|d_y|=\hgt(y)$; the other coordinate divided by $d_y$ is its
+\emph{slope} $\xi\in[-1,1]$. A \emph{frame} $\phi$ chooses a
+chart $\chi$ and dominant indices for $y,x$, giving four frames per
+chart. Then $\sigma_\pm(\iota(y))=d_y\ell_\pm(\xi)$ and
+$\sigma_\pm(\iota(x))=d_xm_\pm(\zeta)$ for fixed linear forms
+(e.g. $\ell_\pm(\xi)=(\xi\pm\sqrt\Delta)/m_{\OO}$ when $d_y=y_1$).
+Put
+\[
+ R_\phi(\xi,\zeta)=\frac{\sigma_+(\gamma_\chi)\ell_+(\xi)^3m_+(\zeta)^2
+ -\sigma_-(\gamma_\chi)\ell_-(\xi)^3m_-(\zeta)^2}{2\sqrt\Delta}.
+\]
+This real polynomial has degrees at most $(3,2)$ and
+$F_\chi(y;x)=e_\chi d_y^3d_x^2R_\phi(\xi,\zeta)$.
+Choose $M_1\ge1$ bounding all $|\ell_\pm|,|m_\pm|$ on $[-1,1]$
+and set $\eta_0=(HM_1)^{-1}$.
+
+\begin{lemma}\label{lem:slopes}
+Let $(y,x)$ be an arithmetic point of $\chi$ over $n$, in a frame $\phi$ of
+$\chi$ given by dominant coordinates $d_y,d_x$, with slopes $(\xi,\zeta)$.
+Then $|\ell_\pm(\xi)|\ge\eta_0$, $|m_\pm(\zeta)|\ge\eta_0$,
+\[
+ R_\phi(\xi,\zeta)=\frac1{d_y^3d_x^2}\qquad\textnormal{and}\qquad
+ |R_\phi(\xi,\zeta)|\le\frac{H^3}{n}.
+\]
+\end{lemma}
+\begin{proof}
+The product $|\ell_+(\xi)\ell_-(\xi)|=D_y/\hgt(y)^2\ge H^{-1}$
+and the upper bound $M_1$ give the lower bound for each factor;
+the same applies to $m_\pm$. Subtract the two embeddings of
+\eqref{eq:element} and divide by $2\sqrt\Delta\,d_y^3d_x^2$ for the
+identity. Finally
+$n^2\le HD_y^3D_x^2\le H^6d_y^6d_x^4$.
+\end{proof}
+The set of $(\xi,\zeta)\in[-1,1]^2$ with
+$|\ell_\pm(\xi)|,|m_\pm(\zeta)|\ge\eta_0$ is the \emph{balanced patch} of
+$\phi$.
+
+\subsection{Boxes and windows}
+For a triple $(\chi,y,x)$ put $U=H|\Nm\iota(y)|$ and $V=H|\Nm\iota(x)|$.
+\begin{lemma}\label{lem:norms}
+If $(y,x)$ is an arithmetic point of $\chi$ over $n\le2X$, then $U\ge1$,
+$V\ge1$ and $U^3V^2\le4H^6X^2$.
+\end{lemma}
+\begin{proof}
+$U^3V^2=H^5D_y^3D_x^2\le H^6n^2\le4H^6X^2$.
+\end{proof}
+
+\begin{lemma}\label{lem:partition}
+Let $A_0\ge1$. There is $K_{\mathrm p}>0$ such that for every $X\ge2$ and every finite
+set $\mathcal S$ with functions $U,V:\mathcal S\to[1,\infty)$ satisfying
+$U^3V^2\le A_0X^2$, the sets
+\[
+ \mathcal S(D,E)=\{z\in\mathcal S:\ D/2<U(z)\le D,\ E/2<V(z)\le E\},
+\]
+with $D,E$ running over the powers $2^j$, $j\ge0$, partition $\mathcal S$;
+at most $K_{\mathrm p}(1+\log X)^2$ of them are nonempty; and each nonempty one has
+$D^3E^2\le32A_0X^2$.
+\end{lemma}
+\begin{proof}
+Each $z$ lies in exactly one set. If $z\in\mathcal S(D,E)$ then
+$D<2U\le2U^3V^2\le2A_0X^2$ and likewise for $E$, so there are at most
+$(2+\log_2(2A_0X^2))^2$ nonempty sets, and
+$D^3E^2\le2^3U^3\cdot2^2V^2\le32A_0X^2$.
+\end{proof}
+We use this with $A_0=4H^6$, so that $D^3E^2\le128H^6X^2$; the pair $(D,E)$
+is called a \emph{box}.
+
+\begin{lemma}\label{lem:prefix}
+Let $\vartheta>0$, $C_{\mathrm w}\ge0$, $X_0\ge1$, $n_1\in\N$, and let
+$\mathcal P$ be a set of positive integers such that
+$\card\{n\in\mathcal P:n\ge n_1,\ X<n\le2X\}\le C_{\mathrm w}X^{\vartheta}$
+for all $X\ge X_0$. Then $\card\{n\in\mathcal P:n\le N\}\le KN^{\vartheta}$
+for all $N\ge1$, with
+$K=\max(2,2X_0,2n_1)+C_{\mathrm w}/(2^{\vartheta}-1)+1$.
+\end{lemma}
+\begin{proof}
+By strong induction on the integer $m=\lfloor N\rfloor$, the assertion
+is trivial for $m\le\max(2,2X_0,2n_1)$. Otherwise the prefix up to
+$\lfloor m/2\rfloor$ and the window $(m/2,m]$ contribute at most
+$(K+C_{\mathrm w})(m/2)^\vartheta\le Km^\vartheta$, since
+$C_{\mathrm w}\le(2^\vartheta-1)K$.
+\end{proof}
+
+\section{The easy bound}\label{sec:easy}
+This section bounds the number of points of a box by $\min(D,E)$, up to
+$X^\delta$. From the literature it uses only $\ST$, for binary cubic forms.
+
+\subsection{The two fibrations}
+Fix a chart and put $\gamma_\pm=\sigma_\pm(\gamma_\chi)$,
+$\mathsf Y_\pm(y)=(y_0\pm\sqrt\Delta y_1)/m_{\OO}$ and
+$\mathsf X_\pm(x)=(x_0\pm\sqrt\Delta x_1)/m_{\OO}$.
+Then \eqref{eq:coeffid} gives
+\begin{equation}\label{eq:presentation}
+ \frac{2\sqrt\Delta}{e_\chi}\,F_\chi(y;x)
+ =\gamma_+\mathsf Y_+(y)^3\mathsf X_+(x)^2-\gamma_-\mathsf Y_-(y)^3\mathsf X_-(x)^2 .
+\end{equation}
+Here $\gamma_+\gamma_-\ne0$; each pair of linear forms is independent,
+and its values at nonzero integer vectors are nonzero, since their
+product is the corresponding norm.
+
+\begin{lemma}\label{lem:cubes}
+Let $k_1,k_2\in\C$ be nonzero and let $P_1,P_2\in\C[t_0,t_1]$ be linearly
+independent linear forms. Then $k_1P_1^3-k_2P_2^3$ is nonzero and squarefree.
+\end{lemma}
+\begin{proof}
+After rescaling $P_1,P_2$ by cube roots of $k_1,k_2$, the form becomes
+$P_1^3-P_2^3$. Its three linear factors are distinct and nonzero because
+$P_1,P_2$ are independent.
+\end{proof}
+
+\begin{lemma}[Cubic fibres]\label{lem:cubicfibre}
+For every chart $\chi$ and every $x\ne0$ in $\Z^2$ the number
+of primitive $y\in\Z^2$ with $F_\chi(y;x)=e_\chi$ is at most
+$K_{\mathrm c}(\chi)=5600\,\tau(e_\chi)\,3^{1+\omega(e_\chi)}$.
+\end{lemma}
+\begin{proof}
+By \eqref{eq:presentation} and Lemma~\ref{lem:cubes},
+$F_\chi(\cdot\,;x)$ is a nonzero squarefree cubic. If solutions exist,
+its content $g$ divides $e_\chi$ and $F_\chi(\cdot\,;x)=gQ_x$, with
+$Q_x$ primitive and squarefree. For each of the $2\tau(e_\chi)$ signed
+divisors $m$ of $e_\chi$, hypothesis $\ST$ gives at most
+$2800\cdot3^{1+\omega(e_\chi)}$ primitive solutions of $Q_x=m$.
+This bounds in particular the level $m=e_\chi/g$.
+\end{proof}
+
+\begin{lemma}[Quadratic fibres]\label{lem:quadfibre}
+Let $h\ne0$ be an integer and $\eps>0$. There is $K_{\mathrm q}=K_{\mathrm q}(h,\eps)$ such that for
+all real $H_1\ge1$, $Z_1\ge2$ and all integers $a_1,a_2,a_3$ of absolute
+value at most $H_1$ with $a_2^2-4a_1a_3\ne0$, the number of primitive
+$(u_1,u_2)\in\Z^2$ with $|u_1|,|u_2|\le Z_1$ and
+$a_1u_1^2+a_2u_1u_2+a_3u_2^2=h$ is at most $K_{\mathrm q}(H_1Z_1)^{\eps}$.
+\end{lemma}
+\begin{proof}
+Write $\psi$ for the form and $D_1=a_2^2-4a_1a_3$. In each of the
+$4h^2$ residue classes modulo $2h$ containing solutions, fix one $w$.
+For another solution $u$ in that class put
+\[
+ P=2a_1u_1w_1+a_2(u_1w_2+u_2w_1)+2a_3u_2w_2,
+ \qquad R=u_1w_2-u_2w_1.
+\]
+Expansion gives $P^2-D_1R^2=4h^2$. Both $P-2h$ and $R$ are divisible
+by $2h$, so $(p,r)=(P/(2h),R/(2h))$ is integral, satisfies
+$p^2-D_1r^2=1$, and has $|p|,|r|\le K_1=\lceil6H_1Z_1^2\rceil$.
+The map is injective because
+$w_1P+(a_2w_1+2a_3w_2)R=2hu_1$ and
+$w_2P-(2a_1w_1+a_2w_2)R=2hu_2$.
+For $D_1<0$ there are at most four such Pell solutions, and for square
+$D_1$ at most two. Otherwise they are $\pm\epsilon_1^j$ for a
+fundamental Pell unit with rational coordinate at least $2$;
+the rational coordinate of $\epsilon_1^j$ is at least $2^{|j|}$.
+Thus there are at most $4\log K_1/\log2+4$ per class, and
+$4h^2(4\log K_1/\log2+4)\ll_{h,\eps}(H_1Z_1)^\eps$.
+\end{proof}
+
+\begin{lemma}\label{lem:quaddisc}
+For every chart $\chi$ and $y\ne0$ in $\Z^2$, the binary quadratic form
+$x\mapsto F_\chi(y;x)$ has nonzero discriminant.
+\end{lemma}
+\begin{proof}
+Write $\mathsf X_\pm(x)=r_\pm x_0+s_\pm x_1$ and $k_1=\gamma_+\mathsf Y_+(y)^3$,
+$k_2=\gamma_-\mathsf Y_-(y)^3$, which are nonzero. By \eqref{eq:presentation} the
+form is a nonzero multiple of $k_1\mathsf X_+^2-k_2\mathsf X_-^2$, whose discriminant is
+$4k_1k_2(r_+s_--r_-s_+)^2\ne0$.
+\end{proof}
+
+\subsection{The bound}
+\begin{proposition}[Easy bound]\label{prop:easy}
+Let $H$ be as in Proposition~\ref{prop:charts}. For every
+$\delta>0$ there is $K_{\mathrm e}$ such that for all $X\ge2$ and
+$D,E\ge1$ with $D^3E^2\le128H^6X^2$, the number of triples
+$(\chi,y,x)\in\mathcal S(X)$ with $U\le D$ and $V\le E$ is at most
+$K_{\mathrm e}X^{\delta}\min(D,E)$.
+\end{proposition}
+\begin{proof}
+For a fixed chart, $\hgt(y)^2\le D$, $\hgt(x)^2\le E$, and both
+heights are at most $12H^3X$. There are at most $9E$ possible $x$;
+Lemma~\ref{lem:cubicfibre} bounds each fibre by $K_{\mathrm c}(\chi)$.
+There are at most $9D$ possible $y$. In each such primitive fibre,
+Lemma~\ref{lem:quaddisc} gives nonzero discriminant, the quadratic
+coefficients are at most $4\|F_\chi\|(12H^3X)^3$, and the variables
+are bounded by $12H^3X$. Lemma~\ref{lem:quadfibre} with
+$h=e_\chi$, $\eps=\delta/4$ bounds this fibre by $K_\chi X^\delta$.
+Taking the smaller bound and summing over the finite chart list proves
+the proposition.
+\end{proof}
+\section{The determinant method on a cell}\label{sec:det}
+We construct an auxiliary form of bidegree $(3q,2q)$ vanishing on the
+points near a short branch segment of $R_\phi=0$. This uses the chart
+bounds, with no hypothesis from the literature.
+
+\subsection{Branches and cells}
+\begin{proposition}[Branches]\label{prop:branches}
+For every frame $\phi$ there are an integer $J\ge0$, intervals
+$[a_j,b_j]\subset[-2,2]$ and functions $g_j$ $(1\le j\le J)$, and constants
+$r_0,c_{\mathrm g},C_{\mathrm g},\delta_0>0$, such that:
+\begin{itemize}
+\item[(i)] $g_j$ is smooth on $(a_j-2r_0,b_j+2r_0)$, and for
+$\xi\in[a_j-r_0,b_j+r_0]$ we have $R_\phi(\xi,g_j(\xi))=0$ and
+$|g_j'(\xi)|\ge c_{\mathrm g}$;
+\item[(ii)] for every $\varkappa\ge0$ there is $M_\varkappa$ with
+$|g_j^{(i)}(\xi)|\le M_\varkappa$ for all $j$, all $i\le \varkappa+1$ and all
+$\xi\in[a_j-r_0,b_j+r_0]$;
+\item[(iii)] every $(\xi,\zeta)$ in the balanced patch of $\phi$ with
+$|R_\phi(\xi,\zeta)|\le\delta_0$ has an index $j$ with $\xi\in[a_j,b_j]$ and
+$|\zeta-g_j(\xi)|\le C_{\mathrm g}|R_\phi(\xi,\zeta)|$.
+\end{itemize}
+\end{proposition}
+\begin{proof}
+Write $W_\pm=\sigma_\pm(\gamma_\chi)\ell_\pm^3m_\pm^2$.
+At a zero of $R_\phi$ in the balanced patch, $W_+=W_-\ne0$, and
+\[
+ \ell_+\ell_-\,\partial_\xi(W_+-W_-)=3W_+(\ell_+'\ell_--\ell_-'\ell_+),\qquad
+ m_+m_-\,\partial_\zeta(W_+-W_-)=2W_+(m_+'m_--m_-'m_+).
+\]
+The brackets are nonzero constants by independence of the linear
+forms; thus both partial derivatives of $R_\phi$ are nonzero.
+At such a point $(\xi_0,\zeta_0)$ write
+$R_\phi(\xi,\zeta_0+t)=\varphi_2(\xi)t^2+\varphi_1(\xi)t+\varphi_0(\xi)$.
+Here $\varphi_0(\xi_0)=0$ and
+$\varphi_1(\xi_0)\varphi_0'(\xi_0)\ne0$. Locally the smooth function
+\[
+ g(\xi)=\zeta_0-
+ \frac{2\varphi_0(\xi)}{\varphi_1(\xi)+\operatorname{sgn}(\varphi_1(\xi_0))
+ \sqrt{\varphi_1(\xi)^2-4\varphi_2(\xi)\varphi_0(\xi)}}
+\]
+satisfies $R_\phi(\xi,g(\xi))=0$ and
+$g'(\xi_0)=-\varphi_0'(\xi_0)/\varphi_1(\xi_0)\ne0$.
+The factorization
+\[
+ R_\phi(\xi,\zeta)=(\zeta-g(\xi))
+ [\varphi_1(\xi)+\varphi_2(\xi)(\zeta+g(\xi)-2\zeta_0)]
+\]
+gives $|\zeta-g(\xi)|\le2|\varphi_1(\xi_0)|^{-1}|R_\phi(\xi,\zeta)|$
+in a sufficiently small box.
+
+For each zero $z=(s_z,w_z)$ choose such an open box $B_z$ with horizontal
+interval $(s_z-h_z,s_z+h_z)$, where $0<h_z\le1/2$, so that $g_z$ is
+smooth on $(s_z-4h_z,s_z+4h_z)$ and its equation and
+$|g_z'|\ge m_z>0$ hold on $[s_z-2h_z,s_z+2h_z]$.
+Let $C_z$ be the residual constant on $B_z$.
+The zero set in the compact balanced patch $S$ has a finite subcover
+$B_1,\ldots,B_J$. Put $a_j=s_j-h_j$, $b_j=s_j+h_j$,
+$r_0=\frac12\min_jh_j$, $c_{\mathrm g}=\min_jm_j$ and
+$C_{\mathrm g}=1+\sum_jC_j$. Continuity on the compact intervals
+$[s_j-2h_j,s_j+2h_j]$ bounds all derivatives of each prescribed finite
+order, proving (i)--(ii). The compact set $S\setminus\bigcup_jB_j$
+contains no zero; take $\delta_0$ to be half its positive minimum of
+$|R_\phi|$, or $1$ if this set is empty. This proves (iii).
+If the zero set is empty, take $J=0$ and arbitrary positive graph
+constants, and choose $\delta_0$ by the same minimum on $S$ (or $1$
+if $S$ is empty).
+\end{proof}
+The number of branches and the constants come from a compactness argument
+and are not effective.
+
+For an integer $M\ge1$ and a branch $j$ put $\xi_{j,k}=a_j+k/M$ for
+$0\le k\le(b_j-a_j)M$. The intervals $[\xi_{j,k},\min(b_j,\xi_{j,k}+1/M)]$
+cover $[a_j,b_j]$, there are at most $5M$ of them, the points $\xi_{j,k}$
+are $1/M$-separated, and by the mean value theorem and (i) the values
+$g_j(\xi_{j,k})$ are $c_{\mathrm g}/M$-separated.
+
+\begin{definition}\label{def:cell}
+Let $57/305<\mu<1/5$, $X\ge2$ and $M=\lceil X^\mu\rceil$. A \emph{cell}
+$\mathcal C$ consists of a frame $\phi$, a branch $j$ and an index $k$ as
+above; $\xi_{\mathcal C}=\xi_{j,k}$. Its set of points
+$\mathcal S_{\mathcal C}(X)$ consists of the triples
+$(\chi,y,x)\in\mathcal S(X)$ for which the frame given by some choice of
+dominant coordinates is $\phi$ and the slopes satisfy
+$\xi_{\mathcal C}\le\xi\le\min(b_j,\xi_{\mathcal C}+1/M)$ and
+$|\zeta-g_j(\xi)|\le C_{\mathrm g}|R_\phi(\xi,\zeta)|$. For such a point we
+write $p=(p_0,p_1,p_2,p_3)$ for the coordinates of $y$ and $x$ ordered so
+that $p_1=d_y$ and $p_3=d_x$ are the dominant ones; thus $\xi=p_0/p_1$ and
+$\zeta=p_2/p_3$.
+\end{definition}
+If $X\ge H^3/\delta_0$, Lemma~\ref{lem:slopes} and (iii) show that every
+triple of $\mathcal S(X)$ lies in $\mathcal S_{\mathcal C}(X)$ for at least
+one cell.
+
+\subsection{Weighted jets}
+Let $0<\mu<1/5$. In $\R[u,v]$ give the monomial $u^iv^j$ the \emph{weight}
+$\mu i+j$, and say that a polynomial has weighted order at least $t$ if all
+its monomials have weight at least $t$; weighted orders add under
+multiplication. Let $J_\mu(t)=\card\{(i,j)\in\N^2:\mu i+j<t\}$. Fix a
+polynomial $g\in\R[u]$, and for $P\in\R[u,v]$ put $P^g(u,v)=P(u,g(u)+v)$.
+For integers $a,b\ge0$ and real $t$ let $W^{a,b}_t(g)$ be the space of
+$P$ with $\deg_uP\le a$, $\deg_vP\le b$ such that $P^g$ has weighted order
+at least $t$, and $W_{q,t}(g)=W^{3q,2q}_t(g)$. Since $W^{a,b}_t(g)$ is the
+kernel of the linear map sending $P$ to the coefficients of $P^g$ at the
+monomials of weight less than $t$,
+\begin{equation}\label{eq:codim}
+ \dim W^{a,b}_t(g)\ge(a+1)(b+1)-J_\mu(t).
+\end{equation}
+
+\begin{lemma}[Contact polynomials]\label{lem:contact}
+For $(a,b)=(2,1)$ and for $(a,b)=(1,2)$ there is a nonzero $P\in\R[u,v]$
+with $\deg_uP\le a$, $\deg_vP\le b$ such that $P^g$ has weighted order at
+least $5\mu$.
+\end{lemma}
+\begin{proof}
+The six-dimensional space of such $P$ contains a nonzero solution to
+the five conditions that the coefficients of $u^0,\ldots,u^4$ in
+$P(u,g(u))$ vanish. The pure $u$ terms of $P^g$ then have weight at
+least $5\mu$, and every term involving $v$ has weight at least $1>5\mu$.
+\end{proof}
+We fix such polynomials $P_{21}$ and $P_{12}$.
+
+\begin{lemma}[Mixed-contact bound]\label{lem:mixed}
+Let $q,k,l\ge0$ be integers with $2k+l\le3q$ and $k+2l\le2q$. For every real
+$t$,
+\[
+ \dim W_{q,t}(g)\ge(3q-2k-l+1)(2q-k-2l+1)-J_\mu\bigl(t-5\mu(k+l)\bigr).
+\]
+\end{lemma}
+\begin{proof}
+Multiplication by the nonzero $P_{21}^kP_{12}^l$, whose shift has
+weighted order at least $5\mu(k+l)$, injects
+$W^{3q-2k-l,\,2q-k-2l}_{t-5\mu(k+l)}(g)$ into $W_{q,t}(g)$.
+Apply \eqref{eq:codim} to the source.
+\end{proof}
+
+\begin{lemma}\label{lem:triangle}
+For $h\ge0$, $J_\mu(h)\le h^2/(2\mu)+(1+1/\mu)h+1$.
+\end{lemma}
+\begin{proof}
+Let $n=\lfloor h\rfloor$. For each $0\le j\le n$ there are at most
+$(h-j)/\mu+1$ values of $i$, so
+$J_\mu(h)\le((n+1)h-n(n+1)/2)/\mu+n+1$, and the claimed bound exceeds this
+by $((h-n)^2+n)/(2\mu)+(h-n)\ge0$.
+\end{proof}
+
+\begin{lemma}[Layer-cake inequality]\label{lem:layer}
+Let $(C_{ij})$ be a real matrix with rows $i\in I$, $I$ finite, and columns
+$1\le j\le n$, let $w_i\ge0$ be weights, and let $\operatorname{nul}(t)$ be the dimension
+of the space of $x\in\R^n$ with $\sum_jC_{ij}x_j=0$ for all $i$ with
+$w_i<t$. If the rows $i_1,\dots,i_n$ form a nonsingular $n\times n$ matrix,
+then $\int_0^\infty\operatorname{nul}(t)\,dt\le w_{i_1}+\dots+w_{i_n}$.
+\end{lemma}
+\begin{proof}
+On that space the map $x\mapsto(\sum_jC_{i_lj}x_j)_{l:\,w_{i_l}\ge t}$ is
+injective, so $\operatorname{nul}(t)\le\card\{l:w_{i_l}\ge t\}$; integrate over $t$.
+\end{proof}
+
+\begin{proposition}[Weight surplus]\label{prop:surplus}
+Let $n_q=(3q+1)(2q+1)$, the number of monomials $u^av^b$ with $a\le3q$,
+$b\le2q$. Let $57/305<\mu<1/5$, $\rho(\mu)=(305\mu-57)/18$ and
+$b_\mu=25\mu/3$, and let
+$q\ge1$ be an integer with
+\begin{equation}\label{eq:qlarge}
+ q>\frac{2}{\rho(\mu)}\Bigl(b_\mu^2\bigl(11+\tfrac1\mu\bigr)+b_\mu(60\mu+11)+6\Bigr).
+\end{equation}
+Let $g\in\R[u]$, let $(\mathsf b_j)$ be a basis of the space of polynomials of degree
+at most $3q$ in $u$ and $2q$ in $v$, and let $m_1,\dots,m_{n_q}$ be
+monomials in $u,v$ such that the matrix of the coefficients of $m_i$ in
+$\mathsf b_j^g$ is nonsingular. Then the sum of the weights of the $m_i$ is greater
+than $n_qq+\rho(\mu)q^3/2$.
+\end{proposition}
+\begin{proof}
+Apply Lemma~\ref{lem:layer} to this matrix, with $w_i$ the weight of $m_i$.
+If $P=\sum_jx_j\mathsf b_j$ lies in $W_{q,t}(g)$ then $x$ lies in the space of the
+lemma, so $\dim W_{q,t}(g)\le\operatorname{nul}(t)$ and it suffices to bound
+$\int_0^{qb_\mu}\dim W_{q,t}(g)\,dt$ from below.
+
+To select the contacts, write $r=s_1+s_2$ under the constraints
+$s_1,s_2\ge0$, $2s_1+s_2\le3$, $s_1+2s_2\le2$.
+Then $0\le r\le5/3$ and the residual area is
+$(3-r-s_1)(2-2r+s_1)$, with derivative $1+r-2s_1$.
+For fixed $r$ it is maximized at $s_1=r$ if $r\le1$, and at
+$s_1=(1+r)/2$ otherwise. Its maximum is
+\[
+ A(r)=\begin{cases}6-7r+2r^2,&0\le r\le1,\\
+ (5-3r)^2/4,&1\le r\le5/3.\end{cases}
+\]
+At level $z$, maximize $A(r)-(z-5\mu r)_+^2/(2\mu)$.
+As $A$ decreases, one may restrict to $r\le z/(5\mu)$.
+On the two ranges its derivatives are respectively
+\[
+ 5z-7-(25\mu-4)r,\qquad
+ \tfrac12(10z-15-(50\mu-9)r).
+\]
+They decrease and agree at $r=1$. Their zero, clipped at $0$, gives
+the following path, with transitions at $z=7/5$, $5\mu+3/5$ and
+endpoint $r(b_\mu)=5/3$.
+
+For $0\le z\le b_\mu$ define
+\[
+ r(z)=\begin{cases}0,&z\le\frac75,\\[2pt]
+ \dfrac{5z-7}{25\mu-4},&\frac75<z\le5\mu+\frac35,\\[8pt]
+ \dfrac{10z-15}{50\mu-9},&5\mu+\frac35<z\le b_\mu,\end{cases}
+ \qquad
+ s_1(z)=\begin{cases}r(z),&r(z)\le1,\\ \frac{1+r(z)}2,&r(z)>1,\end{cases}
+\]
+and $s_2(z)=r(z)-s_1(z)$. Then $s_1,s_2\ge0$, $2s_1+s_2\le3$, $s_1+2s_2\le2$,
+$0\le z-5\mu r\le b_\mu$, and the function
+$\Pi(z)=(3-2s_1-s_2)(2-s_1-2s_2)-(z-5\mu r)^2/(2\mu)$ equals
+\[
+ 6-\frac{z^2}{2\mu},\qquad
+ 6-\frac{z^2}{2\mu}+\frac{(5z-7)^2}{2(25\mu-4)},\qquad
+ \frac{9(b_\mu-z)^2}{2\mu(50\mu-9)}
+\]
+on the three ranges (here $25\mu-4>0$ and $50\mu-9>0$).
+Take $k=\lfloor qs_1\rfloor$ and $l=\lfloor qs_2\rfloor$ in
+Lemma~\ref{lem:mixed} with $t=qz$. The two sides of the rectangle are at
+least $q(3-2s_1-s_2)$ and $q(2-s_1-2s_2)$, and the level
+$h=qz-5\mu(k+l)$ satisfies $0\le h\le q(z-5\mu r)+10\mu$. By
+Lemma~\ref{lem:triangle},
+\[
+ J_\mu(h)\le\frac{q^2(z-5\mu r)^2}{2\mu}+q\,b_\mu\Bigl(11+\frac1\mu\Bigr)+60\mu+11,
+\]
+so $\dim W_{q,qz}(g)\ge q^2\Pi(z)-qb_\mu(11+1/\mu)-(60\mu+11)$. Integrating the three displayed quadratic pieces gives
+$\int_0^{b_\mu}\Pi(z)\,dz=17/6+305\mu/18=6+\rho(\mu)$.
+Substituting $t=qz$,
+\[
+ \sum_iw_i\ge\int_0^{qb_\mu}\dim W_{q,t}(g)\,dt
+ \ge q^3\bigl(6+\rho(\mu)\bigr)-q^2b_\mu^2\Bigl(11+\frac1\mu\Bigr)-q\,b_\mu(60\mu+11).
+\]
+Since $n_qq=6q^3+5q^2+q$, the right side exceeds $n_qq+\rho(\mu)q^3/2$ by
+\eqref{eq:qlarge}.
+\end{proof}
+Here $6$ is the leading denominator-clearing cost in $n_qq$ and
+$57/305$ is the zero of $\rho$. The path optimizes the continuous bound
+for these two contact polynomials; this asserts no optimality among
+other determinant constructions. The bound holds for every $g$.
+
+\subsection{Vanishing of the determinant}
+To a point $p$ of a cell attach the row
+$\bigl(p_0^ap_1^{3q-a}p_2^bp_3^{2q-b}\bigr)_{0\le a\le3q,\ 0\le b\le2q}\in\Z^{n_q}$.
+\begin{lemma}[Row cap]\label{lem:rowcap}
+For a point of a cell, every entry of its row has absolute value at most
+$(2H^3X)^q$.
+\end{lemma}
+\begin{proof}
+The square of an entry is at most
+$\hgt(y)^{6q}\hgt(x)^{4q}\le(HD_y)^{3q}(HD_x)^{2q}=(H^5D_y^3D_x^2)^q
+\le(H^6n^2)^q\le(2H^3X)^{2q}$, by Definition~\ref{def:point}.
+\end{proof}
+
+\begin{lemma}[Uniform Taylor estimate]\label{lem:taylor}
+Let $\varkappa,q\ge0$ be integers and $r_0,M_\varkappa>0$. There is $K_{\mathrm T}$ such
+that for every function $g$ of class $C^{\varkappa+1}$ on $(-r_0,r_0)$ whose
+derivatives of order at most $\varkappa+1$ are bounded by $M_\varkappa$, every real $c_0$
+with $|c_0|\le2$ and all $a\le3q$, $b\le2q$, the polynomial
+$P_{ab}(u,v)=(c_0+u)^a(T_\varkappa g(u)+v)^b$, where $T_\varkappa g$ is the Taylor polynomial
+of $g$ at $0$ of degree $\varkappa$, has all coefficients at most $K_{\mathrm T}$ in
+absolute value and satisfies
+$|(c_0+u)^a(g(u)+v)^b-P_{ab}(u,v)|\le K_{\mathrm T}|u|^{\varkappa+1}$ for
+$|u|\le\min(r_0/2,1)$ and $|v|\le1$.
+\end{lemma}
+\begin{proof}
+Put $M=M_\varkappa$, $T=T_\varkappa g$ and
+$S=1+(\varkappa+1)M$. Each coefficient of $T$ is bounded by $M$;
+submultiplicativity of the coefficient $\ell^1$ norm therefore gives
+$\|P_{ab}\|_1\le3^{3q}S^{2q}$. Taylor's theorem on the segment from
+$0$ to $u$ gives $|g(u)-T(u)|\le M|u|^{\varkappa+1}/(\varkappa+1)!$.
+Since $|g(u)+v|,|T(u)+v|\le S$ and $|c_0+u|\le3$, the identity
+$s^b-t^b=(s-t)\sum_{j=0}^{b-1}s^{b-1-j}t^j$ bounds the difference
+by $3^{3q}(2q)S^{2q}M|u|^{\varkappa+1}$ for $b\ge1$; for $b=0$
+it is zero. Thus $K_{\mathrm T}=1+3^{3q}S^{2q}(1+2qM)$ works uniformly.
+\end{proof}
+
+\begin{proposition}[Vanishing]\label{prop:vanish}
+Let $57/305<\mu<1/5$ and let $q\ge1$ be an integer satisfying
+\eqref{eq:qlarge}, chosen in terms of $\mu$ only. There is $X_1\ge2$ such that for all $X\ge X_1$, every
+cell $\mathcal C$ and all points $p^{(1)},\dots,p^{(n_q)}$ of
+$\mathcal S_{\mathcal C}(X)$, the $n_q\times n_q$ integer matrix formed by
+their rows has determinant zero.
+\end{proposition}
+\begin{proof}
+Put $c_0=\xi_{\mathcal C}$, $g(u)=g_j(c_0+u)$,
+$u_i=\xi_i-c_0$ and $v_i=\zeta_i-g(u_i)$. Then
+$0\le u_i\le X^{-\mu}$ and $|v_i|\le C_{\mathrm g}H^3/X$.
+Set $\delta_1=\rho(\mu)q^3/4$ and choose $\varkappa$ so that
+$\mu(\varkappa+1)>n_qq+\delta_1+1$.
+Lemma~\ref{lem:taylor}, with the uniform branch bounds, approximates
+the normalized matrix $\mathcal E_{i,(a,b)}=\xi_i^a\zeta_i^b$ by
+\[
+ \mathcal E=\mathcal V\mathcal K+\mathcal E',\qquad
+ \mathcal V_{i,\epsilon}=u_i^{\epsilon_1}v_i^{\epsilon_2},\quad
+ \epsilon_1+\epsilon_2\le\varkappa,\qquad
+ |\mathcal E'_{i,(a,b)}|\ll X^{-\mu(\varkappa+1)}.
+\]
+Here $\mathcal K$ is the bounded coefficient matrix of
+$P_{ab}=(c_0+u)^a(T_\varkappa g(u)+v)^b$ restricted to those monomials.
+The omitted monomials have weight at least $\mu(\varkappa+1)$,
+which justifies their inclusion in the error.
+Expand $\det(\mathcal V\mathcal K)$ by multilinearity in its rows.
+Each term is a coefficient determinant times
+$\prod_i u_i^{\epsilon_{i1}}v_i^{\epsilon_{i2}}$.
+If the coefficient determinant is nonzero,
+Proposition~\ref{prop:surplus}, applied to $T_\varkappa g$ and the basis
+$(c_0+u)^av^b$, makes the total weight greater than
+$n_qq+2\delta_1$. The finitely many terms thus give
+$|\det(\mathcal V\mathcal K)|\ll X^{-n_qq-2\delta_1}$.
+All matrix entries are bounded; terms containing an error row give
+$O(X^{-\mu(\varkappa+1)})$. Consequently
+$|\det\mathcal E|\ll X^{-n_qq-\delta_1}$.
+Clearing row $i$ by $p_1^{3q}p_3^{2q}$ multiplies the determinant by
+at most $(2H^3X)^{qn_q}$ (Lemma~\ref{lem:rowcap}). The integer
+determinant is therefore $O(X^{-\delta_1})$, uniformly over the
+finite branch list, and is zero for sufficiently large $X$.
+\end{proof}
+
+\begin{proposition}[Auxiliary form]\label{prop:aux}
+Let $57/305<\mu<1/5$ and $q$ be as in Proposition~\ref{prop:vanish}. There is
+$X_{\mathrm a}\ge2$ such that for every $X\ge X_{\mathrm a}$ and every cell
+$\mathcal C$ there is a nonzero form
+$G_{\mathcal C}\in\Z[p_0,p_1;p_2,p_3]$, bihomogeneous of bidegree $(3q,2q)$,
+with $\|G_{\mathcal C}\|\le X^{qn_q+1}$ and $G_{\mathcal C}(p)=0$ for every
+point $p$ of $\mathcal S_{\mathcal C}(X)$.
+\end{proposition}
+\begin{proof}
+Take $X_{\mathrm a}=\max(X_1,n_q!\,(2H^3)^{qn_q})$. The distinct
+integer rows form a finite matrix $\mathcal M$ by
+Lemma~\ref{lem:rowcap}; its rank $r<n_q$ by
+Proposition~\ref{prop:vanish}. If $r=0$, take any coordinate vector
+$c$; otherwise choose a nonzero $r$-minor and one further column.
+The signed $r$-minors of this $r\times(r+1)$ block, extended by zero,
+give $0\ne c\in\Z^{n_q}$ with $\mathcal Mc=0$: every row pairing is
+a vanishing $(r+1)$-minor. Moreover
+$|c_{(a,b)}|\le r!(2H^3X)^{qr}\le X^{qn_q+1}$.
+The form $\sum_{a,b}c_{(a,b)}p_0^ap_1^{3q-a}p_2^bp_3^{2q-b}$
+has the required properties.
+\end{proof}
+After the permutation of coordinates given by the frame it is a
+form in $(y;x)$ vanishing at the triples of the cell.
+\section{Points on the auxiliary curve}\label{sec:components}
+We count $F_\chi=e_\chi$ on an auxiliary curve using the fibre bounds,
+the three literature hypotheses, and the lifted-curve count of
+\cite{powerful}. For a chart $\chi$ and $U_y,U_x\in\mathrm{GL}_2(\Z)$ put
+\[
+ F(\lambda;\tau)=F_\chi(U_y\lambda;U_x\tau),\qquad\lambda,\tau\in\Z^2 .
+\]
+This is again an integral form of bidegree $(3,2)$, and by
+\eqref{eq:presentation}
+\begin{equation}\label{eq:presentation2}
+ \frac{2\sqrt\Delta}{e_\chi}\,F(\lambda;\tau)
+ =\gamma_+\mathcal L_+(\lambda)^3\mathcal M_+(\tau)^2-\gamma_-\mathcal L_-(\lambda)^3\mathcal M_-(\tau)^2
+\end{equation}
+with $\gamma_\pm\ne0$ and linear forms $\mathcal L_\pm=\mathsf Y_\pm\circ U_y$,
+$\mathcal M_\pm=\mathsf X_\pm\circ U_x$ over $\C$; the forms $\mathcal L_+,\mathcal L_-$ are linearly
+independent, and so are $\mathcal M_+,\mathcal M_-$. The maps $\lambda\mapsto U_y\lambda$ and
+$\tau\mapsto U_x\tau$ are injective and preserve primitivity.
+
+\begin{proposition}[Component count]\label{prop:components}
+Let $D_0,\varpi\ge1$ be integers and
+$\delta>0$. There is $K$ such that the following holds for every real
+$X\ge2$, every chart $\chi\in\mathcal X$, all
+$U_y,U_x\in\mathrm{GL}_2(\Z)$ with entries of absolute value at most
+$X^\varpi$, every nonzero $Q\in\Z[\lambda_1,\lambda_2;\tau_1,\tau_2]$,
+bihomogeneous of a bidegree $(a_0,b_0)$ with $a_0+b_0\le D_0$ and with
+$\|Q\|\le X^\varpi$, and all real $\Lambda_1\ge\Lambda_2>0$,
+$\Upsilon_1\ge\Upsilon_2>0$ with $\Lambda_1,\Upsilon_1\le X^\varpi$: the set of
+pairs of primitive vectors $(\lambda,\tau)$ with
+\[
+ |\lambda_i|\le\Lambda_i,\quad|\tau_i|\le\Upsilon_i\quad(i=1,2),\qquad
+ F(\lambda;\tau)=e_\chi,\qquad Q(\lambda;\tau)=0
+\]
+is finite and has at most
+$K X^{\delta}\bigl(1+(\Lambda_1^3\Upsilon_1^2)^{1/10}\bigr)$ elements.
+\end{proposition}
+Call the pairs in the displayed set \emph{solutions}; $K$ may depend on
+$(A,B,C,D_0,\varpi,\delta)$.
+
+\subsection{Components}
+\begin{lemma}[Classification]\label{lem:factor}
+Let $c_4$ be the constant in $\GE$ for four variables. Let $Q$ be as
+in Proposition~\ref{prop:components}. There are at most $a_0+b_0$
+polynomials $G\in\Z[\lambda;\tau]$, each irreducible, dividing $Q$ and
+bihomogeneous of some bidegree $(\alpha,\beta)$ with $\alpha\le a_0$,
+$\beta\le b_0$, such that every integral zero of $Q$ is a zero of one of
+them and $\|G\|\le\exp(c_4(a_0+b_0))\,\|Q\|$. Each $G$ is irreducible over
+$\Q$ and is of exactly one of the following types.
+\begin{itemize}
+\item[(a)] \emph{Pure}: $\beta=0$ and $\alpha\ge2$, or $\alpha=0$ and
+$\beta\ge2$. Then $G$ has no integral zero with $\lambda\ne0$, respectively
+$\tau\ne0$.
+\item[(b)] \emph{Lines}: $G=p\lambda_1+p'\lambda_2$, or
+$G=p\tau_1+p'\tau_2$.
+\item[(c)] \emph{Low mixed}: $\alpha,\beta\ge1$ and $2\alpha+3\beta<10$,
+that is, $(\alpha,\beta)\in\{(1,1),(1,2),(2,1),(3,1)\}$. Then $G$ is
+irreducible over $\C$.
+\item[(d)] \emph{High mixed}: $\alpha,\beta\ge1$ and $2\alpha+3\beta\ge10$.
+\end{itemize}
+\end{lemma}
+\begin{proof}
+Take the nonconstant primitive irreducible factors of $Q$.
+Their total degrees sum to at most $a_0+b_0$; they are bihomogeneous,
+and $\GE$ bounds their heights. Gauss's lemma gives irreducibility
+over $\Q$. A binary form irreducible over $\Q$ of degree at least
+two has no nonzero rational zero, giving (a). If
+$\min(\alpha,\beta)=1$, the form is linear in one pair with coprime
+binary coefficients; these remain coprime over $\C$, so the form
+is absolutely irreducible. The positive bidegrees with
+$2\alpha+3\beta<10$ are exactly the four in (c); all remaining
+mixed factors belong to (d).
+\end{proof}
+Hypothesis $\GE$ enters the proof of Theorem~\ref{thm:fixed} only here, and its height
+bound is used only for the components of type (c). Solutions are primitive,
+so a component of type (a) carries none.
+
+\begin{lemma}[Lines]\label{lem:lines}
+In the setting of Proposition~\ref{prop:components}, a
+component of type \textup{(b)} carries at most $K_1X^{\delta}$ solutions,
+with $K_1$ depending on the chart list, $\varpi$ and $\delta$.
+\end{lemma}
+\begin{proof}
+A nonzero linear form has at most two primitive zeros, differing by
+sign. If it fixes $\lambda$, then $y=U_y\lambda$ is primitive with
+$\hgt(y)\le2X^{2\varpi}$, and $x=U_x\tau$ is primitive with the
+same height bound. The quadratic fibre has nonzero discriminant
+and coefficients at most $32\|F_\chi\|X^{6\varpi}$;
+Lemma~\ref{lem:quadfibre} with $\eps=\delta/(8\varpi+1)$ gives
+$\ll X^\delta$ choices. If the line fixes $\tau$ instead,
+Lemma~\ref{lem:cubicfibre} gives at most $K_{\mathrm c}(\chi)$ choices
+for each sign. The unimodular maps are injective.
+\end{proof}
+
+\subsection{Low mixed components}
+The next proposition is the analogue of
+\cite[Proposition~5.3]{powerful} for forms of the shape
+\eqref{eq:presentation2}.
+
+\begin{proposition}[Graph components]\label{prop:low}
+Let $h\ne0$ be an integer, $\alpha,\beta\ge1$ integers with
+$\min(\alpha,\beta)=1$, and $\eps>0$. There is $K_{\mathrm l}=K_{\mathrm l}(h,\alpha,\beta,\eps)$
+with the following property. Let $F$ be an integral form of bidegree
+$(3,2)$ such that $\kappa_0F=\gamma_1\mathcal L_1(\lambda)^3\mathcal M_1(\tau)^2
+-\gamma_2\mathcal L_2(\lambda)^3\mathcal M_2(\tau)^2$ with nonzero
+$\kappa_0,\gamma_1,\gamma_2\in\C$, independent linear forms $\mathcal L_1,\mathcal L_2$ and
+independent linear forms $\mathcal M_1,\mathcal M_2$ over $\C$. Let $H_G\ge1$ and let
+$G\in\Z[\lambda;\tau]$ be bihomogeneous of bidegree $(\alpha,\beta)$,
+irreducible over $\C$, with $\|G\|\le H_G$. Then the number of pairs of
+primitive vectors $(\lambda,\tau)$ with $G(\lambda;\tau)=0$ and
+$F(\lambda;\tau)=h$ is at most $K_{\mathrm l}H_G^{\eps}$.
+\end{proposition}
+\begin{proof}
+If $\beta=1$, write $G=\tau_1P(\lambda)+\tau_2Q(\lambda)$,
+put $r=\lambda$ and set $(a_G,b_G)=(r_1,r_2)$,
+$(c_G,e_G)=(-Q,P)$. If $\alpha=1$, use the analogous expression
+linear in $\lambda$, with $r=\tau$, $(a_G,b_G)=(-Q,P)$ and
+$(c_G,e_G)=(r_1,r_2)$. In either case these are coprime integral
+pairs of degrees $\beta,\alpha$, with coefficients bounded by $H_G$,
+and $r$ is primitive. Coprimality follows from absolute irreducibility.
+Every counted pair satisfies
+\begin{equation}\label{eq:graph}
+ \lambda_1b_G(r)=\lambda_2a_G(r),\qquad
+ \tau_1e_G(r)=\tau_2c_G(r).
+\end{equation}
+For coprime integral binary forms of degree $n$ and height at most
+$H_G$, the resultant argument of \cite[proof of Proposition~5.3]{powerful}
+gives a nonzero integer of size at most $((2n)!)^2H_G^{4n}$ divisible
+by the gcd of their values at every primitive $r$.
+Apply this to the two pairs to obtain $\mathrm{Res}_1,\mathrm{Res}_2$.
+Primitivity and \eqref{eq:graph} give
+$(a_G,b_G)(r)=g\lambda$, $(c_G,e_G)(r)=k\tau$, where
+$0\ne g\mid\mathrm{Res}_1$ and $0\ne k\mid\mathrm{Res}_2$.
+Thus the binary form $\Psi=F(a_G,b_G;c_G,e_G)$, of degree
+$d_R=3\beta+2\alpha$, takes the nonzero value $g^3k^2h$ at $r$,
+a divisor of $\Xi=h\mathrm{Res}_1^3\mathrm{Res}_2^2$, with
+\[
+ |\Xi|\le|h|((2\beta)!)^6((2\alpha)!)^4H_G^{12\beta+8\alpha}.
+\]
+Put $U_i=\mathcal L_i(a_G,b_G)$ and $V_i=\mathcal M_i(c_G,e_G)$.
+Independence makes $(U_1,U_2)$ and $(V_1,V_2)$ coprime pairs of
+degrees $\beta,\alpha$. After absorbing cube roots of $\gamma_i$,
+$\kappa_0\Psi$ has the form $U_1^3V_1^2-U_2^3V_2^2$.
+If there is a counted pair then $\Psi\ne0$; as
+$\min(\alpha,\beta)=1$, \cite[Lemma~5.2]{powerful} gives at least
+three distinct projective roots.
+
+Let $K_\Psi$ be the product of the distinct primitive integral
+irreducible factors of $\Psi$. By Gauss's lemma it has content $1$,
+is squarefree of degree $3\le d_K\le d_R$, and divides $\Psi$ in
+$\Z[r_1,r_2]$; hence $K_\Psi(r)\mid\Xi$ at every counted point.
+For each of the $2\tau(|\Xi|)$ signed divisors $m$, hypothesis
+$\ST$ gives at most
+$2800d_K^{1+\omega(m)}\le2800d_R\tau(|\Xi|)^{d_R}$ primitive
+solutions of $K_\Psi(r)=m$.
+Each $r$ determines one vector of the counted pair and the other up
+to sign by \eqref{eq:graph}. Thus there are at most
+$11200d_R\tau(|\Xi|)^{d_R+1}$ pairs; the divisor bound gives
+$K_{\mathrm l}H_G^\eps$.
+\end{proof}
+
+The proof also gives the uniform version
+\begin{equation}\label{eq:lowuniformrhs}
+ \#\{(\lambda,\tau):G=0,\ F=h,\ \lambda,\tau\text{ primitive}\}
+ \ll_{\alpha,\beta,\eta} (|h|H_G)^\eta
+ \qquad(\eta>0).
+\end{equation}
+Apply the divisor bound above with exponent
+$\eta/((d_R+1)(12\beta+8\alpha))$: the resulting factor
+$|h|^{\eta/(12\beta+8\alpha)}H_G^\eta$ is at most $(|h|H_G)^\eta$,
+with a constant independent of $F,h$.
+
+
+\begin{corollary}\label{cor:low}
+In the setting of Proposition~\ref{prop:components}, a
+component $G$ of type \textup{(c)} carries at most $K_2X^{\delta}$ solutions.
+\end{corollary}
+\begin{proof}
+By \eqref{eq:presentation2}, $F$ has the shape required in
+Proposition~\ref{prop:low}, $G$ is irreducible over $\C$, and
+$\|G\|\le\exp(c_4D_0)X^{\varpi}$ by Lemma~\ref{lem:factor}. Apply
+Proposition~\ref{prop:low} with $h=e_\chi$, $H_G=\exp(c_4D_0)X^\varpi$ and
+$\eps=\delta/\varpi$, for each of the four bidegrees and each chart.
+\end{proof}
+
+\subsection{High mixed components and the lifted curve}
+\begin{lemma}[Lemma P, {\cite[Lemma~5.5]{powerful}}]\label{lem:P}
+Let $c_{12}$ be the constant in $\CC$ for twelve variables. Let
+$F\in\Z[\lambda_1,\lambda_2;\tau_1,\tau_2]$ be bihomogeneous of bidegree
+$(3,2)$, let $e$ be a nonzero integer, and let
+$G\in\Q[\lambda_1,\lambda_2;\tau_1,\tau_2]$ be bihomogeneous of bidegree
+$(\alpha,\beta)\ne(0,0)$ and irreducible over $\Q$. Let
+$\Lambda_1\ge\Lambda_2>0$ and $\Upsilon_1\ge\Upsilon_2>0$. Then the number of
+pairs of primitive vectors $(\lambda,\tau)\in\Z^2\times\Z^2$ with
+$|\lambda_i|\le\Lambda_i$, $|\tau_i|\le\Upsilon_i$, $F(\lambda;\tau)=e$ and
+$G(\lambda;\tau)=0$ is at most
+\[
+ 2\,c_{12}\,d^3\Omega^{1/d}(\log\Omega+d),\qquad d=2\alpha+3\beta,\quad
+ \Omega=\max(1,\Lambda_1^3\Upsilon_1^2).
+\]
+\end{lemma}
+This is proved in \cite{powerful}: the twelve monomials of bidegree $(3,2)$
+map the counted points, at most two-to-one, to integral points of height at
+most $\Omega$ on an affine curve of degree $2\alpha+3\beta$ in twelve
+variables, to which $\CC$ applies. The form $F$ is arbitrary, and $G$ need
+not be irreducible over $\C$. We may and do assume $c_{12}\ge1$.
+
+\begin{corollary}\label{cor:high}
+In the setting of Proposition~\ref{prop:components}, a
+component $G$ of type \textup{(d)} carries at most
+$K_3X^{\delta}(1+(\Lambda_1^3\Upsilon_1^2)^{1/10})$ solutions.
+\end{corollary}
+\begin{proof}
+Apply Lemma~\ref{lem:P} with $e=e_\chi$. Here $10\le d\le3D_0$,
+so $\Omega^{1/d}\le1+(\Lambda_1^3\Upsilon_1^2)^{1/10}$, while
+$\Omega\le X^{5\varpi}$ gives
+$\log\Omega\le(5\varpi/\delta)X^\delta$.
+Thus $K_3=54c_{12}D_0^3(5\varpi/\delta+3D_0)$ suffices.
+\end{proof}
+This is the sole use of the lifted-curve count in Theorem~\ref{thm:fixed}.
+The exponent $1/10$ comes from the least remaining lifted degree,
+attained by bidegree $(2,2)$.
+
+\begin{proof}[Proof of Proposition~\ref{prop:components}]
+Every solution is a zero of one of the at most $D_0$ components of
+Lemma~\ref{lem:factor}. Components of type (a) carry no solution, and the
+other types are bounded by Lemma~\ref{lem:lines} and
+Corollaries~\ref{cor:low} and~\ref{cor:high}. Finiteness holds because the
+solutions lie in a box. So the proposition holds with
+$K=D_0(K_1+K_2+K_3)$.
+\end{proof}
+\section{Reduced coordinates, moments and the proof of Theorem~\ref{thm:fixed}}\label{sec:sum}
+Throughout, $57/305<\mu<1/5$, $X\ge4$ and
+$M=\lceil X^\mu\rceil$, so that $1\le M\le X$.
+
+\subsection{Strips and reduced bases}
+For $K_0\ge1$, $D>0$ and a real slope $\varsigma$, the \emph{strip}
+$\Sigma(K_0,D,\varsigma)$ is the set of $v=(v_0,v_1)\in\Z^2$ with
+\[
+ |v_0-\varsigma v_1|\le K_0\sqrt D/M,\qquad|v_1|\le K_0\sqrt D,
+\]
+and the \emph{strip norm} $|v|_{\varsigma}$ of $v\in\Z^2$ is the Euclidean norm
+of the vector
+$\bigl(M(v_0-\varsigma v_1)/(K_0\sqrt D),\ v_1/(K_0\sqrt D)\bigr)\in\R^2$. The
+strip is the set of $v$ whose image lies in the square $[-1,1]^2$.
+
+\begin{lemma}[Strips]\label{lem:strips}
+There is $K_{\mathrm s}\ge1$ such that for every cell
+$\mathcal C=(\phi,j,k)$ and every point $p$ of $\mathcal S_{\mathcal C}(X)$
+with $U\le D$ and $V\le E$,
+\[
+ (p_0,p_1)\in\Sigma(K_{\mathrm s},D,\xi_{\mathcal C}),\qquad
+ (p_2,p_3)\in\Sigma(K_{\mathrm s},E,g_j(\xi_{\mathcal C})).
+\]
+\end{lemma}
+\begin{proof}
+We have $|p_1|\le\sqrt D$, $|p_3|\le\sqrt E$ and
+$|p_0/p_1-\xi_{\mathcal C}|\le1/M$. If $M_{\mathrm d}$ bounds first
+branch derivatives, the other slope satisfies
+$|p_2/p_3-g_j(\xi_{\mathcal C})|\le C_{\mathrm g}H^3/X+M_{\mathrm d}/M
+\le(C_{\mathrm g}H^3+M_{\mathrm d})/M$.
+Multiply by the dominant coordinates and take
+$K_{\mathrm s}=1+C_{\mathrm g}H^3+M_{\mathrm d}$, maximized over frames.
+\end{proof}
+
+\begin{proposition}[Reduced bases]\label{prop:bridge}
+Let $K_0\ge1$, let $D>M$ with $M$ as above, and let $|\varsigma|\le K_0$. There are
+$\mathsf B\in\mathrm{GL}_2(\Z)$ and real numbers $\Lambda_1\ge\Lambda_2>0$ with
+$\Lambda_1\le2K_0\sqrt D$ such that the entries of $\mathsf B$ and of $\mathsf B^{-1}$ are
+at most $4(K_0+1)D$ in absolute value, the first column $b_1$ of $\mathsf B$ is a
+nonzero vector of least strip norm with $\Lambda_1=2/|b_1|_\varsigma$, and every
+primitive $v\in\Sigma(K_0,D,\varsigma)$ equals $\mathsf B\lambda$ for a primitive
+$\lambda\in\Z^2$ with $|\lambda_1|\le\Lambda_1$ and
+$|\lambda_2|\le\Lambda_2$.
+\end{proposition}
+\begin{proof}
+Let $b_1$ be a nonzero integer vector of least strip norm; it exists because
+the vectors of bounded strip norm lie in a finite box, and it is primitive.
+Choose $w\in\Z^2$ with $\det(b_1,w)=1$ and put $b_2=w-kb_1$ with $k$ the
+integer nearest to $\langle b_1,w\rangle_\varsigma/|b_1|_\varsigma^2$, where
+$\langle\,,\rangle_\varsigma$ is the inner product of the strip norm. With
+$N_i=|b_i|_\varsigma^2$ and $P_0=\langle b_1,b_2\rangle_\varsigma$ we get $N_1\le N_2$ and
+$|P_0|\le N_1/2$, and therefore, for all real $l_1,l_2$,
+\begin{equation}\label{eq:gram}
+ |l_1b_1+l_2b_2|_\varsigma^2\ge\tfrac12\bigl(l_1^2N_1+l_2^2N_2\bigr).
+\end{equation}
+Let $\mathsf B$ have columns $b_1,b_2$, and $\Lambda_i=2/\sqrt{N_i}$. If
+$v=\mathsf B\lambda$ lies in the strip, its image has squared length at most $2$, so
+\eqref{eq:gram} gives $\lambda_i^2N_i\le4$; and $\lambda$ is primitive when
+$v$ is. Write $b_1=(a_1,c_1)$, $b_2=(a_2,c_2)$ and $R_D=K_0\sqrt D$. Then
+$R_D^2N_1=M^2(a_1-\varsigma c_1)^2+c_1^2\ge1$, which gives
+$\Lambda_1\le2R_D$. The images of $b_1,b_2$ span a parallelogram of area
+$M/R_D^2$, so $N_1N_2-P_0^2=M^2/R_D^4$ and $3N_1N_2\le4M^2/R_D^4$; hence
+$R_D^2N_2\le2M^2$. So $|c_i|\le2M$ and $|a_i-\varsigma c_i|\le2$, which gives
+$|a_i|\le2+2K_0M\le4(K_0+1)D$. The entries of $\mathsf B^{-1}$ are those of $\mathsf B$ up
+to sign and order.
+\end{proof}
+The hypothesis $D>M$ is used for the bound on the entries. For each cell
+$\mathcal C=(\phi,j,k)$ we fix $\mathsf B_y(\mathcal C)$ with
+$\Lambda_i(\mathcal C)$ for the strip $\Sigma(K_0,D,\xi_{\mathcal C})$, and
+$\mathsf B_x(\mathcal C)$ with $\Upsilon_i(\mathcal C)$ for
+$\Sigma(K_0,E,g_j(\xi_{\mathcal C}))$, where $K_0\ge K_{\mathrm s}$ also
+bounds $5$, the slopes $\xi_{\mathcal C}$ and the values
+$g_j(\xi_{\mathcal C})$.
+
+\begin{lemma}[Per-cell count]\label{lem:percell}
+Let $q$ be as in Proposition~\ref{prop:aux}
+and $\delta>0$. There are $P_{\mathrm c}$ and $X_{\mathrm c}$ such that for
+all $X\ge X_{\mathrm c}$, all $D,E>M$ with $D^3E^2\le128H^6X^2$ and every
+cell $\mathcal C$, the number of points of $\mathcal S_{\mathcal C}(X)$ with
+$U\le D$ and $V\le E$ is at most
+$P_{\mathrm c}X^{\delta}\bigl(1+(\Lambda_1(\mathcal C)^3\Upsilon_1(\mathcal C)^2)^{1/10}\bigr)$.
+\end{lemma}
+\begin{proof}
+Let $S_y,S_x$ be the coordinate permutations of the frame.
+Lemmas~\ref{lem:strips} and Proposition~\ref{prop:bridge} give an
+injective parametrization
+$S_yy=\mathsf B_y\lambda$, $S_xx=\mathsf B_x\tau$ by primitive
+vectors in the reduced box. Set $U_y=S_y\mathsf B_y$,
+$U_x=S_x\mathsf B_x$ and
+$Q(\lambda;\tau)=G_{\mathcal C}(\mathsf B_y\lambda;\mathsf B_x\tau)$.
+Then $F_\chi(U_y\lambda;U_x\tau)=e_\chi$ and $Q=0$; the latter
+form is nonzero of bidegree $(3q,2q)$.
+As $D,E\le128H^6X^2$, the matrix entries are at most $X^3$ for
+large $X$. Expanding the substitution gives
+\[
+ \|Q\|\le(5q+1)^42^{5q}X^{qn_q+1+15q}\le X^\varpi,
+ \qquad \varpi=qn_q+15q+2.
+\]
+Also $\Lambda_1,\Upsilon_1\le X^2$. Proposition~\ref{prop:components}
+with $D_0=5q$ and this $\varpi$ now applies.
+\end{proof}
+
+\subsection{Moments}
+\begin{lemma}[Tail count]\label{lem:tail}
+Let $K_0\ge1$ and $c>0$. There is $C_{\mathrm t}$ such that the following
+holds for all $D>0$. Let $(\varsigma_i)_{i\in I}$ be real numbers with
+$|\varsigma_i|\le K_0$ and $|\varsigma_i-\varsigma_j|\ge c/M$ for $i\ne j$, with
+$\card I\le K_0M$; for each $i$ let $b^{(i)}$ be a nonzero integer vector
+and $\ell_i=2/|b^{(i)}|_{\varsigma_i}$. Then for every $\Lambda>0$,
+\[
+ \card\{i\in I:\ell_i\ge\Lambda\}\le C_{\mathrm t}D/\Lambda^2 .
+\]
+\end{lemma}
+\begin{proof}
+For $\Lambda<8K_0\sqrt D/M$, the trivial bound $K_0M$ suffices,
+since $M\ge1$ and $M^2<64K_0^2D/\Lambda^2$.
+Otherwise put $Z=2K_0\sqrt D/\Lambda\le M/4$.
+If $\ell_i\ge\Lambda$, its nonzero vector $(p,p')$ satisfies
+$|p-\varsigma_ip'|\le Z/M$ and $|p'|\le Z$.
+Here $p'\ne0$, since otherwise $|p|\le1/4$; changing signs gives
+$1\le p'\le Z$. Thus there are no such indices if $Z<1$.
+For each integer $q=p'\le Z$, the bound
+$|p|\le K_0q+1/4$ allows at most $(2K_0+2)q$ numerators.
+For each $(p,q)$, admissible slopes lie in an interval of length
+$2Z/(Mq)$, which contains at most $1+2Z/(cq)$ of the separated
+$\varsigma_i$. Therefore the number of indices is at most
+\[
+ (2K_0+2)\sum_{1\le q\le Z}q\left(1+\frac{2Z}{cq}\right)
+ \ll_{K_0,c}Z^2=4K_0^2D/\Lambda^2.
+\]
+\end{proof}
+This is a double count of pairs consisting of an integer vector in a sector
+and a slope close to its direction; it uses neither primitivity nor
+reducedness of the $b^{(i)}$.
+
+\begin{lemma}[Moments]\label{lem:moments}
+In the setting of Lemma~\ref{lem:tail}, for $0<\vartheta<2$ there is $K_{\mathrm m}$
+with $\sum_{i\in I}\ell_i^{\vartheta}\le K_{\mathrm m}M(D/M)^{\vartheta/2}$. If moreover
+$(\varsigma_i')_{i\in I}$, $E>0$ and vectors with lengths $\ell_i'$ satisfy the same
+hypotheses with $E$ in place of $D$, then
+\[
+ \sum_{i\in I}\ell_i^{3/10}\ell_i'^{\,1/5}\le
+ K_{\mathrm m}'M\Bigl(\frac DM\Bigr)^{3/20}\Bigl(\frac EM\Bigr)^{1/10}
+ =K_{\mathrm m}'(D^3E^2)^{1/20}M^{3/4}.
+\]
+\end{lemma}
+\begin{proof}
+Put $\Lambda_*=4K_0\sqrt{D/M}$. Lengths at most $\Lambda_*$
+contribute at most $K_0M\Lambda_*^\vartheta$.
+Lemma~\ref{lem:tail} bounds the contribution from
+$[2^k\Lambda_*,2^{k+1}\Lambda_*)$ by
+$C_{\mathrm t}M\Lambda_*^\vartheta2^\vartheta(2^\vartheta/4)^k$.
+Summing this convergent series proves the first assertion.
+Cauchy--Schwarz with moments $3/5$ and $2/5$ proves the second.
+\end{proof}
+
+\begin{proposition}[Hard bound]\label{prop:hard}
+Let $57/305<\mu<1/5$ and $\delta>0$. There
+are $K_{\mathrm h}$ and $X_{\mathrm h}$ such that for all
+$X\ge X_{\mathrm h}$ and all $D,E>M$ with $D^3E^2\le128H^6X^2$, the number
+of triples $(\chi,y,x)\in\mathcal S(X)$ with $U\le D$ and $V\le E$ is at
+most $K_{\mathrm h}X^{\delta}\bigl(M+X^{1/10}M^{3/4}\bigr)$.
+\end{proposition}
+\begin{proof}
+Take $X_{\mathrm h}\ge\max(4,n_0,X_{\mathrm a},X_{\mathrm c},H^3/\delta_0)$
+for every frame, so all triples are covered by cells.
+On each fixed branch there are at most $5M$ cells; their two slope
+families are separated by $1/M$ and $c_{\mathrm g}/M$.
+Apply Lemma~\ref{lem:moments} to the first basis columns, whose
+lengths are $\Lambda_1,\Upsilon_1$, and sum Lemma~\ref{lem:percell}:
+the branch contributes at most
+\[
+ P_{\mathrm c}X^\delta
+ \bigl(5M+K_{\mathrm m}'(D^3E^2)^{1/20}M^{3/4}\bigr)
+ \ll X^\delta(M+X^{1/10}M^{3/4}).
+\]
+There are finitely many frames and branches.
+\end{proof}
+
+\subsection{The schedule}
+\begin{lemma}[Schedule]\label{lem:schedule}
+Let $\eps>0$ and put $\eta=\min(1/1000,\eps/4)$, $\mu=57/305+\eta$ and
+$\delta=\eps/4$. For all $A_1,P>0$ there is $K_{\mathrm{sch}}$ such that for every
+$X\ge2$ and every family of at most $A_1(1+\log X)^2$ boxes $(D_i,E_i)$ with
+counts $z_i\ge0$ satisfying
+\begin{itemize}
+\item[(i)] $z_i\le PX^{\delta}\min(D_i,E_i)$ for all $i$, and
+\item[(ii)] $z_i\le PX^{\delta}(M+X^{1/10}M^{3/4})$ whenever $M<D_i$ and
+$M<E_i$,
+\end{itemize}
+we have $\sum_iz_i\le K_{\mathrm{sch}}X^{293/1220+\eps}$.
+\end{lemma}
+\begin{proof}
+Put $\vartheta=1/10+3\mu/4=293/1220+3\eta/4\ge\mu$.
+Since $M\le2X^\mu$, both cases (i)--(ii) give
+$z_i\le4PX^{\delta+\vartheta}$.
+The number of boxes is $\ll_\eps A_1X^{\eps/4}$, and
+$3\eta/4+\delta+\eps/4\le\eps$.
+\end{proof}
+The boxes with
+$\min(D,E)\le M$ are those in which the reduced bases of
+Proposition~\ref{prop:bridge} are not available; there the easy bound
+suffices.
+
+\subsection{Proof of Theorem~\ref{thm:fixed}}
+Choose $\mu,\delta$ as in Lemma~\ref{lem:schedule}, and take the chart
+constants and the easy and hard bounds above. For $X\ge X_{\mathrm h}$,
+Lemma~\ref{lem:recover} gives $\card\mathcal W(X)\le\card\mathcal S(X)$.
+Lemmas~\ref{lem:norms} and~\ref{lem:partition} split $\mathcal S(X)$
+into $O((1+\log X)^2)$ boxes with $D^3E^2\le128H^6X^2$.
+Propositions~\ref{prop:easy} and~\ref{prop:hard} supply the two bounds
+of Lemma~\ref{lem:schedule}, with $P=K_{\mathrm e}+K_{\mathrm h}+1$.
+Hence
+\[
+ \card\mathcal W(X)\le K_{\mathrm w}X^{293/1220+\eps}
+ \qquad(X\ge X_{\mathrm h}).
+\]
+By Lemma~\ref{lem:growth}, $f(n)>0$ for $n\ge n_0$; thus these are
+exactly the large $n$ in the window counted by $S(A,B,C;\cdot)$.
+Lemma~\ref{lem:prefix} with $\vartheta=293/1220+\eps$ now yields
+$S(A,B,C;N)\le KN^{293/1220+\eps}$ for every $N\ge1$. \qed
+
+\medskip
+The constant depends on $(A,B,C,\eps)$ and is not effective: class
+representatives, generators, branch neighborhoods and the thresholds
+$X_{\mathrm a},X_{\mathrm c}$ were chosen existentially.
+The assumption $A>0$ enters growth, and $A\ne0$ also enters
+Lemmas~\ref{lem:ideal} and~\ref{lem:recover}. Nonsquareness gives the
+quadratic field, finite class group, nonvanishing norms, and the Pell
+unit when $\Delta>0$.
+
+\section{The uniform bound: proof of Theorem~\ref{thm:uniform}}\label{sec:uniform}
+Let $f(n)=an^2+bn+c$, where $a,b,c\in\Z$, $a\ge1$,
+$\Delta=b^2-4ac$ is nonsquare, and $|a|,|b|,|c|\le L$, $L\ge2$.
+Constants are absolute unless a dependence is stated. The fixed-polynomial
+proof leaves its ideal representatives, unit and compactness bounds
+uncontrolled in $L$, and its determinant order grows as $\mu\to57/305$.
+Here we give arithmetic and graph constructions with polynomial losses
+and fix $\mu_0=19/100$, $q_0=4096$. We reuse
+Proposition~\ref{prop:surplus} and Lemmas~\ref{lem:P}, \ref{lem:partition},
+\ref{lem:moments} and~\ref{lem:prefix}.
+
+\subsection{The trace equation}
+Write $\Delta=\Delta_0r_0^2$, with $r_0\ge1$ and $\Delta_0$ squarefree,
+nonsquare and $|\Delta_0|\le5L^2$. Put
+$\omega_0=(1+\sqrt{\Delta_0})/2$ if $\Delta_0\equiv1\pmod4$ and
+$\omega_0=\sqrt{\Delta_0}$ otherwise. Then $\OO=\Z+\Z\omega_0$.
+For $y\in\Z^2$ set $\iota_0(y)=y_0+y_1\omega_0$, and let $\sigma_\pm$
+send $\sqrt{\Delta_0}$ to $\pm\sqrt{\Delta_0}\in\C$.
+The integral trace form
+\[
+ T_0(y;x)=16\operatorname{Tr}(\iota_0(y)^3\iota_0(x)^2)
+\]
+has bidegree $(3,2)$. Also put $z_n=(2an+b)+r_0\sqrt{\Delta_0}$,
+so $z_n\bar z_n=4af(n)$.
+
+\begin{lemma}[Balancing by a bounded-norm integer]\label{lem:A3boundedbalance}
+Let $d\ge2$ be a squarefree integer. For every $R>0$ there is
+$\gamma=p+q\sqrt d\in\Z[\sqrt d]$ such that
+\[
+ 1\le |\Nm\gamma|\le3\sqrt d,
+ \qquad
+ \frac{R}{6d}\le
+ \left|\frac{p+q\sqrt d}{p-q\sqrt d}\right|\le6dR.
+\]
+The integer $\gamma$ is not required to be a unit.
+\end{lemma}
+\begin{proof}
+Let $p_j/q_j$ be the simple continued-fraction convergents of $u=\sqrt d$,
+starting with $p_0=\lfloor u\rfloor$, $q_0=1$ and $p_{-1}=1$, $q_{-1}=0$.
+The recurrences give $1\le q_j\le q_{j+1}$ and
+$q_{j+2}\ge q_{j+1}+q_j$, hence $q_j\to\infty$. If $u_{j+1}>a_{j+1}$
+is the next complete quotient, then
+\[
+ u=\frac{p_ju_{j+1}+p_{j-1}}{q_ju_{j+1}+q_{j-1}},\qquad
+ |p_jq_{j-1}-p_{j-1}q_j|=1,
+\]
+so $q_{j+1}=a_{j+1}q_j+q_{j-1}$ implies
+\begin{equation}
+ t_j:=|p_j-uq_j|\le q_{j+1}^{-1}.                 \label{eq:cf-error}
+\end{equation}
+Put $A_j=p_j+uq_j$, $B_j=|p_j^2-dq_j^2|$ and $\Lambda_j=A_j^2/B_j$.
+Since $p_j\ge uq_j-1>0$ and $u$ is irrational,
+\begin{equation}
+ 1\le B_j=A_jt_j\le(2uq_j+t_j)t_j\le2u+1\le3u. \label{eq:cf-norm}
+\end{equation}
+Thus $q_{j+1}\le A_j$ and $A_{j+1}\le2uq_{j+1}+1\le3uA_j$, giving
+\begin{equation}
+ \Lambda_{j+1}\le9u^2A_j^2
+ =9u^2B_j\Lambda_j\le27u^3\Lambda_j
+ \le(6d)^2\Lambda_j.                            \label{eq:cf-ratio-jump}
+\end{equation}
+Moreover $\Lambda_j\to\infty$ because $A_j\ge uq_j$, and
+$\Lambda_0\le4d$. For $R\ge1$ choose the first $j$ with
+$\Lambda_j\ge R/(6d)$. If $j=0$, then $\Lambda_j\le4d\le6dR$;
+otherwise \eqref{eq:cf-ratio-jump} gives $\Lambda_j<6dR$.
+Now $\gamma=p_j+q_j\sqrt d$ has embedding ratio $\Lambda_j$ and
+absolute norm $B_j$. For $R<1$, apply this construction to $R^{-1}$
+and conjugate $\gamma$.
+\end{proof}
+
+\begin{proposition}[Arithmetic reduction]\label{prop:A3lift}
+There is an absolute constant $C_0\ge1$ such that for every $n\ge4L$ with
+$f(n)$ powerful there are an integer $e$ and primitive vectors
+$y,x\in\Z^2$ with
+\begin{itemize}
+\item[(i)] $1\le e\le C_0L^{28}$ and $T_0(y;x)=e$;
+\item[(ii)] $\iota_0(y)^3\iota_0(x)^2
+=\dfrac{e}{32\,\Delta_0^2r_0}\,(\sqrt{\Delta_0})^3z_n$;
+\item[(iii)] $|\sigma_+(\iota_0y)|\le C_0L^4|\sigma_-(\iota_0y)|$
+and $|\sigma_+(\iota_0x)|\le C_0L^6|\sigma_-(\iota_0x)|$, and the same
+with $\sigma_+$ and $\sigma_-$ exchanged;
+\item[(iv)] $n/(C_0L^9)\le\hgt(y)^3\hgt(x)^2\le C_0L^{40}n$.
+\end{itemize}
+The triple $(e,y,x)$ determines $n$.
+\end{proposition}
+\begin{proof}
+Write $d=\Delta_0$, $s=r_0$, $\theta=\sqrt d$ and $K=\Q(\theta)$.
+Parentheses denote principal fractional ideals; $\Nm$ denotes the field
+norm or absolute ideal norm. Set
+\[
+ z=(2an+b)+s\theta,\qquad w=\theta^3z=d^2s+d(2an+b)\theta,
+ \qquad h_0=d^2s.
+\]
+Since $\Delta=ds^2$ and $s\ge1$,
+\begin{equation}
+ 1\le|d|\le|\Delta|\le5L^2,\qquad
+ 0<h_0\le\Delta^2\le25L^4.                      \label{eq:arith-1}
+\end{equation}
+For $n\ge4L$, the inequalities $L(n+1)\le n^2/2$ and
+$n^2+n+1\le2n^2$ give
+\begin{equation}
+ n^2/4\le f(n)\le2Ln^2,                         \label{eq:arith-2}
+\end{equation}
+whence $z\ne0$ and
+\begin{equation}
+ \Nm w=-4ad^3f(n),\qquad
+ n^2\le|\Nm w|\le1000L^8n^2.                    \label{eq:arith-3}
+\end{equation}
+
+Write $f(n)=u^3v^2$ with $u,v\ge1$, by expressing every prime exponent
+at least two as $3i+2j$. A prime ideal $\mathfrak p$ occurring exactly
+once in $(z)$ divides $(4a\Delta)$: if $\bar z\in\mathfrak p$, then
+$2s\theta=z-\bar z\in\mathfrak p$ and $4\Delta\in\mathfrak p$;
+if neither $\bar z$ nor $4a$ belongs to $\mathfrak p$, valuations in
+$(z)(\bar z)=(4a)(u)^3(v)^2$ give the impossible equality $1=3i+2j$.
+Let $\mathfrak R$ be the product of these prime ideals. Splitting all
+remaining exponents into $3i+2j$ yields integral ideals
+\[
+ (z)=\mathfrak R\mathfrak I^3\mathfrak J^2,
+ \qquad \mathfrak R\text{ squarefree}.
+\]
+For $B_0=2a|\Delta|$, the identity $B_0^2=(4a\Delta)(a\Delta)$ and
+squarefreeness imply $\mathfrak R\mid(B_0)$, hence
+\begin{equation}
+ r:=\Nm\mathfrak R\le B_0^2\le100L^6.           \label{eq:arith-4}
+\end{equation}
+The order $\Z[\theta]$ has discriminant $4d$, so $|D_K|\le20L^2$.
+Minkowski supplies an integral ideal $\mathfrak j$ in the class of
+$\mathfrak I\mathfrak J$ with
+\begin{equation}
+ N:=\Nm\mathfrak j\le(4/\pi)^{r_2}\frac{2!}{2^2}\sqrt{|D_K|}
+ \le2\sqrt{|D_K|}\le10L.                        \label{eq:arith-5}
+\end{equation}
+Choose $(\xi)\mathfrak j=\mathfrak I\mathfrak J$ and set
+$\alpha=z/\xi^2$, $\beta=N^3r\xi^3/z$. These are integral:
+\[
+ (\alpha)=\mathfrak R\mathfrak I\mathfrak j^2,\qquad
+ (\beta)=\frac{(N)^3(r)\mathfrak J}{\mathfrak R\mathfrak j^3}
+ \subseteq\mathfrak J.
+\]
+Here $(N)\subseteq\mathfrak j$, $(r)\subseteq\mathfrak R$, because
+an integral ideal contains its norm (the order of its additive quotient).
+The choices give the exact identity
+\begin{equation}
+ \alpha^3\beta^2=N^6r^2z.                        \label{eq:arith-6}
+\end{equation}
+
+For $d<0$, set $m=1$, $\alpha_1=\alpha$, $\beta_1=\beta$; conjugate
+embeddings have equal moduli. For $d>0$ we have $d\ge2$ and
+$2an+b\ge7L\ge3s\sqrt d$, since $s\sqrt d\le\sqrt5L$. Thus
+$Z:=|\sigma_+(z)/\sigma_-(z)|\in[1/2,2]$.
+Apply Lemma~\ref{lem:A3boundedbalance} to
+$R=A^{-1/2}$, $A=|\sigma_+(\alpha)/\sigma_-(\alpha)|$, obtaining
+\[
+ \begin{gathered}
+ 1\le m:=|\Nm\gamma|\le3\sqrt d\le7L,\\
+ F^{-1}A^{-1/2}\le G:=|\sigma_+(\gamma)/\sigma_-(\gamma)|
+ \le FA^{-1/2},\quad F=6d\le30L^2.
+ \end{gathered}
+\]
+Put $\alpha_1=\gamma^2\alpha$, $\beta_1=\bar\gamma^3\beta$.
+Then $\alpha_1^3\beta_1^2=N^6r^2m^6z$ and its embedding ratios satisfy
+$F^{-2}\le A_1=G^2A\le F^2$, $A_1^3B_1^2=Z$.
+Since $\sqrt2F^3\le54000L^6$, in both signs of $d$ we obtain
+\begin{equation}
+ (900L^4)^{-1}\le A_1\le900L^4,\qquad
+ (54000L^6)^{-1}\le B_1\le54000L^6.              \label{eq:arith-7}
+\end{equation}
+Represent $\theta\alpha_1=\iota_0(Y)$ and $\beta_1=\iota_0(X)$ in
+the integral basis. Multiplication by $\theta$ preserves embedding
+ratios in absolute value. Thus, with $\kappa=N^6r^2m^6$,
+\begin{equation}
+ 1\le\kappa\le ML^{24},\qquad
+ \iota_0(Y)^3\iota_0(X)^2=\kappa w,              \label{eq:arith-8}
+\end{equation}
+where an absolute $M\ge54000$ bounds the ratios by $ML^4,ML^6$;
+for example $M=20^6\cdot100^2\cdot7^6+100000$ suffices.
+
+Divide $Y,X$ by their positive coordinate contents $g_Y,g_X$.
+The resulting $y,x$ are primitive, preserve the embedding ratios and satisfy
+\begin{equation}
+ \iota_0(y)^3\iota_0(x)^2=\lambda w,\qquad
+ \lambda=\kappa/q,\quad q=g_Y^3g_X^2\ge1.        \label{eq:arith-9}
+\end{equation}
+The trace form is integral: in the half-integral basis the five factors
+have denominator dividing $2^5$, and $16\operatorname{Tr}$ multiplies
+the rational coordinate by $32$. Taking traces gives the positive integer
+$e=T_0(y;x)$ and $qe=32\kappa h_0$, hence
+\begin{equation}
+ 1\le e\le800ML^{28},\qquad
+ \lambda=\frac e{32h_0},\qquad
+ \frac1{800L^4}\le\lambda\le ML^{24}.            \label{eq:arith-10}
+\end{equation}
+This proves (i)--(iii) after enlarging $C_0$.
+
+For $H(v)=\hgt(v)$ and $A(v)=|\Nm\iota_0(v)|$, solving the two
+embedding equations and using $|\theta|\ge1$, $|\omega_0|,|\bar\omega_0|\le3L$
+gives
+\begin{equation}
+ H(v)\le2\max_\pm|\sigma_\pm(\iota_0v)|,
+ \qquad A(v)\le16L^2H(v)^2.                     \label{eq:arith-11}
+\end{equation}
+If the embedding ratio is bounded in both directions by $Q$, then also
+\begin{equation}
+ H(v)^2\le4QA(v).                              \label{eq:arith-12}
+\end{equation}
+Put $V=H(y)^3H(x)^2$. Since $A(y)^3A(x)^2=\lambda^2|\Nm w|$,
+\eqref{eq:arith-3}, \eqref{eq:arith-10}--\eqref{eq:arith-12} give
+\begin{equation}
+ \frac{n^2}{800^2\,16^5L^{18}}\le V^2
+ \le1000\,4^5M^7L^{80}n^2.                      \label{eq:arith-13}
+\end{equation}
+Indeed the lower bound divides by $16^5L^{10}$ and uses
+$\lambda^2\ge800^{-2}L^{-8}$; the upper bound multiplies
+$4^5M^5L^{24}$, $M^2L^{48}$ and $1000L^8n^2$.
+Square roots prove (iv) with an absolute $C_0$ also dominating $800M$.
+Finally (ii) recovers $w$ from $(e,y,x)$, and its $\theta$-coordinate
+$d(2an+b)$ determines $n$ because $ad\ne0$.
+\end{proof}
+
+\subsection{The count on a shell}
+Let $\mathcal P(L,Z,\Delta_0,e)$ consist of primitive pairs $(y,x)$
+with $T_0(y;x)=e$, $Z\le\hgt(y)^3\hgt(x)^2\le2Z$ and the balancing
+inequalities (iii) of Proposition~\ref{prop:A3lift}. Choosing dominant
+coordinates gives four \emph{orientations}, each with slopes
+$(\xi,\zeta)\in[-1,1]^2$. Throughout the next three propositions,
+$\Delta_0$ is squarefree and nonsquare with $|\Delta_0|\le5L^2$.
+
+\begin{proposition}[Fallback count]\label{prop:A3fallback}
+For $\delta>0$ there are $K_{\mathrm f},B_{\mathrm f}>0$ such
+that for all $L,Z\ge2$, all squarefree nonsquare $\Delta_0$ with
+$|\Delta_0|\le5L^2$, all $1\le e\le C_0L^{28}$ and all $D,E\ge1$ with
+$\sqrt D,\sqrt E\le4Z$, the number of pairs of primitive vectors with
+$|y_i|\le\sqrt D$, $|x_i|\le\sqrt E$ and $T_0(y;x)=e$ is at most
+$K_{\mathrm f}L^{B_{\mathrm f}}Z^{\delta}\min(D,E)$.
+\end{proposition}
+\begin{proof}
+Write $d=\Delta_0$, $h=e$, $P=\max(C_0,4)LZ$.
+For a quadratic form $Q$ of nonzero discriminant and coefficient
+height at most $A\ge1$, Lemma~\ref{lem:quadfibre} gives, uniformly in
+$h\ne0$ and $X\ge2$,
+\begin{equation}\label{eq:A3uniformquadratic}
+ \#\{u\text{ primitive}:Q(u)=h,\ \hgt(u)\le X\}
+ \ll_\eta |h|^2(AX)^\eta\qquad(\eta>0).
+\end{equation}
+To track $h$, split into the $4h^2$ residue classes modulo $2h$.
+The injective map in that proof sends each nonempty class into
+$p^2-\operatorname{disc}(Q)r^2=1$, $|p|,|r|\le\lceil6AX^2\rceil$.
+This has $O(1+\log(AX))$ solutions with absolute constant: negative or
+square discriminants give bounded counts, and positive nonsquare Pell
+solutions grow geometrically with ratio at least $2$ in their positive
+rational coordinates. Absorb the logarithm to obtain \eqref{eq:A3uniformquadratic}.
+
+For nonzero fixed $x$, the cubic in $y$ is
+\[
+ 16\{\sigma_+(\iota_0x)^2\sigma_+(\iota_0y)^3+
+       \sigma_-(\iota_0x)^2\sigma_-(\iota_0y)^3\}.
+\]
+Its two coefficients are nonzero and its two linear forms independent,
+so it has three distinct projective roots. Divide by its positive
+content $c$; a nonempty fibre requires $c\mid h$. Hypothesis $\ST$
+then bounds primitive solutions by $2800\,3^{1+\omega(|h/c|)}
+\ll_\eta|h|^\eta$, uniformly in the cubic, using
+$3^{\omega(m)}\le\tau(m)^2$ and the divisor bound (absorbing a sign
+into the form when necessary).
+
+For fixed primitive $y$, expansion gives quadratic coefficient height
+$\ll(1+|d|)^2\hgt(y)^3$ and discriminant
+\[
+ \begin{cases}
+ -16d((2y_0+y_1)^2-dy_1^2)^3,&d\equiv1\pmod4,\\
+ -4096d(y_0^2-dy_1^2)^3,&d\not\equiv1\pmod4.
+ \end{cases}
+\]
+It is nonzero because a nonzero integral vector has nonzero norm.
+Since $|d|\le5L^2$ and all coordinates are at most $4Z$, the heights
+and ranges are bounded by fixed powers of $P$. Choosing $\eta$
+sufficiently small in \eqref{eq:A3uniformquadratic} bounds this fibre
+by $O_\delta(h^2P^\delta)$; the cubic fibre is $O_\delta(h^\delta)$.
+Both are $O_\delta(h^{2+\delta}P^\delta)$. Summing in either order,
+with at most $9D$ choices of $y$ or $9E$ choices of $x$, gives
+\[
+ \#\{(y,x)\}\ll_\delta h^{2+\delta}P^\delta\min(D,E)
+ \ll_{\delta,C_0}L^{56+29\delta}Z^\delta\min(D,E).
+\]
+Thus $B_{\mathrm f}=56+29\delta$ suffices.
+\end{proof}
+
+\begin{proposition}[Graph cover]\label{prop:A3graph}
+For every integer $\varkappa_0\ge0$ there are $C_{\mathrm g}\ge2$ and an
+integer $k_{\mathrm g}\ge1$, depending on $\varkappa_0$ and $C_0$, with the
+following property. Let $L,Z\ge2$ with
+$H_{\mathrm g}:=C_{\mathrm g}L^{k_{\mathrm g}}\le Z$, let $\Delta_0$ be
+squarefree and nonsquare with $|\Delta_0|\le5L^2$, and let
+$1\le e\le C_0L^{28}$. For each orientation there are at most
+$H_{\mathrm g}$ intervals $[a_j,b_j]\subset[-1,1]$ and functions $g_j$ of
+class $C^{\varkappa_0+1}$ on
+$(a_j-2/H_{\mathrm g},b_j+2/H_{\mathrm g})$, with all derivatives of order
+at most $\varkappa_0+1$ bounded by $H_{\mathrm g}$ and
+$|g_j'|\ge1/H_{\mathrm g}$ on $[a_j,b_j]$, such that every pair of
+$\mathcal P(L,Z,\Delta_0,e)$ in that orientation has slopes with
+$\xi\in[a_j,b_j]$ and $|\zeta-g_j(\xi)|\le H_{\mathrm g}/Z$ for some $j$.
+\end{proposition}
+\begin{proof}
+Put $d=\Delta_0$. In a fixed orientation denote the dominant coordinates
+by $y_1,x_1$, so $\xi=y_0/y_1$, $\zeta=x_0/x_1$.
+Each embedding gives an affine factor $t+\omega$ or $1+\omega t$.
+Write these as $A_\pm(s)$ for $y$ and $B_\pm(w)$ for $x$. Then
+\[
+ \Phi(s,w)=16\{A_+(s)^3B_+(w)^2+A_-(s)^3B_-(w)^2\}
+\]
+is real, and at a counted point
+\begin{equation}\label{eq:A3smalltrace}
+ |\Phi(\xi,\zeta)|=\frac e{|y_1|^3|x_1|^2}\le C_0L^{28}/Z.
+\end{equation}
+Constants below may depend on $C_0,\varkappa_0$, but not on $d,L,Z,e$.
+
+\emph{Nearby zeros and nonvanishing partial derivatives.}
+For $d<0$, write $\omega=u+iv$, with $u=0$ or $1/2$,
+$v^2\ge1/4$, $v^2\ge u^2$. Both possible affine factors have modulus
+at least $1/2$ on $\R$: their squared minima are respectively $v^2$
+and $v^2/(u^2+v^2)\ge1/2$.
+With $A=A_+$ and $B=B_+=rw+t$, put
+$a=\operatorname{Re}(A^3r^2)$, $b=\operatorname{Re}(A^3rt)$,
+$c=\operatorname{Re}(A^3t^2)$. Expansion gives
+\begin{equation}\label{eq:A3imagdisc}
+ \Phi=32(aw^2+2bw+c),\qquad b^2-ac=v^2|A|^6\ge1/256.
+\end{equation}
+A quadratic $aw^2+2bw+c$ with $b^2-ac=\mathcal D>0$ has a real root
+at distance at most $|aw^2+2bw+c|/\sqrt{\mathcal D}$: for $a\ne0$
+factor it and use that the farther root is at distance at least half
+the root separation $2\sqrt{\mathcal D}/|a|$; for $a=0$ use the
+linear equation. Consequently a root $w_0$ satisfies
+\begin{equation}\label{eq:A3imagclose}
+ |w-w_0|\le|\Phi(s,w)|,
+\end{equation}
+and $|w_0|\le3/2$ once $Z\ge2C_0L^{28}$.
+At a zero, $A^3B^2$ is purely imaginary and
+$|\operatorname{Im}(A'/A)|=v/|A|^2$ (likewise for $B$), so
+\begin{equation}\label{eq:A3imagpartials}
+ \Phi_w^2=4096v^2|A|^6,\qquad
+ \Phi_s^2=9216v^2|A|^2|B|^4.
+\end{equation}
+Thus $|\Phi_w|\ge4$ and $|\Phi_s|\ge6$.
+
+For $d>0$, write $A_\pm=p_\pm+q_\pm s$,
+$B_\pm=r_\pm+t_\pm w$. Their coefficients are at most $5L$, and
+\[
+ |p_+q_--p_-q_+|,\ |r_+t_--r_-t_+|\ge1,
+\]
+since these are $|\omega_+-\omega_-|=\sqrt d$ or $2\sqrt d$.
+By \eqref{eq:arith-11}, two embeddings with ratio bounded by $Q$ each
+have modulus at least $\hgt(v)/(2Q)$. Dividing by the dominant
+coordinate and using (iii), weakened from $L^4$ to $L^6$, gives
+\begin{equation}\label{eq:A3realfactors}
+ \eta:=1/(2C_0L^6)\le|A_\pm(\xi)|,|B_\pm(\zeta)|\le U:=5L.
+\end{equation}
+If $|\Phi(s,w)|<32\eta^5$, the $A$ factors have opposite signs;
+otherwise $|\Phi|\ge32\eta^5$. The usual discriminant of
+$A_+^3(r_++t_+w)^2+A_-^3(r_-+t_-w)^2$ is therefore
+\[
+ -4A_+^3A_-^3(r_+t_--r_-t_+)^2\ge4\eta^6.
+\]
+The same root-distance estimate gives
+\begin{equation}\label{eq:A3realclose}
+ |w-w_0|\le|\Phi(s,w)|/(16\eta^3).
+\end{equation}
+A polynomial lower threshold on $Z$ makes this displacement at most
+$\min(1/2,\eta/(2U))$. Hence $|w_0|\le3/2$, and all factors there
+lie in modulus between $\eta/2$ and $2U$.
+At such a zero abbreviate the factors to $A,C,B,D$; using
+$A^3B^2=-C^3D^2$ gives
+\[
+ \Phi_s=48\frac{A^2B^2}{C}(q_+C-q_-A),\qquad
+ \Phi_w=32\frac{A^3B}{D}(t_+D-t_-B).
+\]
+The brackets are the constant determinants above, so both partials
+have modulus at least $\eta^4/U$.
+
+\emph{Uniform analytic charts.}
+In both cases the polynomial extension of $\Phi$ to complex variables
+and its partial derivatives of order at most two are bounded by
+$K=CL^5\ge1$ on $|s|,|w|\le3$, by expansion of the five affine factors.
+For $d<0$ this means extending its real coefficients, not taking a real
+part at complex arguments. Put
+\[
+ \lambda=\frac1{160C_0^4L^{25}},\qquad
+ R_w=\frac\lambda{64K},\qquad R_s=\frac{\lambda^2}{4096K^2}.
+\]
+Both partials at our zeros are at least $\lambda$. At one such zero write
+\[
+ \Phi(s_0+z,w_0+v)=a(z)v^2+b(z)v+c(z),\qquad b_0=b(0).
+\]
+Here $c(0)=0$, $|b_0|\ge\lambda$ and, on $|z|<R_s$,
+$|a|\le K$, $|b-b_0|,|c|\le K|z|$ (enlarge $K$ absolutely if needed).
+In particular
+\[
+ |b-b_0|\le|b_0|/16,\quad |4ac|\le|b_0|^2/16,\quad
+ |c|\le|b_0|R_w/8,\quad 2R_w|a|\le|b_0|/8.
+\]
+Thus $\mathcal D=(b^2-4ac)/b_0^2$ satisfies $|\mathcal D-1|\le1/4$.
+Take the square root equal to $1$ at zero and set
+\begin{equation}\label{eq:A3stablebranch}
+ G(z)=-\frac{2c(z)}{b(z)+b_0\sqrt{\mathcal D(z)}}.
+\end{equation}
+The denominator has modulus at least $|b_0|$, so $G$ is holomorphic,
+$G(0)=0$, $|G|\le R_w/4$, and $aG^2+bG+c=0$, even when $a=0$.
+It is the unique root with $|v|<R_w$, since
+$(v-G)\{a(v+G)+b\}=0$ and the second factor differs from $b_0$
+by less than $|b_0|/4$. Uniqueness makes $G$ real on the real axis.
+Along $g(s)=w_0+G(s-s_0)$ the second-derivative bounds give
+$|\Phi_s|,|\Phi_w|\ge\lambda/2$, whence $|g'|\ge\lambda/(2K)$.
+Cauchy's estimates on $|s-s_0|\le R_s/2$ give
+\[
+ |g(s)|\le2,\qquad |g^{(n)}(s)|\le2n!(2/R_s)^n\quad(n\ge1).
+\]
+All these bounds and reciprocal radii are polynomial in $L$ for fixed $n$.
+
+\emph{Finite cover.}
+Partition $[-1,1]\times[-3/2,3/2]$ into rectangles of widths
+at most $R_s/16$ and heights at most $R_w/16$. From each rectangle
+containing a relevant zero choose one: every zero if $d<0$, and those
+with factors in modulus $[\eta/2,2U]$ if $d>0$.
+There are $O((R_sR_w)^{-1})$ choices. At each construct the graph above
+and retain $[s_0-R_s/4,s_0+R_s/4]\cap[-1,1]$.
+Every relevant zero is within $R_s/16,R_w/16$ of the chosen zero in
+its rectangle, so uniqueness places it on that graph. Equations
+\eqref{eq:A3imagclose} and \eqref{eq:A3realclose} then put every
+counted point within $CL^{46}/Z$ vertically of a selected graph.
+Choose $H_{\mathrm g}=C_{\mathrm g}L^{k_{\mathrm g}}$ to dominate the
+nearby-zero thresholds, the number of rectangles, $8/R_s$, $2K/\lambda$,
+$CL^{46}$ and the derivative bounds through order $\varkappa_0+1$.
+This is a finite list of polynomial bounds. The enlarged intervals
+then remain in $|s-s_0|<R_s/2$, proving every assertion.
+\end{proof}
+
+\begin{proposition}[Good-box count]\label{prop:A3good}
+There is an absolute integer $\varkappa_0$
+such that for every integer $k\ge1$, every $C_2\ge1$ and every $\delta>0$
+there are $C_{\mathrm b},B_{\mathrm b}>0$ and an integer $K_{\mathrm b}$
+with the following property. Let $L,Z\ge2$ with
+$C_{\mathrm b}L^{K_{\mathrm b}}\le Z$, put $H_2=C_2L^k$ and
+$M=\lceil Z^{19/100}\rceil$, let $\Delta_0$ be squarefree and nonsquare with
+$|\Delta_0|\le5L^2$, and let $1\le e\le C_2L^{28}$. Let
+$[a',b']\subset[-1,1]$ and let $g$ be of class $C^{\varkappa_0+1}$ on
+$(a'-2r,b'+2r)$, $r\ge1/H_2$, with derivatives of order at most
+$\varkappa_0+1$ bounded by $H_2$ and $|g'|\ge1/H_2$ on $[a',b']$. Let
+$D,E>M$ with $D^3E^2\le H_2Z^2$. Then, in each orientation, the number of
+pairs of primitive vectors $(y,x)$ with $|y_i|\le\sqrt D$,
+$|x_i|\le\sqrt E$, $T_0(y;x)=e$ and slopes satisfying $\xi\in[a',b']$ and
+$|\zeta-g(\xi)|\le H_2/Z$ is at most
+$C_{\mathrm b}L^{B_{\mathrm b}}Z^{97/400+\delta}$.
+\end{proposition}
+\begin{proof}
+Write $H=H_2=C_2L^k$ and fix
+\[
+ \mu=19/100,\quad q=4096,\quad J=(3q+1)(2q+1),\quad
+ \gamma=19q^3/1440,\quad R=qJ+1.
+\]
+Since $\rho(\mu)=19/360$, this $q$ satisfies \eqref{eq:qlarge}.
+Choose an absolute integer $\varkappa_0$ with
+\begin{equation}\label{eq:A3Taylororder}
+ \mu(\varkappa_0+1)>qJ+\gamma+1.
+\end{equation}
+Every threshold below is $Z\ge CH^A$, with $C,A$ fixed before $Z$;
+finitely many such thresholds give $Z\ge C_{\mathrm b}L^{K_{\mathrm b}}$
+with integral $K_{\mathrm b}$.
+
+\emph{Auxiliary forms and their heights.}
+Use centres $s_j=a'+j/M$, $0\le j\le\lfloor M(b'-a')\rfloor$,
+and cells $[s_j,\min(s_j+1/M,b')]$. Write
+$u=\xi-s_j$, $v=\zeta-g(s_j+u)$, so $|u|\le Z^{-\mu}$,
+$|v|\le H/Z$. A polynomial threshold ensures $1/M\le r/2$ and
+$H/Z\le1$. Let $T$ be the Taylor polynomial of $g(s_j+u)$ of degree
+$\varkappa_0$, whose coefficients have modulus at most $H$.
+For $0\le a\le3q$, $0\le b\le2q$,
+\[
+ P_{ab}(u,v)=(s_j+u)^a(T(u)+v)^b
+\]
+has coefficients at most $CH^{5q+1}$, and Taylor's theorem and
+$|x^b-y^b|\le b\max(|x|,|y|)^{b-1}|x-y|$ give error
+\[
+ |(s_j+u)^a(g(s_j+u)+v)^b-P_{ab}(u,v)|
+ \le CH^{5q+1}|u|^{\varkappa_0+1}.
+\]
+Discarding terms of total degree greater than $\varkappa_0$ adds at most
+$CH^{A_0}Z^{-\mu(\varkappa_0+1)}$: their weights $\mu i+j$ are
+at least $\mu(\varkappa_0+1)$, and their number and degrees are fixed.
+
+As in Proposition~\ref{prop:vanish}, expand the normalized evaluation
+determinant at any $J$ points in the cell. By Proposition~\ref{prop:surplus},
+nonzero coefficient determinants use monomials of total weight greater
+than $qJ+\rho(\mu)q^3/2=qJ+2\gamma$. The finitely many ordinary terms
+are bounded by $CH^{A_1}Z^{-qJ-2\gamma}$; terms with an error row by
+$CH^{A_1}Z^{-\mu(\varkappa_0+1)}$. Thus
+\[
+ |\det\mathcal E|\le CH^{A_1}Z^{-qJ-\gamma}.
+\]
+Clearing each row by $y_1^{3q}x_1^{2q}$, of modulus at most
+$(D^3E^2)^{q/2}\le H^{q/2}Z^q$, gives an integer determinant at most
+$CH^{A_1+qJ/2}Z^{-\gamma}$. A polynomial threshold makes it less than
+one, hence zero. The finite integer row set therefore has rank less
+than $J$ and entries at most $H^{q/2}Z^q$. The signed-minor construction
+of Proposition~\ref{prop:aux}, including rank zero, gives a nonzero
+integer null vector of height at most $J!H^{qJ/2}Z^{qJ}\le Z^R$ after
+another polynomial threshold. Homogenise to a form $G_j$ of bidegree
+$(3q,2q)$ vanishing on the cell, with height at most $Z^R$; empty cells
+need no form.
+
+\emph{Uniform component estimates.}
+Suppose $P\ge2$, $|d|\le5P^2$, and two unimodular substitutions,
+an auxiliary form of degree at most $5q$, and the two larger box lengths
+all have entries or heights at most $P^v$, for fixed $v$.
+We claim the uniform version of Proposition~\ref{prop:components}:
+\begin{equation}\label{eq:A3uniformprice}
+ C_{v,\delta}e^{2+\delta}P^\delta
+ \{1+(\Lambda_1^3\Upsilon_1^2)^{1/10}\},\qquad e\ge1.
+\end{equation}
+Factor the auxiliary form over $\Q$. There are at most $5q$ factors,
+whose heights are $O(P^v)$ by $\GE$. Pure factors of degree at least
+two have no primitive zeros; a pure linear factor fixes its primitive
+pair up to sign. The uniform quadratic and cubic fibres proved in
+Proposition~\ref{prop:A3fallback} then give $O(e^{2+\delta}P^\delta)$:
+all transformed heights and ranges are polynomial in $P$, and their
+small exponents are chosen after $v,\delta$.
+
+For a mixed factor of bidegree $(\alpha,\beta)$ with
+$\min(\alpha,\beta)=1$, the resultant and squarefree-kernel argument
+of Proposition~\ref{prop:low} gives
+\[
+ \#\text{solutions}\le11200d_R\tau(|\Xi|)^{d_R+1},\quad
+ |\Xi|\le C|e|\,\|G\|^{12\beta+8\alpha},\quad d_R=3\beta+2\alpha.
+\]
+Since the possible bidegrees are fixed, the divisor bound gives
+$O(|e|^\delta P^\delta)$ with uniform constant; this includes
+$(4,1),(1,3)$ and all other factors of minimum bidegree one.
+The remaining factors have $\alpha,\beta\ge2$, hence
+$10\le2\alpha+3\beta\le3\deg G$. Lemma~\ref{lem:P} gives
+$O(P^\delta\{1+(\Lambda_1^3\Upsilon_1^2)^{1/10}\})$, using
+$\log\max(1,\Lambda_1^3\Upsilon_1^2)\le5v\log P$.
+Its constant is uniform in the transformed trace form and nonzero
+right-hand side. Adding the factors proves \eqref{eq:A3uniformprice}.
+
+Taking $P=C_*LZ$, $C_*\ge\max(1,C_2)$, and $e\le C_2L^{28}$ gives
+\begin{equation}\label{eq:A3cellprice}
+ CL^{56+29\delta}Z^\delta
+ \{1+(\Lambda_1^3\Upsilon_1^2)^{1/10}\}.
+\end{equation}
+Here $v$ changes the constant, not the displayed powers, because all
+fibre, divisor and logarithm exponents were chosen after $v,\delta$.
+
+\emph{Reduced bases.}
+Impose $M\ge3H$, for instance by $Z\ge(3H)^6$ since $6\mu>1$.
+On a nondegenerate interval $g'$ has constant sign, so the centres
+$s_j$ are $1/M$-separated and $t_j=g(s_j)$ are $1/(HM)$-separated.
+There are at most $5M$ occupied cells, with $|s_j|\le1$, $|t_j|\le2$,
+since $|\zeta-t_j|\le H/Z+H/M\le1$. A degenerate interval has a
+single cell and the same estimates, with separation vacuous.
+Put
+\[
+ Q=\lceil H\rceil+1\le3H,\quad W=3H,\quad
+ M'=QM,\quad D'=W^2Q^2D,\quad E'=W^2Q^2E.
+\]
+Both sets of centres are $1/M'$-separated. The cell inequalities
+\[
+ |y_1|\le\sqrt D,\quad|y_0-s_jy_1|\le\sqrt D/M,\qquad
+ |x_1|\le\sqrt E,\quad|x_0-t_jx_1|\le W\sqrt E/M
+\]
+place the points in strips of parameters $(D',M')$, $(E',M')$, because
+$\sqrt{D'}/M'=W\sqrt D/M$, and similarly for $E$.
+Their reduced integral bases give coordinate bounds
+$\Lambda_{1j}\ge\Lambda_{2j}>0$, $\Upsilon_{1j}\ge\Upsilon_{2j}>0$.
+The estimates of Section~\ref{sec:sum} give
+\[
+ \|B_{yj}\|,\|B_{yj}^{-1}\|\le CW^2Q^2D,\qquad
+ \Lambda_{1j}\le10WQ\sqrt D,
+\]
+and analogously for $x,E,\Upsilon$. Since $D,E>M\ge1$ and
+$D^3E^2\le HZ^2$, we have $D,E\le HZ^2$. Thus the matrix entries
+are $O(H^5Z^2)$ and lengths $O(H^3Z^2)$. Substituting into $G_j$
+preserves its bidegree and bounds its height by
+$C_qZ^R(CH^5Z^2)^{5q}$. All data in \eqref{eq:A3cellprice} are therefore
+bounded by a fixed power of $C_*LZ$. Unimodularity preserves primitivity
+and injectivity, so that estimate applies in every cell.
+
+\emph{Cell sum.}
+The centres are in a fixed bounded interval, are $1/M'$-separated,
+number at most $5M'$, and $D',E'>M'$. Lemma~\ref{lem:moments} gives
+\begin{align*}
+ \sum_j\Lambda_{1j}^{3/10}\Upsilon_{1j}^{1/5}
+ &\le CM'(D'/M')^{3/20}(E'/M')^{1/10}\\
+ &=CW^{1/2}Q^{5/4}M(D/M)^{3/20}(E/M)^{1/10}\\
+ &\le CW^2Q^2(D^3E^2)^{1/20}M^{3/4}
+ \le81CH^{4+1/20}Z^{1/10}M^{3/4}.
+\end{align*}
+Summing \eqref{eq:A3cellprice} therefore gives
+\[
+ \#\{(y,x)\}\le CL^{56+29\delta}Z^\delta H^5
+ (M+Z^{1/10}M^{3/4})\le4CL^{56+29\delta}H^5Z^{97/400+\delta},
+\]
+since $M\le2Z^{19/100}$ and $19/100<97/400$.
+Thus $B_{\mathrm b}=56+29\delta+5k$ works; enlarge $C_{\mathrm b}$
+and choose integral $K_{\mathrm b}$ to enforce all polynomial thresholds.
+\end{proof}
+
+\begin{proposition}[Shell count]\label{prop:A3shell}
+For every $\eps>0$ there are $C_1,B_1>0$
+such that for all $L,Z\ge2$, all squarefree nonsquare $\Delta_0$ with
+$|\Delta_0|\le5L^2$ and all $1\le e\le C_0L^{28}$,
+\[
+ \card\mathcal P(L,Z,\Delta_0,e)\le C_1L^{B_1}Z^{97/400+\eps}.
+\]
+\end{proposition}
+\begin{proof}
+Set $\delta=\eps/2$. Choose the fallback constants, then the absolute
+Taylor order of Proposition~\ref{prop:A3good}, then its graph-cover
+constants $C_{\mathrm g},k_{\mathrm g}$, and finally the good-box
+constants with $k=k_{\mathrm g}$, $C_2=\max(128,C_0,C_{\mathrm g})$.
+Put $C_{\mathrm{cut}}=C_{\mathrm g}+C_{\mathrm b}+2^{40}$ and
+$K_{\mathrm{cut}}=k_{\mathrm g}+K_{\mathrm b}$.
+Pairs in $\mathcal P$ have $1\le\hgt(y),\hgt(x)\le2Z$ and
+$\hgt(y)^6\hgt(x)^4\le4Z^2$. Lemma~\ref{lem:partition} partitions
+this finite set into $O((1+\log Z)^2)$ bins
+$D/2<\hgt(y)^2\le D$, $E/2<\hgt(x)^2\le E$, with
+$D^3E^2\le128Z^2$ and $\sqrt D,\sqrt E\le4Z$.
+
+If $Z<C_{\mathrm{cut}}L^{K_{\mathrm{cut}}}$, apply the fallback bound
+with $D=E=4Z^2$ to obtain
+\[
+ \card\mathcal P\le4K_{\mathrm f}L^{B_{\mathrm f}}Z^{\delta+2}
+ \le4K_{\mathrm f}C_{\mathrm{cut}}^2
+ L^{B_{\mathrm f}+2K_{\mathrm{cut}}}Z^\delta.
+\]
+Otherwise a bin with $\min(D,E)\le Z^{97/400}$ contributes at most
+$K_{\mathrm f}L^{B_{\mathrm f}}Z^{97/400+\delta}$.
+In every remaining bin,
+$M\le2Z^{19/100}\le Z^{97/400}<D,E$, because
+$Z\ge2^{40}$ implies $Z^{21/400}\ge2$.
+Each of four orientations is covered by at most
+$H_{\mathrm g}=C_{\mathrm g}L^{k_{\mathrm g}}$ graphs. The good-box
+bound applies with $H_2=C_2L^{k_{\mathrm g}}\ge H_{\mathrm g}$ and
+$D^3E^2\le128Z^2\le H_2Z^2$, giving at most
+$4C_{\mathrm g}C_{\mathrm b}L^{k_{\mathrm g}+B_{\mathrm b}}
+ Z^{97/400+\delta}$ pairs per bin.
+Absorb $(1+\log Z)^2\ll_\eps Z^{\eps/2}$ and take
+$B_1=2B_{\mathrm f}+3k_{\mathrm g}+B_{\mathrm b}+2K_{\mathrm b}$.
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{thm:uniform}}\label{sec:A3proof}
+Use Proposition~\ref{prop:A3shell} with $\eps=1/1600$,
+so its exponent is $\alpha_0=97/400+1/1600=389/1600$, and set
+$\nu=B_1+117$. For $X\ge4C_0L^{10}$, Proposition~\ref{prop:A3lift}
+assigns each counted $n\in(X,2X]$ a triple $(e,y,x)$ injectively.
+There are at most $C_0L^{28}$ choices of $e$. With
+$Z_1=X/(C_0L^9)\ge2$, the height product lies in
+$[Z_1,2C_0L^{40}X]$, hence in $[jZ_1,2jZ_1]$ for some integer
+$1\le j\le(4C_0^2+2)L^{49}$.
+Since $(jZ_1)^{\alpha_0}\le(4C_0^2+2)L^{40}X^{\alpha_0}$, the shell
+bound gives
+\[
+ \#\{X<n\le2X:f(n)\text{ powerful}\}
+ \le C_0C_1(4C_0^2+2)^2L^{B_1+28+49+40}X^{\alpha_0}
+ =K_{\mathrm w}L^\nu X^{\alpha_0}.
+\]
+Lemma~\ref{lem:prefix}, with $X_0=4C_0L^{10}$, $n_1=1$ and
+$C_{\mathrm w}=K_{\mathrm w}L^\nu$, yields for $N\ge1$
+\[
+ S(a,b,c;N)\le\left(8C_0L^{10}+
+ \frac{K_{\mathrm w}L^\nu}{2^{\alpha_0}-1}+1\right)N^{\alpha_0}
+ \le KL^\nu N^{389/1600},\quad
+ K=8C_0+\frac{K_{\mathrm w}}{2^{\alpha_0}-1}+1,
+\]
+because $\nu\ge10$.
+
+For the coefficient sum take $\kappa_1=1/(1600(\nu+3))$,
+$M_0=\lfloor N^{\kappa_1}\rfloor$, $N\ge2$, and apply this bound
+with $L=2N^{\kappa_1}$. Each term is at most
+$K2^\nu N^{\kappa_1\nu+389/1600}$ and there are at most
+$M_0(2M_0+1)^2\le9N^{3\kappa_1}$ triples. Since
+$\kappa_1(\nu+3)=1/1600$, the sum is at most
+$9K2^\nu N^{390/1600}$. \qed
+
+\subsection{The exponent and the constants}\label{sec:A3remarks}
+The identity
+\[
+ \frac{389}{1600}=\frac1{10}+\frac34\cdot\frac{19}{100}+\frac1{1600}
+\]
+separates the cell-sum exponent from the fixed slack absorbing divisor
+bounds and bins. The first two terms exceed $293/1220$ by $57/24400$.
+Choosing $\mu_0=19/100\in(57/305,1/5)$ fixes absolute determinant
+and Taylor orders and permits polynomial dependence on $L$.
+The exponent is convenient, not optimal. No useful numerical value of
+$\nu$ or the resulting averaging range is claimed; the point is a fixed
+$\eta>0$ permitting a family of coefficients growing with $N$.
+\section{Sums of two squares with a varying shift: proof of Theorem~\ref{thm:family}}\label{sec:A2}
+We adapt Sections~\ref{sec:charts}--\ref{sec:sum} to $\Z[i]$, choosing
+every constant before $a$. Throughout $a\ge1$; the result depends only
+on $|a|$. Theorem~\ref{thm:uniform} is not used.
+
+\subsection{The equation}
+\begin{lemma}[Gaussian labels]\label{lem:A2labels}
+Let $n\ge1$ with $n^2+a^2$ powerful. There are an integer $\ell\ge1$ dividing
+$a$, a Gaussian integer $\gamma$ with $1\le\Nm\gamma\le a^2$, and primitive
+$y,x\in\Z^2$ such that
+\begin{equation}\label{eq:A2}
+ n+ia=\ell\,\gamma\,(y_0+iy_1)^3(x_0+ix_1)^2 .
+\end{equation}
+For given $a$ the pair $(\ell,\gamma)$ takes at most $4\tau(a)^3$ values, and
+$(\ell,\gamma,y,x)$ determines $n$.
+\end{lemma}
+\begin{proof}
+Let $P$ divide $n+ia$ exactly once in $\Z[i]$, above $p$.
+If $p$ is inert, then $p\mid a$; if $p=2$, the norm has valuation
+one, contradicting powerfulness. If $p$ splits, powerfulness forces
+the conjugate prime also to divide $n+ia$, so again $p\mid a$.
+Take $\gamma$ to be a unit times the product of these $P$.
+Its norm divides $\operatorname{rad}(a)^2$, and there are at most
+$4\cdot4^{\omega(a)}\le4\tau(a)^2$ choices. Every remaining exponent
+$e\ge2$ is $2(e/2)$ if even, and $3+2((e-3)/2)$ if odd; hence
+$n+ia=\gamma\mathsf Y^3\mathsf X^2$.
+Dividing the coordinates of $\mathsf Y,\mathsf X$ by their gcds
+$\ell_1,\ell_2$ gives \eqref{eq:A2}, with
+$\ell=\ell_1^3\ell_2^2\mid a$. This adds at most $\tau(a)$ choices.
+\end{proof}
+No class representatives or balancing are needed. Put
+$F_\gamma(y;x)=\operatorname{Im}(\gamma(y_0+iy_1)^3(x_0+ix_1)^2)$.
+This integral $(3,2)$-form satisfies $F_\gamma(y;x)=a/\ell$,
+while $n$ is $\ell$ times the real part; $\Nm\gamma\le a^2$
+controls its coefficients.
+
+\subsection{Small values and one shell}
+\begin{lemma}[A quadratic estimate uniform in the right-hand side]
+\label{lem:A2quaduniform}
+For every $\eta>0$ there is $C_\eta$ such that, for
+$H\ge1$, $Z\ge2$, integers $A,B,h$ with
+$A^2+B^2\ne0$, $h\ne0$, $|A|,|B|\le H$, the number of primitive
+integer pairs $(u,v)$ satisfying
+\[
+ |u|,|v|\le Z,\qquad B(u^2-v^2)+2Auv=h
+\]
+is at most $C_\eta(HZ|h|)^\eta$.
+\end{lemma}
+\begin{proof}
+If $B=0$, then $u,v\mid h$, giving at most $4\tau(|h|)^2\ll_\eta|h|^\eta$
+pairs. Suppose $B\ne0$. The injective map
+$(u,v)\mapsto(x,y)=(Bu+Av,v)$ gives
+\[
+ x^2-dy^2=Bh,\qquad d=A^2+B^2\ge1,\qquad
+ |x|,|y|\le Z_0=\lceil2HZ\rceil\le3HZ.
+\]
+Vaughan--Wooley~\cite[Lemma~3.5]{vw}, with coefficients $(1,-d,Bh)$,
+bounds the solutions with $1\le|x|,|y|\le Z_0$ by
+$O_\xi((d|Bh|Z_0)^\xi)$, allowing four sign choices.
+The coefficients and right-hand side are nonzero; solutions on the
+coordinate axes add at most four. Since
+\[
+ d|Bh|Z_0\le6H^4Z|h|\le6(HZ|h|)^4,
+\]
+taking $\xi=\eta/4$ proves the assertion, with constant depending only on $\eta$.
+\end{proof}
+
+\begin{proposition}[Fallback]\label{prop:A2fallback}
+For every $\eps>0$ there is $K$ such that for all $R_1\ge2$,
+all Gaussian integers $\gamma=\gamma'+i\gamma''\ne0$ and all integers
+$h\ne0$ with $|\gamma'|,|\gamma''|,|h|\le R_1$, the number of pairs of
+primitive vectors with $F_\gamma(y;x)=h$ and $|y|^6|x|^4\le R_1^2$, where
+$|y|^2=y_0^2+y_1^2$, is at most $KR_1^{2/5+\eps}$.
+\end{proposition}
+\begin{proof}
+Put $U=|y|^2,V=|x|^2\ge1$. Since $U^3V^2\le R_1^2$,
+either $U$ or $V$ is at most $R_1^{2/5}$; each short disc contains
+at most $9R_1^{2/5}$ vectors. All coordinates are at most $R_1$.
+For fixed $x\ne0$, Lemma~\ref{lem:cubes} makes
+$F_\gamma(\cdot\,;x)$ nonzero and squarefree. The content-divisor
+argument of Lemma~\ref{lem:cubicfibre} gives at most
+$5600\tau(|h|)3^{1+\omega(|h|)}\le16800\tau(|h|)^3
+\ll_\eps R_1^\eps$ primitive $y$, uniformly in $x,\gamma,h$.
+For fixed $y\ne0$, write $P+iQ=\gamma(y_0+iy_1)^3\ne0$.
+The equation in $x$ is $Q(x_0^2-x_1^2)+2Px_0x_1=h$, with
+$|P|,|Q|\le8R_1^4$. Lemma~\ref{lem:A2quaduniform}, with
+$H=8R_1^4$, $Z=R_1$ and exponent $\eps/6$, gives
+$O_\eps(R_1^\eps)$ solutions since $HZ|h|\le8R_1^6$.
+Sum cubic fibres over short $x$ and quadratic fibres over short $y$.
+\end{proof}
+
+Let $X\ge2$ with $a^2\le X$ and write $a=X^{\upsilon}$, so
+$0\le\upsilon\le\frac12$. Define
+\begin{equation}\label{eq:m0}
+ m_0(\upsilon)=\max\Bigl\{\frac{57+51\upsilon}{305},\
+ \frac{47+61\upsilon}{255},\ \frac{4+14\upsilon}{31}\Bigr\}.
+\end{equation}
+\begin{proposition}[Shell bound]\label{prop:A2shell}
+For $0<\delta\le1/100$ and $\eps>0$ there are
+$K$ and $X_2$, depending only on $\delta$ and $\eps$, such that for all
+$X\ge X_2$, all $1\le a\le\sqrt X$ and all labels $(\ell,\gamma)$, the number
+of pairs of primitive $(y,x)$ satisfying \eqref{eq:A2} for some
+$n\in(X,2X]$ is at most
+\[
+ KX^{\eps}\bigl(M+X^{1/10}M^{3/4}\bigr),\qquad
+ M=\lceil X^{m_0(\upsilon)+\delta}\rceil .
+\]
+\end{proposition}
+\begin{proof}
+\emph{Uniform phase charts.}
+For $c^2+d^2=1$ put
+\[
+ A(s)+iB(s)=(c+id)(s+i)^3,\quad R(s)=(1+s^2)^{3/2},\quad
+ P_{c,d}(s,w)=B(s)(w^2-1)+2A(s)w.
+\]
+Since $A^2+B^2=R^2$, wherever the denominators are nonzero we have
+\[
+ f_\pm(s)=\frac{\pm B(s)}{R(s)\pm A(s)},\qquad
+ P_{c,d}(s,w)=(w-f_\pm(s))(B(s)w+A(s)\pm R(s)).
+\]
+If $|w|\le1$, $|P_{c,d}(s,w)|\le1/4$ and $D=Bw+A$, then
+$D^2=R^2+BP_{c,d}$ and $R\ge1$, $|B|\le R$ imply $|D|\ge R/2$.
+Choose the sign of $D$. As $|Bw|\le R$, the corresponding
+denominator satisfies $R\pm A\ge R/2\ge1/2$ and
+$|D\pm R|\ge1$; hence $|w-f_\pm(s)|\le|P_{c,d}(s,w)|$.
+
+On $[-2,2]$, $|R'|<14$, $|A'|\le21$. Take $h_0=1/1000$ and
+centers $t_j=-1+j/1000$, $0\le j\le2000$. Retain \emph{each}
+root formula whose denominator at $t_j$ is at least $1/4$, on
+$[t_j-h_0,t_j+h_0]$. These at most $4002$ charts are smooth on
+$(t_j-3h_0,t_j+3h_0)$: there the denominator exceeds
+$1/4-105/1000>1/8$, and $|f_\pm|<96$ since $|B|\le R<12$.
+Every $s\in[-1,1]$ is within $h_0/2$ of a center, where the
+residual-selected denominator is still at least $1/4$.
+Thus the charts cover the stated small-residual set uniformly.
+
+At a root $(Bw+A)^2=R^2>0$, so $\partial_wP\ne0$ and
+implicit differentiation gives
+\begin{equation}\label{eq:A2phaseode}
+ f'(s)=-\frac32\frac{1+f(s)^2}{1+s^2}.
+\end{equation}
+In particular $|f'|\ge3/10>1/4$ on the enlarged intervals.
+Define $H_0(s,w)=w$ and
+$H_{k+1}=\partial_sH_k-\frac32(1+w^2)(1+s^2)^{-1}\partial_wH_k$.
+The chain rule gives $f^{(k)}(s)=H_k(s,f(s))$; maxima of these
+smooth functions on $[-2,2]\times[-100,100]$ give phase-independent
+bounds $M_\varkappa$ for $k\le\varkappa+1$.
+
+\emph{The arithmetic tube.}
+Rotate $y,x$ by units so that their dominant coordinates
+$d_y=y_1,d_x=x_1$ are positive, absorbing inverse units into
+$\gamma$. There are at most $16$ cases, preserving $\Nm\gamma$.
+With $G=|\gamma|$ and $c+id=\gamma/G$, the slopes $s,w\in[-1,1]$
+satisfy
+\begin{equation}\label{eq:A2normalizedtube}
+ P_{c,d}(s,w)=\frac{a}{\ell Gd_y^3d_x^2}.
+\end{equation}
+Indeed, take imaginary parts in \eqref{eq:A2}. Dominance gives
+$n\le\ell G|y|^3|x|^2\le\sqrt{32}\,\ell Gd_y^3d_x^2$,
+so $|P_{c,d}(s,w)|\le8a/X$. For uniformly large $X$, the charts
+therefore give $|w-f(s)|\le8X^{-(1-\upsilon)}$, since $a\le\sqrt X$.
+
+\emph{Uniform determinant orders.}
+Put $\sigma=1-\upsilon$, $\mu=m_0(\upsilon)+\delta$.
+Then $\mu\ge57/305+\delta$, $\sigma\ge1/2$, $\mu<\sigma$ and
+$t_0=\mu/\sigma\in(57/305,1)$. Multiplying the three bounds of
+Proposition~\ref{prop:A2weights} by $\sigma$ gives leading coefficients
+\[
+ (305\mu+51\sigma)/18,\quad(255\mu+61\sigma)/18,\quad
+ (31\mu+14\sigma)/3.
+\]
+Each is at least $6+(31/3)\delta$ by \eqref{eq:m0}.
+Choose $q\ge1$, $q>(c_5+6)/\delta$, and then $\varkappa$ with
+$(57/305+\delta)(\varkappa+1)>n_qq+\delta q^3+1$.
+Thus every nonsingular minor has two-scale weight at least
+$(6+(31/3)\delta)q^3-c_5q^2>n_qq+\delta q^3$.
+Both orders depend only on $\delta$.
+On a cell, $|u|\le X^{-\mu}$, $|v|\le8X^{-\sigma}$.
+Lemma~\ref{lem:taylor} gives the expansion of
+Proposition~\ref{prop:vanish} with weight $\mu i+\sigma j$;
+discarded terms have weight at least $\mu(\varkappa+1)$ because
+$\mu<\sigma$. The main minors have surplus $\delta q^3$ and
+the error a larger saving. Clearing denominators costs at most
+$(16X)^q$ per row, since $|y|^6|x|^4\le5X^2$.
+Every integer determinant therefore vanishes beyond a uniform
+threshold. Proposition~\ref{prop:aux}'s cofactor construction gives
+a nonzero $(3q,2q)$-form of height at most $X^{qn_q+1}$.
+
+\emph{All scales and component bounds.}
+There are $O((1+\log X)^2)$ dyadic norm boxes, with $D^3E^2\ll X^2$.
+The derivative bounds and $X^{-\sigma}\le X^{-\mu}\le2/M$
+give strips with one absolute constant. For any $D>0$, apply
+Proposition~\ref{prop:bridge} at $R_D=D+M+1>M$.
+The norms differ by a scalar, so the same basis is reduced and
+$\Lambda_i(D)=\sqrt{D/R_D}\Lambda_i(R_D)$.
+Its entries and inverse entries are $O(D+M+1)$ and
+$\Lambda_1(D)\le2K_0\sqrt D$; likewise for $E$.
+Thus all entries, coordinate lengths, and the transported auxiliary
+form and its factors have height at most $X^P$, for fixed $P=P(\delta)$,
+using substitution and $\GE$ and increasing the uniform threshold.
+
+Here is the required uniformity in the component count. Put $R=X^P$,
+also bounding $|h|=a/\ell$ and the coefficients of $\gamma$.
+Transported original coordinates are at most $Z=2R^2$; the parts
+of $\gamma(y_0+iy_1)^3$ are at most $H=8RZ^3$, so
+$HZ|h|\le128R^{10}$. Lemma~\ref{lem:A2quaduniform} with exponent
+$\eta/(10P+1)$ gives $O_{\delta,\eta}(X^\eta)$ per quadratic fibre;
+the cubic fibres give the same bound by $16800\tau(|h|)^3$.
+Pure lines fix one primitive vector up to sign; higher-degree
+irreducible pure factors have no primitive rational zero.
+For the four low mixed bidegrees use \eqref{eq:lowuniformrhs}:
+the complex presentation survives unimodular substitution, and
+$|h|$ and factor height are polynomially bounded in $X$.
+For high mixed factors, Lemma~\ref{lem:P} is uniform in the
+transported form and $h\ne0$. Summing at most $5q$ factors gives
+the per-cell bound
+$O_{\delta,\eta}(X^\eta(1+\Lambda_1^{3/10}\Upsilon_1^{1/5}))$.
+
+\emph{Summation.}
+Use the regular $1/M$ grid on each branch. Its graph values are
+$1/(4M)$-separated by \eqref{eq:A2phaseode}.
+The mixed moment extends to all $D,E>0$: apply it to the same
+reduced bases with both scales $R=M+1$, then multiply by
+$(D/R)^{3/20}(E/R)^{1/10}$. The powers of $R$ cancel, giving
+\[
+ \sum_{\mathcal C}\Lambda_1(\mathcal C)^{3/10}\Upsilon_1(\mathcal C)^{1/5}
+ \ll M(D/M)^{3/20}(E/M)^{1/10}\ll X^{1/10}M^{3/4}.
+\]
+The constant term contributes $O(M)$. Sum over the bounded number
+of branches and rotations, and over the dyadic boxes; choose
+$\eta=\eps/2$ and absorb the logarithms in $X^{\eps/2}$.
+All constants and thresholds depend only on $\delta,\eps$.
+\end{proof}
+
+\subsection{The weight of a minor with two scales}
+Give $u^iv^j$ weight $t_0i+j$, $0<t_0<1$. For $g\in\R[u]$ let
+$w_q(t_0)$ be the least total weight of monomials whose coefficient
+matrix in the shifts $\mathsf b_j^g$ is nonsingular, where
+$(\mathsf b_j)$ is a basis of the $(3q,2q)$ rectangle, as in
+Proposition~\ref{prop:surplus}.
+
+\begin{proposition}\label{prop:A2weights}
+There is an absolute $c_5$ such that for every $g\in\R[u]$ with
+$g'(0)\ne0$ and every integer $q\ge1$:
+\begin{itemize}
+\item[(i)] if $\frac{57}{305}<t_0\le\frac15$, then
+$w_q(t_0)\ge\frac{305t_0+51}{18}q^3-c_5q^2$;
+\item[(ii)] if $\frac13\le t_0<1$, then
+$w_q(t_0)\ge\frac{31t_0+14}{3}q^3$;
+\item[(iii)] if $\frac15\le t_0\le\frac13$, then
+$w_q(t_0)\ge\frac{255t_0+61}{18}q^3-c_5q^2$.
+\end{itemize}
+\end{proposition}
+\begin{proof}
+(i) The computation in Proposition~\ref{prop:surplus} gives
+$(17/6+305t_0/18)q^3-O(q^2)$ uniformly on
+$57/305<t_0<1/5$. The weight of each fixed family is affine in
+$t_0$, so its bound passes to $t_0=1/5$.
+
+(ii) Write $g=g_0+g_1u+g_2u^2+\cdots$, $g_1\ne0$, and put
+\[
+ W_1=v-g_0,\quad G_1=(1-(g_2/g_1)u)(v-g_0)-g_1u,\quad
+ P_{a,b}=u^aW_1^{b-j}G_1^j,\quad j=\min(3q-a,b),
+\]
+for $0\le a\le3q$, $0\le b\le2q$. Shifting by $g$ gives
+$W_1^g=v+g_1u+O(u^2)$ and
+$G_1^g=v(1-(g_2/g_1)u)+O(u^3)$, of weighted orders $t_0$ and
+at least $1$ because $3t_0\ge1$. Thus $P_{a,b}$ lies in the
+rectangle and its shift has order at least $t_0(a+b-j)+j$.
+
+These polynomials form a basis. Use the invertible shift by the tangent
+$g_0+g_1u$ and an irrational auxiliary weight $\lambda i+j$,
+$1/2<\lambda<1$. Then $W_1\mapsto g_1u+v$ and
+$G_1\mapsto v-g_2u^2-(g_2/g_1)uv$, so $P_{a,b}$ has unique initial
+term $g_1^{b-j}u^{a+b-j}v^j$. Its exponent $(i,j)$ recovers
+$a=\min(3q,i+j)-j$, $b=i+j-a$; the initial weights are therefore
+distinct. The least-weight term in any nonzero linear relation
+cannot cancel. Independence of these $n_q$ polynomials proves the claim.
+Their coefficient matrix at any admissible monomial family is
+nonsingular. A nonzero determinant term matches each polynomial
+to a monomial of at least its order, giving
+\[
+ \sum_iw(m_i)\ge\sum_{a,b}\bigl(t_0(a+b-j)+j\bigr)
+ =\frac{31t_0+14}{3}q^3+\Bigl(\frac{19t_0}{2}+3\Bigr)q^2
+ +\Bigl(\frac{13t_0}{6}+\frac13\Bigr)q.
+\]
+
+(iii) Write $t_0=c'/5+c''/3$, $c',c''\ge0$, $c'+c''=1$.
+For each admissible family, affinity of its weight and (i),(ii) give
+at least $c'(56q^3/9-c_5q^2)+c''73q^3/9$.
+Since $(56c'+73c'')/9=(255t_0+61)/18$, the claimed bound follows.
+\end{proof}
+The chart slope bound supplies $g'(0)\ne0$. The three leading
+coefficients after multiplication by $1-\upsilon$ exceed $6$
+precisely at the three thresholds in \eqref{eq:m0}; the middle
+range is the interpolation in (iii).
+
+\subsection{The exponent and the assembly}
+Put $\Theta_0(\upsilon)=1/10+3m_0(\upsilon)/4$ for
+$0\le\upsilon\le1/2$. Since
+$m_0(\upsilon)+\delta\le11/31+1/100<2/5$, the ceiling bound
+$M\le2X^{m_0(\upsilon)+\delta}$ gives
+$M\ll X^{1/10}M^{3/4}$. Proposition~\ref{prop:A2shell} is therefore
+$\ll X^{\Theta_0(\upsilon)+3\delta/4+\eps}$ per label and shell.
+The three terms defining $\Theta_0$ are
+\[
+ \frac{293+153\upsilon}{1220},\qquad\frac{81+61\upsilon}{340},\qquad
+ \frac{61+105\upsilon}{310}.
+\]
+Their maximum switches at $1/28$ and $19/73$, where
+$m_0(\upsilon)/(1-\upsilon)=1/5$ and $1/3$, respectively.
+Hence $\Theta_0=\Theta$ on $[0,1/2]$.
+
+\begin{lemma}[Perspective inequality]\label{lem:perspective}
+If $0\le\beta_1\le\kappa\le\frac12$ and $0<t_1\le1$ with $\beta_1/t_1\le\frac12$,
+then $t_1\,\Theta_0(\beta_1/t_1)\le\Theta_0(\kappa)$.
+\end{lemma}
+\begin{proof}
+Each term of $\Theta_0$ is $c+c'\upsilon$ with $c,c'\ge0$, and
+$t_1(c+c'\beta_1/t_1)=ct_1+c'\beta_1\le c+c'\kappa$.
+Take their maximum.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:family}]
+Choose $\delta$ and the auxiliary $\eps$ small enough for the desired
+final exponent. Fix $1\le a\le N^\kappa$ and a label.
+For $n\le\max(2a^2,2X_2)$, Proposition~\ref{prop:A2fallback} applies
+with $h=a/\ell$ and $R_1\asymp a^2+X_2$: this dominates
+$|\gamma|$, $|h|$ and $|y|^3|x|^2\le\sqrt{n^2+a^2}$.
+It gives $\ll N^{4\kappa/5+\eps}$, and
+$4\kappa/5\le\Theta(\kappa)$ in the stated range.
+The remaining $n\le N$ lie in $O(1+\log N)$ shells with $a^2\le X$.
+For each use Proposition~\ref{prop:A2shell} and
+Lemma~\ref{lem:perspective} with
+$t_1=\log X/\log N$, $\beta_1=\log a/\log N$, obtaining
+$X^{\Theta_0(\upsilon)}\le N^{\Theta(\kappa)}$.
+Lower shells may have $\upsilon>\kappa$, which is why all three
+terms of \eqref{eq:m0} are needed. Sum the shells and
+$4\tau(a)^3\ll N^\eps$ labels, using
+Lemma~\ref{lem:A2labels} to recover $n$.
+\end{proof}
+The endpoint $289/1050$ is where $\Theta=29/100$; the proof uses
+the restriction on $\kappa$ only for
+$4\kappa/5\le\Theta(\kappa)$ and $\kappa\le1/2$.
+
+\section{Cubic applications}\label{sec:A4}
+\begin{proof}[Proof of the cube-coefficient bound in Corollary~\ref{cor:cubic}]
+Put $u=at$, $Q(u)=u^2-u+1$. Since
+\[
+ u^3+1=(u+1)Q(u),\qquad Q(u)=(u-2)(u+1)+3,
+\]
+we have $\gcd(u+1,Q(u))\mid3$. If $u^3+1$ is powerful, every prime
+$p\ne3$ dividing $Q(u)$ occurs there to order at least two; multiplying
+by $9$ also ensures this at $3$. Thus $9Q(u)$ is powerful.
+This fixed positive quadratic has nonsquare discriminant $-243$.
+The injection $t\mapsto at$, followed by dropping $a\mid u$, gives
+\[
+ \card\{1\le t\le T:1+a^3t^3\textnormal{ powerful}\}
+ \le S(9,-9,9;aT)\ll_\eps(aT)^{293/1220+\eps}
+\]
+by Theorem~\ref{thm:fixed}, with constant independent of $a$.
+\end{proof}
+
+\begin{lemma}\label{lem:cubic-classical-fibres}
+Put $P_A(t)=1+At^3$, where $A\ge1$ is an integer. For every $\epsilon>0$
+there is $C_\epsilon$, independent of $A,q,k$, such that for all positive
+integers $q,k$,
+\[
+ \begin{split}
+ \card\{t\in\Z:P_A(t)\in q\Z^2\setminus\{0\}\}
+   &\le C_\epsilon A^{178}q^\epsilon,\\
+ \card\{t\in\Z:P_A(t)\in k\Z^3\setminus\{0\}\}
+   &\le C_\epsilon A^{62}k^\epsilon.
+ \end{split}
+\]
+\end{lemma}
+\begin{proof}
+Over $\Q$, Evertse--Silverman~\cite[Theorem~1]{es} bounds integral
+arguments giving nonzero squares or cubes of a separable polynomial by,
+respectively,
+\[
+ 7^{M(4+9s)}4^{\rho_2(L)},\qquad
+ 17^{M(6+s)}3^{2Ms+\rho_3(L)}.
+\]
+Here the degree-$M$ field $L$ contains at least three roots in the square
+case and two in the cube case; $s$ counts infinity and the primes of the
+polynomial discriminant. The class-group ranks satisfy
+$4^{\rho_2(L)}\le h_L^2$, $3^{\rho_3(L)}\le h_L$.
+
+Take $L=\Q(\alpha,\zeta_3)$, $\alpha^3=-A^2$, containing the roots
+$\alpha\zeta_3^j/A$ of $P_A$. For noncube $A$, the degree-three and
+degree-two fields are linearly disjoint, so the order $\Z[\alpha,\zeta_3]$
+has absolute discriminant $(27A^4)^2 3^3$. For cube $A$,
+$L=\Q(\zeta_3)$. In either case $M\le6$ and $|D_L|\le3^9A^8$.
+Minkowski gives an integral ideal of norm at most $c\sqrt{|D_L|}$
+in every class, uniformly in degree at most six. Hence
+\[
+ h_L\le c^2|D_L|\zeta_L(2)\le c^2|D_L|\zeta(2)^6\ll A^8.
+\]
+
+The square fibre gives $qP_A(t)=(qv)^2$, with discriminant supported
+on $3Aq$, so $s\le2+\omega(A)+\omega(q)$. Similarly the cube fibre
+uses $k^2P_A(t)=(kv)^3$ and $s\le2+\omega(A)+\omega(k)$.
+Scaling preserves the distinct roots. The two estimates become
+\[
+ CA^{16}7^{54\omega(A)}7^{54\omega(q)}
+ \ll_\epsilon A^{178}q^\epsilon,\qquad
+ CA^8(17^6 3^{12})^{\omega(A)+\omega(k)}
+ \ll_\epsilon A^{62}k^\epsilon.
+\]
+Indeed $7^{54\omega(A)}\le A^{162}$ and $17^6 3^{12}<2^{54}$;
+for the fibre parameters use $C_1^{\omega(m)}\ll_\epsilon m^\epsilon$
+with fixed $C_1$. All constants are uniform in $A,q,k$.
+\end{proof}
+
+\begin{proof}[Proof of the general cubic bound in Corollary~\ref{cor:cubic}]
+For $1\le t\le T$, $T\ge2$, write a powerful value as
+$P_A(t)=e^2d^3\le2AT^3$. With $U=(2AT^3)^{1/5}$, either $e\le U$
+or $d\le U$. Apply Lemma~\ref{lem:cubic-classical-fibres} to
+$k=e^2$ in the first case and to $P_A(t)=d(ed)^2$, $q=d$, in the second.
+Summing gives
+\[
+ \card\{1\le t\le T:P_A(t)\textnormal{ powerful}\}
+ \ll_\xi A^{62}\sum_{e\le U}e^{2\xi}
+       +A^{178}\sum_{d\le U}d^\xi
+ \ll_\xi A^{178+1/5+2\xi/5}T^{3/5+6\xi/5}.
+\]
+Take $\xi=\min(5\eps/6,1)$: then $6\xi/5\le\eps$ and
+$178+1/5+2\xi/5<180$, proving the first assertion with
+$\nu_1=180$ independently of $\eps$.
+\end{proof}
+
+\section{Consequences of the uniform bound}\label{sec:consequences}
+In this section $K$ and $\nu$ are the constants of Theorem~\ref{thm:uniform}.
+
+\begin{corollary}\label{cor:shift}
+For all integers $A,h,H'\ge1$ and all $T\ge2$,
+\[
+ \card\{1\le t\le T:At^2+h\textnormal{ is powerful}\}\le K(2h)^{\nu}A^{\nu}T^{389/1600},
+\]
+and, if $AH'$ is not a square, the number of $t\le T$ with $At^2-H'\ge1$
+powerful is at most $K(H'+3)^{\nu}A^{\nu}T^{389/1600}$.
+\end{corollary}
+\begin{proof}
+Apply Theorem~\ref{thm:uniform} to $(A,0,h)$ with $L=2Ah$ (for $h=1$, $L=2A$) and to
+$(A,0,-H')$ with $L=A+H'+2\le(H'+3)A$. The discriminants are $-4Ah<0$ and
+$4AH'$.
+\end{proof}
+These give the first assertions of Theorems~\ref{thm:positive} and~\ref{thm:reverse}, with
+$C_h=\max(1,\nu)$, $K_h=\max(1,K(2h)^{\nu})$,
+$\nu_*(H')=\nu$ and $K_*(H')=K(H'+3)^{\nu}$.
+
+\begin{lemma}[Canonical row]\label{lem:row}
+Let $k\ge2$. Every $k$-full $n\ge1$ can be written as
+$n=\prod_{i=0}^{k-1}a_i^{k+i}$, where for $i\ge1$ the integer $a_i$ is the
+product of the primes $p$ with $v_p(n)\equiv i\pmod k$, and the exponent of
+$p$ in $a_0$ is $\lfloor v_p(n)/k\rfloor$, reduced by one if $k\nmid
+v_p(n)$. The row $(a_0,\dots,a_{k-1})$ determines $n$.
+\end{lemma}
+\begin{proof}
+Let $v_p(n)=ck+j$ with $0\le j<k$. If $j>0$ then $c\ge1$ because $n$ is
+$k$-full, and $(c-1)k+(k+j)=ck+j$. If $j=0$ the exponent is $ck$.
+\end{proof}
+
+\begin{proposition}\label{prop:uniform-mixed}
+Let $s\in\{6,8\}$ and let $h$ be a nonzero integer. Suppose there are
+$K',z>0$ such that for all integers $A\ge1$ that are not squares and all
+$T\ge2$,
+\begin{equation}\label{eq:hyp}
+ \card\{1\le t\le T:At^2+h\ge1,\ At^2+h\textnormal{ is powerful}\}\le K'A^{z}T^{389/1600}.
+\end{equation}
+Then for every $\eps>0$ there is $C$ such that, for every real $Y\ge2$,
+the number of $n\le Y$ such that $n$ is $s$-full,
+$n$ is not a square, and $n+h$ is powerful is
+at most $CY^{1/s-\delta_s(z)+\eps}$. If \eqref{eq:hyp} holds for all $A\ge1$, the
+same bound holds without the condition that $n$ is not a square.
+\end{proposition}
+\begin{proof}
+For $Y<4$ the bound is trivial, so let $Y\ge4$. Write
+$\delta=\delta_s(z)$, $\kappa_2=1/(1600(z+1))$ and $T=\sqrt Y\ge2$; then
+$s(s+1)\delta\le\kappa_2/2$ and $39/320\le1/s-\delta$. Let
+$(a_0,\dots,a_{s-1})$ be the canonical row of $n$ and put
+\[
+ P=\prod_ia_i,\qquad E_1=\prod_ia_i^{i},\qquad H_3=\prod_{i\ge1}a_i^{s+i},
+\]
+so that $n=P^{s}E_1=a_0^{s}H_3$ and $H_3\le E_1^{s+1}$.
+
+If $P\le Y^{1/s-\delta}$, we count rows: there are at most
+$\tau(P)^{s}\ll Y^{\eps}$ rows with a given product $P$, hence
+$\ll Y^{1/s-\delta+\eps}$ such $n$. The condition on $n+h$ is not used here.
+
+If $P>Y^{1/s-\delta}$, then $E_1=n/P^{s}\le Y^{s\delta}$ and
+$H_3\le Y^{s(s+1)\delta}\le T^{\kappa_2}$. Since $s$ is even,
+$n=H_3t^2$ with $t=a_0^{s/2}\le T$, and $H_3$ is not a square if $n$ is not.
+For each $H_3$, the number of $t\le T$ with $H_3t^2+h$ powerful is at most
+$K'H_3^{z}T^{389/1600}$ by \eqref{eq:hyp}. Summing over the integers
+$H_3\le T^{\kappa_2}$ gives
+\[
+ \le K'T^{\kappa_2(z+1)+389/1600}=K'T^{390/1600}=K'Y^{39/320}
+ \le K'Y^{1/s-\delta}. \qedhere
+\]
+\end{proof}
+
+\begin{proof}[Proof of the second assertions of Theorem~\ref{thm:positive}]
+For $h\ge1$, Corollary~\ref{cor:shift} gives \eqref{eq:hyp} for every
+$A\ge1$, with $z=\nu$ (respectively $z=C_h$). An $r$-full integer with
+$r\ge2$ is powerful, so Proposition~\ref{prop:uniform-mixed} applies.
+\end{proof}
+
+\begin{proof}[Proof of the second assertion of Theorem~\ref{thm:reverse}]
+The split is according to whether $n$ is a square. If $n$ is not a square,
+take $h=-1$: Corollary~\ref{cor:shift} with $H'=1$ (so $L=A+3$) gives
+\eqref{eq:hyp} for nonsquare $A$ with $z=\nu$, and
+Proposition~\ref{prop:uniform-mixed} applies. Let $n=m^2$. Since $n$ is
+$s$-full with $s\ge4$, every prime dividing $m$ divides it at least twice,
+so $m$ is powerful. Also $n-1=(m-1)(m+1)$ is powerful and coprime to $m$.
+Hence $(m-1)m(m+1)$ is powerful, and $m-2\le\sqrt Y$ is counted by the
+width-three theorem of~\cite[Theorem~1.2]{powerful}, which gives
+$\ll Y^{77/640+\eps/2}$ such $m$. Finally
+$\frac12(\frac{77}{320}+\eps)\le\frac{49}{400}+\eps$ and
+$\frac{49}{400}\le\frac1s-\delta_s(\nu)$, by the second term in the
+definition of $\delta_s$.
+\end{proof}
+As used here, the width-three theorem requires $\CC$ and $\GE$ as well as
+$\ST$.
+
+\begin{remark}\label{rem:rs}
+The proofs bound the number of $n\le Y$ with $n$ $s$-full and $n+h$
+powerful for each fixed $h\ge1$, and the number with $n-1$ powerful.
+The hypothesis $r<s$ is not used, $r$ enters only through
+$r\ge2$, and the constants do not depend on $r$. The restriction to
+$s\in\{6,8\}$ enters as follows: $s$ is even, so that $n=H_3t^2$;
+$1/s>39/320$; and, for Theorem~\ref{thm:reverse}, $1/s\ge49/400$. Here $39/320$ is half of $390/1600$, $77/640$ is half of $77/320$, and
+$49/400$ lies between $77/640$ and $1/8$. In the definition of $\delta_s$ the first term is the
+smaller one for every $z>0$, so $\delta_6(\nu)=1/(268800(\nu+1))$ and
+$\delta_8(\nu)=1/(460800(\nu+1))$. Since $\nu$ is not explicit, these savings
+cannot be evaluated numerically.
+\end{remark}
+
+\section{Remarks on the limits of the method}\label{sec:remarks}
+\begin{remark}[The exponent $293/1220$]\label{rem:exponent}
+For a cell width $X^{-\mu}$ the method gives the exponent
+$\frac1{10}+\frac34\mu$, and the sufficient determinant condition proved here is
+$\mu>57/305$. So
+$293/1220$ is the infimum of the exponents obtained from
+Lemma~\ref{lem:schedule} and Proposition~\ref{prop:surplus}. The term
+$\frac1{10}$ is the exponent of Lemma~\ref{lem:P} at the least lifted
+degree $10$, attained by components of bidegree $(2,2)$. A smaller exponent
+for these components, or a better path $(k,l)$ in
+Proposition~\ref{prop:surplus}, would lower $293/1220$. The condition
+$\mu<1/5$ is used for the contact polynomials.
+\end{remark}
+
+\section{Formal verification and authorship}\label{sec:status}
+Theorems~\ref{thm:fixed}, \ref{thm:uniform}, \ref{thm:family},
+\ref{thm:positive} and~\ref{thm:reverse} have formal proofs in \lean~4
+with Mathlib. Their formal statements take the three estimates of
+Section~\ref{sec:cited} as hypotheses. These estimates are published
+mathematical results; their proofs are outside the formal development.
+The written cubic arguments of Section~\ref{sec:A4} are recorded separately
+in Appendix~\ref{app:lean}, including the stronger cube-coefficient
+consequence of Theorem~\ref{thm:fixed}.
+
+Independent statement comparisons and a second kernel replay check the
+formal declarations. The remaining links are mathematical ones: that the
+external estimates imply their formal versions, and that the formal
+statements express the claims in the paper. These links, and the written
+proofs, have been reviewed by AI systems. Formal verification does not
+certify novelty or replace review of the exposition. Appendix~\ref{app:lean}
+gives the exact source mapping, trust base and reproduction information.
+
+\subsection*{Use of AI systems}
+All results, proofs (written and formal), computation scripts and the text
+of this manuscript were produced by AI systems. The results and their
+proofs come from large language models running as agents in the Jocelyn
+research harness, together with \lean; the writing and revision of the
+manuscript, its reviews and the resulting corrections were done with AI
+coding assistants, operated by the author. The author chose the problem,
+operated the harness, set its objectives, decided the content of the
+manuscript and commissioned the reviews, and takes responsibility for the
+manuscript. All reviews were carried out by AI systems; no human has
+reviewed the results.
+
+\appendix
+\section{Formal statements and source mapping}\label{app:lean}
+The paper uses its own numbering. The identifiers in the shared formal
+library are stable names and do not prescribe the order of exposition.
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Paper statement & Formal interface\\\midrule
+Theorem~\ref{thm:fixed} & \texttt{A1}\\
+Theorem~\ref{thm:uniform} & \texttt{A3}\\
+Theorem~\ref{thm:family} & \texttt{A2}\\
+Corollary~\ref{cor:cubic}, general bound & first part of \texttt{A4}\\
+Theorem~\ref{thm:positive} & \texttt{A12}; \texttt{A11} is its $h=1$ case\\
+Theorem~\ref{thm:reverse} & \texttt{A13}\\\bottomrule
+\end{tabular}
+\end{center}
+In \texttt{A3}, the coefficient-average exponent is the particular choice
+$\eta=1/(1600(\nu+3))$ used in the proof of
+Theorem~\ref{thm:uniform}. The cube-coefficient bound of
+Corollary~\ref{cor:cubic} is the written consequence of \texttt{A1} proved
+in Section~\ref{sec:A4}; that stronger conclusion has not been separately
+replayed. The library also retains the weaker cube-coefficient bound
+$C(a^3)^{\nu_2}T^{389/1600}$ in \texttt{A4}. The general cubic estimate
+has a formal proof there using Stewart's estimate for non-cube
+coefficients and \texttt{A3}, with all three external inputs, for cube
+coefficients. The classical proof given here uses Evertse--Silverman and supplies the coarse choice
+$\nu_1=180$. This numerical coefficient exponent is not an additional
+replayed claim. The written proof of Lemma~\ref{lem:A2quaduniform}
+uses Vaughan--Wooley~\cite[Lemma~3.5]{vw}; the formal development
+derives the corresponding quadratic-fibre estimate by a direct Pell argument.
+
+\subsection*{Verification data}
+{\raggedright
+The pins are \lean~4.33.1 and Mathlib commit
+\path{0df444a360eaa60ab8c11dca51a86af692955474}.
+The formal interfaces lie in
+\path{JocelynWorkspace.Formalization.PowerfulCounting.ConsecutiveCounting},
+with explicit hypotheses \path{StewartHyp}, \path{CCDNThm3} and
+\path{GelfondHyp}. These are theorem arguments, not new axioms.
+The standard axiom set is \texttt{propext}, \texttt{Classical.choice}
+and \texttt{Quot.sound}.
+
+The independent statement file is
+\path{replay/statements/consecutive-counting/Statements.lean}.
+The integrated receipt \path{replay/receipts/consecutive-counting.json}
+covers 38 statements in the shared repository, including the interfaces
+above. The same-source negative control
+\path{replay/receipts/consecutive-counting-negative.json} records rejection
+of a deliberately false strengthening of \texttt{A13}.
+The sources, pinned dependencies, build commands and replay instructions
+are available at \url{https://github.com/dannyply/math-frontier}.
+\par}
+
+The source comparisons use Stewart~\cite[Theorem~1, p.~795 and its
+consequence on p.~796]{stewart}, the affine-curve theorem
+of~\cite[Theorem~3]{ccdn}, and the factor-height inequality
+of~\cite[Lemma~1.6.11, p.~27]{bg}. Stewart's consequence is used with
+$g=|m|$, squarefreeness supplying the nonzero discriminant. The curve
+theorem is used for a prime ideal with linear Hilbert function. The
+factor-height statement follows by applying the product-height inequality
+to the factor and its integral cofactor. These comparisons, like the
+manuscript reviews, were performed by AI systems.
+
+The intermediate declaration map is supplied with the repository as
+\path{verification/consecutive-counting/manuscript-source-map.json}.
+It distinguishes exact statements, composed proof routes and written
+refinements, including the more general tail and moment bounds and the
+compressed Gaussian label count. Independent AI readers compared the
+mathematical statements and formal sources in both directions, fixing
+their initial interpretations before comparison. The formal declarations
+belong to the dependency closure of the replayed interfaces; this source
+review is not a separate kernel replay of each written lemma. All
+mathematical proofs needed here are in the manuscript or the cited literature.
+
+\section{A classical coefficient-uniform comparison}\label{app:classical}
+We justify the comparison used in Section~\ref{sec:compare}: for the
+quadratics in Theorem~\ref{thm:uniform}, the classical estimates give
+\begin{equation}\label{eq:classical-quadratic}
+ S(a,b,c;N)\ll_\eps L^{39}N^{2/5+\eps}.
+\end{equation}
+The coefficient power is deliberately coarse. Put $Q(n)=an^2+bn+c$
+and $\Delta=b^2-4ac$. Then $0<|\Delta|\le5L^2$, and the quadratic
+root field has absolute discriminant at most $20L^2$, hence class
+number $\ll L^2$ by the Minkowski argument in
+Lemma~\ref{lem:cubic-classical-fibres}.
+
+For $k\ge1$, the equation $Q(n)=kv^3$ gives
+$k^2Q(n)=(kv)^3$. The cube estimate of Evertse--Silverman
+used in that lemma applies with field degree two and
+$s\le1+\omega(\Delta)+\omega(k)$. Since $17^2 3^4<2^{18}$,
+its bound is
+\[
+ \card\{n\in\Z:Q(n)\in k\Z^3\setminus\{0\}\}
+ \ll_\xi L^2|\Delta|^{18}k^\xi
+ \ll_\xi L^{38}k^\xi.
+\]
+The roots are distinct because $\Delta\ne0$.
+
+For a square fibre $Q(n)=qv^2$ with $q\ge1$ and $1\le n\le N$,
+completion of the square gives
+\[
+ (2an+b)^2-4aqv^2=\Delta,
+ \qquad |2an+b|,|v|\le3LN.
+\]
+Vaughan--Wooley~\cite[Lemma~3.5]{vw} bounds the solutions by
+$C_\xi(L^4qN)^\xi$, uniformly in these parameters. Its nonzero
+right-hand-side condition follows from $\Delta\ne0$; signs and a
+zero first coordinate change the count only by a constant.
+
+Write each counted powerful value as $Q(n)=e^2d^3\le3LN^2$,
+and put $U=(3LN^2)^{1/5}$. Either $e\le U$ or $d\le U$.
+Summing the cube fibres with $k=e^2$ gives
+$C_\xi L^{38}U^{1+2\xi}$; summing the square fibres with $q=d$
+gives $C_\xi L^{4\xi}N^\xi U^{1+\xi}$.
+Thus the two contributions are bounded by
+\[
+ C_\xi L^{38+1/5+2\xi/5}N^{2/5+4\xi/5},\qquad
+ C_\xi L^{1/5+21\xi/5}N^{2/5+7\xi/5}.
+\]
+Taking $\xi=\min(5\eps/7,1/4)$ proves
+\eqref{eq:classical-quadratic}. This is a consequence of the cited
+estimates, not a claim that those sources state this coefficient power.
+
+\begin{thebibliography}{99}
+\bibitem{powerful} D. Plymesser, \emph{Counting powerful products of consecutive integers}, \url{https://doi.org/10.5281/zenodo.23614742}.
+\bibitem{stewart} C.~L. Stewart, On the number of solutions of polynomial congruences and Thue equations, \emph{J. Amer. Math. Soc.} \textbf{4} (1991), 793--835.
+\bibitem{ccdn} W. Castryck, R. Cluckers, P. Dittmann and K.~H. Nguyen, The dimension growth conjecture, polynomial in the degree and without logarithmic factors, \emph{Algebra Number Theory} \textbf{14} (2020), 2261--2294; \href{https://arxiv.org/abs/1904.13109v1}{arXiv:1904.13109v1}.
+\bibitem{bg} E. Bombieri and W. Gubler, \emph{Heights in Diophantine Geometry}, Cambridge University Press, 2006.
+\bibitem{hbannals} D.~R. Heath-Brown, The density of rational points on curves and surfaces, \emph{Ann. of Math. (2)} \textbf{155} (2002), 553--595.
+\bibitem{hb} D.~R. Heath-Brown, Square-free values of $n^2+1$, \emph{Acta Arith.} \textbf{155} (2012), 1--13.
+\bibitem{wm} W. Wongcharoenbhorn and Y. Meemark, Square-full values of quadratic polynomials, \emph{Bull. Aust. Math. Soc.} \textbf{113} (2026), 40--54.
+\bibitem{puchta} J.-C. Puchta, On the powerfull part of $n^2+1$, \emph{Arch. Math. (Brno)} \textbf{39} (2003), 187--189.
+\bibitem{saito} Y. Saito, \emph{Shared prime support, small radicals, and square-full polynomial values}, unrefereed manuscript, \url{https://doi.org/10.5281/zenodo.21942579}.
+\bibitem{es} J.-H. Evertse and J.~H. Silverman, Uniform bounds for the number of solutions to $Y^n=f(X)$, \emph{Math. Proc. Cambridge Philos. Soc.} \textbf{100} (1986), 237--248.
+\bibitem{vw} R.~C. Vaughan and T.~D. Wooley, Further improvements in Waring's problem, \emph{Acta Math.} \textbf{174} (1995), 147--240.
+\bibitem{ddl} J.-M. De Koninck, N. Doyon and F. Luca, Powerful values of quadratic polynomials, \emph{J. Integer Seq.} \textbf{14} (2011), Article 11.3.3.
+\bibitem{pasten} H. Pasten, Powerful values of polynomials and a conjecture of Vojta, \emph{J. Number Theory} \textbf{133} (2013), 2964--2998.
+\bibitem{streeter} S. Streeter, Campana points and powerful values of norm forms, \emph{Math. Z.} \textbf{301} (2022), 627--664.
+\bibitem{pohl} S.~S. Pohl, $S$-squareful values of binary quadratic forms, \href{https://arxiv.org/abs/2610.20316v1}{arXiv:2610.20316v1}, preprint.
+\end{thebibliography}
+\end{document}

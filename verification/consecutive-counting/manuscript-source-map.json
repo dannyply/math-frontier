@@ -1,0 +1,912 @@
+{
+  "scope": "Paper 1 statement correspondence, including supporting proof routes, definitions and explicitly identified written refinements. Formal dependency declarations have source-level semantic review; only the release interfaces have the independent statement comparison recorded in the replay receipt. A composed route or a written strengthening is not an exact single-declaration match.",
+  "path_base": "JocelynWorkspace/Formalization/PowerfulCounting/",
+  "directory_aliases": {
+    "FAB": "FormalAB",
+    "CC": "CountingClosure",
+    "ConC": "ConsecutiveCounting"
+  },
+  "file_conventions": {
+    "S...": "FormalAB/S....lean",
+    "A1,...,A13": "ConsecutiveCounting/A1.lean,...",
+    "ComponentClassification,LowDegreeComponents,LemmaP": "CountingClosure/",
+    "Paper3...": "Paper3OriginalActualAuxiliaryPolynomial.lean (a source-module name)"
+  },
+  "statements": [
+    {
+      "paper_labels": [
+        "lem:ideal",
+        "lem:unbalanced",
+        "lem:balance",
+        "lem:growth",
+        "lem:balancedcover"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "3.1"
+        },
+        {
+          "kind": "Lemma",
+          "number": "3.2"
+        },
+        {
+          "kind": "Lemma",
+          "number": "3.3"
+        },
+        {
+          "kind": "Lemma",
+          "number": "3.4"
+        },
+        {
+          "kind": "Lemma",
+          "number": "3.5"
+        }
+      ],
+      "statement_tex": "Lemmas~\\ref{lem:ideal}--\\ref{lem:balancedcover}",
+      "lean_declarations_tex": "steps of \\path{balanced_finite_cover_attempt}; \\path{decomp_one}",
+      "file_tex": "S9f3929ee; DecompositionAndEnvelope",
+      "review_target": "I01",
+      "scope_note": "Composed arithmetic route through the ideal decomposition, real balancing, growth and finite-cover construction; not five separately exported statements."
+    },
+    {
+      "paper_labels": [
+        "prop:charts"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Proposition",
+          "number": "3.7"
+        }
+      ],
+      "statement_tex": "Proposition~\\ref{prop:charts}",
+      "lean_declarations_tex": "\\path{balanced_finite_cover_attempt}",
+      "file_tex": "S9f3929ee",
+      "review_target": "I02"
+    },
+    {
+      "paper_labels": [
+        "lem:recover"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "3.8"
+        }
+      ],
+      "statement_tex": "Lemma~\\ref{lem:recover}",
+      "lean_declarations_tex": "\\path{point_tuple_unique}, \\path{actualWindowPopulationCountingSupplier}",
+      "file_tex": "A1",
+      "review_target": "I03",
+      "scope_note": "The individual coordinate bound uses point_coordinate_box in addition to point_tuple_unique and actualWindowPopulationCountingSupplier. The route gives recovery, coordinate bounds and finite tuple counting."
+    },
+    {
+      "paper_labels": [
+        "lem:slopes"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "3.9"
+        }
+      ],
+      "statement_tex": "Lemma~\\ref{lem:slopes}",
+      "lean_declarations_tex": "\\path{actualArithmeticChartSupplier_attempt}",
+      "file_tex": "S9f3929ee",
+      "review_target": "I04",
+      "scope_note": "The exact residual identity R=1/(d_y^3*d_x^2) is proved locally as hCurve in the slope supplier proof; the final supplier type exposes the bounds needed for the chart construction."
+    },
+    {
+      "paper_labels": [
+        "lem:norms"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "3.10"
+        }
+      ],
+      "statement_tex": "Lemma~\\ref{lem:norms}",
+      "lean_declarations_tex": "\\path{actualNormalizedPoint}",
+      "file_tex": "A1",
+      "review_target": "I05",
+      "scope_note": "The named actualNormalizedPoint statement assumes X>=2 and X<n<=2X. The written lemma only assumes an arithmetic point with n<=2X; its one-line proof derives the broader formulation directly from the point inequalities. The direct domains differ; this is not a literal stronger formal type."
+    },
+    {
+      "paper_labels": [
+        "lem:partition"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "3.11"
+        }
+      ],
+      "statement_tex": "Lemma~\\ref{lem:partition}",
+      "lean_declarations_tex": "\\path{genericNormPartition}",
+      "file_tex": "S335fe9a1",
+      "review_target": "I06"
+    },
+    {
+      "paper_labels": [
+        "lem:prefix"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "3.12"
+        }
+      ],
+      "statement_tex": "Lemma~\\ref{lem:prefix}",
+      "lean_declarations_tex": "\\path{windowToPrefix}; \\path{quantitativeWindowToPrefix}",
+      "file_tex": "Sb47bec79; S376bcb36",
+      "review_target": "I07"
+    },
+    {
+      "paper_labels": [
+        "lem:cubes",
+        "lem:cubicfibre"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "4.1"
+        },
+        {
+          "kind": "Lemma",
+          "number": "4.2"
+        }
+      ],
+      "statement_tex": "Lemmas~\\ref{lem:cubes}, \\ref{lem:cubicfibre}",
+      "lean_declarations_tex": "\\path{independent_cubes}, \\path{original_cubic_fibre_count}",
+      "file_tex": "Sc2541119",
+      "review_target": "I08"
+    },
+    {
+      "paper_labels": [
+        "lem:quadfibre",
+        "lem:quaddisc"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "4.3"
+        },
+        {
+          "kind": "Lemma",
+          "number": "4.4"
+        }
+      ],
+      "statement_tex": "Lemmas~\\ref{lem:quadfibre}, \\ref{lem:quaddisc}",
+      "lean_declarations_tex": "\\path{signed_binary_quadratic_count}, \\path{actualYAxisNonvanishing_attempt}",
+      "file_tex": "Sc2541119",
+      "review_target": "I09"
+    },
+    {
+      "paper_labels": [
+        "prop:easy"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Proposition",
+          "number": "4.5"
+        }
+      ],
+      "statement_tex": "Proposition~\\ref{prop:easy}",
+      "lean_declarations_tex": "\\path{original_norm_box_fallback}, \\path{actualTaggedNormBoxFallback}",
+      "file_tex": "Sc2541119; A1",
+      "review_target": "I10"
+    },
+    {
+      "paper_labels": [
+        "prop:branches"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Proposition",
+          "number": "5.1"
+        }
+      ],
+      "statement_tex": "Proposition~\\ref{prop:branches}",
+      "lean_declarations_tex": "\\path{finiteSmoothGraphCharts}; \\path{sameCellGrid}",
+      "file_tex": "S61c6e1a7; S1b75af8c",
+      "review_target": "I11"
+    },
+    {
+      "paper_labels": [
+        "lem:contact",
+        "lem:mixed"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "5.3"
+        },
+        {
+          "kind": "Lemma",
+          "number": "5.4"
+        }
+      ],
+      "statement_tex": "Lemmas~\\ref{lem:contact}, \\ref{lem:mixed}",
+      "lean_declarations_tex": "\\path{contact_above}, \\path{mixed_filtration}",
+      "file_tex": "S61c6e1a7",
+      "review_target": "I12"
+    },
+    {
+      "paper_labels": [
+        "lem:triangle",
+        "lem:layer"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "5.5"
+        },
+        {
+          "kind": "Lemma",
+          "number": "5.6"
+        }
+      ],
+      "statement_tex": "Lemmas~\\ref{lem:triangle}, \\ref{lem:layer}",
+      "lean_declarations_tex": "\\path{jetTriangleBound}, \\path{integral_le_minor}",
+      "file_tex": "S61c6e1a7",
+      "review_target": "I13"
+    },
+    {
+      "paper_labels": [
+        "prop:surplus"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Proposition",
+          "number": "5.7"
+        }
+      ],
+      "statement_tex": "Proposition~\\ref{prop:surplus}",
+      "lean_declarations_tex": "\\path{path_data}, \\path{profileIntegral_eq}, \\path{finiteMinorMargin}",
+      "file_tex": "S61c6e1a7",
+      "review_target": "I14"
+    },
+    {
+      "paper_labels": [
+        "lem:rowcap",
+        "lem:taylor"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "5.8"
+        },
+        {
+          "kind": "Lemma",
+          "number": "5.9"
+        }
+      ],
+      "statement_tex": "Lemmas~\\ref{lem:rowcap}, \\ref{lem:taylor}",
+      "lean_declarations_tex": "\\path{originalRowCap}, \\path{uniformTaylorGraph}",
+      "file_tex": "S61c6e1a7",
+      "review_target": "I15"
+    },
+    {
+      "paper_labels": [
+        "prop:vanish"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Proposition",
+          "number": "5.10"
+        }
+      ],
+      "statement_tex": "Proposition~\\ref{prop:vanish}",
+      "lean_declarations_tex": "\\path{original_integer_minor_uniform_chart}, \\path{actual_cell_all_minors}",
+      "file_tex": "S61c6e1a7",
+      "review_target": "I16",
+      "scope_note": "The named uniform-chart and actual-cell wrappers choose an existential q. The written assertion for every q satisfying the displayed threshold is supported by the fixed-q route through affine_graph_minor_margin, uniformTaylorGraph and original_integer_minor_zero; it is not a literal universal-q conclusion of the final wrapper."
+    },
+    {
+      "paper_labels": [
+        "prop:aux"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Proposition",
+          "number": "5.11"
+        }
+      ],
+      "statement_tex": "Proposition~\\ref{prop:aux}",
+      "lean_declarations_tex": "\\path{rectangular_kernel_height}; \\path{actual_original_cell_auxiliary}",
+      "file_tex": "Paper3\\dots; S61c6e1a7",
+      "review_target": "I17",
+      "scope_note": "The written auxiliary assertion for a qualifying fixed q follows from the preceding fixed-q determinant argument and rectangular_kernel_height (or original_cell_auxiliary_from_minors). The final actual_original_cell_auxiliary wrapper chooses q existentially; the coefficient exponent and bihomogeneous conclusion agree."
+    },
+    {
+      "paper_labels": [
+        "prop:components"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Proposition",
+          "number": "6.1"
+        }
+      ],
+      "statement_tex": "Proposition~\\ref{prop:components}",
+      "lean_declarations_tex": "\\path{uniform_actual_finite_component_count}",
+      "file_tex": "S94d17769",
+      "review_target": "I18"
+    },
+    {
+      "paper_labels": [
+        "lem:factor"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "6.2"
+        }
+      ],
+      "statement_tex": "Lemma~\\ref{lem:factor}",
+      "lean_declarations_tex": "\\path{C02.PcClassify.clq}",
+      "file_tex": "ComponentClassification",
+      "review_target": "I19",
+      "scope_note": "The paper regroups the six clq alternatives into four disjoint degree categories. Rational irreducibility of every selected nonconstant factor uses irreducible_map_rat; the low weighted-degree pairs all have minimum bidegree one and inherit complex irreducibility."
+    },
+    {
+      "paper_labels": [
+        "lem:lines"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "6.3"
+        }
+      ],
+      "statement_tex": "Lemma~\\ref{lem:lines}",
+      "lean_declarations_tex": "\\path{line_set_bound}, \\path{uniform_pure_lines}",
+      "file_tex": "S94d17769",
+      "review_target": "I20"
+    },
+    {
+      "paper_labels": [
+        "prop:low"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Proposition",
+          "number": "6.4"
+        }
+      ],
+      "statement_tex": "Proposition~\\ref{prop:low}",
+      "lean_declarations_tex": "\\path{signed_embedded_component_count}; \\path{p_res2}, \\path{p_kernel}, \\path{three_roots_gen}",
+      "file_tex": "S94d17769; LowDegreeComponents",
+      "review_target": "I21",
+      "scope_note": "The signed_embedded_component_count statement matches the graph-component estimate. In its supporting algebraic route, p_kernel exports valuewise divisibility of evaluations, while the written squarefree-radical argument establishes polynomial divisibility via Gauss lemma; the counting proof needs only valuewise divisibility."
+    },
+    {
+      "paper_labels": [
+        "cor:low"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Corollary",
+          "number": "6.5"
+        }
+      ],
+      "statement_tex": "Corollary~\\ref{cor:low}",
+      "lean_declarations_tex": "\\path{actual_low_mixed_component_count}",
+      "file_tex": "S94d17769",
+      "review_target": "I22"
+    },
+    {
+      "paper_labels": [
+        "lem:P"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "6.6"
+        }
+      ],
+      "statement_tex": "Lemma~\\ref{lem:P}",
+      "lean_declarations_tex": "\\path{C03.PcLemP.lemP_core}",
+      "file_tex": "LemmaP",
+      "review_target": "I23"
+    },
+    {
+      "paper_labels": [
+        "cor:high"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Corollary",
+          "number": "6.7"
+        }
+      ],
+      "statement_tex": "Corollary~\\ref{cor:high}",
+      "lean_declarations_tex": "\\path{published_core}, \\path{uniform_high_from_core}",
+      "file_tex": "S94d17769",
+      "review_target": "I24",
+      "scope_note": "The qualitative uniform corollary is a specialization of uniform_high_from_core with published_core supplying its premise. The displayed explicit K3 is a written calculation from the core bound, not a constant exposed by that interface."
+    },
+    {
+      "paper_labels": [
+        "lem:strips"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "7.1"
+        }
+      ],
+      "statement_tex": "Lemma~\\ref{lem:strips}",
+      "lean_declarations_tex": "\\path{originalPairsInCellStrips}",
+      "file_tex": "S4fcbc839",
+      "review_target": "I25"
+    },
+    {
+      "paper_labels": [
+        "prop:bridge"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Proposition",
+          "number": "7.2"
+        }
+      ],
+      "statement_tex": "Proposition~\\ref{prop:bridge}",
+      "lean_declarations_tex": "\\path{bridge_main}; \\path{exists_shortest}; \\path{exists_reduced}; \\path{height_main}",
+      "file_tex": "S5ecab545",
+      "review_target": "I26",
+      "scope_note": "The public bridge interface has an existential coefficient constant. Its construction selects a shortest vector and explicitly chooses 4*(K+1), supporting the more explicit written formulation."
+    },
+    {
+      "paper_labels": [
+        "lem:percell"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "7.3"
+        }
+      ],
+      "statement_tex": "Lemma~\\ref{lem:percell}",
+      "lean_declarations_tex": "\\path{auxiliary_transport}; \\path{per_cell_height_count_reduction}; \\path{canonical_component_count}; \\path{unifiedHeightBudget}",
+      "file_tex": "Sbfeb2b3e; A1",
+      "review_target": "I27",
+      "scope_note": "The generic per_cell_height_count_reduction takes UniformActualFiniteComponentCountStatement and UnifiedHeightBudget as premises. canonical_component_count and unifiedHeightBudget in A1 supply them; auxiliary_transport supplies nonvanishing, bidegree, evaluation and height growth. The resulting height exponent is q*n_q+15*q+2."
+    },
+    {
+      "paper_labels": [
+        "lem:tail"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "7.4"
+        }
+      ],
+      "statement_tex": "Lemma~\\ref{lem:tail}",
+      "lean_declarations_tex": "\\path{tail_abstract}; \\path{integerTail}",
+      "file_tex": "LatticeTails; S27058e64",
+      "review_target": "I28",
+      "scope_note": "The written sector-count proof covers arbitrary nonzero integer vectors and all positive D. The concrete formal tail interface is used for reduced bases with M<D and a lower threshold on the tail parameter; the abstract tail reduction and written small-threshold argument supply the broader presentation."
+    },
+    {
+      "paper_labels": [
+        "lem:moments"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "7.5"
+        }
+      ],
+      "statement_tex": "Lemma~\\ref{lem:moments}",
+      "lean_declarations_tex": "\\path{moment_from_tails}; \\path{integerMixedMoment}",
+      "file_tex": "LatticeMoments; S27058e64",
+      "review_target": "I29",
+      "scope_note": "The written moment bounds follow from the broader written tail lemma. The concrete formal mixed-moment interface applies to reduced bases with M<D,E; the generic moment theorem is a separate supporting declaration."
+    },
+    {
+      "paper_labels": [
+        "prop:hard"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Proposition",
+          "number": "7.6"
+        }
+      ],
+      "statement_tex": "Proposition~\\ref{prop:hard}",
+      "lean_declarations_tex": "\\path{actual_hard_norm_box}",
+      "file_tex": "A1",
+      "review_target": "I30",
+      "scope_note": "The source theorem counts a finite tagged arithmetic population under SourceChartData. The actual A1 construction supplies representations, chart data and the finite carrier; its proof applies the established strip, moment, auxiliary, bridge, component and height-budget results."
+    },
+    {
+      "paper_labels": [
+        "lem:schedule"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "7.7"
+        }
+      ],
+      "statement_tex": "Lemma~\\ref{lem:schedule}",
+      "lean_declarations_tex": "\\path{logCeilFallbackSchedule}, \\path{finite_carrier_window_reduction}",
+      "file_tex": "S27058e64; A1",
+      "review_target": "I31",
+      "scope_note": "The schedule interface existentially quantifies its parameters. Its proof chooses the manuscript eta=min(1/1000,epsilon/4), mu=57/305+eta, delta=epsilon/4 and X0=2. The separate finite-carrier reduction is applied with the proved partition and easy/hard count suppliers."
+    },
+    {
+      "paper_labels": [
+        "prop:A3lift"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Proposition",
+          "number": "8.2"
+        }
+      ],
+      "statement_tex": "Proposition~\\ref{prop:A3lift}",
+      "lean_declarations_tex": "\\path{original_count_lift_supplier}, \\path{fixed_lift_injective}; \\path{A3OriginalPrimitiveResource.OriginalToPrimitiveResourceStatement}; \\path{A3OriginalPrimitiveResource.originalToPrimitiveResource}",
+      "file_tex": "S376bcb36",
+      "review_target": "I32",
+      "scope_note": "The named count-lift wrapper discards the discriminant identity. Its upstream originalToPrimitiveResource supplier and the proof of original_count_lift_supplier retain the identity Delta=d*s^2 used in the paper; this is a composed source mapping."
+    },
+    {
+      "paper_labels": [
+        "prop:A3fallback"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Proposition",
+          "number": "8.3"
+        }
+      ],
+      "statement_tex": "Proposition~\\ref{prop:A3fallback}",
+      "lean_declarations_tex": "\\path{original_coordinate_fixing_count}; \\path{original_box_fallback}",
+      "file_tex": "S17759d9f; A3",
+      "review_target": "I33",
+      "scope_note": "The proved original_coordinate_fixing_count supplies the fallback premise of the generic original_box_fallback. The explicit written resource exponent Bf is an arithmetic refinement of an interface that only requires some positive coefficient exponent."
+    },
+    {
+      "paper_labels": [
+        "prop:A3graph"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Proposition",
+          "number": "8.4"
+        }
+      ],
+      "statement_tex": "Proposition~\\ref{prop:A3graph}",
+      "lean_declarations_tex": "\\path{graph_cover_of_owned_imaginary}; \\path{polynomial_imaginary_chart}",
+      "file_tex": "S4090edd7",
+      "review_target": "I34",
+      "scope_note": "graph_cover_of_owned_imaginary assumes PolynomialImaginaryChartStatement. The theorem polynomial_imaginary_chart proves it in the same module, and the actual graph-cover wrapper supplies it; no extra unproved chart hypothesis is used."
+    },
+    {
+      "paper_labels": [
+        "prop:A3good"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Proposition",
+          "number": "8.5"
+        }
+      ],
+      "statement_tex": "Proposition~\\ref{prop:A3good}",
+      "lean_declarations_tex": "\\path{original_good_chart_box}",
+      "file_tex": "Sac09a8d3",
+      "review_target": "I35"
+    },
+    {
+      "paper_labels": [
+        "prop:A3shell"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Proposition",
+          "number": "8.6"
+        }
+      ],
+      "statement_tex": "Proposition~\\ref{prop:A3shell}",
+      "lean_declarations_tex": "\\path{actual_height_partition}; \\path{assemble_proved_components}",
+      "file_tex": "S4926c1f4; A3",
+      "review_target": "I36",
+      "scope_note": "assemble_proved_components is generic in embeddings, input predicates and component suppliers. The actual A3 assembly instantiates sigmaPlus/sigmaMinus, ST/CC/GE and the four proved component suppliers, with actual_height_partition giving the finite partition and exact count sum."
+    },
+    {
+      "paper_labels": [
+        "sec:A3proof"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Section",
+          "number": "8.3"
+        }
+      ],
+      "statement_tex": "Section~\\ref{sec:A3proof}",
+      "lean_declarations_tex": "\\path{global_from_owned_trace_count}, \\path{a3_family_sum_from_individual}",
+      "file_tex": "S376bcb36",
+      "review_target": "I37",
+      "scope_note": "The actual A3 theorem supplies the trace-count estimate assembled from the proved components to global_from_owned_trace_count. The individual-to-family lemma uses the displayed fixed eta and coefficient box; the constants precede all polynomial coefficients, height and counting bound."
+    },
+    {
+      "paper_labels": [
+        "lem:A2labels"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "9.1"
+        }
+      ],
+      "statement_tex": "Lemma~\\ref{lem:A2labels}",
+      "lean_declarations_tex": "\\path{A2RawGaussian_Se3ca258b.finiteGammaCover}; \\path{A2ContentInherited_Se3ca258b.primitive_content_reduction}; \\path{A2PopulationTransfer_Se3ca258b.population_transfer}",
+      "file_tex": "Se3ca258b",
+      "scope_note": "The written Gaussian-label lemma compresses (gamma,gy,gx) to (ell=gy^3*gx^2,gamma), giving at most 4*tau(a)^3 labels. The actual formal population_transfer interface keeps the three-part label and bounds it by 4*tau(a)^4. The stronger written compression is supported by finiteGammaCover and primitive_content_reduction; it is not a separately replayed statement.",
+      "review_target": "I38"
+    },
+    {
+      "paper_labels": [
+        "prop:A2fallback"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Proposition",
+          "number": "9.3"
+        }
+      ],
+      "statement_tex": "Proposition~\\ref{prop:A2fallback}",
+      "lean_declarations_tex": "\\path{whole_count}",
+      "file_tex": "Se37df572",
+      "review_target": "I39"
+    },
+    {
+      "paper_labels": [
+        "prop:A2shell"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Proposition",
+          "number": "9.4"
+        }
+      ],
+      "statement_tex": "Proposition~\\ref{prop:A2shell}",
+      "lean_declarations_tex": "\\path{uniform_phase_charts}; \\path{uniformGrowingMinor}, \\path{uniform_component_positive}, \\path{actual_shell}",
+      "file_tex": "S078e7d20; A2",
+      "review_target": "I40",
+      "scope_note": "The four mapped statements serve different roles: phase charts, growing minors, component counts and shell assembly. uniform_component_positive is supplied a proved RawQuadratic estimate through the Sab87e3d4 wrapper in A2; the identical unconditional statement is mapped separately at Lemma 9.2. The actual final count supplies these components uniformly."
+    },
+    {
+      "paper_labels": [
+        "prop:A2weights"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Proposition",
+          "number": "9.5"
+        }
+      ],
+      "statement_tex": "Proposition~\\ref{prop:A2weights}",
+      "lean_declarations_tex": "\\path{adapted_minor_weight}, \\path{affine_row_cost}, \\path{same_minor_chord}, \\path{rowMargin}; \\path{budgetInterior}; \\path{budgetEndpoint}; \\path{mixed_error_uniform}",
+      "file_tex": "A2",
+      "review_target": "I41",
+      "scope_note": "budgetInterior and budgetEndpoint supply the first weight regime including its endpoint; mixed_error_uniform bounds the error uniformly in g and the weight parameter. affine_row_cost gives the second regime and same_minor_chord gives the third. The proposition follows from this combined route, not from rowMargin alone."
+    },
+    {
+      "paper_labels": [
+        "lem:perspective",
+        "thm:family"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "9.6"
+        },
+        {
+          "kind": "Theorem",
+          "number": "1.3"
+        }
+      ],
+      "statement_tex": "Lemma~\\ref{lem:perspective}, Theorem~\\ref{thm:family}",
+      "lean_declarations_tex": "\\path{perspective}; \\path{signed_original_count}",
+      "file_tex": "S4f28eb05; A2",
+      "review_target": "I42",
+      "scope_note": "The perspective theorem defines its affine maximum on all real arguments; the paper uses Theta_0 on [0,1/2]. The final signed count is assembled with A2ActualPrefix.actual_norm_supply, actual_shell_supply, actual_population_supply, actual_divisor_supply and actual_prefix_supply, which discharge the prefix, population and divisor premises."
+    },
+    {
+      "paper_labels": [
+        "lem:row"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "11.2"
+        }
+      ],
+      "statement_tex": "Lemma~\\ref{lem:row}",
+      "lean_declarations_tex": "\\path{fullCanonicalRow_product}",
+      "file_tex": "S160aa257",
+      "review_target": "I43"
+    },
+    {
+      "paper_labels": [
+        "prop:uniform-mixed"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Proposition",
+          "number": "11.3"
+        }
+      ],
+      "statement_tex": "Proposition~\\ref{prop:uniform-mixed}",
+      "lean_declarations_tex": "\\path{delta_parameters}, \\path{uniform_to_mixed}; \\path{Q001.q071}; \\path{A12Transfer.uniform_to_mixed_shift}",
+      "file_tex": "A11, A12; A13",
+      "review_target": "I44",
+      "scope_note": "The paper states a conditional transfer for a nonzero signed h and nonsquare n, removing that restriction only when the quadratic input covers all coefficients. The listed formal transfer interfaces directly cover +1 and nonsquare -1; the written canonical-row argument supplies the general conditional formulation. A12 gives every fixed positive shift, while the unconditional reverse square-case argument is specifically for -1."
+    },
+    {
+      "paper_labels": [
+        "thm:reverse"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Theorem",
+          "number": "1.6"
+        }
+      ],
+      "statement_tex": "Theorem~\\ref{thm:reverse}, square case",
+      "lean_declarations_tex": "\\path{Q002.q045}, \\path{zA.yp}, \\path{Q.C11.PCA.y4}",
+      "file_tex": "A13",
+      "review_target": "I45",
+      "scope_note": "The reverse square-case proof supplies the Pell and determinant/count inputs to the width-three theorem. It obtains the intermediate exponent 77/640+epsilon/2 and absorbs it into the exported 49/400+epsilon estimate. This route treats n-1, not arbitrary negative shifts."
+    },
+    {
+      "paper_labels": [
+        "def:point"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Definition",
+          "number": "3.6"
+        }
+      ],
+      "statement_tex": "Definition~\\ref{def:point}",
+      "lean_declarations_tex": "\\path{A1ArithmeticChartSupplier.ArithmeticPoint}",
+      "file_tex": "S61c6e1a7",
+      "review_target": "C01",
+      "scope_note": "Definition specialized to the paper's concrete chart data. The trace-level equation in the formal predicate follows from the element identity and the coefficient identity."
+    },
+    {
+      "paper_labels": [
+        "def:cell"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Definition",
+          "number": "5.2"
+        }
+      ],
+      "statement_tex": "Definition~\\ref{def:cell}",
+      "lean_declarations_tex": "\\path{A1ActualCellApplication.actualCellSet}",
+      "file_tex": "S61c6e1a7",
+      "review_target": "C02",
+      "scope_note": "The clipped written cell maps into the formal cell. The formal population does not require the originating value to be positive and powerful, so it can be larger; its vanishing and auxiliary conclusions still apply to the written subset."
+    },
+    {
+      "paper_labels": [
+        "lem:A3boundedbalance"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "8.1"
+        }
+      ],
+      "statement_tex": "Lemma~\\ref{lem:A3boundedbalance}",
+      "lean_declarations_tex": "\\path{A3NonunitBalancing.bounded_norm_ratio_balancing}",
+      "file_tex": "S376bcb36",
+      "review_target": "U01",
+      "scope_note": "Exact bounded-norm ratio statement, including the constants 3*sqrt(d) and 6*d; no requirement that the balancing element be a non-unit."
+    },
+    {
+      "paper_labels": [
+        "lem:A2quaduniform"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "9.2"
+        }
+      ],
+      "statement_tex": "Lemma~\\ref{lem:A2quaduniform}",
+      "lean_declarations_tex": "\\path{JocelynClaims.claim_1230f737e4649a54e9a694336c3c988db7c2a836059ef69cda8f2365d49283a6}",
+      "file_tex": "Se37df572",
+      "review_target": "U02",
+      "scope_note": "Exact formal statement, including uniformity in the nonzero right-hand side. The formal proof uses a direct Pell argument; the written proof uses Vaughan–Wooley Lemma 3.5. This is a dependency declaration, not an additional independent statement-comparison target."
+    },
+    {
+      "paper_labels": [
+        "lem:cubic-classical-fibres"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Lemma",
+          "number": "10.1"
+        }
+      ],
+      "statement_tex": "Lemma~\\ref{lem:cubic-classical-fibres}",
+      "lean_declarations_tex": "Written classical deduction",
+      "file_tex": "not applicable",
+      "review_target": "W01",
+      "scope_note": "The explicit coefficient powers 178 and 62 are derived in the manuscript from Evertse–Silverman and elementary field estimates; they are not separate formal declarations."
+    },
+    {
+      "paper_labels": [
+        "cor:shift"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Corollary",
+          "number": "11.1"
+        }
+      ],
+      "statement_tex": "Corollary~\\ref{cor:shift}",
+      "lean_declarations_tex": "\\path{A3}",
+      "file_tex": "A3",
+      "review_target": "W02",
+      "scope_note": "Written direct specialization of A3 with the displayed coefficient-height choices; no separate replayed declaration for these exact constants."
+    },
+    {
+      "paper_labels": [
+        "rem:rs"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Remark",
+          "number": "11.4"
+        }
+      ],
+      "statement_tex": "Remark~\\ref{rem:rs}",
+      "lean_declarations_tex": "\\path{A12}; \\path{A13}",
+      "file_tex": "A12; A13",
+      "review_target": "W03",
+      "scope_note": "Written scope and parameter deductions. The unconditional shifts are arbitrary fixed +h with h>=1 and reverse -1. The independence from r follows by weakening r-full to powerful."
+    },
+    {
+      "paper_labels": [
+        "rem:exponent"
+      ],
+      "paper_statements": [
+        {
+          "kind": "Remark",
+          "number": "12.1"
+        }
+      ],
+      "statement_tex": "Remark~\\ref{rem:exponent}",
+      "lean_declarations_tex": "\\path{path_data}; \\path{logCeilFallbackSchedule}",
+      "file_tex": "S61c6e1a7; S27058e64",
+      "review_target": "W04",
+      "scope_note": "Written explanation of the limiting exponent and least lifted degree, derived from the displayed determinant and schedule bounds; not an independent optimality theorem."
+    }
+  ],
+  "written_proof_notes": {
+    "lem:A2quaduniform": "An exact formal theorem is identified in this map. Its direct Pell proof and the manuscript's Vaughan–Wooley proof are different routes to the same estimate; the written citation adds no formal premise.",
+    "prop:bridge": "The public bridge interface has an existential coefficient constant. Its construction selects a shortest vector and explicitly chooses 4*(K+1), supporting the more explicit written formulation.",
+    "lem:tail": "The written sector-count proof covers arbitrary nonzero integer vectors and all positive D. The concrete formal tail interface is used for reduced bases with M<D and a lower threshold on the tail parameter; the abstract tail reduction and written small-threshold argument supply the broader presentation.",
+    "lem:moments": "The written moment bounds follow from the broader written tail lemma. The concrete formal mixed-moment interface applies to reduced bases with M<D,E; the generic moment theorem is a separate supporting declaration.",
+    "lem:A2labels": "The written Gaussian-label lemma compresses (gamma,gy,gx) to (ell=gy^3*gx^2,gamma), giving at most 4*tau(a)^3 labels. The actual formal population_transfer interface keeps the three-part label and bounds it by 4*tau(a)^4. The stronger written compression is supported by finiteGammaCover and primitive_content_reduction; it is not a separately replayed statement.",
+    "prop:uniform-mixed": "The paper states a conditional transfer for a nonzero signed h and nonsquare n, removing that restriction only when the quadratic input covers all coefficients. The listed formal transfer interfaces directly cover +1 and nonsquare -1; the written canonical-row argument supplies the general conditional formulation. A12 gives every fixed positive shift, while the unconditional reverse square-case argument is specifically for -1."
+  },
+  "headline_interfaces": {
+    "thm:fixed": "A1",
+    "thm:uniform": "A3",
+    "thm:family": "A2",
+    "cor:cubic": "A4 general bound; stronger cube-coefficient estimate is a written A1 consequence",
+    "thm:positive": "A12; A11 is the h=1 specialization",
+    "thm:reverse": "A13"
+  }
+}

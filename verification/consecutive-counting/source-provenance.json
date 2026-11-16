@@ -1,0 +1,776 @@
+{
+  "schema": "frontier.source-provenance.v1",
+  "transformations": [
+    "Namespace isolation and repository import paths",
+    "Compiler-suggested syntax and lint repairs",
+    "Public theorem aliases checked against independent statement files"
+  ],
+  "sources": [
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A1.lean",
+      "source_sha256": "11a6bc635095ec729609eb2d3da678b5a68d5e4c44036ff6be8e7ade298556f6",
+      "integrated_sha256": "eb7d8d9f2bfe02fc9feb0547149dde16d75d013230b23132906cd86fa0611e53"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A10.lean",
+      "source_sha256": "160aa257d3acaa511e04e8a40e9d923cd78e46abc0af8a875a178bb855b9e7ec",
+      "integrated_sha256": "f88dc1f3a3b7fc685411432483fb8781b307193488a8822804754aecfc030920"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A11.lean",
+      "source_sha256": "4addf8d835164acb131a93368790967ddba321c4efe3b990cae7427253cb0e74",
+      "integrated_sha256": "8cb719d17e074af67cb44ee508f131e632e6c141f2f3353beef9b27fe6dbe873"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A12.lean",
+      "source_sha256": "92aace92f94a41a206d398b705c7fe73be84731f0d9222a29376baa859f8f269",
+      "integrated_sha256": "6efcb78dd35352e82397ed8d6431264b253f08238aa21b328a1503889c1d8be7"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A13.lean",
+      "source_sha256": "e4c1670b1d9719d5094ba4ea2271ab7b46b4b494062afc98f1e306fce1e499c1",
+      "integrated_sha256": "497e9b43cb51e8866abf9e31c50fac0531741e52a364839ab5732a875cf0d6a3"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A14.lean",
+      "source_sha256": "11112e1112000baf3d5c60da026b9c1b8804f4b90a6db7663bf0d2120e06f506",
+      "integrated_sha256": "3db9a9943f209e30bc5ac48fe6e788152994548224aa3fd9d48cea9fce0f6ea2"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A15.lean",
+      "source_sha256": "9458b27c876a1778bed7b89af6ad220e66bda9f4255280204f95f45bb87a2385",
+      "integrated_sha256": "e73986f15429f1d0964c76623808a2877d2e344f3d53135c28ddbbcedc2d08d3"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A16.lean",
+      "source_sha256": "48203c346624b00b2ccecebeba3979912a1a528f5e75f47558a02bf2370d44ec",
+      "integrated_sha256": "0771244f392e6bba46b20488d98840729fe75b94cf0a371982fff26a74d92558"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A2.lean",
+      "source_sha256": "f7058b9637dc7b61bac7b993fa329ef95b783eb68974b6b5eb280efa37764034",
+      "integrated_sha256": "e259fa1c2cc02e70175487a6499d5be24d4450ca583db914850219723ab85558"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A3.lean",
+      "source_sha256": "58d63b5176e00805dc8d445eea78abc1cf0a444fd81797ed9e57103a2c8f9cbf",
+      "integrated_sha256": "31dbea183c726e6fa39a24d601dc2c6d241d04044effb67566cca42a6a79ef45"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A4.lean",
+      "source_sha256": "c55d469de11b6139cdb2f8caed714218e8604e4b2e7318d1d8bef524a651bf9d",
+      "integrated_sha256": "7e23945d80ed759f06d0cd4b340f0a6c909d974efcd3883b245cc5d89d486f21"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A5.lean",
+      "source_sha256": "32a4b7f5a02fa05e8ee5d0fb5bd8227ee00754575a7a0105517c04b1179f8e36",
+      "integrated_sha256": "871e472691cb9dfec356bc3de208ca7ebe5720c205f5b119a0b847e00328edc7"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A6.lean",
+      "source_sha256": "25e34412cf611c1f4728ecdd18bdaa5c6557e5eef6975e18a44856fd6727a23f",
+      "integrated_sha256": "9868c183765fb02219091e7401799289fbacf8512c18ce31ba28ace9b1a699fa"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A7.lean",
+      "source_sha256": "fb8fd1d35ddfb0b6134da54838e23cfa8d2e0269de685a30dde333487895714c",
+      "integrated_sha256": "cdd08a064c0f682eb6f70ec5cd17efabeb9450c7a96a66f97819da35969ad692"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A8.lean",
+      "source_sha256": "8aa2de84fe9c60d3760e51aa078bfad25fe4362f95563019e566cf38f001b2a1",
+      "integrated_sha256": "be69d02f0d826fd80c4a1ee9f617f9aedad438fbf75550afb12ddabd429f8645"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/ConsecutiveCounting/A9.lean",
+      "source_sha256": "65df95e8b43d8da9ae37f7e026c433850165755ad1493565c36c3409d11eb85b",
+      "integrated_sha256": "b0c2335a3ff34761530452e1534653ba5a87ac4a53f9eab8e68abaf3ca35f878"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S03b2acad.lean",
+      "source_sha256": "0ec2d4f9ff283f2d812192545498c6b4b59ed40cc0eda32850393d5cfe78ca0f",
+      "integrated_sha256": "ad1794bc2c3cf5a5fccd14c06ff0a1cc30987365f6c835b4161e3387581e3bd1"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S0430ca7c.lean",
+      "source_sha256": "a5233ca3b9bf83ab34f04931ba9acbb4d3934d91a8328a3049805924287b4110",
+      "integrated_sha256": "35d71a8c2b2e9a3057a4983bfd6303f5b378a9866f1ad1fb2a020ae705f276b7"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S078e7d20.lean",
+      "source_sha256": "d701c7a85ff3f5b1baa1bacada776cb1ffdedd1b7f2ccfd55c1636336a87fce9",
+      "integrated_sha256": "e77d5377bbcf5bd18dcec4e9c36b711e1a3026223f932c350271082b2aee2027"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S109f3370.lean",
+      "source_sha256": "7421ae0a8a44fb27a22f104459df7290ac396a569e3a9136ec8e52b0a12673f3",
+      "integrated_sha256": "37f94b66cb8727f5d525aa8b546b557b8105e3fa1d07638c17a0fb2176148c70"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S11112e11.lean",
+      "source_sha256": "39d68a4b9af2db04caa073f671d2ba43f6a23e0b4e14e763d16bb0f05e5b1861",
+      "integrated_sha256": "bb6f1e2f4dd9d2a89d84f8b4ec38c46d7491d5f073a660672f58312b3a258880"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S11797156.lean",
+      "source_sha256": "cea4fe69e0f874dfacf8f6069fafbf1ce75183dbccd567cf80a7d4e4c9cee676",
+      "integrated_sha256": "1f3bb2f95e931a6fab1ed0c3e3383ed89a7fd58f0d047186d5428b0625a74505"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S11c3682d.lean",
+      "source_sha256": "3641ce5f702a948f498d62f9d1eda153879d6d859046f324207c02a7d8d62696",
+      "integrated_sha256": "b88746270bd60ece2d39dbfb11fc526e18cca88d53c7ef8d997a3e75650e2402"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S124d1a75.lean",
+      "source_sha256": "a369731e54a339142ff6e60c2c1b3676897823aa5ce667354d038e404e212832",
+      "integrated_sha256": "67d83b9911d70274018419c7b81ab528fedc7a07fc1ae93bf1118d2ba0b3dc78"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S1463b785.lean",
+      "source_sha256": "161e9f9152a3282d50d1543357d66b6e3a508dd3456b07615546f2e931adc23a",
+      "integrated_sha256": "3d941fac5f3c7889cfaaa194d9a644153afc952e4f236cf5aaf351effe4e235b"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S160aa257.lean",
+      "source_sha256": "7a1532a9a7e5259ca948ca838a1ce6cc5726f310cf92400664bec1f4ac0bb0b1",
+      "integrated_sha256": "d6268e85af8a509218085804dfb04f87ee2dafdc1145c29837e5191558ffc793"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S166bebe9.lean",
+      "source_sha256": "9a3e44da267657d27f2f53824c40dc6bb73aacc952a74f83183c7d9d507f0eff",
+      "integrated_sha256": "c83527abda5b986ddbc6e891464c95663355fab670bfa8112e43cf9292241170"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S17759d9f.lean",
+      "source_sha256": "287012985dcf03b46cffa09c668d7631882cfb80348cd23dfbd33e595139b968",
+      "integrated_sha256": "b7d6e69930b6dc352844c543a339481cd8a84f4d594dccef3f0ec57b1fef39aa"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S1a1f3383.lean",
+      "source_sha256": "5be87fbfb91acf9407d83bfd049425e35178ba5241edfcc6dadc282c715b49c4",
+      "integrated_sha256": "4436096803937dbb4a11dd3ed5846203ebcdca41443cb3edce0d1920d961be0f"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S1b64778e.lean",
+      "source_sha256": "c2e586a0e7b4052500d249fa069e89fd2ae5dbfb8cf08fedc80427bcecce3304",
+      "integrated_sha256": "2605c2fde51835df9f6c7140a8f779554949cf2c5f1b453216e2fc6b2c35da07"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S1b75af8c.lean",
+      "source_sha256": "75fc61513c773a6f230e47a5c6644432f3173f3d94f62f9e6c8e2de4ed718b93",
+      "integrated_sha256": "919c6317d6b0eb26a5e351a0f28d2209b8bec6198fdf9da15da99d536f2a1ba7"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S1bd2d745.lean",
+      "source_sha256": "a6dc85796116e1a037163038dd13634655108317e7ae8be6bea2170dca24e4bc",
+      "integrated_sha256": "53dbe8a2445ab3c2f1fb0700f13f6c13a0ef154f6257047fcbf61a74c8803b10"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S1e7cf533.lean",
+      "source_sha256": "66fd69f1f29a043fbd755665346017c9e3251cb7ee3245d80532221491b04739",
+      "integrated_sha256": "f3033f454b6490734fa0558fc0ed911f706e8135647f0b9089ec18a3c3e6761a"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S1fdb06b5.lean",
+      "source_sha256": "99f80f50c9df7ce71a6c64239dee4ba27c1809770638e7715737eea85a537ede",
+      "integrated_sha256": "34840a985f9272f1cd0ffb65b4ff316e83ce48e86d1a3f0260cadda49237283b"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S208b505c.lean",
+      "source_sha256": "9aafc2b5237516960502df1376730825837a6609564f5d464bb5c6d6d57afc45",
+      "integrated_sha256": "93d05d8c6d10c27eb9d3856320a25f9ac2a22deaf8c075b545f921f2fb3e85b8"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S2350ff1c.lean",
+      "source_sha256": "c89ac682ec42a83c6847011c662c1f34129272601c39cf01a490619dfeded45a",
+      "integrated_sha256": "3473ca4dc5a4a81879012f3452b3ddf544d24b5f2d70bbc43189e9c17fd53b52"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S25167265.lean",
+      "source_sha256": "9e35798d591aa6151cb396d35267b5b516e30a6ab6ba88a34a4a15237e66ed17",
+      "integrated_sha256": "85b0a809ef2cfa7a6a178d178e436f1cbae4425f85156ec1d97e62e53fbcf24f"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S25f5c02a.lean",
+      "source_sha256": "ee9dbd578091072ad6132b5257de100a52d2ba92bc9a45230bd8afcaa769395e",
+      "integrated_sha256": "3c081e055241024758202a16f362fb2550e432a60e3ae9999f34cd6bd6136c85"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S27058e64.lean",
+      "source_sha256": "0394e85cede5c7d1cba71e25fbad3e2bcefdc315d5211ade377be580a5c6a2f8",
+      "integrated_sha256": "d21888f8ebc9ca18033f209755fd20df54640d577e87c089b4760497a7763a2e"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S296108af.lean",
+      "source_sha256": "87008f2720829f15d5fc4d75a89669c3296c2d1c9c65620e6240b197fc867c93",
+      "integrated_sha256": "12e7fa1c85ad7212dbe603f10fd93cd98eb8c27a365cd0e53d9f72d775d5711e"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S2b84589f.lean",
+      "source_sha256": "377606d453c0c697564fdbd80dfb3bb86c7863f53fe768ea6bbefd7e318c38aa",
+      "integrated_sha256": "bc0f409af41dc5ae7b67e681054b709e0c5a43de37ce0487c03988dd152bba34"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S30f04f02.lean",
+      "source_sha256": "cad3abc129013b69158f1975e218ccde49e7daadc662f9d71c25db1e74749064",
+      "integrated_sha256": "44d9cf2d6d3a81756688918d025d332d5db4ef666e92ac947e0c6c8a66bcce08"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S31134e0c.lean",
+      "source_sha256": "3ffab530ddae67d93d55066457f6d99ea3a0c66336c32b9a19b606274a53edc7",
+      "integrated_sha256": "98b6371b431621ccf4fd188a983d4dc1a93f6f8c5ae91e5517c0cb0a3edd1c4f"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S335fe9a1.lean",
+      "source_sha256": "af7620287dbdba06ceb2a0af08398aaa8b2ae8d64e5e07424d863a2203f42192",
+      "integrated_sha256": "1880efba0151c8518e911ed7567eae8eb30b467648225b33bd8648e43331f8a9"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S376bcb36.lean",
+      "source_sha256": "156145aa6fdf1c1fee0490c5f0a74a844e21f09f4db191195fe24f56da9869e2",
+      "integrated_sha256": "577d01bc37058eb58a8c0a6a05c0ad8dcdcb3e1d57f7c0083e64300bca65f986"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S3a9f242c.lean",
+      "source_sha256": "4e5a2ccd8b865576a7df431d46026a7c62b2be23460ef4248a2ff527c999bc49",
+      "integrated_sha256": "7b0c2a81f429ddddb61e5b63377d3a2ef02f27add517e640e73f866ab8e2db61"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S3b72950f.lean",
+      "source_sha256": "eaa9b431eaa2d45a21b5ad6b5d19216ec68375da0b59d98d35e9721777306ec1",
+      "integrated_sha256": "0deb41a49534aa2c0b2d2e5f5536c034d04d7ebf0ce799748ff57860fed0ab01"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S4090edd7.lean",
+      "source_sha256": "4dc6775c5a1c480ec152c6ea58c411767d70d0dae9710d724dc2a3bb02d1e94f",
+      "integrated_sha256": "8f1c535b59d0985c6c5b543cf2f853c280851a8909f879d1e2f8dee61064a294"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S40fa8f3f.lean",
+      "source_sha256": "686e103e9988d7d04a373059385db8d2b7481153a0cf4eb2ed5ac3cac210a64e",
+      "integrated_sha256": "208ffe2bb2912eaec6f88908a79a50fcd91c27a02613a03237f97c823675f40d"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S4211e715.lean",
+      "source_sha256": "c2546cdf7c95fc77a0658195c620f75d0a96fed8197d018d4104b60f0b04fd2c",
+      "integrated_sha256": "74a6b0521d68fe80a5b9ee7c30bcdeae39b7894fda7fa947c4a27e46db3feee8"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S45a79942.lean",
+      "source_sha256": "d17fe0d51d9844d3d81d12a44a48bfe8a4e84ec87f362a6477608509638785f0",
+      "integrated_sha256": "4b4b49a9bc7a794c125003980704127482ac08fb6d96de392535dcc9f4e1b55a"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S4655eae1.lean",
+      "source_sha256": "f1435986b13a591604aa300f01d53399f8824a6c3a9bbb66106b5e67c55fca54",
+      "integrated_sha256": "1a2a614a849a0c524df0cf620ff143ff5fc227c3821613b9f39646d272e3978b"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S48203c34.lean",
+      "source_sha256": "e7dd585cffa6069a6f5a7d00c420cb9edaaa897a862a58f952e248a6087c8e81",
+      "integrated_sha256": "9f551d42258cc07ac471f5b5d404017536cd133ab815122065a7696f5fdc3fd5"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S48c923c1.lean",
+      "source_sha256": "74648c7034eb1dafdff0d0887a61fe5b3032fdb81d9a36098118619821b01f1f",
+      "integrated_sha256": "12cb26e9c5a97631464f5a608c8a0a5ffffcfcc6458dfd014ae33fc44a128f63"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S4926c1f4.lean",
+      "source_sha256": "2cfe6806808ad11aab77633fba282dc6881a9fcf6ac55dea1d89d186346d1322",
+      "integrated_sha256": "ce0b3a99c60ab986c0ff3a2e35cecda33001f64fa133f4f3cd6ad41e52c69f1b"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S4a0fdf45.lean",
+      "source_sha256": "797fb22ab61602aad430d5061794eb2d577d41ed8ad1619be7cc21547fea1dac",
+      "integrated_sha256": "d969ed3409486b31bce6b37f1e38c89f5eba3882b0baed0b7a92eb77564d2fd1"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S4be11d8f.lean",
+      "source_sha256": "ce3b7391e3d1234d38a1aac96a8ab38ccaa5a55e248f5173939fd192765319e8",
+      "integrated_sha256": "2536cd672ab97dc38c5af3a04ce776d7b8ab8d0d2a4e1d3903815254a43cd5bf"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S4dbaca2c.lean",
+      "source_sha256": "a6ca0eeb24a88af366028af62ff375b95988cd6b3556b7aee50bdaaf81713195",
+      "integrated_sha256": "86f5aa8eaea3178eadd08c90f5fa9322926bd1a97296b32b4e2726edcddd47cd"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S4e2556c6.lean",
+      "source_sha256": "1020e4436d7d7044ec6dbffe3952124fd07d057fcabc739141d343adcb9a92e1",
+      "integrated_sha256": "6827d7347276abf458fceb945b893168febd7e4a67af40814532752016f313e4"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S4e61b76c.lean",
+      "source_sha256": "3a5f6d27d7c21e153d529f633bfce98265835a6951754ea032d203e89f25707a",
+      "integrated_sha256": "fc86523d7521530f5f859b7616ec66710c3d22ab6d5f701b093c7a782b1fb6be"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S4f28eb05.lean",
+      "source_sha256": "962126f346d314227ac24fbca36f4729afddbe61c7cbfee81411346a82f34393",
+      "integrated_sha256": "56740f3f0c5ac081fd40d72c13c7fcb857a151dbc7274a4b3ca3ad76365c93fa"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S4fcbc839.lean",
+      "source_sha256": "695099c26fb8eb01fcb961eeaf0dc54f2d8b07b0854c99cf8ad8d093b971563b",
+      "integrated_sha256": "e2673f7b1b77cfddae8ad0aca96097153148fc6fb0d81e1ec46742c6d5982707"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S50193082.lean",
+      "source_sha256": "f8670a6eb676533ffb6ae39ac7a79ef243c120c14134b1b86a8bc22f81a5f67d",
+      "integrated_sha256": "dc423713e0f3c001669d507dc00a24faf2fe7653e657a0f171d259fe8e44a75c"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S518618bb.lean",
+      "source_sha256": "d6c66b36c85ed6ed4a5d1556495ca2a70452fbb31df890820efa28956df4cdab",
+      "integrated_sha256": "297316cc83870008e2bad5950bcfffaf707bea9b1d45ec4f4e04f3bc4495cd72"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S54b4417b.lean",
+      "source_sha256": "04c773c2986f4fb1cf79250466b32e00f6360faadc884d63b419ddec941d2190",
+      "integrated_sha256": "4a3edefd2bc08fd7149cd3cbcd1480692165d57396e2342df9cec664899c0aa0"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S59b58d62.lean",
+      "source_sha256": "72586ba6e78f343435f795f27396df2ae313838e859b15637f0265748becc53c",
+      "integrated_sha256": "aab4461a70a99ef3746c907e289b4e9e3ce943d67d9ff31dd6d20b02769fce74"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S5a5b0bd5.lean",
+      "source_sha256": "37e3275810e70739ca20b40d07e24b1e6d5328bcedc3f57d9d214caad35cef2a",
+      "integrated_sha256": "77ce38c12e08ab8a20d4c080fd41efe2a1107dfef654288866b8a04674a08774"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S5c844e97.lean",
+      "source_sha256": "b8bfe85a803b604bc48587d9f617adff91423d680bbc49c12bd630293c94c5c7",
+      "integrated_sha256": "2f08448f01bd913cee03147b937a1cda24ba3ff0574bfd689b19bc55f881e80a"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S5ecab545.lean",
+      "source_sha256": "45aea97b2db8fbc04a0503b6bf2fe5a022247022177aac4a491eeb194b713dd4",
+      "integrated_sha256": "bc78e2c392543f9137e30a00577aa94437b074cbb93091f9834188e334e6cc93"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S61c6e1a7.lean",
+      "source_sha256": "ae1f06b176dce0dd481c43c16757842b59e632c7b6a5b271d1555d272ff75a2b",
+      "integrated_sha256": "c3587a82ed3419e07f10cfbe1b026d4541abd414905733873320e5c87b8cbb04"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S62e9dae0.lean",
+      "source_sha256": "76151752c259ee4afc94f3cfc03c95dfa66845b847ba60db7aaa26e3e3cbf265",
+      "integrated_sha256": "e63b60fea861b630cef720a783f6f7b97814d9a2c189d2dde9d1129108354309"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S65df95e8.lean",
+      "source_sha256": "dc41d721ac905443deeafe95015fe1a8a0d3b3ace89d2f901c8c84a268763588",
+      "integrated_sha256": "ccce1f91531c2f3b23370c9039efe8a347b1bee457330237269918479f2fff47"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S6747b632.lean",
+      "source_sha256": "a52e2d20eed234db046bd163ea11f8d117a4c54923b972c301dea2a6b2a812d5",
+      "integrated_sha256": "ea7ab4dda5e83bd245f628152a2d4fb0ea934918bed03f2961bad38667c8778d"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S69647171.lean",
+      "source_sha256": "1ee354c8b9002fee6acb8ba3d3272b3712b50197593fc04ee7bfa9a1d260476e",
+      "integrated_sha256": "1ecf1b4be34f50479c613361803298991c5300ea591064a792c7dd5f77f9cc6e"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S6aa76dac.lean",
+      "source_sha256": "e7811296be47d06b720dbdbe3e26fa2ebaeeb97ca93bd13c618cd3baa80ff97f",
+      "integrated_sha256": "7533e4fbc56e4aeb4f2fbca99d60a2a9e33d2a71d08a5622a9756cb1235ab32b"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S6cc5a3e3.lean",
+      "source_sha256": "daa158c2e4ae1e074ca8b7ee776677860455f6dc63d88c8fac04e2022898dc07",
+      "integrated_sha256": "b542dc369608c4ccbe35bdfeba083e1767efdd0ffd342a82387a5e29368548e5"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S6e12aa43.lean",
+      "source_sha256": "2d732a1f2395c1b6699e3aca7ed79467ff82251224cd68b4929999bc62b6def7",
+      "integrated_sha256": "b2787537c5ff1f5a1de95d075677a8c0f0401ece1aa0457fd4acc8951595e52d"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S72392b81.lean",
+      "source_sha256": "2cbf3f872e4fb358edeede1e38f0c1f8bd28bd937990d615f4fc2e7de00b0271",
+      "integrated_sha256": "568cd0eaeaa414a08518ba5692bdd76f490bac248dee63f17262937c3522db52"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S7510344d.lean",
+      "source_sha256": "02bbe0194b15ac8804f219659648a4ba5521ec64e90761b3481e045618335565",
+      "integrated_sha256": "44a155be071ae4fc4807f6b258a85121b2a865c790c2783323ffa1371f1adf55"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S75c3b853.lean",
+      "source_sha256": "f5e1d4d69f63b0e4e7bdf28223318de35d32cb58a63b8721d243c88bd6f0212c",
+      "integrated_sha256": "bda2f5d04c94ddb9c652edd910a7fd909459dd38fd1eaa51b0f1e67a3ca7eca7"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S77dab681.lean",
+      "source_sha256": "882c47d2568e75e09ce4732418de3a601dca3226e6bcbef66d0c177827a21047",
+      "integrated_sha256": "3df5a273638646ed1be03eb85ff40c003cff67b7b4ee02edfeabb70bd9e53834"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S7c60f425.lean",
+      "source_sha256": "30df05dccc33995bd2b25816f24a5f7c7c569609f76ecfea4f700a1331fced61",
+      "integrated_sha256": "960308e26ae0a5104bb69ecd29243a57aa02b474e3d82643d0b3c7d8bd487bf5"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S7d3914ac.lean",
+      "source_sha256": "a3b101141d91282fa5075f20243e6a549903cfd9fa8c436ca4d04889f707ef51",
+      "integrated_sha256": "498d774ddf7c3de304bbe659599e59537bf3888c8915fa39bbc9e012d9666f3f"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S7f3fefed.lean",
+      "source_sha256": "64cc83dd2ae813f3256e6f6e710e73ade75ab931e8d7268971e65c831ec06069",
+      "integrated_sha256": "6c5c5aabea23e699ecb038a59c4c62c9112251023d2e589191f7531a4629c905"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S825410c7.lean",
+      "source_sha256": "e02ec37c72a168cbaa78618e3f7b6ff4d6f37557c8424451ef6d5f62d5aedce6",
+      "integrated_sha256": "1672ca531b751bd4b8b31d8822cd7744684217fe3cdb12566b40fa698586b3c7"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S84900580.lean",
+      "source_sha256": "1b359a6306bfa5fdad788bd6b19bcbee470a160951db728caf652481858ad566",
+      "integrated_sha256": "a7c06c2a701c2a34447b839fd5bf94a89eed9af1eb64c7a434369dbcd54cccf0"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S852ada5b.lean",
+      "source_sha256": "083d6f218a460d92d7924c5e4f1c56bc2714f93fc6b411f49978b8747371e262",
+      "integrated_sha256": "7012f92a93a6cf257dc99e11c30638ffa2b87cf6594f4bd324895ce6e7774b10"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S877de5f3.lean",
+      "source_sha256": "cf07906764fa1d192bebb9c1857ff24e33af9c021f34040596e1b8fc6b5eb64e",
+      "integrated_sha256": "893af4355ca7b49caf77432dd7a0b25a2d8409143cd31bcef8cdf307c64a5170"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S8f583f42.lean",
+      "source_sha256": "548f56a0353fd850b888f99f771f2ff0aee346782c9f68d23e200804f0c54246",
+      "integrated_sha256": "980a4e9c1c94de81f4d011d14546da02a1ae02542ddc912c7b8c2dbe2463d447"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S93135965.lean",
+      "source_sha256": "30dc239f641c2881f039adb5915be2194c0e12743662d8f2ae0ffe6caf7de6d6",
+      "integrated_sha256": "01d5927905fb3530567e175ac9567e95620069a27418d7e234aef568915418a3"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S93d0e676.lean",
+      "source_sha256": "3d72c51c166bd2128a793d70ab2aae2d211702786a71d3bcf3898d24d0e7712f",
+      "integrated_sha256": "2d9b83c77f64a20e6d4b0818df25622b7c6df1bc0e36f80fcddb7e485129afb4"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S93e69752.lean",
+      "source_sha256": "d9e3d957191e601adeb439266cd14ec8f8d3dabf3d3b2df36d6a6aacedb7c903",
+      "integrated_sha256": "81ae21368a4bbbd00030b293023384058cebb69b1d1e142a50433f395e29b59a"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S9458b27c.lean",
+      "source_sha256": "06abcfef7a5d7f8b70e08090e611721eaf6439e4d5b7cdf6a5ae235b45681a85",
+      "integrated_sha256": "3184e5e935f5829d2f3b7f908a5bd387bbfa07bed33cf2dcab29905590fc035e"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S94d17769.lean",
+      "source_sha256": "70c847a5a8dd3215b145c76278dbe2a65c73fde5b2fbf4cb112bc87254cdfd02",
+      "integrated_sha256": "e8db51e975cd4dc3d2c9861569f967a93840ba8d3660624fb4410fc3098cefef"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S9511d4c3.lean",
+      "source_sha256": "d269d87f8c7e4b3355d9131979423a293ac06f7b25d23e64d5188c56805f9751",
+      "integrated_sha256": "965c82b3521894a2cbe8f0a6fb14b16cad2a895bb6c545a2af9f48b99a537329"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S9589feb3.lean",
+      "source_sha256": "b75041a8a5607b8296e919072241dda453a097937a1366bd6e1dafc10f536a9b",
+      "integrated_sha256": "cc1c3cb8e1b96bb54243e251969753f54ab176939a070f2de49736bf8ad57894"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S96394400.lean",
+      "source_sha256": "d3822d0268f92a03b1a6d5867d251c40a7a573bc1cd61bb9a342a0b50f6daa55",
+      "integrated_sha256": "87fdcf923422014cb17130e3943259ed1fb74a9eb8a80f4fc541ffa2abac5313"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S9652ac8c.lean",
+      "source_sha256": "72137a55a76f53026ca6f787055d90c6f3ca9b09f32f3f37af759849310fbace",
+      "integrated_sha256": "062c202b1fdec6f6c618a06b501dd57a06f2f3ac4ed79831d71a6c4b38e02021"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S9757f934.lean",
+      "source_sha256": "4ec2f15016e28901a2d7ff2c971adc972227e986f2adc184f0c6c36609260ff4",
+      "integrated_sha256": "82394af31bf51737d38928413361254078559ee0c7264ee2a34ca1aed93d5e07"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S9ac83253.lean",
+      "source_sha256": "2bdc4af4285fc2ec6cf0bc719a0cc008cc2ba33707490fc20a346ec3dcb46772",
+      "integrated_sha256": "d22df6161164ab2d3b82f4461e91bda4ce0a33865bd03442ff95f1b77df5ce4e"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S9ad0e971.lean",
+      "source_sha256": "3fcc9af6ecae7011167fb282d7c793f56edabf9ed12299e3ec8feb131fc8e099",
+      "integrated_sha256": "10b8f453612b8e582921f9b9ded436bcce3c459f297304bac798821cc7993b5b"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S9f3929ee.lean",
+      "source_sha256": "7f255e11ae7e009575ebdd4ac8bb7b5758de2997830d2950dd400b3a380c97ae",
+      "integrated_sha256": "ae27eaa68d8972cb3de46e7f95b855676dec1f2916485386a6c8febfc5dcb4f3"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/S9f717b31.lean",
+      "source_sha256": "56c86472a02464498d1b6441e03766f0befc413bd2daf4eda4d1131fa28da92e",
+      "integrated_sha256": "43b3983bdb1a47e2d50ee77f6878c25a8e423f9f2fa29f6990d02aa265bbe3bd"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sa00cb9c7.lean",
+      "source_sha256": "1f320cfff11734c3b658fee91304c0b1483e4afbf4cb3360bc653ecd67b45eb2",
+      "integrated_sha256": "fe51090d616617b5c60dd782dd72e03f18cbcd25027c7dee763fcee7a5ab870d"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sa3e85b88.lean",
+      "source_sha256": "a20033e7e10a69ce57cda7459520ae33f31067c1b14cd524e4766a4e19b4d7ad",
+      "integrated_sha256": "a961fb249de0505ee909f9d185a6cd0bbf345520be8f518933a76674d4f1fd8e"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sa461fe12.lean",
+      "source_sha256": "b1e0900b44c18de11f16905dc4fba8fb7a277d274dc5c313c7c29da34322d47e",
+      "integrated_sha256": "1fd243e7e92630c7ed8c4f927432f54852ce1ebfebc96a805c39694aa2a971dd"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sa48e2d62.lean",
+      "source_sha256": "55c99229c2aa390c687f597dde081701624f71477a719ab6f6435b28c7621a74",
+      "integrated_sha256": "8e961592dbaaafabb4455186527e3f242382384729c723d13d5339060118cad1"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sa4f9139d.lean",
+      "source_sha256": "46c2d64212e17e536a2ae931664f5ca3cb854b0a65be54a4fb177dbed28975d9",
+      "integrated_sha256": "2ae1303c7ee008fa65ce45cf0473fb51a3f6652fa85b0f31b1e7a5e075f1f250"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sa50e8b97.lean",
+      "source_sha256": "15132a2292253ebe3a7f72e3717449161a6e0852487627b018d2f72319c1e260",
+      "integrated_sha256": "179cc6f9823b1318aed27722c04b06ce8035f85fe0261d5c8c04ce2a8f050e9d"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sa57df17a.lean",
+      "source_sha256": "0b0bfb18c4755ae5c10cd92942b0b9f9aa94072e4cb6b6dfb7090a33e9b841aa",
+      "integrated_sha256": "400ca726d481634405129daf9d112c546d279a22c8a9a60acfe185a7a75b8509"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sa821b93c.lean",
+      "source_sha256": "9a83715a9e7cfcbad10dac15977e254b9f5e0091b6c327a0478c0af9b9af6b4e",
+      "integrated_sha256": "ca6d79883ed5aa1c6a98d18a02b6667c7c443bc100f0dbdcfb015b3625e4a29e"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sa9c18fe1.lean",
+      "source_sha256": "fae8d2cf32dbe3fd4d82ad7135732e7018fa37bec80302f4779ad4f3bdfe4dea",
+      "integrated_sha256": "56451ceb8d686278f3ee5919f6c9642cab4881ac77530807c280b4c02de18e3c"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sab87e3d4.lean",
+      "source_sha256": "c3f1f7072b4bcaaabb37b020c34d7e3c41903764008f59e72d18bbe818610ac9",
+      "integrated_sha256": "ace52b7e0c6fbf7956ea9311d705114ae30c20609e2e6e960be5ba8bb473bfac"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sac09a8d3.lean",
+      "source_sha256": "00110be51a8abef0ad20c413ec45a21a3cbe2a5979e7436160041794bda28379",
+      "integrated_sha256": "a8b0a76418d4b55d253a4ba2de7b1aa9b3dfd31f5d77b5c4e7243db846c06c49"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Saedfe0d7.lean",
+      "source_sha256": "260021cd5043eaf038e239f920a6664ef71a3236752a47dca87c3fc4340b3f9f",
+      "integrated_sha256": "01339d534e1c20501894bcd86ea47c66c5551edaf99f3b09fa182e4a09d57cfd"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sb23c796c.lean",
+      "source_sha256": "62e95f8e80e47dc265024f168c82e93dbc52fd99f2a967d4814ea58e59f1ae96",
+      "integrated_sha256": "9b73131f70ad3d5704a9441f8fe955639f73470424fc4859f46acbc148852ab7"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sb47bec79.lean",
+      "source_sha256": "41c48bc885f7d0b6c171d10f6c96224794c0ecb8cf4322599ca894190fa5c5f7",
+      "integrated_sha256": "fe09e9f5160bfac772bb56213c1dc1de962c0127dbd65dce71a48345fe332749"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sb4a69aed.lean",
+      "source_sha256": "c950e2257195d992b5e3c346a0f671dac06d994f46f47f3773d094b04f331683",
+      "integrated_sha256": "af3d515827f34b6d8189e8b60e583ac89de25a5109a8c738571d1fd0cd8ce3f6"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sb5ac3c34.lean",
+      "source_sha256": "04cd7d9c54688a1f472cca4f6ac67845cdf714d6979f80d7508743190cfab8e5",
+      "integrated_sha256": "022ac13ce54b0d8af6cf5f84dc419d44d1e2bd8e72b1fef7c9d513b0aaabe7c3"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sb673e431.lean",
+      "source_sha256": "c0272e178549c69e52873bba65ca9a24d9073a9c3304ed2bd05d54e3abe3823c",
+      "integrated_sha256": "2167252c356f3560e956cd1d7c7276fe27da5621057023f9d4db4dd8270c46ad"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sb751f117.lean",
+      "source_sha256": "e39ccb2ceecc841c285cf285e18ad58b1fec7a7c5dc9dd1e97f7360ba01607ca",
+      "integrated_sha256": "54c30e2ecb8a95bb6186ae08742a0951ab716ab0058b3689ffdd4ffcb6bca1fc"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sb8604a17.lean",
+      "source_sha256": "c8200a7b05d83ff95e167ded547e0ca5e7040537a98a6ba031c9d0d000aaf83b",
+      "integrated_sha256": "ea68be06bcfd827acf81d0c51cae2c5c4ab11206bd79821f930500a644d551e6"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sb868eaea.lean",
+      "source_sha256": "4e43bac30bdeaaef8d6579392f0241a90d02572d9d91d2516e036c26de64a3a3",
+      "integrated_sha256": "77a1c62e1bc7cdb5b6e35c24945f9ff7167bf90d83a4c34064ed037a9b15cc50"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sb8e688cd.lean",
+      "source_sha256": "43e25ab6228abf1d3084800f4c0a97ed8de0c2f29d616998e5d7c2e6742038af",
+      "integrated_sha256": "09a91dfac2946dd165c63fd44ac4fd8675edf0209d4af9ea11f97d1d3dcc4154"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sbcd28934.lean",
+      "source_sha256": "a54eaed101287acc86c50231670a7632aab2136d5f40fe298249dc595a265064",
+      "integrated_sha256": "7566166471446154e2cac64d7d73cfcc40b0700bf18eba91ba399ca252a2028a"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sbe534c92.lean",
+      "source_sha256": "7ac7a374189cfaef22270bc01831529315624b743a19602db7d935d4bd595894",
+      "integrated_sha256": "efd19db896354298ce542b8a28566ea4593365a2ffa6be53ca32b9cadd181a70"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sbeb334b1.lean",
+      "source_sha256": "63f94ef6f3f71618ca77bd520a9dc5b0e27e00ea40acccbcff5caa84ecc49996",
+      "integrated_sha256": "59843a08aacb23631af96d84b1863e8bb8dea257eb0642fef796bdfa24420ea6"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sbefdd95b.lean",
+      "source_sha256": "cea3109acab1acb8e73ec491ba07f33059311b51f83151e76b713857e6758fa4",
+      "integrated_sha256": "9973753e25e14b104f6389f3c12fbc4493970fe7af97a4729117842d4b825e79"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sbfeb2b3e.lean",
+      "source_sha256": "1588ed0ffa10b9caf49e4a99f01ae3af91bf64c2769ea1a8e61626307b25ad17",
+      "integrated_sha256": "e6fb87caed6b08bf886b838233abfa939d2ceb30f048751873409aebd63d5f29"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sc2541119.lean",
+      "source_sha256": "4ae0ff536180a75cf27231078e5757e86cd5525f9e71e382b680f5b3eaade0bc",
+      "integrated_sha256": "41f4483f7d353266ed39ae56d81df973a068443901443561311f107f38d2d05d"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sc577efcd.lean",
+      "source_sha256": "5571744aa35014912feb6d9e91b81ed3484bfff836ef5bca975af776b9415e6c",
+      "integrated_sha256": "9bb144e65b5e998668a9492d0c15ff6310e28d5efe5bae8c00e23e9839d730e3"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sc7482db2.lean",
+      "source_sha256": "9973eb0ef752c78d1bb3b768efce638ecb809f8db297d7c8df880766f4c66b3b",
+      "integrated_sha256": "9ec503e4069cefbd4a4b78ae532535c84f798e26f3fd2803925df877ad44faaa"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sc8731f9d.lean",
+      "source_sha256": "d410f0f5e8079544c21cef5ee5d4c265bd5996c503d8d467bc17b0538b8a5001",
+      "integrated_sha256": "a6c380ccae4135d5de6887c152ab67e1dd4593377468c661c582cd2ab0962d28"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sca0547c8.lean",
+      "source_sha256": "c7c5009c07c2ec13ef0568f23fac88df5ffbfefd69e21eae1861486ae31e9d3b",
+      "integrated_sha256": "432326af1d3e278ef1a0227b06d81bdfd4701c67d1f243b83959971404e84794"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Scc53d7e3.lean",
+      "source_sha256": "5b575baa141a52fa4c4cea227e57d301694dfbe6329bcb43ff72d03322c0e035",
+      "integrated_sha256": "21d5d32446324283481ee683b02c5a8ba855b606290cec514fa8694e966abd60"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sd00ed590.lean",
+      "source_sha256": "a2b821d2156e611c4fd8a0109d9c22ef336834947f96f9990f52c148f180d7df",
+      "integrated_sha256": "f8077e63f1cffa0a6d47362177d6704507ec7b1d137a9b89b57fd0de414f8867"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sd1b1f61f.lean",
+      "source_sha256": "3d34316c9acbc47756d46a19789cc11955bf58aa4b8dff1164dbaa13496df70d",
+      "integrated_sha256": "9868fbe3be6bc760508d79d634e446ec0d08c3083243f919b004eb6d4f98e516"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sd48e6c9f.lean",
+      "source_sha256": "35bcf81654b1ae1a894e7d9dac8a0c6ed28b2f933cc35d8711ec2879ab8b3731",
+      "integrated_sha256": "d0e4b162ebe419aebd29fe699489a741ffdb763ea712045f123aa3293ba1ba47"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sd55d8b9f.lean",
+      "source_sha256": "91b3f26b6729f35212532e6fe270f01e5751271080525f53e26637050e0703b9",
+      "integrated_sha256": "928cb1e96e7e5aa2cea417153b081309736aa3ad569e1ba500a3569a45318b39"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sd96a648f.lean",
+      "source_sha256": "bdff8ea054ce21dcd338cf6283cf1f5a239cfcb73c6d88d3f67adcfdc61be749",
+      "integrated_sha256": "113bce7bfbde9f0a635ac040eb5435a3bbfc535e25c51b37fa0e06088c68fc20"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sdaed3871.lean",
+      "source_sha256": "6c77412f5674752d538bedcdc9083c55091b0353115e722af6de209e0c461262",
+      "integrated_sha256": "aa8a269ad1a0e9d254c723f10a4b6321779dee5109f1be079c9f1e5fb27b27f8"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sdd81c7c9.lean",
+      "source_sha256": "76fce54b4d1ee2a7caa34867d05910011f175b1c8d18c972524d2c1dae96b9a9",
+      "integrated_sha256": "04e1e8ec38bc5816af53c28b79189536370b9e001b9db1be9a48ac296bd61191"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Se059a44d.lean",
+      "source_sha256": "0e7d0cd221d74b1ec8fb816cf8567ad22ec062cc4751e9dfe1caa57ba2eeb3bd",
+      "integrated_sha256": "c8c31f340f00c19446dfee9f71789c328aa18d8b01b101523515979951437082"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Se37df572.lean",
+      "source_sha256": "0f93e8312cd980c702189fc5806593da29e5d34af1ff40e842e3562065a866b5",
+      "integrated_sha256": "0e45b1d42fa5c91e730c2826c8dda563ce43e1cd63cd25c0373bd82fd7de9b8c"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Se3ca258b.lean",
+      "source_sha256": "d580d14624a36bd415165d1063d075afc0084be56ce196baed58d95acd3eba39",
+      "integrated_sha256": "48c120e7c4328e9d7dcc82ae4c92d874c244452733f675efea0881f36d8474cd"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Se7122579.lean",
+      "source_sha256": "eed741d90fe72b655d89a5fff3dc5e978adfba008913bfd6694c3780f8558b26",
+      "integrated_sha256": "f88ad4f864ab002bbbb1e86a477fb8f8dc940b421e013bb3c13a3ad092f3f0fb"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sec169b78.lean",
+      "source_sha256": "540355ac3446bba34debb3d992a9bfb0885355f8747d8fa85760e6dfae600fa0",
+      "integrated_sha256": "e1c9b9a457dbcf785375c46b31e63eb8a0ac49aac87daadb4b2b666baaa3ba62"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sf885170c.lean",
+      "source_sha256": "d45f2f99aed755a63636ced457d66411c74e8c5720ef93957afa17462d655e7d",
+      "integrated_sha256": "64dccb3b91983f46d54b7fd65c214b5157e98fae10d1f2161a3b059012fc902d"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sf88a75eb.lean",
+      "source_sha256": "28f5ca42bb8bdc9abee45398788e0bb4720f40cc85b29fd4192cb49d30705040",
+      "integrated_sha256": "ae64b8137c96c061fad07146b1e52dc2a149dd6e04175ba44ecfdcb39e305c74"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sfe868d81.lean",
+      "source_sha256": "fd3a9d897c16503f98b9fb967d18ad09194c5987cddfe99e18e4e2160dbd85bf",
+      "integrated_sha256": "d775e4b48eeaf194e09e50f88d12e179a6d7600f0092497c3be5283ddeffcc46"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB/Sfeca7c5b.lean",
+      "source_sha256": "4d903832afeffc41ddfaebda849119887f3ee246558f42d1c296a5027e267383",
+      "integrated_sha256": "9dfd7b7dfd5fe1cc005e819dad2a1679147d188818622ecac997abf1b5adc56d"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalAB.lean",
+      "source_sha256": "ed320d7fb0843b013311097e97c928f0fb183beb24df31630e41938ffe62deae",
+      "integrated_sha256": "73762397de9c02bb026054f8c407b1c895f5efa92e4a7397289a685472520555"
+    },
+    {
+      "file": "JocelynWorkspace/Formalization/PowerfulCounting/FormalABV3.lean",
+      "source_sha256": "4df496d4b71c2dd9a9a23307b4b324cdbdb67464e35eb696f991bc06e5d3773c",
+      "integrated_sha256": "e70dae167c96cc6b4a400bb26acc73fb6ffb3d73c5fb9a78a01f5b5a60beacd3"
+    }
+  ],
+  "a13_interface": "Positive witness functions and positive saving retained in the theorem statement; no stronger mathematical premise added."
+}

@@ -111,6 +111,37 @@ def check_record(r: dict, manifest: dict) -> list[str]:
     errs += [f"in manifest but not claimed: {d}" for d in sorted(in_manifest - set(claimed))]
     paths = list(r["paper"].values()) + [v for k, v in r.get("lean", {}).items()
                                           if k not in ("receipt", "negative_receipt", "manifest_family")]
+    # A single formal result may be explained by several independently reviewed
+    # papers. Keep `paper` as the primary entry for existing registry consumers.
+    if "papers" in r:
+        papers = r["papers"]
+        if not isinstance(papers, list) or not papers:
+            errs.append("papers must be a nonempty list")
+        else:
+            covered = []
+            for index, paper in enumerate(papers):
+                required = ("title", "tex", "pdf", "citation", "claims")
+                if not isinstance(paper, dict) or any(k not in paper for k in required):
+                    errs.append(f"papers[{index}]: missing title, artifact paths or claims")
+                    continue
+                if not all(isinstance(paper[k], str) and paper[k]
+                           for k in ("title", "tex", "pdf", "citation")):
+                    errs.append(f"papers[{index}]: title and artifact paths must be nonempty strings")
+                    continue
+                paths += [paper[k] for k in ("tex", "pdf", "citation")]
+                if "listed" in paper and not isinstance(paper["listed"], bool):
+                    errs.append(f"papers[{index}]: listed must be a boolean")
+                if not isinstance(paper["claims"], list) or not paper["claims"] or not all(
+                        isinstance(label, str) for label in paper["claims"]):
+                    errs.append(f"papers[{index}]: claims must be a nonempty list of labels")
+                else:
+                    covered += paper["claims"]
+            labels = {claim["label"] for claim in r["claims"]}
+            if set(covered) != labels or len(covered) != len(set(covered)):
+                errs.append("papers must assign every claim label exactly once")
+            if not isinstance(papers[0], dict) or any(
+                    papers[0].get(k) != r["paper"].get(k) for k in ("tex", "pdf", "citation")):
+                errs.append("paper must match the first entry in papers")
     errs += [f"missing file {p}" for p in paths if not (REPO / p).exists()]
     if r["status"] == "admitted":
         errs += [f"admission item not done: {k}" for k, v in r["admission"].items() if v.get("status") != "done"]
@@ -232,13 +263,28 @@ def table(recs: list[dict]) -> str:
     rows = ["| Result | Status | Evidence | Headline statements | Assumes | Paper |",
             "|---|---|---|---|---|---|"]
     for r in recs:
-        heads = "<br>".join(f"{c['paper_ref']}: {c['statement']}" for c in r["claims"] if c.get("headline"))
+        claims = r["claims"]
+        title = r["title"]
+        if "papers" in r:
+            papers = [p for p in r["papers"] if p.get("listed", True)]
+            if not papers:
+                continue
+            labels = {label for p in papers for label in p["claims"]}
+            claims = [c for c in claims if c["label"] in labels]
+            if len(papers) != len(r["papers"]):
+                title = "; ".join(p["title"] for p in papers)
+        heads = "<br>".join(f"{c['paper_ref']}: {c['statement']}" for c in claims if c.get("headline"))
         names = {h["id"]: h["name"] for h in r["hypotheses"]}
-        used = sorted({a for c in r["claims"] for a in c.get("assumes", [])}, key=list(names).index)
+        used = sorted({a for c in claims for a in c.get("assumes", [])}, key=list(names).index)
         assumes = "; ".join(names[a] for a in used) or "nothing"
-        rows.append(f"| [{r['title']}](registry/{r['id']}.json) | {r['status']} | "
-                    f"{GRADES[r['grade']]} | {heads} | {assumes} | "
-                    f"[PDF]({r['paper']['pdf']}) · [TeX]({r['paper']['tex']}) |")
+        if "papers" in r:
+            paper_links = "<br>".join(
+                f"[{p['title']} (PDF)]({p['pdf']}) · [TeX]({p['tex']})" for p in papers)
+        else:
+            paper_links = f"[PDF]({r['paper']['pdf']}) · [TeX]({r['paper']['tex']})"
+        cells = [f"[{title}](registry/{r['id']}.json)", r["status"],
+                 GRADES[r["grade"]], heads, assumes, paper_links]
+        rows.append("| " + " | ".join(cell.replace("|", r"\|") for cell in cells) + " |")
     return "\n".join(rows)
 
 
@@ -281,7 +327,7 @@ def main() -> int:
         target = REPO / "RESULTS.md"
         text = target.read_text()
         i, j = text.index(BEGIN) + len(BEGIN), text.index(END)
-        new = text[:i] + "\n" + table(recs) + "\n" + text[j:]
+        new = text[:i] + "\n" + table([r for r in recs if r["status"] == "admitted"]) + "\n" + text[j:]
         if "--check" in sys.argv:
             if new != text:
                 print("RESULTS.md table is stale; run scripts/registry.py generate", file=sys.stderr)
