@@ -1,0 +1,32 @@
+{
+  "scope": "Paper 0 repository-edition reference additions only; not a new independent mathematical review or formal replay. Published Zenodo Paper 0 remains separate.",
+  "tex_sha256": "ce6c2966f25152a260371e80e4a9d839882e799a574e4682897b12c44f41af77",
+  "pdf_sha256": "4807d6e5d4d5fdf704064436eded19ab7da6ea56828197a810e2cecd72b50250",
+  "before_tex_sha256": "db1c8972164445a7a76826fe781fb54fe4d9f024aff9631a07a503dcb3ff87ce",
+  "preservation": {
+    "numbered_result_and_proof_environments_byte_identical": 41,
+    "section_2_through_appendix_byte_identical": true,
+    "formal_source_and_receipt_files_byte_identical": 208
+  },
+  "source_checks": [
+    {
+      "reference": "Blomer and Sch\u00f6bel, Twins of powerful numbers, Theorems 1 and 3",
+      "source": "https://www.researchgate.net/profile/Anita-Schoebel-2/publication/268024970_Twins_of_powerful_numbers/links/67816b208210a977a17fb2d5/Twins-of-powerful-numbers.pdf",
+      "verdict": "The uniform k-full difference bound is stated for the cited k>=3 range. The fixed-difference powerful-pair exponent requires every gamma>61/180, written here as 61/180+epsilon. This is an upper bound weaker than the paper headline.",
+      "access": "Author-uploaded primary PDF, pages 2-3, read through PDF web extraction; direct download denied."
+    },
+    {
+      "reference": "Greenfeld, Iliopoulou and Peluse, On integer distance sets, arXiv:2401.10821v3, Sections 1.4 and 2.3",
+      "source": "https://arxiv.org/pdf/2401.10821v3",
+      "verdict": "Distance-coordinate lifts raise curve degree; their cited CCDN estimate is for rational points. This is a methodological comparison, not a theorem implication.",
+      "pdf_sha256": "c04d2e7d7c4850998057ec4ff9bb31a48135ac0904e17c93404bff99d13dbb0a"
+    }
+  ],
+  "validation": {
+    "pdf_pages": 18,
+    "overfull_or_undefined_warnings": 0,
+    "underfull_warnings": 3,
+    "visual_review": "All 18 pages reviewed at overview scale; pages 1, 3 and 18 inspected enlarged. No overlap, clipping or unresolved citations."
+  },
+  "reviews": "AI operator source-attribution and layout check only; earlier mathematical reviews unchanged."
+}

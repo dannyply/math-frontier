@@ -89,12 +89,11 @@ uniform as the coefficients vary, allowing them to be used inside other
 proofs and yielding new bounds for pairs of numbers with prescribed prime
 multiplicities. The counting framework becomes a tool for further discovery.
 [Paper 1](papers/powerful-polynomial-values/main.pdf) ·
-[reserved DOI](https://doi.org/10.5281/zenodo.24292371) ·
+[DOI 10.5281/zenodo.24292371](https://doi.org/10.5281/zenodo.24292371) ·
 [record](registry/consecutive-counting.json) ·
 [connection to the counting paper](DISCOVERY.md)
 
-Paper 1 has completed repository verification and is intended for standalone
-publication. [PAPERS.md](PAPERS.md) gives the scope and status of Papers 0 and 1;
+Papers 0 and 1 are published preprints with admitted formal interfaces. [PAPERS.md](PAPERS.md) gives the scope and status of Papers 0 and 1;
 [RESULTS.md](RESULTS.md) lists the claims, assumptions and formal statements.
 
 ## What is and is not claimed

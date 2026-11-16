@@ -194,8 +194,7 @@
     }
   },
   "open_items": [
-    "Numerical constants are not explicit; no human mathematical review is claimed.",
-    "Paper 1 has reserved Zenodo DOI 10.5281/zenodo.24292371 for standalone deposition. Publication is not yet asserted."
+    "Numerical constants are not explicit; no human mathematical review is claimed."
   ],
   "reviews": "All reviews are AI reviews.",
   "papers": [
@@ -405,5 +404,12 @@
       "replay/statements/consecutive-counting/Statements.lean": "09233a29d42178d2aef0709f2b0e8c0c7367efe6f42237b0dbdde069efcd1c84",
       "replay/negative-control/ConsecutiveCountingNegative.lean": "0a1f9569d0792f6dcfecc235494ff8271a613c018d1c1f7c116fd79307684acc"
     }
+  },
+  "publication": {
+    "status": "published_preprint",
+    "doi": "10.5281/zenodo.24292371",
+    "version": "1.0.0",
+    "date": "2026-11-16",
+    "pdf_sha256": "08fc2f40893f9b3d9617bf6c0222c46f17c7914ab787951466402983fc7a0a59"
   }
 }

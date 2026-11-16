@@ -2,8 +2,8 @@
 
 **Paper 1, _Powerful values of quadratic polynomials_, is the standalone
 manuscript for the polynomial-value results and their mixed-full applications.**
-Paper 1 is the intended standalone deposit. Paper 0 is the published
-powerful-product paper that supplies the counting framework.
+Papers 0 and 1 are published as separate preprints. Paper 0 supplies the
+powerful-product counting framework used in Paper 1.
 
 The paper numbers are a reading guide, not versions of one paper. Paper 1
 uses its own theorem numbering; the A-labels are stable identifiers in the shared
@@ -12,7 +12,7 @@ Lean interface. Its appendix supplies the correspondence.
 | Paper | Manuscript | Claims | Evidence and publication status |
 |---|---|---|---|
 | 0 | [Counting powerful products of consecutive integers](papers/powerful-counting/main.pdf) | Theorems 1.1–1.3 and supporting release declarations | Admitted result; [published preprint](https://doi.org/10.5281/zenodo.23614742) |
-| 1 | [Powerful values of quadratic polynomials](papers/powerful-polynomial-values/main.pdf) · [TeX](papers/powerful-polynomial-values/main.tex) | A1–A4, A11–A13 | Written manuscript with independent AI statement and proof-route reviews; admitted with integrated Lean/Comparator/Nanoda verification; no deposition asserted |
+| 1 | [Powerful values of quadratic polynomials](papers/powerful-polynomial-values/main.pdf) · [TeX](papers/powerful-polynomial-values/main.tex) | A1–A4, A11–A13 | Written manuscript with independent AI statement and proof-route reviews; admitted with integrated Lean/Comparator/Nanoda verification; [published preprint, version 1.0.0](https://doi.org/10.5281/zenodo.24292371) |
 
 ## Paper 1 and the role of Paper 0
 
@@ -83,26 +83,24 @@ composed formal routes and written refinements.
 | Object | Citation |
 |---|---|
 | Paper 0 | [BibTeX](papers/powerful-counting/citation.bib); DOI `10.5281/zenodo.23614742` |
-| Paper 1 | [BibTeX](citations/powerful-polynomial-values.bib); reserved DOI [10.5281/zenodo.24292371](https://doi.org/10.5281/zenodo.24292371), unpublished manuscript |
+| Paper 1 | [BibTeX](citations/powerful-polynomial-values.bib); [DOI 10.5281/zenodo.24292371](https://doi.org/10.5281/zenodo.24292371), published preprint, version 1.0.0 |
 | Repository | [CITATION.cff](CITATION.cff); concept DOI `10.5281/zenodo.23614471` |
 
-Paper 1 has a complete verification section and final PDF and can be
-deposited separately. The Paper 0 DOI and repository concept DOI must not be
-used as Paper 1's DOI.
+Paper 1 is published on Zenodo as version 1.0.0, dated 16 November 2026.
+The supplied PDF is byte-identical to that deposit. Its SHA-256 is
+`08fc2f40893f9b3d9617bf6c0222c46f17c7914ab787951466402983fc7a0a59`.
 
-For a Paper 1-only deposit, the manuscript, citation and any accompanying
-source package should identify Paper 1 and its statement-to-formal-interface
-mapping. Use a dedicated manuscript source package rather than a
-whole-repository archive, whose contents have a broader scope. The manuscript
-source package is separate from the shared Lean verification library and its
-replay evidence.
-Paper 1's DOI is reserved for its Zenodo draft. No release date or completed
-publication event is asserted by this guide.
+Paper 0's DOI identifies its published preprint. The repository edition adds
+literature references and clarifies the verification disclosure; its
+mathematical statements and proofs are unchanged. The published Paper 0
+record is a separate artifact from this repository edition.
 
-Before deposit, record the full repository commit and the SHA-256 hashes of
-the submitted PDF, TeX source and source archive. Check the verification
-manifest and receipts at that commit, and identify any accompanying code
-archive by its version-specific DOI; a moving branch or concept DOI is not
-an exact version pin. Test the replay entry point from the extracted code
-archive using its documented pinned dependencies. Keep that code package
-distinct from the Paper 1-only manuscript package.
+The manuscript sources and review records are supplied with the repository.
+A dedicated Paper 1 manuscript source package reproduces the typeset paper;
+it is distinct from the shared Lean library and its replay evidence.
+
+For reproducibility, identify the repository by its exact release tag or
+commit and the accompanying code archive by its version-specific DOI.
+A moving branch or concept DOI does not pin an exact source version.
+See [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for the pinned dependencies,
+Git-history requirement and replay commands.

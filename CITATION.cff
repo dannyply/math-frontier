@@ -1,12 +1,13 @@
 cff-version: 1.2.0
 message: "If you use these results or this repository, please cite it as below."
 title: "math-frontier"
-abstract: "Mathematical results obtained with the Jocelyn research harness, with papers, Lean sources and explicit registry records of assumptions and checks. Paper 0 is published; Paper 1 is intended for standalone publication. Admission records verification, not publication."
+abstract: "Mathematical results obtained with the Jocelyn research harness, with papers, Lean sources and explicit registry records of assumptions and checks. Papers 0 and 1 are published preprints; their mathematical claims, named literature inputs and verification evidence are recorded separately."
 type: software
 authors:
   - family-names: Plymesser
     given-names: Danny
 version: 1.1.0
+date-released: 2026-11-16
 doi: 10.5281/zenodo.23614471
 identifiers:
   - type: doi
@@ -30,10 +31,10 @@ references:
       - family-names: Plymesser
         given-names: Danny
     year: 2026
-    doi: 10.5281/zenodo.23614742
-    url: "https://doi.org/10.5281/zenodo.23614742"
+    doi: 10.5281/zenodo.23615335
+    url: "https://doi.org/10.5281/zenodo.23615335"
     notes: "Preprint, version 1.0.1. AI-produced work; see the paper's verification and disclosure section."
-  - type: unpublished
+  - type: article
     title: "Powerful values of quadratic polynomials"
     authors:
       - family-names: Plymesser
@@ -41,4 +42,4 @@ references:
     year: 2026
     doi: 10.5281/zenodo.24292371
     url: "https://doi.org/10.5281/zenodo.24292371"
-    notes: "Paper 1; standalone unpublished manuscript with a reserved Zenodo DOI. The appendix maps its numbering to the verified formal interfaces and distinguishes written cubic corollaries. See citations/powerful-polynomial-values.bib."
+    notes: "Paper 1; published preprint, version 1.0.0, 16 November 2026. The appendix maps its numbering to the verified formal interfaces and distinguishes written cubic corollaries. See citations/powerful-polynomial-values.bib."

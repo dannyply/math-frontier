@@ -34,7 +34,7 @@
 
 \title{Counting powerful products of consecutive integers}
 \author{Danny Plymesser}
-\date{Version 1.0.1, 24 October 2026}
+\date{Repository edition, 16 November 2026}
 
 \begin{document}
 
@@ -86,7 +86,12 @@ N(x):=\#\{n\le x:\ n\text{ and }n+1\text{ are powerful}\}
 is $O(x^{1/2})$. Chan \cite{Chan2012} proved that the number of $n\le x$ with
 $n$ and $n+l$ both powerful is $\ll d_3(l)x^{2/5}(\log x)^2$ uniformly in
 $l\ge1$ \cite[Theorem~3]{Chan2012}, and $\ll_l x^{7/19}\log x$ for fixed $l$
-\cite[Theorem~4]{Chan2012}. Akta\c{s} and Murty \cite{AktasMurty} gave
+\cite[Theorem~4]{Chan2012}. Blomer and Sch\"obel
+\cite[Theorems~1 and~3]{BlomerSchobel} proved
+$\ll_{k,\varepsilon}x^{2/(2k+1)+\varepsilon}$ for pairs of $k$-full numbers
+($k\ge3$), uniformly in the nonzero difference, and
+$\ll_{l,\varepsilon}x^{61/180+\varepsilon}$ for powerful pairs with fixed
+nonzero difference $l$. Akta\c{s} and Murty \cite{AktasMurty} gave
 an $O(x^{2/5})$ bound for $N(x)$. Tao records
 $x^{2/5}$ as the best known bound \cite[(1.16)]{Tao} and proves an estimate of
 the same strength, $x^{2/5+o(1)}$, for the non-powerful integers lying in
@@ -183,7 +188,11 @@ hyperplane $\{\ell=h\}$, where $\ell$ represents the left-hand side of
 \eqref{eq:pair}. This curve has degree $2\alpha+3\beta$, and the bound of
 Castryck, Cluckers, Dittmann and Nguyen \cite{CCDN} gives
 $\ll(L_1^3T_1^2)^{1/(2\alpha+3\beta)}\log(2+L_1T_1)$ solutions, independently of
-the coefficients. Components with $\min(\alpha,\beta)=1$ are rational curves;
+the coefficients. Greenfeld, Iliopoulou and Peluse
+\cite[Sections~1.4 and~2.3]{GIP} use related degree-raising lifts for integer
+distance sets: additional distance coordinates put the points on curves of
+larger degree, to which they apply the rational-point estimate of \cite{CCDN}.
+Components with $\min(\alpha,\beta)=1$ are rational curves;
 they carry $x^{o(1)}$ solutions by Stewart's bound for Thue equations
 \cite{Stewart} (Proposition~\ref{prop:lowdeg}), once a Riemann--Hurwitz argument
 shows that the relevant binary form has at least three distinct roots
@@ -1301,6 +1310,9 @@ Lemma~\ref{lem:uniformtriple} & \texttt{CC.Final.counting\_lem\_uniformtriple}; 
 consecutive squarefull numbers}, Int.~J. Number Theory \textbf{13} (2017),
 243--252.
 
+\bibitem{BlomerSchobel} V.~Blomer and A.~Sch\"obel, \emph{Twins of powerful
+numbers}, Funct. Approx. Comment. Math. \textbf{49} (2013), 349--356.
+
 \bibitem{Bloom} T.~F.~Bloom, \emph{Erd\H{o}s problems},
 \url{https://www.erdosproblems.com}, Problems \#137, \#364, \#365.
 
@@ -1332,6 +1344,9 @@ consecutive integers is never a power}, Illinois J. Math. \textbf{19} (1975),
 
 \bibitem{Golomb} S.~W.~Golomb, \emph{Powerful numbers}, Amer. Math. Monthly
 \textbf{77} (1970), 848--852.
+
+\bibitem{GIP} R.~Greenfeld, M.~Iliopoulou and S.~Peluse, \emph{On integer
+distance sets}, arXiv:2401.10821v3 (2025).
 
 \bibitem{HBAnnals} D.~R.~Heath-Brown, \emph{The density of rational points on
 curves and surfaces}, Ann. of Math. (2) \textbf{155} (2002), 553--595.
