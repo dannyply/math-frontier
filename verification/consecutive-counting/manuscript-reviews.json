@@ -12,8 +12,8 @@
         "A12",
         "A13"
       ],
-      "tex_sha256": "f260656748a5ab45ddd4e338317ab26a08ce73f86f14a277ea0a18766391b239",
-      "pdf_sha256": "a8f7a18ab3864c0d7ce16956ebf25b904fe2b6aba5604f75163bcbaa5e34d60f",
+      "tex_sha256": "41cecc4ea96277edae9fdf2e260723dbd95d648aeeed659fa650f8767bbfb234",
+      "pdf_sha256": "d85e6e46568f413d192d709ea9689594c7022afa02897fd79b9e40bfc379b8fb",
       "statement_verdict": {
         "A1": "EXACT",
         "A2": "EXACT",
@@ -65,7 +65,7 @@
       "scope": "Independent AI statement, proof-route and written-proof reviews, plus a fresh blind-first English-to-Lean and Lean-to-English review covering all 66 numbered items and the seven headline formal interfaces. Exact statements, composed proof routes and written refinements are distinguished in the source map and bidirectional review. This is not an exhaustive line-by-line Lean proof-body audit or a human mathematical review; no fresh formal replay was performed.",
       "repository_admission": "admitted formal interfaces: existing integrated standard-axiom replay and same-commit statement negative control unchanged; written cubic consequences are distinguished in the appendix",
       "reviewed_tex_sha256": "7f7722bbe6bce3669df4beeb885d77c5ad20b6277fe2415af68603f904027fca",
-      "post_review_layout": "37 pages after title-page DOI addition; zero build warnings, first-page visual check and 36 pixel-identical remaining pages. Mathematical body unchanged from the recorded editorial revision.",
+      "post_review_layout": "37 pages with DOI and corrected 16 November 2026 manuscript date; zero build warnings, first-page visual check, 36 remaining pages pixel-identical. Mathematical text unchanged.",
       "bidirectional_review": {
         "report": "verification/consecutive-counting/bidirectional-review.json",
         "report_sha256": "2f242e1931a8c0d9eef66c5e43fc162a7790aca0aabfdc0d1b1f512657493931",
@@ -168,6 +168,11 @@
         "check": "verification/consecutive-counting/doi-layout-check.json",
         "check_sha256": "e475bdb91706dea45f8c657213a3e581f43873c3d025b2fe892a373e3326fdef",
         "scope": "Title-page DOI, title spacing and PDF metadata only; no new mathematical or independent review and no proof replay."
+      },
+      "date_layout_update": {
+        "check": "verification/consecutive-counting/date-layout-check.json",
+        "check_sha256": "b66745b3452e85dbf3dc741ed74db7f52ff5d2219978e4c7aa6f4d9c213771c5",
+        "scope": "Manuscript date correction only; no mathematical change, independent review or proof replay."
       }
     }
   ],

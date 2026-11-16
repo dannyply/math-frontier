@@ -1,0 +1,24 @@
+{
+  "paper": "powerful-polynomial-values",
+  "scope": "Manuscript date correction only; no mathematical change, independent review or proof replay.",
+  "manuscript_date": "2026-11-16",
+  "before_tex_sha256": "f260656748a5ab45ddd4e338317ab26a08ce73f86f14a277ea0a18766391b239",
+  "before_pdf_sha256": "a8f7a18ab3864c0d7ce16956ebf25b904fe2b6aba5604f75163bcbaa5e34d60f",
+  "tex_sha256": "41cecc4ea96277edae9fdf2e260723dbd95d648aeeed659fa650f8767bbfb234",
+  "pdf_sha256": "d85e6e46568f413d192d709ea9689594c7022afa02897fd79b9e40bfc379b8fb",
+  "preservation": {
+    "source_unchanged_except_date": true,
+    "doi_hyperlink": "https://doi.org/10.5281/zenodo.24292371",
+    "historical_review_records_preserved": true
+  },
+  "validation": {
+    "pdf_pages": 37,
+    "build_warnings": 0,
+    "changed_pages": [
+      1
+    ],
+    "pixel_identical_pages": 36,
+    "visual_review": "First page inspected at 1600 pixels: correct 16 November 2026 date, clean spacing and preserved DOI; all remaining pages pixel-identical."
+  },
+  "publication": "Local preparation only; manuscript date is not a claim of publication."
+}
