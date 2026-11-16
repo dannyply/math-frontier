@@ -83,7 +83,7 @@ composed formal routes and written refinements.
 | Object | Citation |
 |---|---|
 | Paper 0 | [BibTeX](papers/powerful-counting/citation.bib); DOI `10.5281/zenodo.23614742` |
-| Paper 1 | [BibTeX](citations/powerful-polynomial-values.bib); unpublished manuscript, no paper DOI assigned here |
+| Paper 1 | [BibTeX](citations/powerful-polynomial-values.bib); reserved DOI [10.5281/zenodo.24292371](https://doi.org/10.5281/zenodo.24292371), unpublished manuscript |
 | Repository | [CITATION.cff](CITATION.cff); concept DOI `10.5281/zenodo.23614471` |
 
 Paper 1 has a complete verification section and final PDF and can be
@@ -96,7 +96,8 @@ mapping. Use a dedicated manuscript source package rather than a
 whole-repository archive, whose contents have a broader scope. The manuscript
 source package is separate from the shared Lean verification library and its
 replay evidence.
-No new DOI, release date or publication event is asserted by this guide.
+Paper 1's DOI is reserved for its Zenodo draft. No release date or completed
+publication event is asserted by this guide.
 
 Before deposit, record the full repository commit and the SHA-256 hashes of
 the submitted PDF, TeX source and source archive. Check the verification

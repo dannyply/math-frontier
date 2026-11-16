@@ -39,4 +39,6 @@ references:
       - family-names: Plymesser
         given-names: Danny
     year: 2026
-    notes: "Paper 1; standalone unpublished manuscript. The appendix maps its numbering to the verified formal interfaces and distinguishes written cubic corollaries. No paper DOI assigned here. See citations/powerful-polynomial-values.bib."
+    doi: 10.5281/zenodo.24292371
+    url: "https://doi.org/10.5281/zenodo.24292371"
+    notes: "Paper 1; standalone unpublished manuscript with a reserved Zenodo DOI. The appendix maps its numbering to the verified formal interfaces and distinguishes written cubic corollaries. See citations/powerful-polynomial-values.bib."
