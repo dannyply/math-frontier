@@ -1,0 +1,27 @@
+{
+  "paper": "powerful-polynomial-values",
+  "scope": "Title-page DOI, title spacing and PDF metadata only; no new mathematical or independent review and no proof replay.",
+  "doi": "10.5281/zenodo.24292371",
+  "doi_status": "reserved; supplied by the author; publication not asserted",
+  "before_tex_sha256": "4266857e1eeed4b63fbbdc1d29f0ddc30fb38654d6f087a2339bc4c53ab9c1a6",
+  "before_pdf_sha256": "3d0d9d5b61708ffb99fa8d40ab906ecfb80e99880d3f4d39e5de3c298c5bc6a1",
+  "tex_sha256": "f260656748a5ab45ddd4e338317ab26a08ce73f86f14a277ea0a18766391b239",
+  "pdf_sha256": "a8f7a18ab3864c0d7ce16956ebf25b904fe2b6aba5604f75163bcbaa5e34d60f",
+  "preservation": {
+    "abstract_through_end_byte_identical": true,
+    "formal_source_and_receipt_files_byte_identical": 208,
+    "earlier_review_records_preserved": true
+  },
+  "validation": {
+    "pdf_pages": 37,
+    "build_warnings": 0,
+    "changed_pages": [
+      1
+    ],
+    "pixel_identical_pages": 36,
+    "doi_hyperlink": "https://doi.org/10.5281/zenodo.24292371",
+    "pdf_subject": "DOI: 10.5281/zenodo.24292371",
+    "visual_review": "Rebuilt first page inspected at 1600-pixel resolution: DOI beneath date, no author footnote, no overlap or clipping. All remaining pages are pixel-identical to the previously checked PDF."
+  },
+  "publication": "Local preparation only; no upload or publication."
+}
