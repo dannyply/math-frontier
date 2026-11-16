@@ -1,0 +1,25 @@
+{
+  "paper": "powerful-polynomial-values",
+  "scope": "Remove title-page DOI and associated spacing; manuscript date and complete mathematical text retained. No new independent mathematical review or proof replay.",
+  "manuscript_date": "2026-11-16",
+  "doi_in_pdf": false,
+  "doi_retained_in_record_and_citation_metadata": "10.5281/zenodo.24292371",
+  "before_tex_sha256": "41cecc4ea96277edae9fdf2e260723dbd95d648aeeed659fa650f8767bbfb234",
+  "before_pdf_sha256": "d85e6e46568f413d192d709ea9689594c7022afa02897fd79b9e40bfc379b8fb",
+  "tex_sha256": "e4780df3752c9108298eabbaa6e1dd918b92b2861e4259e47a3dd35e3c85f2c9",
+  "pdf_sha256": "08fc2f40893f9b3d9617bf6c0222c46f17c7914ab787951466402983fc7a0a59",
+  "preservation": {
+    "abstract_through_end_byte_identical": true,
+    "historical_review_records_preserved": true
+  },
+  "validation": {
+    "pdf_pages": 37,
+    "build_warnings": 0,
+    "changed_pages": [
+      1
+    ],
+    "pixel_identical_pages": 36,
+    "visual_review": "Title page inspected at 1600 pixels: no DOI, correct 16 November 2026 date, clean title/abstract spacing. Remaining 36 pages pixel-identical."
+  },
+  "publication": "Local preparation only; not uploaded or published."
+}
