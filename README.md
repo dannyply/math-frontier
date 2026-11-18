@@ -88,8 +88,8 @@ leading coefficient and nonsquare discriminant. It also makes the estimates
 uniform as the coefficients vary, allowing them to be used inside other
 proofs and yielding new bounds for pairs of numbers with prescribed prime
 multiplicities. The counting framework becomes a tool for further discovery.
-[Paper 1](papers/powerful-polynomial-values/main.pdf) ·
-[DOI 10.5281/zenodo.24292371](https://doi.org/10.5281/zenodo.24292371) ·
+[Paper 1, manuscript v1.0.1](papers/powerful-polynomial-values/main.pdf) ·
+[Zenodo v1.0.0](https://doi.org/10.5281/zenodo.24292371) ·
 [record](registry/consecutive-counting.json) ·
 [connection to the counting paper](DISCOVERY.md)
 

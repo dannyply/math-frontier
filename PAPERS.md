@@ -87,8 +87,11 @@ composed formal routes and written refinements.
 | Repository | [CITATION.cff](CITATION.cff); concept DOI `10.5281/zenodo.23614471` |
 
 Paper 1 is published on Zenodo as version 1.0.0, dated 16 November 2026.
-The supplied PDF is byte-identical to that deposit. Its SHA-256 is
-`08fc2f40893f9b3d9617bf6c0222c46f17c7914ab787951466402983fc7a0a59`.
+The repository includes manuscript version 1.0.1, dated 18 November 2026.
+It adds the AI disclosure to the abstract and aligns the typesetting with Paper 0.
+The manuscript review records identify the earlier files they cover.
+The SHA-256 of the supplied v1.0.1 PDF is
+`1c1f06fa1f2b496582ceebbaf85fdf9ec85846a6a6363bb4a9a44dd80449178e`.
 
 Paper 0's DOI identifies its published preprint. The repository edition adds
 literature references and clarifies the verification disclosure; its

@@ -1,19 +1,22 @@
-\documentclass[11pt]{article}
-\usepackage[a4paper,margin=28mm]{geometry}
-\usepackage{amsmath,amssymb,amsthm,booktabs}
-\usepackage[hidelinks]{hyperref}
+\documentclass[11pt,reqno]{amsart}
 \usepackage[T1]{fontenc}
-\usepackage{microtype}
+\usepackage{lmodern}
+\usepackage[margin=2.6cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,array,enumitem,microtype}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\setlength{\emergencystretch}{3em}
+\allowdisplaybreaks
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
 \theoremstyle{definition}
-\newtheorem{lemma}{Lemma}[section]
-\newtheorem{proposition}[lemma]{Proposition}
-\newtheorem{corollary}[lemma]{Corollary}
-\newtheorem{definition}[lemma]{Definition}
+\newtheorem{definition}[theorem]{Definition}
 \theoremstyle{remark}
-\newtheorem{remark}[lemma]{Remark}
-\theoremstyle{definition}
-\newtheorem{theorem}[lemma]{Theorem}
+\newtheorem{remark}[theorem]{Remark}
 \numberwithin{equation}{section}
+
 \newcommand{\Q}{\mathbb Q}\newcommand{\C}{\mathbb C}
 \newcommand{\R}{\mathbb R}\newcommand{\Z}{\mathbb Z}\newcommand{\N}{\mathbb N}
 \newcommand{\PP}{\mathbb P}
@@ -23,14 +26,12 @@
 \newcommand{\OO}{\mathcal O}
 \newcommand{\Nm}{\operatorname{N}}
 \newcommand{\hgt}{\operatorname{ht}}
-\renewcommand{\labelitemi}{--}
-\setlength{\emergencystretch}{3em}
 \title{Powerful values of quadratic polynomials}
 \author{Danny Plymesser}
-\date{16 November 2026}
+\date{Version 1.0.1, 18 November 2026}
 \hypersetup{pdftitle={Powerful values of quadratic polynomials},
 pdfauthor={Danny Plymesser}}
-\begin{document}\maketitle
+\begin{document}
 \begin{abstract}
 Let $f$ be a quadratic polynomial with integer coefficients, positive
 leading coefficient and nonsquare discriminant. We show that the number of
@@ -45,7 +46,12 @@ polynomials to the resulting equation of bidegree three and two, and count
 the points on the auxiliary curves with the lifted-curve estimate
 of~\cite{powerful}. The main quadratic and mixed-full bounds are also
 formalised in \lean, with the three external estimates recorded explicitly.
+AI systems produced and reviewed the results, proofs, and exposition.
+No human mathematical review has been performed.
+Section~\ref{sec:status} describes the verification and its scope.
 \end{abstract}
+
+\maketitle
 
 \section{Introduction}\label{sec:intro}
 A positive integer $m$ is \emph{powerful} if $p^2\mid m$ for every prime
@@ -272,7 +278,7 @@ in the forms needed here. In the \lean\ development these statements are
 explicit hypotheses; the external theorems themselves are not formalised
 in this repository.
 
-\paragraph{$\ST$ (Stewart \cite[Theorem~1 and p.~796]{stewart}).}
+\subsection*{$\ST$ (Stewart \cite[Theorem~1 and p.~796]{stewart})}
 Let $F\in\Z[u,v]$ be a binary form of degree $\deg F\ge3$ with coprime
 coefficients that is squarefree in $\Q[u,v]$. Then for every nonzero
 $m\in\Z$,
@@ -280,7 +286,7 @@ $m\in\Z$,
  \card\{(u,v)\in\Z^2:\gcd(u,v)=1,\ F(u,v)=m\}\le2800\,(\deg F)^{1+\omega(|m|)}.
 \]
 
-\paragraph{$\CC$ (Castryck--Cluckers--Dittmann--Nguyen \cite[Theorem~3]{ccdn}).}
+\subsection*{$\CC$ (Castryck--Cluckers--Dittmann--Nguyen \cite[Theorem~3]{ccdn})}
 For every integer $w\ge2$ there is $c_w$ with the following property. Let
 $I\subset\Q[z_1,\dots,z_w]$ be a prime ideal defining an affine curve of
 degree $d\ge1$; that is, the quotient $\Q[z_1,\dots,z_w]/I$ has Krull
@@ -292,7 +298,7 @@ $\max_i|P_i|\le\Omega$ is at most
  c_w\,d^3\Omega^{1/d}(\log\Omega+d).
 \]
 
-\paragraph{$\GE$ (Gelfond; \cite[Lemma~1.6.11]{bg}).}
+\subsection*{$\GE$ (Gelfond; \cite[Lemma~1.6.11]{bg})}
 For every $w$ there is $c\ge0$ such that if $F,G\in\Z[z_1,\dots,z_w]$,
 $F\ne0$ and $G\mid F$, then $\|G\|\le\exp(c\deg F)\,\|F\|$, where $\deg F$
 is the total degree.
@@ -708,17 +714,17 @@ bounds, with no hypothesis from the literature.
 For every frame $\phi$ there are an integer $J\ge0$, intervals
 $[a_j,b_j]\subset[-2,2]$ and functions $g_j$ $(1\le j\le J)$, and constants
 $r_0,c_{\mathrm g},C_{\mathrm g},\delta_0>0$, such that:
-\begin{itemize}
-\item[(i)] $g_j$ is smooth on $(a_j-2r_0,b_j+2r_0)$, and for
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $g_j$ is smooth on $(a_j-2r_0,b_j+2r_0)$, and for
 $\xi\in[a_j-r_0,b_j+r_0]$ we have $R_\phi(\xi,g_j(\xi))=0$ and
 $|g_j'(\xi)|\ge c_{\mathrm g}$;
-\item[(ii)] for every $\varkappa\ge0$ there is $M_\varkappa$ with
+\item for every $\varkappa\ge0$ there is $M_\varkappa$ with
 $|g_j^{(i)}(\xi)|\le M_\varkappa$ for all $j$, all $i\le \varkappa+1$ and all
 $\xi\in[a_j-r_0,b_j+r_0]$;
-\item[(iii)] every $(\xi,\zeta)$ in the balanced patch of $\phi$ with
+\item every $(\xi,\zeta)$ in the balanced patch of $\phi$ with
 $|R_\phi(\xi,\zeta)|\le\delta_0$ has an index $j$ with $\xi\in[a_j,b_j]$ and
 $|\zeta-g_j(\xi)|\le C_{\mathrm g}|R_\phi(\xi,\zeta)|$.
-\end{itemize}
+\end{enumerate}
 \end{proposition}
 \begin{proof}
 Write $W_\pm=\sigma_\pm(\gamma_\chi)\ell_\pm^3m_\pm^2$.
@@ -938,7 +944,9 @@ other determinant constructions. The bound holds for every $g$.
 
 \subsection{Vanishing of the determinant}
 To a point $p$ of a cell attach the row
-$\bigl(p_0^ap_1^{3q-a}p_2^bp_3^{2q-b}\bigr)_{0\le a\le3q,\ 0\le b\le2q}\in\Z^{n_q}$.
+\[
+ \bigl(p_0^ap_1^{3q-a}p_2^bp_3^{2q-b}\bigr)_{0\le a\le3q,\ 0\le b\le2q}\in\Z^{n_q}.
+\]
 \begin{lemma}[Row cap]\label{lem:rowcap}
 For a point of a cell, every entry of its row has absolute value at most
 $(2H^3X)^q$.
@@ -1084,17 +1092,17 @@ bihomogeneous of some bidegree $(\alpha,\beta)$ with $\alpha\le a_0$,
 $\beta\le b_0$, such that every integral zero of $Q$ is a zero of one of
 them and $\|G\|\le\exp(c_4(a_0+b_0))\,\|Q\|$. Each $G$ is irreducible over
 $\Q$ and is of exactly one of the following types.
-\begin{itemize}
-\item[(a)] \emph{Pure}: $\beta=0$ and $\alpha\ge2$, or $\alpha=0$ and
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item \emph{Pure}: $\beta=0$ and $\alpha\ge2$, or $\alpha=0$ and
 $\beta\ge2$. Then $G$ has no integral zero with $\lambda\ne0$, respectively
 $\tau\ne0$.
-\item[(b)] \emph{Lines}: $G=p\lambda_1+p'\lambda_2$, or
+\item \emph{Lines}: $G=p\lambda_1+p'\lambda_2$, or
 $G=p\tau_1+p'\tau_2$.
-\item[(c)] \emph{Low mixed}: $\alpha,\beta\ge1$ and $2\alpha+3\beta<10$,
+\item \emph{Low mixed}: $\alpha,\beta\ge1$ and $2\alpha+3\beta<10$,
 that is, $(\alpha,\beta)\in\{(1,1),(1,2),(2,1),(3,1)\}$. Then $G$ is
 irreducible over $\C$.
-\item[(d)] \emph{High mixed}: $\alpha,\beta\ge1$ and $2\alpha+3\beta\ge10$.
-\end{itemize}
+\item \emph{High mixed}: $\alpha,\beta\ge1$ and $2\alpha+3\beta\ge10$.
+\end{enumerate}
 \end{lemma}
 \begin{proof}
 Take the nonconstant primitive irreducible factors of $Q$.
@@ -1278,8 +1286,10 @@ $\Sigma(K_0,D,\varsigma)$ is the set of $v=(v_0,v_1)\in\Z^2$ with
 \]
 and the \emph{strip norm} $|v|_{\varsigma}$ of $v\in\Z^2$ is the Euclidean norm
 of the vector
-$\bigl(M(v_0-\varsigma v_1)/(K_0\sqrt D),\ v_1/(K_0\sqrt D)\bigr)\in\R^2$. The
-strip is the set of $v$ whose image lies in the square $[-1,1]^2$.
+\[
+ \bigl(M(v_0-\varsigma v_1)/(K_0\sqrt D),\ v_1/(K_0\sqrt D)\bigr)\in\R^2.
+\]
+The strip is the set of $v$ whose image lies in the square $[-1,1]^2$.
 
 \begin{lemma}[Strips]\label{lem:strips}
 There is $K_{\mathrm s}\ge1$ such that for every cell
@@ -1451,11 +1461,11 @@ Let $\eps>0$ and put $\eta=\min(1/1000,\eps/4)$, $\mu=57/305+\eta$ and
 $\delta=\eps/4$. For all $A_1,P>0$ there is $K_{\mathrm{sch}}$ such that for every
 $X\ge2$ and every family of at most $A_1(1+\log X)^2$ boxes $(D_i,E_i)$ with
 counts $z_i\ge0$ satisfying
-\begin{itemize}
-\item[(i)] $z_i\le PX^{\delta}\min(D_i,E_i)$ for all $i$, and
-\item[(ii)] $z_i\le PX^{\delta}(M+X^{1/10}M^{3/4})$ whenever $M<D_i$ and
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $z_i\le PX^{\delta}\min(D_i,E_i)$ for all $i$, and
+\item $z_i\le PX^{\delta}(M+X^{1/10}M^{3/4})$ whenever $M<D_i$ and
 $M<E_i$,
-\end{itemize}
+\end{enumerate}
 we have $\sum_iz_i\le K_{\mathrm{sch}}X^{293/1220+\eps}$.
 \end{lemma}
 \begin{proof}
@@ -1571,15 +1581,15 @@ and conjugate $\gamma$.
 There is an absolute constant $C_0\ge1$ such that for every $n\ge4L$ with
 $f(n)$ powerful there are an integer $e$ and primitive vectors
 $y,x\in\Z^2$ with
-\begin{itemize}
-\item[(i)] $1\le e\le C_0L^{28}$ and $T_0(y;x)=e$;
-\item[(ii)] $\iota_0(y)^3\iota_0(x)^2
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $1\le e\le C_0L^{28}$ and $T_0(y;x)=e$;
+\item $\iota_0(y)^3\iota_0(x)^2
 =\dfrac{e}{32\,\Delta_0^2r_0}\,(\sqrt{\Delta_0})^3z_n$;
-\item[(iii)] $|\sigma_+(\iota_0y)|\le C_0L^4|\sigma_-(\iota_0y)|$
+\item $|\sigma_+(\iota_0y)|\le C_0L^4|\sigma_-(\iota_0y)|$
 and $|\sigma_+(\iota_0x)|\le C_0L^6|\sigma_-(\iota_0x)|$, and the same
 with $\sigma_+$ and $\sigma_-$ exchanged;
-\item[(iv)] $n/(C_0L^9)\le\hgt(y)^3\hgt(x)^2\le C_0L^{40}n$.
-\end{itemize}
+\item $n/(C_0L^9)\le\hgt(y)^3\hgt(x)^2\le C_0L^{40}n$.
+\end{enumerate}
 The triple $(e,y,x)$ determines $n$.
 \end{proposition}
 \begin{proof}
@@ -2435,14 +2445,14 @@ Proposition~\ref{prop:surplus}.
 \begin{proposition}\label{prop:A2weights}
 There is an absolute $c_5$ such that for every $g\in\R[u]$ with
 $g'(0)\ne0$ and every integer $q\ge1$:
-\begin{itemize}
-\item[(i)] if $\frac{57}{305}<t_0\le\frac15$, then
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item if $\frac{57}{305}<t_0\le\frac15$, then
 $w_q(t_0)\ge\frac{305t_0+51}{18}q^3-c_5q^2$;
-\item[(ii)] if $\frac13\le t_0<1$, then
+\item if $\frac13\le t_0<1$, then
 $w_q(t_0)\ge\frac{31t_0+14}{3}q^3$;
-\item[(iii)] if $\frac15\le t_0\le\frac13$, then
+\item if $\frac15\le t_0\le\frac13$, then
 $w_q(t_0)\ge\frac{255t_0+61}{18}q^3-c_5q^2$.
-\end{itemize}
+\end{enumerate}
 \end{proposition}
 \begin{proof}
 (i) The computation in Proposition~\ref{prop:surplus} gives
@@ -2778,7 +2788,9 @@ reviewed the results.
 \section{Formal statements and source mapping}\label{app:lean}
 The paper uses its own numbering. The identifiers in the shared formal
 library are stable names and do not prescribe the order of exposition.
-\begin{center}
+
+\begin{table}[!ht]
+\centering\footnotesize
 \begin{tabular}{@{}ll@{}}
 \toprule
 Paper statement & Formal interface\\\midrule
@@ -2789,7 +2801,9 @@ Corollary~\ref{cor:cubic}, general bound & first part of \texttt{A4}\\
 Theorem~\ref{thm:positive} & \texttt{A12}; \texttt{A11} is its $h=1$ case\\
 Theorem~\ref{thm:reverse} & \texttt{A13}\\\bottomrule
 \end{tabular}
-\end{center}
+\caption{Formal interfaces for the statements of the paper.}
+\end{table}
+
 In \texttt{A3}, the coefficient-average exponent is the particular choice
 $\eta=1/(1600(\nu+3))$ used in the proof of
 Theorem~\ref{thm:uniform}. The cube-coefficient bound of
@@ -2897,21 +2911,37 @@ Taking $\xi=\min(5\eps/7,1/4)$ proves
 \eqref{eq:classical-quadratic}. This is a consequence of the cited
 estimates, not a claim that those sources state this coefficient power.
 
+\clearpage
 \begin{thebibliography}{99}
-\bibitem{powerful} D. Plymesser, \emph{Counting powerful products of consecutive integers}, \url{https://doi.org/10.5281/zenodo.23614742}.
-\bibitem{stewart} C.~L. Stewart, On the number of solutions of polynomial congruences and Thue equations, \emph{J. Amer. Math. Soc.} \textbf{4} (1991), 793--835.
-\bibitem{ccdn} W. Castryck, R. Cluckers, P. Dittmann and K.~H. Nguyen, The dimension growth conjecture, polynomial in the degree and without logarithmic factors, \emph{Algebra Number Theory} \textbf{14} (2020), 2261--2294; \href{https://arxiv.org/abs/1904.13109v1}{arXiv:1904.13109v1}.
+
 \bibitem{bg} E. Bombieri and W. Gubler, \emph{Heights in Diophantine Geometry}, Cambridge University Press, 2006.
-\bibitem{hbannals} D.~R. Heath-Brown, The density of rational points on curves and surfaces, \emph{Ann. of Math. (2)} \textbf{155} (2002), 553--595.
-\bibitem{hb} D.~R. Heath-Brown, Square-free values of $n^2+1$, \emph{Acta Arith.} \textbf{155} (2012), 1--13.
-\bibitem{wm} W. Wongcharoenbhorn and Y. Meemark, Square-full values of quadratic polynomials, \emph{Bull. Aust. Math. Soc.} \textbf{113} (2026), 40--54.
-\bibitem{puchta} J.-C. Puchta, On the powerfull part of $n^2+1$, \emph{Arch. Math. (Brno)} \textbf{39} (2003), 187--189.
+
+\bibitem{ccdn} W. Castryck, R. Cluckers, P. Dittmann and K.~H. Nguyen, \emph{The dimension growth conjecture, polynomial in the degree and without logarithmic factors}, Algebra Number Theory \textbf{14} (2020), 2261--2294; \href{https://arxiv.org/abs/1904.13109v1}{arXiv:1904.13109v1}.
+
+\bibitem{ddl} J.-M. De Koninck, N. Doyon and F. Luca, \emph{Powerful values of quadratic polynomials}, J. Integer Seq. \textbf{14} (2011), Article 11.3.3.
+
+\bibitem{es} J.-H. Evertse and J.~H. Silverman, \emph{Uniform bounds for the number of solutions to $Y^n=f(X)$}, Math. Proc. Cambridge Philos. Soc. \textbf{100} (1986), 237--248.
+
+\bibitem{hb} D.~R. Heath-Brown, \emph{Square-free values of $n^2+1$}, Acta Arith. \textbf{155} (2012), 1--13.
+
+\bibitem{hbannals} D.~R. Heath-Brown, \emph{The density of rational points on curves and surfaces}, Ann. of Math. (2) \textbf{155} (2002), 553--595.
+
+\bibitem{pasten} H. Pasten, \emph{Powerful values of polynomials and a conjecture of Vojta}, J. Number Theory \textbf{133} (2013), 2964--2998.
+
+\bibitem{powerful} D. Plymesser, \emph{Counting powerful products of consecutive integers}, \url{https://doi.org/10.5281/zenodo.23614742}.
+
+\bibitem{pohl} S.~S. Pohl, \emph{$S$-squareful values of binary quadratic forms}, \href{https://arxiv.org/abs/2610.20316v1}{arXiv:2610.20316v1}, preprint.
+
+\bibitem{puchta} J.-C. Puchta, \emph{On the powerfull part of $n^2+1$}, Arch. Math. (Brno) \textbf{39} (2003), 187--189.
+
 \bibitem{saito} Y. Saito, \emph{Shared prime support, small radicals, and square-full polynomial values}, unrefereed manuscript, \url{https://doi.org/10.5281/zenodo.21942579}.
-\bibitem{es} J.-H. Evertse and J.~H. Silverman, Uniform bounds for the number of solutions to $Y^n=f(X)$, \emph{Math. Proc. Cambridge Philos. Soc.} \textbf{100} (1986), 237--248.
-\bibitem{vw} R.~C. Vaughan and T.~D. Wooley, Further improvements in Waring's problem, \emph{Acta Math.} \textbf{174} (1995), 147--240.
-\bibitem{ddl} J.-M. De Koninck, N. Doyon and F. Luca, Powerful values of quadratic polynomials, \emph{J. Integer Seq.} \textbf{14} (2011), Article 11.3.3.
-\bibitem{pasten} H. Pasten, Powerful values of polynomials and a conjecture of Vojta, \emph{J. Number Theory} \textbf{133} (2013), 2964--2998.
-\bibitem{streeter} S. Streeter, Campana points and powerful values of norm forms, \emph{Math. Z.} \textbf{301} (2022), 627--664.
-\bibitem{pohl} S.~S. Pohl, $S$-squareful values of binary quadratic forms, \href{https://arxiv.org/abs/2610.20316v1}{arXiv:2610.20316v1}, preprint.
+
+\bibitem{stewart} C.~L. Stewart, \emph{On the number of solutions of polynomial congruences and Thue equations}, J. Amer. Math. Soc. \textbf{4} (1991), 793--835.
+
+\bibitem{streeter} S. Streeter, \emph{Campana points and powerful values of norm forms}, Math. Z. \textbf{301} (2022), 627--664.
+
+\bibitem{vw} R.~C. Vaughan and T.~D. Wooley, \emph{Further improvements in Waring's problem}, Acta Math. \textbf{174} (1995), 147--240.
+
+\bibitem{wm} W. Wongcharoenbhorn and Y. Meemark, \emph{Square-full values of quadratic polynomials}, Bull. Aust. Math. Soc. \textbf{113} (2026), 40--54.
 \end{thebibliography}
 \end{document}
