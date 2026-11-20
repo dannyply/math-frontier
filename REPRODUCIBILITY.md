@@ -90,6 +90,23 @@ After both appropriate runs, copy the receipts into `replay/receipts/` and use
 source files to agree with the receipt commits. An admitted record additionally
 requires every admission item, including manuscript reviews, to be complete.
 
+### Counting paper — v1.0.1
+
+The counting release v1.0.1 passes a fresh rebuild and independent Nanoda replay:
+all 31 project modules compile without warnings, all 22 release declarations
+pass, and all 22 statement comparisons match. A negative control correctly
+rejects an altered statement. The accompanying
+[AI source audit](verification/powerful-counting/source-audit.json) found no
+mismatch in the six external literature premises and records the source-access
+qualifications.
+
+The [replay receipt](replay/receipts/powerful-counting-clean.json) and
+[negative-control receipt](replay/receipts/powerful-counting-clean-negative.json)
+verify counting release commit `171d380dab8481b9a5b412e0991c7374b94f8b7f`.
+The [verification setup](verification/powerful-counting/replay-context.json)
+records the project rebuild using private copies of pinned dependency caches;
+Mathlib and the other dependency libraries were not rebuilt from source.
+
 ## Papers
 
 ```sh

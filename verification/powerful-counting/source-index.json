@@ -1,0 +1,57 @@
+{
+  "operator_source_index_sha256": "b880c1a91f8ba82f3f9e96ec6e756f371c7165ddb42d0d81954288d0c0c7c706",
+  "sources": [
+    {
+      "file": "stewart-1991.pdf",
+      "url": "https://uwaterloo.ca/pure-mathematics/sites/default/files/uploads/documents/s0894-0347-1991-1119199-x_0.pdf",
+      "bytes": 3998757,
+      "sha256": "8824ab3dbe963c8d070aad1f1d593ce6217fed686665ca99d422c192f0e9eba7",
+      "status": "Source consulted in the audit; PDF is not distributed in this repository."
+    },
+    {
+      "file": "ccdn-2020.pdf",
+      "url": "https://msp.org/ant/2020/14-8/ant-v14-n8-p09-p.pdf",
+      "bytes": 1689490,
+      "sha256": "a5db52b467413837e068efcaa83aa91d9e0d55d4a636036b5871f97dc8fea469",
+      "status": "Source consulted in the audit; PDF is not distributed in this repository."
+    },
+    {
+      "file": "reuss-1212.3150v2.pdf",
+      "url": "https://arxiv.org/pdf/1212.3150v2",
+      "bytes": 282804,
+      "sha256": "4b6e84930fd5105c0815b4d507910931d6f3aca97552c323c370c83c2d9aba38",
+      "status": "Source consulted in the audit; PDF is not distributed in this repository."
+    },
+    {
+      "file": "tao-2603.27990v3.pdf",
+      "url": "https://arxiv.org/pdf/2603.27990v3",
+      "bytes": 813639,
+      "sha256": "863f5aea2ee853b4b27f0e707b17f8ce3c1a8584e7db3e41b5bbd0ffd696ca26",
+      "status": "Source consulted in the audit; PDF is not distributed in this repository."
+    },
+    {
+      "file": "heath-brown-manuscript.pdf",
+      "url": "https://ora.ox.ac.uk/objects/uuid%3Ac5ab1264-e082-4664-8c45-ae6d7b6f81a1/files/m73013a42d9d1586d603c5a67baef1e0d",
+      "bytes": 324777,
+      "sha256": "1d4e4d7e6f2aec4f6a1510002fd4b9d36c43f72908435da0f266db0cfe2409c7",
+      "status": "Source consulted in the audit; PDF is not distributed in this repository."
+    },
+    {
+      "file": "preview-9780511138096.pdf",
+      "sha256": "91d2c7d2c97a02319d33d355185c7fe1d899813c2bea93835d8bc14ea94d238a",
+      "bytes": 633900,
+      "status": "Source consulted in the audit; PDF is not distributed in this repository.",
+      "relevant_page": "PDF 45 / printed 27",
+      "citation": "E. Bombieri and W. Gubler, Heights in Diophantine Geometry (Cambridge University Press, 2006), Lemma 1.6.11.",
+      "edition_identifier": "9780511138096"
+    },
+    {
+      "file": "ThesisToExaminers_v4.pdf",
+      "sha256": "7809c159dc9d53c42de19f5fa6ceeab47a7f7d69b78a270f6694069b1936c1b7",
+      "bytes": 609707,
+      "status": "Source consulted in the audit; PDF is not distributed in this repository.",
+      "relevant_page": "PDF 18 / printed 12",
+      "citation": "T. Reuss, The Determinant Method and Applications, University of Oxford DPhil thesis (2015), Theorem 2."
+    }
+  ]
+}

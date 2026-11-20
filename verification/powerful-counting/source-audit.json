@@ -1,0 +1,65 @@
+{
+  "reviewed_at": "2026-11-20T04:25:00.435546+00:00",
+  "release_commit": "171d380dab8481b9a5b412e0991c7374b94f8b7f",
+  "reviewer": "Codex AI; no human specialist review",
+  "scope": "Fresh comparison of the six explicit literature premises in CountingClosure with the cited primary statements. This does not reprove the literature or formalize the source-to-premise bridges.",
+  "implementation_file": "JocelynWorkspace/Formalization/PowerfulCounting/CountingClosure.lean",
+  "implementation_sha256": "f4818d89ee35552a574a9d7b397eb17d94a85fcfa90bacb73549375995251d15",
+  "source_index_sha256": "98c4a83451a1d6348b144ef3c8a96cd7b5aa1f5baea8831f75ce1aae416a45eb",
+  "verdict": "All six premises are supported by their cited statements or the elementary specializations explained below; no premise mismatch found.",
+  "checks": [
+    {
+      "id": "StewartHyp",
+      "verdict": "SUPPORTED",
+      "source": "stewart-1991.pdf",
+      "location": "printed 795–796 (PDF 3–4), Theorem 1 and following consequence",
+      "comparison": "The source counts ordered coprime integer pairs, with no sign quotient, for primitive binary forms of degree q >= 3 and nonzero discriminant. Its explicit consequence is 2800*q^(1+omega(|m|)). Lean coefficient gcd=1 gives primitivity and nonzero degree-q homogeneous form. Squarefreeness over Q in characteristic zero is equivalent to distinct projective roots and hence nonzero binary discriminant, including a possible simple root at infinity. The source does not require irreducibility. Its theorem is for signed nonzero m; omega agrees with natAbs.primeFactors.card. Both signs are counted when they solve the equation."
+    },
+    {
+      "id": "CCDN12",
+      "verdict": "SUPPORTED",
+      "source": "ccdn-2020.pdf",
+      "location": "printed 2264 and 2277 (PDF 6 and 19), Theorem 3 and Corollary 4.1.4 / Remark 4.1.5",
+      "comparison": "Set n=12 in the uniform affine-curve theorem: c depends only on the ambient dimension, with d^3*B^(1/d)*(log B+d). A prime ideal over Q and quotient Krull dimension one define an integral affine curve. The eventual filtered Hilbert function d*s+e records its degree d. Non-geometrically-integral Q-curves are expressly covered by Corollary 4.1.4: at most d^2 rational points, absorbed by the displayed bound after increasing c. Lean counts integer coordinate tuples in the same closed box; these sets are finite."
+    },
+    {
+      "id": "Gelfond",
+      "verdict": "SUPPORTED",
+      "source": "preview-9780511138096.pdf",
+      "location": "Lemma 1.6.11, printed 27 (PDF 45)",
+      "comparison": "Apply the lower Gelfond product inequality to F=G*K. Since F is nonzero, the integer polynomial K is nonzero and has coefficient height at least one. Thus height(G) <= 2^s*height(F), where s is the sum of the partial degrees of F. Since s <= n*totalDegree(F), choose c=n*log(2), which is nonnegative, including n=0. An arbitrary coefficient bound H is at least height(F). This yields exactly the requested existential constant and coefficient inequality."
+    },
+    {
+      "id": "thm_reuss1_h1_bal",
+      "verdict": "SUPPORTED",
+      "source": "reuss-1212.3150v2.pdf",
+      "location": "Theorem 1, PDF 2; notation on PDF 1",
+      "comparison": "Specialize k=3,l=2,h=1. The source uses the same strict dyadic intervals, U=x^(1/2)/D^(3/2), V analogously, coefficient 9/8 in log M, and minimum of the two square-root expressions. The fixed comparisons 1/20 <= log(DE)/log(x), log(UV)/log(x) <= 20 instantiate the logarithmic comparability hypothesis and ensure M>1. The second source condition is automatic because l=2. D,E>1 are retained; D,E>=x^c merely restrict the domain. Constants and the eventual threshold may depend on c and epsilon, so no stronger uniformity is demanded. The separate endpoint bridge is a proved Lean theorem."
+    },
+    {
+      "id": "HB15",
+      "verdict": "SUPPORTED_WITH_VERSION_PROVENANCE_QUALIFICATION",
+      "source": "heath-brown-manuscript.pdf; ThesisToExaminers_v4.pdf; publicly readable transcription of published LNM volume",
+      "location": "author manuscript Section 2.6 Theorem 15, PDF 13; published theorem printed 65; Reuss thesis Theorem 2, printed 12",
+      "comparison": "At n=2 the stated log exponent 2n-3 is one and the exponential factor is exp(log(B1)*log(B2)/log T). Apply the source to 2F, preserving degree, monomial support, zero set and absolute irreducibility, and giving log(2*height(F)). No primitivity hypothesis is stated. Embed the integer auxiliary polynomials into C and remove duplicates; cardinality can only decrease. Coprimality with F implies nondivisibility by the complex irreducible F, and the degree bound is unchanged. Lean orders coefficients (F.coeff j).coeff i and evaluation consistently with x1^i*x2^j. Its B_i>=2 and d>=2 are restrictions.",
+      "version_qualification": "Author manuscript and Reuss thesis formulas were visually checked. Published page 65 was compared through the accessible transcription of the book, not a publisher-delivered PDF. The transcription agrees, including 2n-3. This is statement comparison, not a new proof of Heath-Brown's theorem or an adjudication of every step of its proof.",
+      "published_transcription_url": "https://www.scribd.com/document/564623271/Lecture-Notes-in-Mathematics-1891-J-B-Friedlander-D-R-Heath-Brown-H-Iwaniec-J-Kaczorowski-auth-Alberto-Perelli-Carlo-Viola-eds-An",
+      "publisher_url": "https://link.springer.com/chapter/10.1007/978-3-540-36364-4_2"
+    },
+    {
+      "id": "Tao7R",
+      "verdict": "SUPPORTED",
+      "source": "tao-2603.27990v3.pdf",
+      "location": "Definition 1.2(ii), PDF 2; Lemma 3.1, PDF 19 and proof on PDF 20",
+      "comparison": "Very bad means exactly that the interval product is powerful. Lemma 3.1 gives H<N and H <= exp((log N)^(2/3+o(1))). Its proof explicitly states the uniform eventual bound for every positive epsilon. Set epsilon=1/30 to get 7/10 and enlarge the natural threshold if necessary. Lean requires only widths at least three with k<N, a restriction of that result. Intervals with k>=N are handled inside Lean and need no stronger external premise."
+    }
+  ],
+  "remaining_limits": [
+    "The cited external results remain explicit assumptions in Lean; this audit checks the mathematical justification for instantiating them.",
+    "AI review cannot replace specialist human scrutiny."
+  ],
+  "replay_status": "Exact-release project rebuild, 22 Nanoda proofs, 22 statement matches and the negative control passed; see replay-context.json and its linked receipts.",
+  "operator_audit_sha256": "45bb56cb0f6fc57d1219780311fb9c3806e33765b7fa9cbd038f2e2f58b5d5c1",
+  "source_index_file": "verification/powerful-counting/source-index.json",
+  "replay_context_file": "verification/powerful-counting/replay-context.json"
+}

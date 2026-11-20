@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "scope": "Counting release v1.0.1: 22 release declarations and their imported proof closures.",
+  "release_tag": "v1.0.1",
+  "release_commit": "171d380dab8481b9a5b412e0991c7374b94f8b7f",
+  "positive_receipt": "replay/receipts/powerful-counting-clean.json",
+  "negative_receipt": "replay/receipts/powerful-counting-clean-negative.json",
+  "source_audit": "verification/powerful-counting/source-audit.json",
+  "project_modules_rebuilt": 31,
+  "build_warning_lines": 0,
+  "build_error_lines": 0,
+  "nanoda_pass_standard_only": 22,
+  "statement_matches": 22,
+  "nanoda_distinct_declarations_checked": 66332,
+  "standard_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "proof_verdicts_reused": false,
+  "negative_control": {
+    "candidate_proof_replay": "pass",
+    "statement_comparison": "mismatch",
+    "exit_code": 1,
+    "result": "Expected rejection of the altered statement."
+  },
+  "dependency_provenance": {
+    "mode": "clean-clone",
+    "packages_symlinked": [],
+    "dependencies_match_manifest": true,
+    "cache": "Private APFS copies of existing prebuilt artifacts for the pinned Mathlib and dependency versions. Dependency repositories are independent clones; no package directories are symlinked.",
+    "dependency_sources_rebuilt": false,
+    "project_compiled_outputs_reused": false,
+    "revisions": {
+      "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+      "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+      "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+      "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+      "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+      "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+      "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+      "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+      "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f"
+    }
+  },
+  "scope_note": "These receipts check the exact counting release commit, separately from the shared library replay described in REPRODUCIBILITY.md. Existing receipts and registry bindings are preserved.",
+  "operator_completion_record_sha256": "b5fe2ddb1043033fb5ef2a8014b01d667af80154520c40a0549e960c3717402e",
+  "operator_preparation_record_sha256": "c123f23ea3c289eddb711f6fef1fdb0f454bff709ec639340c887a65df74a85f",
+  "evidence_sha256": {
+    "replay/receipts/powerful-counting-clean.json": "fb57aa4eb2c2ec2243d731ee60830dc33d43509660497f3d6645020f3dde0290",
+    "replay/receipts/powerful-counting-clean-negative.json": "b3bf4e801567cca33b3c98d709b76c41f9e369bde2e2687f178286c71b05b55e",
+    "verification/powerful-counting/source-audit.json": "dcc3a6c224a136925ac3a19a4e8a671d5cb3b7eb5946167fe98af1b1fc8ebe1b",
+    "verification/powerful-counting/source-index.json": "98c4a83451a1d6348b144ef3c8a96cd7b5aa1f5baea8831f75ce1aae416a45eb",
+    "verification/powerful-counting/build.log": "cfcd70d8ae93cd40530ee61b43716b6748353df12e1e9470fe0ad8bdd69d48a0"
+  }
+}
